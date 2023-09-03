@@ -16,7 +16,9 @@ namespace MarbleManager
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+
+            ApplicationContext applicationContext = new CustomApplicationContext();
+            Application.Run(applicationContext);
         }
     }
 }

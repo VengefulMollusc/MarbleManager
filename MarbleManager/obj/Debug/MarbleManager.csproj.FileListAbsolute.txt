@@ -1,0 +1,10 @@
+D:\Chris\Documents\GitHub\MarbleManager\MarbleManager\bin\Debug\MarbleManager.exe.config
+D:\Chris\Documents\GitHub\MarbleManager\MarbleManager\bin\Debug\MarbleManager.exe
+D:\Chris\Documents\GitHub\MarbleManager\MarbleManager\bin\Debug\MarbleManager.pdb
+D:\Chris\Documents\GitHub\MarbleManager\MarbleManager\obj\Debug\MarbleManager.csproj.AssemblyReference.cache
+D:\Chris\Documents\GitHub\MarbleManager\MarbleManager\obj\Debug\MarbleManager.Properties.Resources.resources
+D:\Chris\Documents\GitHub\MarbleManager\MarbleManager\obj\Debug\MarbleManager.csproj.GenerateResource.cache
+D:\Chris\Documents\GitHub\MarbleManager\MarbleManager\obj\Debug\MarbleManager.csproj.CoreCompileInputs.cache
+D:\Chris\Documents\GitHub\MarbleManager\MarbleManager\obj\Debug\MarbleManager.exe
+D:\Chris\Documents\GitHub\MarbleManager\MarbleManager\obj\Debug\MarbleManager.pdb
+D:\Chris\Documents\GitHub\MarbleManager\MarbleManager\obj\Debug\MarbleManager.ConfigForm.resources
