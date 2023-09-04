@@ -84,5 +84,8 @@
   <ItemGroup>
     <None Include="document-64.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\swallow.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

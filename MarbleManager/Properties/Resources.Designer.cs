@@ -63,9 +63,9 @@ namespace MarbleManager.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Icon document_64 {
+        internal static System.Drawing.Icon programIcon {
             get {
-                object obj = ResourceManager.GetObject("document_64", resourceCulture);
+                object obj = ResourceManager.GetObject("programIcon", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }

@@ -29,7 +29,7 @@ namespace MarbleManager
             notifyIcon = new NotifyIcon(components)
             {
                 ContextMenuStrip = new ContextMenuStrip(),
-                Icon = Resources.document_64,
+                Icon = Resources.programIcon,
                 Text = iconTooltip,
                 Visible = true 
             };
