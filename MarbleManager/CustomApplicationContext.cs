@@ -1,4 +1,5 @@
-﻿using MarbleManager.Properties;
+﻿using MarbleManager.LightScripts;
+using MarbleManager.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,10 +18,14 @@ namespace MarbleManager
 
         ConfigForm configForm;
 
+        // TODO swap this for a single script manager
+        WallpaperManager wallpaperManager;
+
         public CustomApplicationContext() {
             InitializeContext();
 
             // init actual scripts etc.
+            wallpaperManager = new WallpaperManager();
         }
 
         private void InitializeContext()
@@ -75,6 +80,7 @@ namespace MarbleManager
             } else
             {
                 configForm = new ConfigForm();
+                configForm.AddWallpaperManager(wallpaperManager);
                 configForm.FormClosed += ConfigForm_FormClosed;
                 configForm.Show();
             }

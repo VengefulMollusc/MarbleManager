@@ -1,4 +1,5 @@
 ﻿using MarbleManager.Config;
+using MarbleManager.LightScripts;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +16,7 @@ namespace MarbleManager
     public partial class ConfigForm : Form
     {
         private ConfigHandler configHandler;
+        private WallpaperManager wallpaperManager;
 
         public ConfigForm()
         {
@@ -22,6 +24,11 @@ namespace MarbleManager
 
             // init config
             LoadConfig();
+        }
+
+        internal void AddWallpaperManager (WallpaperManager _wallpaperManager)
+        {
+            wallpaperManager = _wallpaperManager;
         }
 
         private void LoadConfig()
@@ -115,6 +122,11 @@ namespace MarbleManager
         private void buttonConfigApplyChanges_Click(object sender, EventArgs e)
         {
             SaveConfig();
+        }
+
+        private void buttonGetWallpaper_Click(object sender, EventArgs e)
+        {
+            wallpaperManager.FetchWallpaper();
         }
     }
 }

@@ -58,6 +58,7 @@
     <Compile Include="Config\ConfigData.cs" />
     <Compile Include="Config\ConfigHandler.cs" />
     <Compile Include="CustomApplicationContext.cs" />
+    <Compile Include="LightScripts\WallpaperManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Config\ConfigForm.resx">
@@ -90,8 +91,6 @@
   <ItemGroup>
     <None Include="Resources\swallow.ico" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="LightScripts\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
