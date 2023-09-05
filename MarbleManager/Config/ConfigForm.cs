@@ -126,7 +126,11 @@ namespace MarbleManager
 
         private void buttonGetWallpaper_Click(object sender, EventArgs e)
         {
-            wallpaperManager.FetchWallpaper();
+            Bitmap wallpaper = wallpaperManager.GetWallpaperBitmap();
+            if (wallpaper != null)
+            {
+                pictureBoxWallpaper.Image = wallpaper;
+            }
         }
     }
 }

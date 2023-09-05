@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,32 @@ namespace MarbleManager.LightScripts
     internal class WallpaperManager
     {
 
-        public void FetchWallpaper () {
+        public void CopyWallpaperToJpg () {
+            string transcodedWallpaperPath = GetWallpaperPath();
+            if (transcodedWallpaperPath != null)
+            {
+                // Temp output file path and rename - current directory
+                string newFileName = "output\\wallpaper.jpg";
+                string destinationPath = Path.Combine(Environment.CurrentDirectory, newFileName);
+
+                // Copy and rename
+                File.Copy(transcodedWallpaperPath, destinationPath, true);
+            }
+        }
+
+        public Bitmap GetWallpaperBitmap ()
+        {
+            string transcodedWallpaperPath = GetWallpaperPath();
+            if (transcodedWallpaperPath != null)
+            {
+                // return transcoded wallpaper as a bitmap
+                return new Bitmap(transcodedWallpaperPath);
+            }
+            return null;
+        }
+
+        private string GetWallpaperPath ()
+        {
             // Get the original wallpaper image path
             using (var key = Registry.CurrentUser.OpenSubKey(@"Control Panel\Desktop"))
             {
@@ -21,18 +47,12 @@ namespace MarbleManager.LightScripts
 
                     if (!string.IsNullOrEmpty(wallpaperPath))
                     {
-                        // TranscodedWallpaper file path
-                        string transcodedImagePath = wallpaperPath;
-
-                        // Temp output file path and rename - current directory
-                        string newFileName = "output\\wallpaper.jpg";
-                        string destinationPath = Path.Combine(Environment.CurrentDirectory, newFileName);
-
-                        // Copy and rename
-                        File.Copy(transcodedImagePath, destinationPath, true);
+                        return wallpaperPath;
                     }
                 }
             }
+
+            return null;
         }
     }
 }
