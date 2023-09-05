@@ -35,8 +35,15 @@ namespace MarbleManager
             };
 
             notifyIcon.ContextMenuStrip.Opening += ContextMenuStrip_Opening;
+            notifyIcon.DoubleClick += NotifyIcon_DoubleClick;
 
             // I assume could add menu items here if static
+        }
+
+        private void NotifyIcon_DoubleClick(object sender, EventArgs e)
+        {
+            // open config form on double click
+            openConfigFormItem_Click(sender, e);
         }
 
         private void ContextMenuStrip_Opening(object sender, CancelEventArgs e)
@@ -68,8 +75,14 @@ namespace MarbleManager
             } else
             {
                 configForm = new ConfigForm();
+                configForm.FormClosed += ConfigForm_FormClosed;
                 configForm.Show();
             }
+        }
+
+        private void ConfigForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            configForm = null;
         }
 
         private void exitItem_Click(object sender, EventArgs e)

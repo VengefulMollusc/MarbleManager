@@ -8,3 +8,6 @@ D:\Chris\Documents\GitHub\MarbleManager\MarbleManager\obj\Debug\MarbleManager.cs
 D:\Chris\Documents\GitHub\MarbleManager\MarbleManager\obj\Debug\MarbleManager.exe
 D:\Chris\Documents\GitHub\MarbleManager\MarbleManager\obj\Debug\MarbleManager.pdb
 D:\Chris\Documents\GitHub\MarbleManager\MarbleManager\obj\Debug\MarbleManager.ConfigForm.resources
+D:\Chris\Documents\GitHub\MarbleManager\MarbleManager\bin\Debug\Newtonsoft.Json.dll
+D:\Chris\Documents\GitHub\MarbleManager\MarbleManager\bin\Debug\Newtonsoft.Json.xml
+D:\Chris\Documents\GitHub\MarbleManager\MarbleManager\obj\Debug\MarbleManager.csproj.CopyComplete
