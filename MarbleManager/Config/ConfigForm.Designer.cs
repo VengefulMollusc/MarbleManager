@@ -31,21 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigForm));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageStatus = new System.Windows.Forms.TabPage();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBoxWallpaper = new System.Windows.Forms.GroupBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.pictureBoxWallpaper = new System.Windows.Forms.PictureBox();
             this.groupBoxPalette = new System.Windows.Forms.GroupBox();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
-            this.paletteLast1 = new System.Windows.Forms.Panel();
-            this.paletteLast2 = new System.Windows.Forms.Panel();
-            this.paletteLast3 = new System.Windows.Forms.Panel();
-            this.paletteLast4 = new System.Windows.Forms.Panel();
-            this.paletteLast5 = new System.Windows.Forms.Panel();
-            this.paletteLast6 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
@@ -102,16 +91,18 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusIndicator = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.paletteCurrentDominant = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tabControl1.SuspendLayout();
             this.tabPageStatus.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
             this.groupBoxWallpaper.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWallpaper)).BeginInit();
             this.groupBoxPalette.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            this.flowLayoutPanel6.SuspendLayout();
-            this.flowLayoutPanel7.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -134,6 +125,9 @@
             this.flowLayoutPanel9.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -149,7 +143,7 @@
             // 
             // tabPageStatus
             // 
-            this.tabPageStatus.Controls.Add(this.flowLayoutPanel1);
+            this.tabPageStatus.Controls.Add(this.tableLayoutPanel1);
             this.tabPageStatus.Location = new System.Drawing.Point(4, 22);
             this.tabPageStatus.Name = "tabPageStatus";
             this.tabPageStatus.Padding = new System.Windows.Forms.Padding(3);
@@ -158,25 +152,14 @@
             this.tabPageStatus.Text = "Status";
             this.tabPageStatus.UseVisualStyleBackColor = true;
             // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Controls.Add(this.groupBoxWallpaper);
-            this.flowLayoutPanel1.Controls.Add(this.groupBoxPalette);
-            this.flowLayoutPanel1.Controls.Add(this.groupBox1);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(612, 372);
-            this.flowLayoutPanel1.TabIndex = 0;
-            // 
             // groupBoxWallpaper
             // 
             this.groupBoxWallpaper.BackColor = System.Drawing.Color.Transparent;
             this.groupBoxWallpaper.Controls.Add(this.panel7);
+            this.groupBoxWallpaper.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBoxWallpaper.Location = new System.Drawing.Point(3, 3);
             this.groupBoxWallpaper.Name = "groupBoxWallpaper";
-            this.groupBoxWallpaper.Size = new System.Drawing.Size(574, 144);
+            this.groupBoxWallpaper.Size = new System.Drawing.Size(238, 180);
             this.groupBoxWallpaper.TabIndex = 0;
             this.groupBoxWallpaper.TabStop = false;
             this.groupBoxWallpaper.Text = "Wallpaper";
@@ -187,7 +170,7 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(3, 16);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(568, 125);
+            this.panel7.Size = new System.Drawing.Size(232, 161);
             this.panel7.TabIndex = 0;
             // 
             // pictureBoxWallpaper
@@ -195,136 +178,22 @@
             this.pictureBoxWallpaper.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBoxWallpaper.Location = new System.Drawing.Point(0, 0);
             this.pictureBoxWallpaper.Name = "pictureBoxWallpaper";
-            this.pictureBoxWallpaper.Size = new System.Drawing.Size(568, 125);
+            this.pictureBoxWallpaper.Size = new System.Drawing.Size(232, 161);
             this.pictureBoxWallpaper.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxWallpaper.TabIndex = 2;
             this.pictureBoxWallpaper.TabStop = false;
             // 
             // groupBoxPalette
             // 
-            this.groupBoxPalette.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBoxPalette.BackColor = System.Drawing.Color.Transparent;
             this.groupBoxPalette.Controls.Add(this.tableLayoutPanel2);
-            this.groupBoxPalette.Location = new System.Drawing.Point(3, 153);
+            this.groupBoxPalette.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBoxPalette.Location = new System.Drawing.Point(247, 3);
             this.groupBoxPalette.Name = "groupBoxPalette";
-            this.groupBoxPalette.Size = new System.Drawing.Size(574, 88);
+            this.groupBoxPalette.Size = new System.Drawing.Size(362, 180);
             this.groupBoxPalette.TabIndex = 1;
             this.groupBoxPalette.TabStop = false;
-            this.groupBoxPalette.Text = "Palette";
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.flowLayoutPanel6, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.flowLayoutPanel2, 0, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 16);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 69F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(568, 69);
-            this.tableLayoutPanel2.TabIndex = 0;
-            // 
-            // flowLayoutPanel6
-            // 
-            this.flowLayoutPanel6.AutoSize = true;
-            this.flowLayoutPanel6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flowLayoutPanel6.Controls.Add(this.label2);
-            this.flowLayoutPanel6.Controls.Add(this.flowLayoutPanel7);
-            this.flowLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel6.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel6.Location = new System.Drawing.Point(287, 3);
-            this.flowLayoutPanel6.Name = "flowLayoutPanel6";
-            this.flowLayoutPanel6.Size = new System.Drawing.Size(278, 63);
-            this.flowLayoutPanel6.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Last sent to lights";
-            // 
-            // flowLayoutPanel7
-            // 
-            this.flowLayoutPanel7.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.flowLayoutPanel7.Controls.Add(this.paletteLast1);
-            this.flowLayoutPanel7.Controls.Add(this.paletteLast2);
-            this.flowLayoutPanel7.Controls.Add(this.paletteLast3);
-            this.flowLayoutPanel7.Controls.Add(this.paletteLast4);
-            this.flowLayoutPanel7.Controls.Add(this.paletteLast5);
-            this.flowLayoutPanel7.Controls.Add(this.paletteLast6);
-            this.flowLayoutPanel7.Location = new System.Drawing.Point(3, 16);
-            this.flowLayoutPanel7.Name = "flowLayoutPanel7";
-            this.flowLayoutPanel7.Size = new System.Drawing.Size(240, 40);
-            this.flowLayoutPanel7.TabIndex = 2;
-            this.flowLayoutPanel7.WrapContents = false;
-            // 
-            // paletteLast1
-            // 
-            this.paletteLast1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.paletteLast1.BackColor = System.Drawing.Color.Silver;
-            this.paletteLast1.Location = new System.Drawing.Point(0, 0);
-            this.paletteLast1.Margin = new System.Windows.Forms.Padding(0);
-            this.paletteLast1.Name = "paletteLast1";
-            this.paletteLast1.Size = new System.Drawing.Size(40, 40);
-            this.paletteLast1.TabIndex = 0;
-            // 
-            // paletteLast2
-            // 
-            this.paletteLast2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.paletteLast2.BackColor = System.Drawing.Color.Silver;
-            this.paletteLast2.Location = new System.Drawing.Point(40, 0);
-            this.paletteLast2.Margin = new System.Windows.Forms.Padding(0);
-            this.paletteLast2.Name = "paletteLast2";
-            this.paletteLast2.Size = new System.Drawing.Size(40, 40);
-            this.paletteLast2.TabIndex = 1;
-            // 
-            // paletteLast3
-            // 
-            this.paletteLast3.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.paletteLast3.BackColor = System.Drawing.Color.Silver;
-            this.paletteLast3.Location = new System.Drawing.Point(80, 0);
-            this.paletteLast3.Margin = new System.Windows.Forms.Padding(0);
-            this.paletteLast3.Name = "paletteLast3";
-            this.paletteLast3.Size = new System.Drawing.Size(40, 40);
-            this.paletteLast3.TabIndex = 2;
-            // 
-            // paletteLast4
-            // 
-            this.paletteLast4.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.paletteLast4.BackColor = System.Drawing.Color.Silver;
-            this.paletteLast4.Location = new System.Drawing.Point(120, 0);
-            this.paletteLast4.Margin = new System.Windows.Forms.Padding(0);
-            this.paletteLast4.Name = "paletteLast4";
-            this.paletteLast4.Size = new System.Drawing.Size(40, 40);
-            this.paletteLast4.TabIndex = 3;
-            // 
-            // paletteLast5
-            // 
-            this.paletteLast5.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.paletteLast5.BackColor = System.Drawing.Color.Silver;
-            this.paletteLast5.Location = new System.Drawing.Point(160, 0);
-            this.paletteLast5.Margin = new System.Windows.Forms.Padding(0);
-            this.paletteLast5.Name = "paletteLast5";
-            this.paletteLast5.Size = new System.Drawing.Size(40, 40);
-            this.paletteLast5.TabIndex = 4;
-            // 
-            // paletteLast6
-            // 
-            this.paletteLast6.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.paletteLast6.BackColor = System.Drawing.Color.Silver;
-            this.paletteLast6.Location = new System.Drawing.Point(200, 0);
-            this.paletteLast6.Margin = new System.Windows.Forms.Padding(0);
-            this.paletteLast6.Name = "paletteLast6";
-            this.paletteLast6.Size = new System.Drawing.Size(40, 40);
-            this.paletteLast6.TabIndex = 5;
+            this.groupBoxPalette.Text = "Preview";
             // 
             // flowLayoutPanel2
             // 
@@ -334,9 +203,9 @@
             this.flowLayoutPanel2.Controls.Add(this.flowLayoutPanel3);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(73, 3);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(278, 63);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(280, 155);
             this.flowLayoutPanel2.TabIndex = 0;
             // 
             // label1
@@ -344,9 +213,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 13);
+            this.label1.Size = new System.Drawing.Size(40, 13);
             this.label1.TabIndex = 4;
-            this.label1.Text = "From current wallpaper";
+            this.label1.Text = "Palette";
             // 
             // flowLayoutPanel3
             // 
@@ -366,7 +235,8 @@
             // paletteCurrent1
             // 
             this.paletteCurrent1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.paletteCurrent1.BackColor = System.Drawing.Color.Silver;
+            this.paletteCurrent1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.paletteCurrent1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.paletteCurrent1.Location = new System.Drawing.Point(0, 0);
             this.paletteCurrent1.Margin = new System.Windows.Forms.Padding(0);
             this.paletteCurrent1.Name = "paletteCurrent1";
@@ -376,7 +246,8 @@
             // paletteCurrent2
             // 
             this.paletteCurrent2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.paletteCurrent2.BackColor = System.Drawing.Color.Silver;
+            this.paletteCurrent2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.paletteCurrent2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.paletteCurrent2.Location = new System.Drawing.Point(40, 0);
             this.paletteCurrent2.Margin = new System.Windows.Forms.Padding(0);
             this.paletteCurrent2.Name = "paletteCurrent2";
@@ -386,7 +257,8 @@
             // paletteCurrent3
             // 
             this.paletteCurrent3.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.paletteCurrent3.BackColor = System.Drawing.Color.Silver;
+            this.paletteCurrent3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.paletteCurrent3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.paletteCurrent3.Location = new System.Drawing.Point(80, 0);
             this.paletteCurrent3.Margin = new System.Windows.Forms.Padding(0);
             this.paletteCurrent3.Name = "paletteCurrent3";
@@ -396,7 +268,8 @@
             // paletteCurrent4
             // 
             this.paletteCurrent4.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.paletteCurrent4.BackColor = System.Drawing.Color.Silver;
+            this.paletteCurrent4.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.paletteCurrent4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.paletteCurrent4.Location = new System.Drawing.Point(120, 0);
             this.paletteCurrent4.Margin = new System.Windows.Forms.Padding(0);
             this.paletteCurrent4.Name = "paletteCurrent4";
@@ -406,7 +279,8 @@
             // paletteCurrent5
             // 
             this.paletteCurrent5.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.paletteCurrent5.BackColor = System.Drawing.Color.Silver;
+            this.paletteCurrent5.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.paletteCurrent5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.paletteCurrent5.Location = new System.Drawing.Point(160, 0);
             this.paletteCurrent5.Margin = new System.Windows.Forms.Padding(0);
             this.paletteCurrent5.Name = "paletteCurrent5";
@@ -416,7 +290,8 @@
             // paletteCurrent6
             // 
             this.paletteCurrent6.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.paletteCurrent6.BackColor = System.Drawing.Color.Silver;
+            this.paletteCurrent6.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.paletteCurrent6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.paletteCurrent6.Location = new System.Drawing.Point(200, 0);
             this.paletteCurrent6.Margin = new System.Windows.Forms.Padding(0);
             this.paletteCurrent6.Name = "paletteCurrent6";
@@ -427,9 +302,10 @@
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.Controls.Add(this.flowLayoutPanel4);
-            this.groupBox1.Location = new System.Drawing.Point(3, 247);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Location = new System.Drawing.Point(3, 189);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(574, 49);
+            this.groupBox1.Size = new System.Drawing.Size(238, 180);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Preview Functions";
@@ -439,9 +315,10 @@
             this.flowLayoutPanel4.Controls.Add(this.buttonGetWallpaper);
             this.flowLayoutPanel4.Controls.Add(this.buttonGetPalette);
             this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel4.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 16);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(568, 30);
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(232, 161);
             this.flowLayoutPanel4.TabIndex = 2;
             // 
             // buttonGetWallpaper
@@ -460,7 +337,7 @@
             // 
             this.buttonGetPalette.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.buttonGetPalette.AutoSize = true;
-            this.buttonGetPalette.Location = new System.Drawing.Point(127, 3);
+            this.buttonGetPalette.Location = new System.Drawing.Point(3, 32);
             this.buttonGetPalette.Name = "buttonGetPalette";
             this.buttonGetPalette.Size = new System.Drawing.Size(140, 23);
             this.buttonGetPalette.TabIndex = 3;
@@ -914,6 +791,79 @@
             this.statusIndicator.Name = "statusIndicator";
             this.statusIndicator.Size = new System.Drawing.Size(0, 17);
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.groupBoxPalette, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.groupBoxWallpaper, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.groupBox3, 1, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(612, 372);
+            this.tableLayoutPanel1.TabIndex = 1;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox3.Location = new System.Drawing.Point(247, 189);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(362, 180);
+            this.groupBox3.TabIndex = 4;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Last Sent";
+            // 
+            // paletteCurrentDominant
+            // 
+            this.paletteCurrentDominant.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.paletteCurrentDominant.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.paletteCurrentDominant.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.paletteCurrentDominant.Location = new System.Drawing.Point(3, 16);
+            this.paletteCurrentDominant.Name = "paletteCurrentDominant";
+            this.paletteCurrentDominant.Size = new System.Drawing.Size(57, 57);
+            this.paletteCurrentDominant.TabIndex = 5;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(3, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(52, 13);
+            this.label11.TabIndex = 6;
+            this.label11.Text = "Dominant";
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Controls.Add(this.flowLayoutPanel2, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.flowLayoutPanel1, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 16);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(356, 161);
+            this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.label11);
+            this.flowLayoutPanel1.Controls.Add(this.paletteCurrentDominant);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(64, 155);
+            this.flowLayoutPanel1.TabIndex = 0;
+            // 
             // ConfigForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -929,16 +879,10 @@
             this.Text = "Marble Manager - Config";
             this.tabControl1.ResumeLayout(false);
             this.tabPageStatus.ResumeLayout(false);
-            this.flowLayoutPanel1.ResumeLayout(false);
             this.groupBoxWallpaper.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWallpaper)).EndInit();
             this.groupBoxPalette.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
-            this.flowLayoutPanel6.ResumeLayout(false);
-            this.flowLayoutPanel6.PerformLayout();
-            this.flowLayoutPanel7.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
             this.flowLayoutPanel3.ResumeLayout(false);
@@ -974,6 +918,11 @@
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -983,7 +932,6 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPageStatus;
         private System.Windows.Forms.TabPage tabPageConfig;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.GroupBox groupBoxWallpaper;
         private System.Windows.Forms.GroupBox groupBoxPalette;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
@@ -996,16 +944,6 @@
         private System.Windows.Forms.Panel paletteCurrent5;
         private System.Windows.Forms.Panel paletteCurrent6;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel6;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel7;
-        private System.Windows.Forms.Panel paletteLast1;
-        private System.Windows.Forms.Panel paletteLast2;
-        private System.Windows.Forms.Panel paletteLast3;
-        private System.Windows.Forms.Panel paletteLast4;
-        private System.Windows.Forms.Panel paletteLast5;
-        private System.Windows.Forms.Panel paletteLast6;
         private System.Windows.Forms.Button buttonGetWallpaper;
         private System.Windows.Forms.PictureBox pictureBoxWallpaper;
         private System.Windows.Forms.GroupBox groupBoxOnOff;
@@ -1053,5 +991,11 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatus;
         private System.Windows.Forms.ToolStripStatusLabel statusIndicator;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Panel paletteCurrentDominant;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

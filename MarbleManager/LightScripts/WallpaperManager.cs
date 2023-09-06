@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace MarbleManager.LightScripts
 {
-    internal class WallpaperManager
+    internal static class WallpaperManager
     {
 
-        public void CopyWallpaperToJpg () {
+        public static void CopyWallpaperToJpg () {
             string transcodedWallpaperPath = GetWallpaperPath();
             if (transcodedWallpaperPath != null)
             {
@@ -25,7 +25,7 @@ namespace MarbleManager.LightScripts
             }
         }
 
-        public Bitmap GetWallpaperBitmap ()
+        public static Bitmap GetWallpaperBitmap ()
         {
             string transcodedWallpaperPath = GetWallpaperPath();
             if (transcodedWallpaperPath != null)
@@ -36,7 +36,7 @@ namespace MarbleManager.LightScripts
             return null;
         }
 
-        private string GetWallpaperPath ()
+        private static string GetWallpaperPath ()
         {
             // Get the original wallpaper image path
             using (var key = Registry.CurrentUser.OpenSubKey(@"Control Panel\Desktop"))

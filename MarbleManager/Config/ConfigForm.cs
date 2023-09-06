@@ -1,5 +1,6 @@
 ﻿using MarbleManager.Config;
 using MarbleManager.LightScripts;
+using PaletteSharp;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +17,8 @@ namespace MarbleManager
     public partial class ConfigForm : Form
     {
         private ConfigHandler configHandler;
-        private WallpaperManager wallpaperManager;
+
+        public Bitmap wallpaper;
 
         public ConfigForm()
         {
@@ -24,11 +26,6 @@ namespace MarbleManager
 
             // init config
             LoadConfig();
-        }
-
-        internal void AddWallpaperManager (WallpaperManager _wallpaperManager)
-        {
-            wallpaperManager = _wallpaperManager;
         }
 
         private void LoadConfig()
@@ -101,9 +98,14 @@ namespace MarbleManager
             return NanoleafEffect.Random;
         }
 
-        private void buttonGetPalette_Click(object sender, EventArgs e)
+        private void GetCurrentWallpaper ()
         {
-            // sync palette panel colours to palette file
+            Bitmap currentWallpaper = WallpaperManager.GetWallpaperBitmap();
+            if (currentWallpaper != null)
+            {
+                wallpaper = currentWallpaper;
+                pictureBoxWallpaper.Image = currentWallpaper;
+            }
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -126,11 +128,42 @@ namespace MarbleManager
 
         private void buttonGetWallpaper_Click(object sender, EventArgs e)
         {
-            Bitmap wallpaper = wallpaperManager.GetWallpaperBitmap();
-            if (wallpaper != null)
+            GetCurrentWallpaper();
+        }
+
+        private void buttonGetPalette_Click(object sender, EventArgs e)
+        {
+            // sync palette panel colours to palette file
+            if (wallpaper == null)
             {
-                pictureBoxWallpaper.Image = wallpaper;
+                GetCurrentWallpaper();
             }
+
+            // do palette stuff
+            Palette palette = Palette.From(wallpaper).Generate();
+            palette.Generate();
+
+            ApplySwatch(paletteCurrentDominant, palette.GetDominantSwatch());
+            ApplySwatch(paletteCurrent1, palette.GetVibrantSwatch());
+            ApplySwatch(paletteCurrent2, palette.GetLightVibrantSwatch());
+            ApplySwatch(paletteCurrent3, palette.GetDarkVibrantSwatch());
+            ApplySwatch(paletteCurrent4, palette.GetMutedSwatch());
+            ApplySwatch(paletteCurrent5, palette.GetLightMutedSwatch());
+            ApplySwatch(paletteCurrent6, palette.GetDarkMutedSwatch());
+        }
+
+        private void ApplySwatch (Panel panel, Swatch swatch)
+        {
+            if (swatch == null)
+            {
+                panel.BackColor = Color.WhiteSmoke;
+                panel.BorderStyle = BorderStyle.FixedSingle;
+                return;
+            }
+
+            // apply colour if not null
+            panel.BackColor = swatch.GetArgb();
+            panel.BorderStyle = BorderStyle.None;
         }
     }
 }

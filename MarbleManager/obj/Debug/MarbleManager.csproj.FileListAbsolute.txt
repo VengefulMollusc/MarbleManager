@@ -11,3 +11,5 @@ D:\Chris\Documents\GitHub\MarbleManager\MarbleManager\obj\Debug\MarbleManager.Co
 D:\Chris\Documents\GitHub\MarbleManager\MarbleManager\bin\Debug\Newtonsoft.Json.dll
 D:\Chris\Documents\GitHub\MarbleManager\MarbleManager\bin\Debug\Newtonsoft.Json.xml
 D:\Chris\Documents\GitHub\MarbleManager\MarbleManager\obj\Debug\MarbleManager.csproj.CopyComplete
+D:\Chris\Documents\GitHub\MarbleManager\MarbleManager\bin\Debug\PaletteSharp.dll
+D:\Chris\Documents\GitHub\MarbleManager\MarbleManager\bin\Debug\RapidPriorityQueue.dll
