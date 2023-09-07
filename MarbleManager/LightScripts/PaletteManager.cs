@@ -8,8 +8,6 @@ using System.IO;
 using System.Linq;
 using System.Net.NetworkInformation;
 using System.Text;
-using System.Threading.Tasks;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace MarbleManager.LightScripts
 {
@@ -25,13 +23,16 @@ namespace MarbleManager.LightScripts
                 using (StreamReader r = new StreamReader(paletteFilePath))
                 {
                     string json = r.ReadToEnd();
-                    return JsonConvert.DeserializeObject<PaletteObject>(json);
+                    PaletteObject palette = JsonConvert.DeserializeObject<PaletteObject>(json);
+                    Console.WriteLine("Palette file loaded");
+                    return palette;
                 }
             }
             catch (Exception ex)
             {
                 // file not found etc.
                 Console.WriteLine(ex.ToString());
+                Console.WriteLine("No palette file found to load");
                 return null;
             }
         }
@@ -51,10 +52,12 @@ namespace MarbleManager.LightScripts
                 {
                     outputFile.WriteLine(jsonString);
                 }
+                Console.WriteLine("Palette saved");
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
+                Console.WriteLine("Error saving palette");
             }
         }
 

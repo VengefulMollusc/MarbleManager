@@ -35,7 +35,7 @@ namespace MarbleManager.Config
             }
         }
 
-        public void SaveConfig(ConfigObject newConfig, ToolStripStatusLabel status)
+        public void SaveConfig(ConfigObject newConfig)
         {
             // overwrite object
             configObject = newConfig;
@@ -48,17 +48,17 @@ namespace MarbleManager.Config
                 {
                     outputFile.WriteLine(jsonString);
                 }
-                status.Text = "Saved";
+                Console.WriteLine("Config successfully saved");
             } catch(Exception ex)
             {
                 Console.WriteLine(ex.ToString());
-                status.Text = "Error saving";
+                Console.WriteLine("Error saving config");
             }         
         }
 
-        public void ApplyChanges (ConfigObject newConfig, ToolStripStatusLabel status)
+        public void ApplyChanges (ConfigObject newConfig)
         {
-            SaveConfig(newConfig, status);
+            SaveConfig(newConfig);
 
             // write script files with new values using template files
 

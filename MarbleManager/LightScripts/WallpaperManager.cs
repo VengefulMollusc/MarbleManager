@@ -13,6 +13,7 @@ namespace MarbleManager.LightScripts
     {
         static string wallpaperFilePath = "output\\wallpaper.jpg";
 
+        // copy from transcoded file to local directory
         private static void CopyWallpaperToJpg () {
             string transcodedWallpaperPath = GetWallpaperPath();
             if (transcodedWallpaperPath != null)
@@ -31,6 +32,31 @@ namespace MarbleManager.LightScripts
             return new Bitmap(wallpaperFilePath);
         }
 
+        // delete copied wallpaper file
+        public static void DeleteCopiedWallpaper()
+        {
+            try
+            {
+                // Check if the file exists before attempting to delete it
+                if (File.Exists(wallpaperFilePath))
+                {
+                    // Delete the file
+                    File.Delete(wallpaperFilePath);
+                    Console.WriteLine("File deleted successfully.");
+                }
+                else
+                {
+                    Console.WriteLine("File does not exist.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+        }
+
+        // get wallpaper directly from the transcoded image file
+        // using this prevents wallpaper change as the image is in memory
         public static Bitmap GetWallpaperBitmap ()
         {
             string transcodedWallpaperPath = GetWallpaperPath();

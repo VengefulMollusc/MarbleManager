@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Text;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,15 +24,28 @@ namespace MarbleManager
         public ConfigForm()
         {
             InitializeComponent();
+            RedirectConsoleOutput();
 
             // init config
             LoadConfig();
             LoadLastPalette();
         }
 
+        private void RedirectConsoleOutput ()
+        {
+            // Create a TextWriter to redirect standard output to the TextBox control
+            TextWriter writer = new TextBoxStreamWriter(txtConsole);
+
+            // Redirect the standard output
+            Console.SetOut(writer);
+        }
+
         protected override void OnClosing(CancelEventArgs e)
         {
-            if (wallpaper != null) { wallpaper.Dispose(); }
+            if (wallpaper != null) { 
+                wallpaper.Dispose(); 
+                WallpaperManager.DeleteCopiedWallpaper();
+            }
             base.OnClosing(e);
         }
 
@@ -88,7 +102,7 @@ namespace MarbleManager
                 wallpaper = currentWallpaper;
                 pictureBoxWallpaper.Image = wallpaper;
             }
-            StatusUpdate("Wallpaper loaded");
+            Console.WriteLine("Loaded current wallpaper");
         }
 
         private void LoadConfig()
@@ -124,7 +138,7 @@ namespace MarbleManager
             textBoxLifxSelector.Text = lifxConfig.selector;
             textBoxLifxAuthKey.Text = lifxConfig.authKey;
 
-            StatusUpdate("Config loaded");
+            Console.WriteLine("Config loaded");
         }
 
         private void SaveConfig()
@@ -149,14 +163,13 @@ namespace MarbleManager
                     selector = textBoxLifxSelector.Text,
                     authKey = textBoxLifxAuthKey.Text
                 }
-            }, statusIndicator);
+            });
         }
 
         private void LoadLastPalette()
         {
             PaletteObject palette = PaletteManager.LoadPalette();
             if (palette == null) {
-                StatusUpdate("No palette file found to load");
                 return; 
             }
 
@@ -171,11 +184,6 @@ namespace MarbleManager
             }
             // default return Random
             return NanoleafEffect.Random;
-        }
-
-        private void StatusUpdate(string text)
-        {
-            statusIndicator.Text = text;
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -210,7 +218,7 @@ namespace MarbleManager
             }
 
             PreviewPalette(PaletteManager.GetPaletteFromBitmap(wallpaper));
-            StatusUpdate("Palette preview created");
+            Console.WriteLine("Palette preview created");
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -223,6 +231,28 @@ namespace MarbleManager
             PaletteObject palette = PaletteManager.GetPaletteFromBitmap(wallpaper);
             PaletteManager.SavePalette(palette);
             LoadLastPalette();
+        }
+    }
+
+    // Custom TextWriter to redirect output to the TextBox control
+    public class TextBoxStreamWriter : TextWriter
+    {
+        private TextBox textBox;
+
+        public TextBoxStreamWriter(TextBox textBox)
+        {
+            this.textBox = textBox;
+        }
+
+        public override void Write(char value)
+        {
+            // Append the character to the TextBox
+            textBox.AppendText(value.ToString());
+        }
+
+        public override Encoding Encoding
+        {
+            get { return Encoding.Unicode; }
         }
     }
 }
