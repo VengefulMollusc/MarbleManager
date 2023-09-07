@@ -28,6 +28,102 @@ namespace MarbleManager
             LoadConfig();
         }
 
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            if (wallpaper != null) { wallpaper.Dispose(); }
+            base.OnClosing(e);
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to exit?", "Exit", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                Application.ExitThread();
+            }
+        }
+
+        private void buttonConfigReset_Click(object sender, EventArgs e)
+        {
+            LoadConfig();
+        }
+
+        private void buttonConfigApplyChanges_Click(object sender, EventArgs e)
+        {
+            SaveConfig();
+        }
+
+        private void buttonGetWallpaper_Click(object sender, EventArgs e)
+        {
+            PreviewCurrentWallpaper();
+        }
+
+        private void buttonGetPalette_Click(object sender, EventArgs e)
+        {
+            // sync palette panel colours to palette file
+            if (wallpaper == null)
+            {
+                PreviewCurrentWallpaper();
+            }
+
+            PreviewPalette(PaletteManager.GetPaletteFromBitmap(wallpaper));
+            StatusUpdate("Palette preview created");
+        }
+
+        private void PreviewPalette (Palette palette, bool isPreview = true)
+        {
+            if (palette == null) { return; }
+
+            if (isPreview)
+            {
+                ApplySwatch(paletteCurrentD, labelCurrentDPop, palette.GetDominantSwatch());
+                ApplySwatch(paletteCurrentV, labelCurrentVPop, palette.GetVibrantSwatch());
+                ApplySwatch(paletteCurrentVl, labelCurrentVlPop, palette.GetLightVibrantSwatch());
+                ApplySwatch(paletteCurrentVd, labelCurrentVdPop, palette.GetDarkVibrantSwatch());
+                ApplySwatch(paletteCurrentM, labelCurrentMPop, palette.GetMutedSwatch());
+                ApplySwatch(paletteCurrentMl, labelCurrentMlPop, palette.GetLightMutedSwatch());
+                ApplySwatch(paletteCurrentMd, labelCurrentMdPop, palette.GetDarkMutedSwatch());
+            }
+            else
+            {
+                ApplySwatch(paletteLastD, labelLastDPop, palette.GetDominantSwatch());
+                ApplySwatch(paletteLastV, labelLastVPop, palette.GetVibrantSwatch());
+                ApplySwatch(paletteLastVl, labelLastVlPop, palette.GetLightVibrantSwatch());
+                ApplySwatch(paletteLastVd, labelLastVdPop, palette.GetDarkVibrantSwatch());
+                ApplySwatch(paletteLastM, labelLastMPop, palette.GetMutedSwatch());
+                ApplySwatch(paletteLastMl, labelLastMlPop, palette.GetLightMutedSwatch());
+                ApplySwatch(paletteLastMd, labelLastMdPop, palette.GetDarkMutedSwatch());
+            }
+        }
+
+        private void ApplySwatch (Panel panel, Label label, Swatch swatch)
+        {
+            if (swatch == null)
+            {
+                panel.BackColor = Color.WhiteSmoke;
+                panel.BorderStyle = BorderStyle.FixedSingle;
+                label.Text = "no swatch";
+                return;
+            }
+
+            // apply colour if not null
+            panel.BackColor = swatch.GetArgb();
+            panel.BorderStyle = BorderStyle.None;
+            label.Text = swatch.GetPopulation().ToString();
+        }
+
+        private void PreviewCurrentWallpaper()
+        {
+            Bitmap currentWallpaper = WallpaperManager.GetWallpaperBitmap();
+            if (currentWallpaper != null)
+            {
+                // cleanup existing value to stop RAM use increasing
+                if (wallpaper != null) { wallpaper.Dispose(); }
+                wallpaper = currentWallpaper;
+                pictureBoxWallpaper.Image = wallpaper;
+            }
+            StatusUpdate("Wallpaper loaded");
+        }
+
         private void LoadConfig()
         {
             // init config handler if needed
@@ -61,10 +157,11 @@ namespace MarbleManager
             textBoxLifxSelector.Text = lifxConfig.selector;
             textBoxLifxAuthKey.Text = lifxConfig.authKey;
 
-            statusIndicator.Text = "Config loaded";
+            StatusUpdate("Config loaded");
         }
 
-        private void SaveConfig() { 
+        private void SaveConfig()
+        {
             if (configHandler == null) { throw new Exception("Cannot save when no configHandler exists"); }
 
             configHandler.ApplyChanges(new ConfigObject()
@@ -98,72 +195,9 @@ namespace MarbleManager
             return NanoleafEffect.Random;
         }
 
-        private void GetCurrentWallpaper ()
+        private void StatusUpdate(string text)
         {
-            Bitmap currentWallpaper = WallpaperManager.GetWallpaperBitmap();
-            if (currentWallpaper != null)
-            {
-                wallpaper = currentWallpaper;
-                pictureBoxWallpaper.Image = currentWallpaper;
-            }
-        }
-
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Are you sure you want to exit?", "Exit", MessageBoxButtons.OKCancel) == DialogResult.OK)
-            {
-                Application.ExitThread();
-            }
-        }
-
-        private void buttonConfigReset_Click(object sender, EventArgs e)
-        {
-            LoadConfig();
-        }
-
-        private void buttonConfigApplyChanges_Click(object sender, EventArgs e)
-        {
-            SaveConfig();
-        }
-
-        private void buttonGetWallpaper_Click(object sender, EventArgs e)
-        {
-            GetCurrentWallpaper();
-        }
-
-        private void buttonGetPalette_Click(object sender, EventArgs e)
-        {
-            // sync palette panel colours to palette file
-            if (wallpaper == null)
-            {
-                GetCurrentWallpaper();
-            }
-
-            // do palette stuff
-            Palette palette = Palette.From(wallpaper).Generate();
-            palette.Generate();
-
-            ApplySwatch(paletteCurrentDominant, palette.GetDominantSwatch());
-            ApplySwatch(paletteCurrent1, palette.GetVibrantSwatch());
-            ApplySwatch(paletteCurrent2, palette.GetLightVibrantSwatch());
-            ApplySwatch(paletteCurrent3, palette.GetDarkVibrantSwatch());
-            ApplySwatch(paletteCurrent4, palette.GetMutedSwatch());
-            ApplySwatch(paletteCurrent5, palette.GetLightMutedSwatch());
-            ApplySwatch(paletteCurrent6, palette.GetDarkMutedSwatch());
-        }
-
-        private void ApplySwatch (Panel panel, Swatch swatch)
-        {
-            if (swatch == null)
-            {
-                panel.BackColor = Color.WhiteSmoke;
-                panel.BorderStyle = BorderStyle.FixedSingle;
-                return;
-            }
-
-            // apply colour if not null
-            panel.BackColor = swatch.GetArgb();
-            panel.BorderStyle = BorderStyle.None;
+            statusIndicator.Text = text;
         }
     }
 }

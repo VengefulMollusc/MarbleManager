@@ -85,6 +85,7 @@ namespace MarbleManager
 
         private void ConfigForm_FormClosed(object sender, FormClosedEventArgs e)
         {
+            configForm?.Dispose();
             configForm = null;
         }
 
