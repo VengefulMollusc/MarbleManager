@@ -64,6 +64,7 @@
     <Compile Include="Config\ConfigData.cs" />
     <Compile Include="Config\ConfigHandler.cs" />
     <Compile Include="CustomApplicationContext.cs" />
+    <Compile Include="LightScripts\PaletteData.cs" />
     <Compile Include="LightScripts\PaletteManager.cs" />
     <Compile Include="LightScripts\WallpaperManager.cs" />
     <Compile Include="Program.cs" />

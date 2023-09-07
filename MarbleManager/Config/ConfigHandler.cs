@@ -12,7 +12,7 @@ namespace MarbleManager.Config
     internal class ConfigHandler
     {
         private ConfigObject configObject;
-        string configFilePath = "config.json";
+        static string configFilePath = "config.json";
 
         public ConfigHandler() {
             LoadConfig();

@@ -26,6 +26,7 @@ namespace MarbleManager
 
             // init config
             LoadConfig();
+            LoadLastPalette();
         }
 
         protected override void OnClosing(CancelEventArgs e)
@@ -34,68 +35,33 @@ namespace MarbleManager
             base.OnClosing(e);
         }
 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Are you sure you want to exit?", "Exit", MessageBoxButtons.OKCancel) == DialogResult.OK)
-            {
-                Application.ExitThread();
-            }
-        }
-
-        private void buttonConfigReset_Click(object sender, EventArgs e)
-        {
-            LoadConfig();
-        }
-
-        private void buttonConfigApplyChanges_Click(object sender, EventArgs e)
-        {
-            SaveConfig();
-        }
-
-        private void buttonGetWallpaper_Click(object sender, EventArgs e)
-        {
-            PreviewCurrentWallpaper();
-        }
-
-        private void buttonGetPalette_Click(object sender, EventArgs e)
-        {
-            // sync palette panel colours to palette file
-            if (wallpaper == null)
-            {
-                PreviewCurrentWallpaper();
-            }
-
-            PreviewPalette(PaletteManager.GetPaletteFromBitmap(wallpaper));
-            StatusUpdate("Palette preview created");
-        }
-
-        private void PreviewPalette (Palette palette, bool isPreview = true)
+        private void PreviewPalette (PaletteObject palette, bool isPreview = true)
         {
             if (palette == null) { return; }
 
             if (isPreview)
             {
-                ApplySwatch(paletteCurrentD, labelCurrentDPop, palette.GetDominantSwatch());
-                ApplySwatch(paletteCurrentV, labelCurrentVPop, palette.GetVibrantSwatch());
-                ApplySwatch(paletteCurrentVl, labelCurrentVlPop, palette.GetLightVibrantSwatch());
-                ApplySwatch(paletteCurrentVd, labelCurrentVdPop, palette.GetDarkVibrantSwatch());
-                ApplySwatch(paletteCurrentM, labelCurrentMPop, palette.GetMutedSwatch());
-                ApplySwatch(paletteCurrentMl, labelCurrentMlPop, palette.GetLightMutedSwatch());
-                ApplySwatch(paletteCurrentMd, labelCurrentMdPop, palette.GetDarkMutedSwatch());
+                ApplySwatch(paletteCurrentD, labelCurrentDPop, palette.dominant);
+                ApplySwatch(paletteCurrentV, labelCurrentVPop, palette.vibrant);
+                ApplySwatch(paletteCurrentVl, labelCurrentVlPop, palette.lightVibrant);
+                ApplySwatch(paletteCurrentVd, labelCurrentVdPop, palette.darkVibrant);
+                ApplySwatch(paletteCurrentM, labelCurrentMPop, palette.muted);
+                ApplySwatch(paletteCurrentMl, labelCurrentMlPop, palette.lightMuted);
+                ApplySwatch(paletteCurrentMd, labelCurrentMdPop, palette.darkMuted);
             }
             else
             {
-                ApplySwatch(paletteLastD, labelLastDPop, palette.GetDominantSwatch());
-                ApplySwatch(paletteLastV, labelLastVPop, palette.GetVibrantSwatch());
-                ApplySwatch(paletteLastVl, labelLastVlPop, palette.GetLightVibrantSwatch());
-                ApplySwatch(paletteLastVd, labelLastVdPop, palette.GetDarkVibrantSwatch());
-                ApplySwatch(paletteLastM, labelLastMPop, palette.GetMutedSwatch());
-                ApplySwatch(paletteLastMl, labelLastMlPop, palette.GetLightMutedSwatch());
-                ApplySwatch(paletteLastMd, labelLastMdPop, palette.GetDarkMutedSwatch());
+                ApplySwatch(paletteLastD, labelLastDPop, palette.dominant);
+                ApplySwatch(paletteLastV, labelLastVPop, palette.vibrant);
+                ApplySwatch(paletteLastVl, labelLastVlPop, palette.lightVibrant);
+                ApplySwatch(paletteLastVd, labelLastVdPop, palette.darkVibrant);
+                ApplySwatch(paletteLastM, labelLastMPop, palette.muted);
+                ApplySwatch(paletteLastMl, labelLastMlPop, palette.lightMuted);
+                ApplySwatch(paletteLastMd, labelLastMdPop, palette.darkMuted);
             }
         }
 
-        private void ApplySwatch (Panel panel, Label label, Swatch swatch)
+        private void ApplySwatch (Panel panel, Label label, SwatchObject swatch)
         {
             if (swatch == null)
             {
@@ -106,18 +72,19 @@ namespace MarbleManager
             }
 
             // apply colour if not null
-            panel.BackColor = swatch.GetArgb();
+            panel.BackColor = Color.FromArgb(swatch.r, swatch.g, swatch.b);
             panel.BorderStyle = BorderStyle.None;
-            label.Text = swatch.GetPopulation().ToString();
+            label.Text = swatch.population.ToString();
         }
 
         private void PreviewCurrentWallpaper()
         {
-            Bitmap currentWallpaper = WallpaperManager.GetWallpaperBitmap();
+            // cleanup existing value to stop RAM use increasing
+            if (wallpaper != null) { wallpaper.Dispose(); }
+
+            Bitmap currentWallpaper = WallpaperManager.GetWallpaperJpg();
             if (currentWallpaper != null)
             {
-                // cleanup existing value to stop RAM use increasing
-                if (wallpaper != null) { wallpaper.Dispose(); }
                 wallpaper = currentWallpaper;
                 pictureBoxWallpaper.Image = wallpaper;
             }
@@ -185,6 +152,17 @@ namespace MarbleManager
             }, statusIndicator);
         }
 
+        private void LoadLastPalette()
+        {
+            PaletteObject palette = PaletteManager.LoadPalette();
+            if (palette == null) {
+                StatusUpdate("No palette file found to load");
+                return; 
+            }
+
+            PreviewPalette(palette, false);
+        }
+
         private NanoleafEffect GetSelectedNanoleafEffect()
         {
             if (radioButtonLightEffectHighlight.Checked)
@@ -198,6 +176,53 @@ namespace MarbleManager
         private void StatusUpdate(string text)
         {
             statusIndicator.Text = text;
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to exit?", "Exit", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                Application.ExitThread();
+            }
+        }
+
+        private void buttonConfigReset_Click(object sender, EventArgs e)
+        {
+            LoadConfig();
+        }
+
+        private void buttonConfigApplyChanges_Click(object sender, EventArgs e)
+        {
+            SaveConfig();
+        }
+
+        private void buttonGetWallpaper_Click(object sender, EventArgs e)
+        {
+            PreviewCurrentWallpaper();
+        }
+
+        private void buttonGetPalette_Click(object sender, EventArgs e)
+        {
+            // sync palette panel colours to palette file
+            if (wallpaper == null)
+            {
+                PreviewCurrentWallpaper();
+            }
+
+            PreviewPalette(PaletteManager.GetPaletteFromBitmap(wallpaper));
+            StatusUpdate("Palette preview created");
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // save palette
+            if (wallpaper == null)
+            {
+                PreviewCurrentWallpaper();
+            }
+            PaletteObject palette = PaletteManager.GetPaletteFromBitmap(wallpaper);
+            PaletteManager.SavePalette(palette);
+            LoadLastPalette();
         }
     }
 }

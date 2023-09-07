@@ -31,10 +31,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigForm));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageStatus = new System.Windows.Forms.TabPage();
-            this.groupBoxWallpaper = new System.Windows.Forms.GroupBox();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.pictureBoxWallpaper = new System.Windows.Forms.PictureBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
+            this.buttonPreviewWallpaper = new System.Windows.Forms.Button();
+            this.label17 = new System.Windows.Forms.Label();
+            this.buttonPreviewPalette = new System.Windows.Forms.Button();
+            this.label21 = new System.Windows.Forms.Label();
             this.groupBoxPalette = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
@@ -44,10 +49,68 @@
             this.paletteCurrentM = new System.Windows.Forms.Panel();
             this.paletteCurrentMl = new System.Windows.Forms.Panel();
             this.paletteCurrentMd = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
-            this.buttonPreviewWallpaper = new System.Windows.Forms.Button();
-            this.buttonPreviewPalette = new System.Windows.Forms.Button();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.flowLayoutPanel18 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label22 = new System.Windows.Forms.Label();
+            this.labelCurrentMdPop = new System.Windows.Forms.Label();
+            this.flowLayoutPanel17 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label20 = new System.Windows.Forms.Label();
+            this.labelCurrentVdPop = new System.Windows.Forms.Label();
+            this.flowLayoutPanel16 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label18 = new System.Windows.Forms.Label();
+            this.labelCurrentMlPop = new System.Windows.Forms.Label();
+            this.flowLayoutPanel15 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label16 = new System.Windows.Forms.Label();
+            this.labelCurrentVlPop = new System.Windows.Forms.Label();
+            this.flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label14 = new System.Windows.Forms.Label();
+            this.labelCurrentMPop = new System.Windows.Forms.Label();
+            this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.labelCurrentVPop = new System.Windows.Forms.Label();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.paletteCurrentD = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.labelCurrentDPop = new System.Windows.Forms.Label();
+            this.groupBoxWallpaper = new System.Windows.Forms.GroupBox();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.pictureBoxWallpaper = new System.Windows.Forms.PictureBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.flowLayoutPanel19 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label13 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel20 = new System.Windows.Forms.FlowLayoutPanel();
+            this.paletteLastV = new System.Windows.Forms.Panel();
+            this.paletteLastVl = new System.Windows.Forms.Panel();
+            this.paletteLastVd = new System.Windows.Forms.Panel();
+            this.paletteLastM = new System.Windows.Forms.Panel();
+            this.paletteLastMl = new System.Windows.Forms.Panel();
+            this.paletteLastMd = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.flowLayoutPanel21 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label15 = new System.Windows.Forms.Label();
+            this.labelLastMdPop = new System.Windows.Forms.Label();
+            this.flowLayoutPanel22 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label19 = new System.Windows.Forms.Label();
+            this.labelLastVdPop = new System.Windows.Forms.Label();
+            this.flowLayoutPanel23 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label23 = new System.Windows.Forms.Label();
+            this.labelLastMlPop = new System.Windows.Forms.Label();
+            this.flowLayoutPanel24 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label25 = new System.Windows.Forms.Label();
+            this.labelLastVlPop = new System.Windows.Forms.Label();
+            this.flowLayoutPanel25 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label27 = new System.Windows.Forms.Label();
+            this.labelLastMPop = new System.Windows.Forms.Label();
+            this.flowLayoutPanel26 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label29 = new System.Windows.Forms.Label();
+            this.labelLastVPop = new System.Windows.Forms.Label();
+            this.flowLayoutPanel27 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label31 = new System.Windows.Forms.Label();
+            this.paletteLastD = new System.Windows.Forms.Panel();
+            this.label32 = new System.Windows.Forms.Label();
+            this.labelLastDPop = new System.Windows.Forms.Label();
             this.tabPageConfig = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBoxConfigGeneral = new System.Windows.Forms.GroupBox();
@@ -91,79 +154,39 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusIndicator = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.paletteCurrentD = new System.Windows.Forms.Panel();
-            this.label11 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.labelCurrentDPop = new System.Windows.Forms.Label();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.label12 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
-            this.labelCurrentVPop = new System.Windows.Forms.Label();
-            this.flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label14 = new System.Windows.Forms.Label();
-            this.labelCurrentMPop = new System.Windows.Forms.Label();
-            this.flowLayoutPanel15 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label16 = new System.Windows.Forms.Label();
-            this.labelCurrentVlPop = new System.Windows.Forms.Label();
-            this.flowLayoutPanel16 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label18 = new System.Windows.Forms.Label();
-            this.labelCurrentMlPop = new System.Windows.Forms.Label();
-            this.flowLayoutPanel17 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label20 = new System.Windows.Forms.Label();
-            this.labelCurrentVdPop = new System.Windows.Forms.Label();
-            this.flowLayoutPanel18 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label22 = new System.Windows.Forms.Label();
-            this.labelCurrentMdPop = new System.Windows.Forms.Label();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.flowLayoutPanel19 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label13 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel20 = new System.Windows.Forms.FlowLayoutPanel();
-            this.paletteLastV = new System.Windows.Forms.Panel();
-            this.paletteLastVl = new System.Windows.Forms.Panel();
-            this.paletteLastVd = new System.Windows.Forms.Panel();
-            this.paletteLastM = new System.Windows.Forms.Panel();
-            this.paletteLastMl = new System.Windows.Forms.Panel();
-            this.paletteLastMd = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.flowLayoutPanel21 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label15 = new System.Windows.Forms.Label();
-            this.labelLastMdPop = new System.Windows.Forms.Label();
-            this.flowLayoutPanel22 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label19 = new System.Windows.Forms.Label();
-            this.labelLastVdPop = new System.Windows.Forms.Label();
-            this.flowLayoutPanel23 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label23 = new System.Windows.Forms.Label();
-            this.labelLastMlPop = new System.Windows.Forms.Label();
-            this.flowLayoutPanel24 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label25 = new System.Windows.Forms.Label();
-            this.labelLastVlPop = new System.Windows.Forms.Label();
-            this.flowLayoutPanel25 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label27 = new System.Windows.Forms.Label();
-            this.labelLastMPop = new System.Windows.Forms.Label();
-            this.flowLayoutPanel26 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label29 = new System.Windows.Forms.Label();
-            this.labelLastVPop = new System.Windows.Forms.Label();
-            this.flowLayoutPanel27 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label31 = new System.Windows.Forms.Label();
-            this.paletteLastD = new System.Windows.Forms.Panel();
-            this.label32 = new System.Windows.Forms.Label();
-            this.labelLastDPop = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPageStatus.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.flowLayoutPanel4.SuspendLayout();
+            this.groupBoxPalette.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
+            this.flowLayoutPanel3.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
+            this.flowLayoutPanel18.SuspendLayout();
+            this.flowLayoutPanel17.SuspendLayout();
+            this.flowLayoutPanel16.SuspendLayout();
+            this.flowLayoutPanel15.SuspendLayout();
+            this.flowLayoutPanel7.SuspendLayout();
+            this.flowLayoutPanel6.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.groupBoxWallpaper.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWallpaper)).BeginInit();
-            this.groupBoxPalette.SuspendLayout();
-            this.flowLayoutPanel2.SuspendLayout();
-            this.flowLayoutPanel3.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.flowLayoutPanel4.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
+            this.flowLayoutPanel19.SuspendLayout();
+            this.flowLayoutPanel20.SuspendLayout();
+            this.tableLayoutPanel6.SuspendLayout();
+            this.flowLayoutPanel21.SuspendLayout();
+            this.flowLayoutPanel22.SuspendLayout();
+            this.flowLayoutPanel23.SuspendLayout();
+            this.flowLayoutPanel24.SuspendLayout();
+            this.flowLayoutPanel25.SuspendLayout();
+            this.flowLayoutPanel26.SuspendLayout();
+            this.flowLayoutPanel27.SuspendLayout();
             this.tabPageConfig.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.groupBoxConfigGeneral.SuspendLayout();
@@ -182,28 +205,6 @@
             this.flowLayoutPanel9.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel4.SuspendLayout();
-            this.flowLayoutPanel6.SuspendLayout();
-            this.flowLayoutPanel7.SuspendLayout();
-            this.flowLayoutPanel15.SuspendLayout();
-            this.flowLayoutPanel16.SuspendLayout();
-            this.flowLayoutPanel17.SuspendLayout();
-            this.flowLayoutPanel18.SuspendLayout();
-            this.tableLayoutPanel5.SuspendLayout();
-            this.flowLayoutPanel19.SuspendLayout();
-            this.flowLayoutPanel20.SuspendLayout();
-            this.tableLayoutPanel6.SuspendLayout();
-            this.flowLayoutPanel21.SuspendLayout();
-            this.flowLayoutPanel22.SuspendLayout();
-            this.flowLayoutPanel23.SuspendLayout();
-            this.flowLayoutPanel24.SuspendLayout();
-            this.flowLayoutPanel25.SuspendLayout();
-            this.flowLayoutPanel26.SuspendLayout();
-            this.flowLayoutPanel27.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -228,36 +229,93 @@
             this.tabPageStatus.Text = "Status";
             this.tabPageStatus.UseVisualStyleBackColor = true;
             // 
-            // groupBoxWallpaper
+            // tableLayoutPanel1
             // 
-            this.groupBoxWallpaper.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxWallpaper.Controls.Add(this.panel7);
-            this.groupBoxWallpaper.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBoxWallpaper.Location = new System.Drawing.Point(3, 3);
-            this.groupBoxWallpaper.Name = "groupBoxWallpaper";
-            this.groupBoxWallpaper.Size = new System.Drawing.Size(238, 180);
-            this.groupBoxWallpaper.TabIndex = 0;
-            this.groupBoxWallpaper.TabStop = false;
-            this.groupBoxWallpaper.Text = "Wallpaper";
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.groupBoxPalette, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.groupBoxWallpaper, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.groupBox3, 1, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(612, 372);
+            this.tableLayoutPanel1.TabIndex = 1;
             // 
-            // panel7
+            // groupBox1
             // 
-            this.panel7.Controls.Add(this.pictureBoxWallpaper);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(3, 16);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(232, 161);
-            this.panel7.TabIndex = 0;
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.flowLayoutPanel4);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Location = new System.Drawing.Point(3, 189);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(238, 180);
+            this.groupBox1.TabIndex = 3;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Preview Functions";
             // 
-            // pictureBoxWallpaper
+            // flowLayoutPanel4
             // 
-            this.pictureBoxWallpaper.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBoxWallpaper.Location = new System.Drawing.Point(0, 0);
-            this.pictureBoxWallpaper.Name = "pictureBoxWallpaper";
-            this.pictureBoxWallpaper.Size = new System.Drawing.Size(232, 161);
-            this.pictureBoxWallpaper.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxWallpaper.TabIndex = 2;
-            this.pictureBoxWallpaper.TabStop = false;
+            this.flowLayoutPanel4.Controls.Add(this.buttonPreviewWallpaper);
+            this.flowLayoutPanel4.Controls.Add(this.label17);
+            this.flowLayoutPanel4.Controls.Add(this.buttonPreviewPalette);
+            this.flowLayoutPanel4.Controls.Add(this.label21);
+            this.flowLayoutPanel4.Controls.Add(this.button1);
+            this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel4.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 16);
+            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(232, 161);
+            this.flowLayoutPanel4.TabIndex = 2;
+            // 
+            // buttonPreviewWallpaper
+            // 
+            this.buttonPreviewWallpaper.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.buttonPreviewWallpaper.AutoSize = true;
+            this.buttonPreviewWallpaper.Location = new System.Drawing.Point(3, 3);
+            this.buttonPreviewWallpaper.Name = "buttonPreviewWallpaper";
+            this.buttonPreviewWallpaper.Size = new System.Drawing.Size(118, 23);
+            this.buttonPreviewWallpaper.TabIndex = 0;
+            this.buttonPreviewWallpaper.Text = "Preview Wallpaper";
+            this.buttonPreviewWallpaper.UseVisualStyleBackColor = true;
+            this.buttonPreviewWallpaper.Click += new System.EventHandler(this.buttonGetWallpaper_Click);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(3, 29);
+            this.label17.Margin = new System.Windows.Forms.Padding(3, 0, 3, 9);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(129, 13);
+            this.label17.TabIndex = 4;
+            this.label17.Text = "Fetches current wallpaper";
+            // 
+            // buttonPreviewPalette
+            // 
+            this.buttonPreviewPalette.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.buttonPreviewPalette.AutoSize = true;
+            this.buttonPreviewPalette.Location = new System.Drawing.Point(3, 54);
+            this.buttonPreviewPalette.Name = "buttonPreviewPalette";
+            this.buttonPreviewPalette.Size = new System.Drawing.Size(118, 23);
+            this.buttonPreviewPalette.TabIndex = 3;
+            this.buttonPreviewPalette.Text = "Preview Palette";
+            this.buttonPreviewPalette.UseVisualStyleBackColor = true;
+            this.buttonPreviewPalette.Click += new System.EventHandler(this.buttonGetPalette_Click);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(3, 80);
+            this.label21.Margin = new System.Windows.Forms.Padding(3, 0, 3, 9);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(211, 26);
+            this.label21.TabIndex = 5;
+            this.label21.Text = "Generates a palette based on the currently previewed wallpaper";
             // 
             // groupBoxPalette
             // 
@@ -270,6 +328,21 @@
             this.groupBoxPalette.TabIndex = 1;
             this.groupBoxPalette.TabStop = false;
             this.groupBoxPalette.Text = "Preview";
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Controls.Add(this.flowLayoutPanel2, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.flowLayoutPanel1, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 16);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(356, 161);
+            this.tableLayoutPanel2.TabIndex = 0;
             // 
             // flowLayoutPanel2
             // 
@@ -375,54 +448,644 @@
             this.paletteCurrentMd.Size = new System.Drawing.Size(40, 40);
             this.paletteCurrentMd.TabIndex = 5;
             // 
-            // groupBox1
+            // tableLayoutPanel4
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1.Controls.Add(this.flowLayoutPanel4);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(3, 189);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(238, 180);
-            this.groupBox1.TabIndex = 3;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Preview Functions";
+            this.tableLayoutPanel4.ColumnCount = 2;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Controls.Add(this.flowLayoutPanel18, 1, 2);
+            this.tableLayoutPanel4.Controls.Add(this.flowLayoutPanel17, 0, 2);
+            this.tableLayoutPanel4.Controls.Add(this.flowLayoutPanel16, 1, 1);
+            this.tableLayoutPanel4.Controls.Add(this.flowLayoutPanel15, 0, 1);
+            this.tableLayoutPanel4.Controls.Add(this.flowLayoutPanel7, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.flowLayoutPanel6, 0, 0);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 62);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 3;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(252, 79);
+            this.tableLayoutPanel4.TabIndex = 5;
             // 
-            // flowLayoutPanel4
+            // flowLayoutPanel18
             // 
-            this.flowLayoutPanel4.Controls.Add(this.buttonPreviewWallpaper);
-            this.flowLayoutPanel4.Controls.Add(this.label17);
-            this.flowLayoutPanel4.Controls.Add(this.buttonPreviewPalette);
-            this.flowLayoutPanel4.Controls.Add(this.label21);
-            this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel4.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 16);
-            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(232, 161);
-            this.flowLayoutPanel4.TabIndex = 2;
+            this.flowLayoutPanel18.Controls.Add(this.label22);
+            this.flowLayoutPanel18.Controls.Add(this.labelCurrentMdPop);
+            this.flowLayoutPanel18.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel18.Location = new System.Drawing.Point(129, 55);
+            this.flowLayoutPanel18.Name = "flowLayoutPanel18";
+            this.flowLayoutPanel18.Size = new System.Drawing.Size(120, 21);
+            this.flowLayoutPanel18.TabIndex = 6;
             // 
-            // buttonPreviewWallpaper
+            // label22
             // 
-            this.buttonPreviewWallpaper.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.buttonPreviewWallpaper.AutoSize = true;
-            this.buttonPreviewWallpaper.Location = new System.Drawing.Point(3, 3);
-            this.buttonPreviewWallpaper.Name = "buttonPreviewWallpaper";
-            this.buttonPreviewWallpaper.Size = new System.Drawing.Size(118, 23);
-            this.buttonPreviewWallpaper.TabIndex = 0;
-            this.buttonPreviewWallpaper.Text = "Preview Wallpaper";
-            this.buttonPreviewWallpaper.UseVisualStyleBackColor = true;
-            this.buttonPreviewWallpaper.Click += new System.EventHandler(this.buttonGetWallpaper_Click);
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(3, 0);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(27, 13);
+            this.label22.TabIndex = 0;
+            this.label22.Text = "DM:";
             // 
-            // buttonPreviewPalette
+            // labelCurrentMdPop
             // 
-            this.buttonPreviewPalette.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.buttonPreviewPalette.AutoSize = true;
-            this.buttonPreviewPalette.Location = new System.Drawing.Point(3, 54);
-            this.buttonPreviewPalette.Name = "buttonPreviewPalette";
-            this.buttonPreviewPalette.Size = new System.Drawing.Size(118, 23);
-            this.buttonPreviewPalette.TabIndex = 3;
-            this.buttonPreviewPalette.Text = "Preview Palette";
-            this.buttonPreviewPalette.UseVisualStyleBackColor = true;
-            this.buttonPreviewPalette.Click += new System.EventHandler(this.buttonGetPalette_Click);
+            this.labelCurrentMdPop.AutoSize = true;
+            this.labelCurrentMdPop.Location = new System.Drawing.Point(36, 0);
+            this.labelCurrentMdPop.Name = "labelCurrentMdPop";
+            this.labelCurrentMdPop.Size = new System.Drawing.Size(13, 13);
+            this.labelCurrentMdPop.TabIndex = 1;
+            this.labelCurrentMdPop.Text = "0";
+            // 
+            // flowLayoutPanel17
+            // 
+            this.flowLayoutPanel17.Controls.Add(this.label20);
+            this.flowLayoutPanel17.Controls.Add(this.labelCurrentVdPop);
+            this.flowLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel17.Location = new System.Drawing.Point(3, 55);
+            this.flowLayoutPanel17.Name = "flowLayoutPanel17";
+            this.flowLayoutPanel17.Size = new System.Drawing.Size(120, 21);
+            this.flowLayoutPanel17.TabIndex = 5;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(3, 0);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(25, 13);
+            this.label20.TabIndex = 0;
+            this.label20.Text = "DV:";
+            // 
+            // labelCurrentVdPop
+            // 
+            this.labelCurrentVdPop.AutoSize = true;
+            this.labelCurrentVdPop.Location = new System.Drawing.Point(34, 0);
+            this.labelCurrentVdPop.Name = "labelCurrentVdPop";
+            this.labelCurrentVdPop.Size = new System.Drawing.Size(13, 13);
+            this.labelCurrentVdPop.TabIndex = 1;
+            this.labelCurrentVdPop.Text = "0";
+            // 
+            // flowLayoutPanel16
+            // 
+            this.flowLayoutPanel16.Controls.Add(this.label18);
+            this.flowLayoutPanel16.Controls.Add(this.labelCurrentMlPop);
+            this.flowLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel16.Location = new System.Drawing.Point(129, 29);
+            this.flowLayoutPanel16.Name = "flowLayoutPanel16";
+            this.flowLayoutPanel16.Size = new System.Drawing.Size(120, 20);
+            this.flowLayoutPanel16.TabIndex = 4;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(3, 0);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(25, 13);
+            this.label18.TabIndex = 0;
+            this.label18.Text = "LM:";
+            // 
+            // labelCurrentMlPop
+            // 
+            this.labelCurrentMlPop.AutoSize = true;
+            this.labelCurrentMlPop.Location = new System.Drawing.Point(34, 0);
+            this.labelCurrentMlPop.Name = "labelCurrentMlPop";
+            this.labelCurrentMlPop.Size = new System.Drawing.Size(13, 13);
+            this.labelCurrentMlPop.TabIndex = 1;
+            this.labelCurrentMlPop.Text = "0";
+            // 
+            // flowLayoutPanel15
+            // 
+            this.flowLayoutPanel15.Controls.Add(this.label16);
+            this.flowLayoutPanel15.Controls.Add(this.labelCurrentVlPop);
+            this.flowLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel15.Location = new System.Drawing.Point(3, 29);
+            this.flowLayoutPanel15.Name = "flowLayoutPanel15";
+            this.flowLayoutPanel15.Size = new System.Drawing.Size(120, 20);
+            this.flowLayoutPanel15.TabIndex = 3;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(3, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(23, 13);
+            this.label16.TabIndex = 0;
+            this.label16.Text = "LV:";
+            // 
+            // labelCurrentVlPop
+            // 
+            this.labelCurrentVlPop.AutoSize = true;
+            this.labelCurrentVlPop.Location = new System.Drawing.Point(32, 0);
+            this.labelCurrentVlPop.Name = "labelCurrentVlPop";
+            this.labelCurrentVlPop.Size = new System.Drawing.Size(13, 13);
+            this.labelCurrentVlPop.TabIndex = 1;
+            this.labelCurrentVlPop.Text = "0";
+            // 
+            // flowLayoutPanel7
+            // 
+            this.flowLayoutPanel7.Controls.Add(this.label14);
+            this.flowLayoutPanel7.Controls.Add(this.labelCurrentMPop);
+            this.flowLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel7.Location = new System.Drawing.Point(129, 3);
+            this.flowLayoutPanel7.Name = "flowLayoutPanel7";
+            this.flowLayoutPanel7.Size = new System.Drawing.Size(120, 20);
+            this.flowLayoutPanel7.TabIndex = 2;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(3, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(19, 13);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "M:";
+            // 
+            // labelCurrentMPop
+            // 
+            this.labelCurrentMPop.AutoSize = true;
+            this.labelCurrentMPop.Location = new System.Drawing.Point(28, 0);
+            this.labelCurrentMPop.Name = "labelCurrentMPop";
+            this.labelCurrentMPop.Size = new System.Drawing.Size(13, 13);
+            this.labelCurrentMPop.TabIndex = 1;
+            this.labelCurrentMPop.Text = "0";
+            // 
+            // flowLayoutPanel6
+            // 
+            this.flowLayoutPanel6.Controls.Add(this.label12);
+            this.flowLayoutPanel6.Controls.Add(this.labelCurrentVPop);
+            this.flowLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel6.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel6.Name = "flowLayoutPanel6";
+            this.flowLayoutPanel6.Size = new System.Drawing.Size(120, 20);
+            this.flowLayoutPanel6.TabIndex = 1;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(3, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(17, 13);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "V:";
+            // 
+            // labelCurrentVPop
+            // 
+            this.labelCurrentVPop.AutoSize = true;
+            this.labelCurrentVPop.Location = new System.Drawing.Point(26, 0);
+            this.labelCurrentVPop.Name = "labelCurrentVPop";
+            this.labelCurrentVPop.Size = new System.Drawing.Size(13, 13);
+            this.labelCurrentVPop.TabIndex = 1;
+            this.labelCurrentVPop.Text = "0";
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.label11);
+            this.flowLayoutPanel1.Controls.Add(this.paletteCurrentD);
+            this.flowLayoutPanel1.Controls.Add(this.label2);
+            this.flowLayoutPanel1.Controls.Add(this.labelCurrentDPop);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(64, 155);
+            this.flowLayoutPanel1.TabIndex = 0;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(3, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(52, 13);
+            this.label11.TabIndex = 6;
+            this.label11.Text = "Dominant";
+            // 
+            // paletteCurrentD
+            // 
+            this.paletteCurrentD.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.paletteCurrentD.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.paletteCurrentD.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.paletteCurrentD.Location = new System.Drawing.Point(3, 16);
+            this.paletteCurrentD.Name = "paletteCurrentD";
+            this.paletteCurrentD.Size = new System.Drawing.Size(57, 57);
+            this.paletteCurrentD.TabIndex = 5;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 76);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(29, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Pop:";
+            // 
+            // labelCurrentDPop
+            // 
+            this.labelCurrentDPop.AutoSize = true;
+            this.labelCurrentDPop.Location = new System.Drawing.Point(3, 89);
+            this.labelCurrentDPop.Name = "labelCurrentDPop";
+            this.labelCurrentDPop.Size = new System.Drawing.Size(13, 13);
+            this.labelCurrentDPop.TabIndex = 8;
+            this.labelCurrentDPop.Text = "0";
+            // 
+            // groupBoxWallpaper
+            // 
+            this.groupBoxWallpaper.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxWallpaper.Controls.Add(this.panel7);
+            this.groupBoxWallpaper.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBoxWallpaper.Location = new System.Drawing.Point(3, 3);
+            this.groupBoxWallpaper.Name = "groupBoxWallpaper";
+            this.groupBoxWallpaper.Size = new System.Drawing.Size(238, 180);
+            this.groupBoxWallpaper.TabIndex = 0;
+            this.groupBoxWallpaper.TabStop = false;
+            this.groupBoxWallpaper.Text = "Wallpaper";
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.pictureBoxWallpaper);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel7.Location = new System.Drawing.Point(3, 16);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(232, 161);
+            this.panel7.TabIndex = 0;
+            // 
+            // pictureBoxWallpaper
+            // 
+            this.pictureBoxWallpaper.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBoxWallpaper.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxWallpaper.Name = "pictureBoxWallpaper";
+            this.pictureBoxWallpaper.Size = new System.Drawing.Size(232, 161);
+            this.pictureBoxWallpaper.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxWallpaper.TabIndex = 2;
+            this.pictureBoxWallpaper.TabStop = false;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.tableLayoutPanel5);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox3.Location = new System.Drawing.Point(247, 189);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(362, 180);
+            this.groupBox3.TabIndex = 4;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Last Sent";
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 2;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.Controls.Add(this.flowLayoutPanel19, 1, 0);
+            this.tableLayoutPanel5.Controls.Add(this.flowLayoutPanel27, 0, 0);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 16);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 1;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(356, 161);
+            this.tableLayoutPanel5.TabIndex = 1;
+            // 
+            // flowLayoutPanel19
+            // 
+            this.flowLayoutPanel19.AutoSize = true;
+            this.flowLayoutPanel19.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flowLayoutPanel19.Controls.Add(this.label13);
+            this.flowLayoutPanel19.Controls.Add(this.flowLayoutPanel20);
+            this.flowLayoutPanel19.Controls.Add(this.tableLayoutPanel6);
+            this.flowLayoutPanel19.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel19.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel19.Location = new System.Drawing.Point(73, 3);
+            this.flowLayoutPanel19.Name = "flowLayoutPanel19";
+            this.flowLayoutPanel19.Size = new System.Drawing.Size(280, 155);
+            this.flowLayoutPanel19.TabIndex = 0;
+            this.flowLayoutPanel19.WrapContents = false;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(3, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(40, 13);
+            this.label13.TabIndex = 4;
+            this.label13.Text = "Palette";
+            // 
+            // flowLayoutPanel20
+            // 
+            this.flowLayoutPanel20.Controls.Add(this.paletteLastV);
+            this.flowLayoutPanel20.Controls.Add(this.paletteLastVl);
+            this.flowLayoutPanel20.Controls.Add(this.paletteLastVd);
+            this.flowLayoutPanel20.Controls.Add(this.paletteLastM);
+            this.flowLayoutPanel20.Controls.Add(this.paletteLastMl);
+            this.flowLayoutPanel20.Controls.Add(this.paletteLastMd);
+            this.flowLayoutPanel20.Location = new System.Drawing.Point(3, 16);
+            this.flowLayoutPanel20.Name = "flowLayoutPanel20";
+            this.flowLayoutPanel20.Size = new System.Drawing.Size(252, 40);
+            this.flowLayoutPanel20.TabIndex = 2;
+            this.flowLayoutPanel20.WrapContents = false;
+            // 
+            // paletteLastV
+            // 
+            this.paletteLastV.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.paletteLastV.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.paletteLastV.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.paletteLastV.Location = new System.Drawing.Point(3, 0);
+            this.paletteLastV.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.paletteLastV.Name = "paletteLastV";
+            this.paletteLastV.Size = new System.Drawing.Size(40, 40);
+            this.paletteLastV.TabIndex = 0;
+            // 
+            // paletteLastVl
+            // 
+            this.paletteLastVl.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.paletteLastVl.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.paletteLastVl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.paletteLastVl.Location = new System.Drawing.Point(43, 0);
+            this.paletteLastVl.Margin = new System.Windows.Forms.Padding(0);
+            this.paletteLastVl.Name = "paletteLastVl";
+            this.paletteLastVl.Size = new System.Drawing.Size(40, 40);
+            this.paletteLastVl.TabIndex = 1;
+            // 
+            // paletteLastVd
+            // 
+            this.paletteLastVd.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.paletteLastVd.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.paletteLastVd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.paletteLastVd.Location = new System.Drawing.Point(83, 0);
+            this.paletteLastVd.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.paletteLastVd.Name = "paletteLastVd";
+            this.paletteLastVd.Size = new System.Drawing.Size(40, 40);
+            this.paletteLastVd.TabIndex = 2;
+            // 
+            // paletteLastM
+            // 
+            this.paletteLastM.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.paletteLastM.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.paletteLastM.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.paletteLastM.Location = new System.Drawing.Point(129, 0);
+            this.paletteLastM.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.paletteLastM.Name = "paletteLastM";
+            this.paletteLastM.Size = new System.Drawing.Size(40, 40);
+            this.paletteLastM.TabIndex = 3;
+            // 
+            // paletteLastMl
+            // 
+            this.paletteLastMl.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.paletteLastMl.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.paletteLastMl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.paletteLastMl.Location = new System.Drawing.Point(169, 0);
+            this.paletteLastMl.Margin = new System.Windows.Forms.Padding(0);
+            this.paletteLastMl.Name = "paletteLastMl";
+            this.paletteLastMl.Size = new System.Drawing.Size(40, 40);
+            this.paletteLastMl.TabIndex = 4;
+            // 
+            // paletteLastMd
+            // 
+            this.paletteLastMd.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.paletteLastMd.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.paletteLastMd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.paletteLastMd.Location = new System.Drawing.Point(209, 0);
+            this.paletteLastMd.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.paletteLastMd.Name = "paletteLastMd";
+            this.paletteLastMd.Size = new System.Drawing.Size(40, 40);
+            this.paletteLastMd.TabIndex = 5;
+            // 
+            // tableLayoutPanel6
+            // 
+            this.tableLayoutPanel6.ColumnCount = 2;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.Controls.Add(this.flowLayoutPanel21, 1, 2);
+            this.tableLayoutPanel6.Controls.Add(this.flowLayoutPanel22, 0, 2);
+            this.tableLayoutPanel6.Controls.Add(this.flowLayoutPanel23, 1, 1);
+            this.tableLayoutPanel6.Controls.Add(this.flowLayoutPanel24, 0, 1);
+            this.tableLayoutPanel6.Controls.Add(this.flowLayoutPanel25, 1, 0);
+            this.tableLayoutPanel6.Controls.Add(this.flowLayoutPanel26, 0, 0);
+            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 62);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 3;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(252, 79);
+            this.tableLayoutPanel6.TabIndex = 5;
+            // 
+            // flowLayoutPanel21
+            // 
+            this.flowLayoutPanel21.Controls.Add(this.label15);
+            this.flowLayoutPanel21.Controls.Add(this.labelLastMdPop);
+            this.flowLayoutPanel21.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel21.Location = new System.Drawing.Point(129, 55);
+            this.flowLayoutPanel21.Name = "flowLayoutPanel21";
+            this.flowLayoutPanel21.Size = new System.Drawing.Size(120, 21);
+            this.flowLayoutPanel21.TabIndex = 6;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(3, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(27, 13);
+            this.label15.TabIndex = 0;
+            this.label15.Text = "DM:";
+            // 
+            // labelLastMdPop
+            // 
+            this.labelLastMdPop.AutoSize = true;
+            this.labelLastMdPop.Location = new System.Drawing.Point(36, 0);
+            this.labelLastMdPop.Name = "labelLastMdPop";
+            this.labelLastMdPop.Size = new System.Drawing.Size(13, 13);
+            this.labelLastMdPop.TabIndex = 1;
+            this.labelLastMdPop.Text = "0";
+            // 
+            // flowLayoutPanel22
+            // 
+            this.flowLayoutPanel22.Controls.Add(this.label19);
+            this.flowLayoutPanel22.Controls.Add(this.labelLastVdPop);
+            this.flowLayoutPanel22.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel22.Location = new System.Drawing.Point(3, 55);
+            this.flowLayoutPanel22.Name = "flowLayoutPanel22";
+            this.flowLayoutPanel22.Size = new System.Drawing.Size(120, 21);
+            this.flowLayoutPanel22.TabIndex = 5;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(3, 0);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(25, 13);
+            this.label19.TabIndex = 0;
+            this.label19.Text = "DV:";
+            // 
+            // labelLastVdPop
+            // 
+            this.labelLastVdPop.AutoSize = true;
+            this.labelLastVdPop.Location = new System.Drawing.Point(34, 0);
+            this.labelLastVdPop.Name = "labelLastVdPop";
+            this.labelLastVdPop.Size = new System.Drawing.Size(13, 13);
+            this.labelLastVdPop.TabIndex = 1;
+            this.labelLastVdPop.Text = "0";
+            // 
+            // flowLayoutPanel23
+            // 
+            this.flowLayoutPanel23.Controls.Add(this.label23);
+            this.flowLayoutPanel23.Controls.Add(this.labelLastMlPop);
+            this.flowLayoutPanel23.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel23.Location = new System.Drawing.Point(129, 29);
+            this.flowLayoutPanel23.Name = "flowLayoutPanel23";
+            this.flowLayoutPanel23.Size = new System.Drawing.Size(120, 20);
+            this.flowLayoutPanel23.TabIndex = 4;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(3, 0);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(25, 13);
+            this.label23.TabIndex = 0;
+            this.label23.Text = "LM:";
+            // 
+            // labelLastMlPop
+            // 
+            this.labelLastMlPop.AutoSize = true;
+            this.labelLastMlPop.Location = new System.Drawing.Point(34, 0);
+            this.labelLastMlPop.Name = "labelLastMlPop";
+            this.labelLastMlPop.Size = new System.Drawing.Size(13, 13);
+            this.labelLastMlPop.TabIndex = 1;
+            this.labelLastMlPop.Text = "0";
+            // 
+            // flowLayoutPanel24
+            // 
+            this.flowLayoutPanel24.Controls.Add(this.label25);
+            this.flowLayoutPanel24.Controls.Add(this.labelLastVlPop);
+            this.flowLayoutPanel24.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel24.Location = new System.Drawing.Point(3, 29);
+            this.flowLayoutPanel24.Name = "flowLayoutPanel24";
+            this.flowLayoutPanel24.Size = new System.Drawing.Size(120, 20);
+            this.flowLayoutPanel24.TabIndex = 3;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(3, 0);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(23, 13);
+            this.label25.TabIndex = 0;
+            this.label25.Text = "LV:";
+            // 
+            // labelLastVlPop
+            // 
+            this.labelLastVlPop.AutoSize = true;
+            this.labelLastVlPop.Location = new System.Drawing.Point(32, 0);
+            this.labelLastVlPop.Name = "labelLastVlPop";
+            this.labelLastVlPop.Size = new System.Drawing.Size(13, 13);
+            this.labelLastVlPop.TabIndex = 1;
+            this.labelLastVlPop.Text = "0";
+            // 
+            // flowLayoutPanel25
+            // 
+            this.flowLayoutPanel25.Controls.Add(this.label27);
+            this.flowLayoutPanel25.Controls.Add(this.labelLastMPop);
+            this.flowLayoutPanel25.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel25.Location = new System.Drawing.Point(129, 3);
+            this.flowLayoutPanel25.Name = "flowLayoutPanel25";
+            this.flowLayoutPanel25.Size = new System.Drawing.Size(120, 20);
+            this.flowLayoutPanel25.TabIndex = 2;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(3, 0);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(19, 13);
+            this.label27.TabIndex = 0;
+            this.label27.Text = "M:";
+            // 
+            // labelLastMPop
+            // 
+            this.labelLastMPop.AutoSize = true;
+            this.labelLastMPop.Location = new System.Drawing.Point(28, 0);
+            this.labelLastMPop.Name = "labelLastMPop";
+            this.labelLastMPop.Size = new System.Drawing.Size(13, 13);
+            this.labelLastMPop.TabIndex = 1;
+            this.labelLastMPop.Text = "0";
+            // 
+            // flowLayoutPanel26
+            // 
+            this.flowLayoutPanel26.Controls.Add(this.label29);
+            this.flowLayoutPanel26.Controls.Add(this.labelLastVPop);
+            this.flowLayoutPanel26.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel26.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel26.Name = "flowLayoutPanel26";
+            this.flowLayoutPanel26.Size = new System.Drawing.Size(120, 20);
+            this.flowLayoutPanel26.TabIndex = 1;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(3, 0);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(17, 13);
+            this.label29.TabIndex = 0;
+            this.label29.Text = "V:";
+            // 
+            // labelLastVPop
+            // 
+            this.labelLastVPop.AutoSize = true;
+            this.labelLastVPop.Location = new System.Drawing.Point(26, 0);
+            this.labelLastVPop.Name = "labelLastVPop";
+            this.labelLastVPop.Size = new System.Drawing.Size(13, 13);
+            this.labelLastVPop.TabIndex = 1;
+            this.labelLastVPop.Text = "0";
+            // 
+            // flowLayoutPanel27
+            // 
+            this.flowLayoutPanel27.Controls.Add(this.label31);
+            this.flowLayoutPanel27.Controls.Add(this.paletteLastD);
+            this.flowLayoutPanel27.Controls.Add(this.label32);
+            this.flowLayoutPanel27.Controls.Add(this.labelLastDPop);
+            this.flowLayoutPanel27.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel27.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel27.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel27.Name = "flowLayoutPanel27";
+            this.flowLayoutPanel27.Size = new System.Drawing.Size(64, 155);
+            this.flowLayoutPanel27.TabIndex = 0;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(3, 0);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(52, 13);
+            this.label31.TabIndex = 6;
+            this.label31.Text = "Dominant";
+            // 
+            // paletteLastD
+            // 
+            this.paletteLastD.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.paletteLastD.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.paletteLastD.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.paletteLastD.Location = new System.Drawing.Point(3, 16);
+            this.paletteLastD.Name = "paletteLastD";
+            this.paletteLastD.Size = new System.Drawing.Size(57, 57);
+            this.paletteLastD.TabIndex = 5;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(3, 76);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(29, 13);
+            this.label32.TabIndex = 7;
+            this.label32.Text = "Pop:";
+            // 
+            // labelLastDPop
+            // 
+            this.labelLastDPop.AutoSize = true;
+            this.labelLastDPop.Location = new System.Drawing.Point(3, 89);
+            this.labelLastDPop.Name = "labelLastDPop";
+            this.labelLastDPop.Size = new System.Drawing.Size(13, 13);
+            this.labelLastDPop.TabIndex = 8;
+            this.labelLastDPop.Text = "0";
             // 
             // tabPageConfig
             // 
@@ -870,666 +1533,17 @@
             this.statusIndicator.Name = "statusIndicator";
             this.statusIndicator.Size = new System.Drawing.Size(0, 17);
             // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.groupBoxPalette, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.groupBoxWallpaper, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.groupBox3, 1, 1);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(612, 372);
-            this.tableLayoutPanel1.TabIndex = 1;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.tableLayoutPanel5);
-            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox3.Location = new System.Drawing.Point(247, 189);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(362, 180);
-            this.groupBox3.TabIndex = 4;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Last Sent";
-            // 
-            // paletteCurrentD
-            // 
-            this.paletteCurrentD.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.paletteCurrentD.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.paletteCurrentD.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.paletteCurrentD.Location = new System.Drawing.Point(3, 16);
-            this.paletteCurrentD.Name = "paletteCurrentD";
-            this.paletteCurrentD.Size = new System.Drawing.Size(57, 57);
-            this.paletteCurrentD.TabIndex = 5;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(3, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(52, 13);
-            this.label11.TabIndex = 6;
-            this.label11.Text = "Dominant";
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.flowLayoutPanel2, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.flowLayoutPanel1, 0, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 16);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(356, 161);
-            this.tableLayoutPanel2.TabIndex = 0;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Controls.Add(this.label11);
-            this.flowLayoutPanel1.Controls.Add(this.paletteCurrentD);
-            this.flowLayoutPanel1.Controls.Add(this.label2);
-            this.flowLayoutPanel1.Controls.Add(this.labelCurrentDPop);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(64, 155);
-            this.flowLayoutPanel1.TabIndex = 0;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 76);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 13);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Pop:";
-            // 
-            // labelCurrentDPop
-            // 
-            this.labelCurrentDPop.AutoSize = true;
-            this.labelCurrentDPop.Location = new System.Drawing.Point(3, 89);
-            this.labelCurrentDPop.Name = "labelCurrentDPop";
-            this.labelCurrentDPop.Size = new System.Drawing.Size(13, 13);
-            this.labelCurrentDPop.TabIndex = 8;
-            this.labelCurrentDPop.Text = "0";
-            // 
-            // tableLayoutPanel4
-            // 
-            this.tableLayoutPanel4.ColumnCount = 2;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Controls.Add(this.flowLayoutPanel18, 1, 2);
-            this.tableLayoutPanel4.Controls.Add(this.flowLayoutPanel17, 0, 2);
-            this.tableLayoutPanel4.Controls.Add(this.flowLayoutPanel16, 1, 1);
-            this.tableLayoutPanel4.Controls.Add(this.flowLayoutPanel15, 0, 1);
-            this.tableLayoutPanel4.Controls.Add(this.flowLayoutPanel7, 1, 0);
-            this.tableLayoutPanel4.Controls.Add(this.flowLayoutPanel6, 0, 0);
-            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 62);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 3;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(252, 79);
-            this.tableLayoutPanel4.TabIndex = 5;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(3, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(17, 13);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "V:";
-            // 
-            // flowLayoutPanel6
-            // 
-            this.flowLayoutPanel6.Controls.Add(this.label12);
-            this.flowLayoutPanel6.Controls.Add(this.labelCurrentVPop);
-            this.flowLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel6.Location = new System.Drawing.Point(3, 3);
-            this.flowLayoutPanel6.Name = "flowLayoutPanel6";
-            this.flowLayoutPanel6.Size = new System.Drawing.Size(120, 20);
-            this.flowLayoutPanel6.TabIndex = 1;
-            // 
-            // labelCurrentVPop
-            // 
-            this.labelCurrentVPop.AutoSize = true;
-            this.labelCurrentVPop.Location = new System.Drawing.Point(26, 0);
-            this.labelCurrentVPop.Name = "labelCurrentVPop";
-            this.labelCurrentVPop.Size = new System.Drawing.Size(13, 13);
-            this.labelCurrentVPop.TabIndex = 1;
-            this.labelCurrentVPop.Text = "0";
-            // 
-            // flowLayoutPanel7
-            // 
-            this.flowLayoutPanel7.Controls.Add(this.label14);
-            this.flowLayoutPanel7.Controls.Add(this.labelCurrentMPop);
-            this.flowLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel7.Location = new System.Drawing.Point(129, 3);
-            this.flowLayoutPanel7.Name = "flowLayoutPanel7";
-            this.flowLayoutPanel7.Size = new System.Drawing.Size(120, 20);
-            this.flowLayoutPanel7.TabIndex = 2;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(3, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(19, 13);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "M:";
-            // 
-            // labelCurrentMPop
-            // 
-            this.labelCurrentMPop.AutoSize = true;
-            this.labelCurrentMPop.Location = new System.Drawing.Point(28, 0);
-            this.labelCurrentMPop.Name = "labelCurrentMPop";
-            this.labelCurrentMPop.Size = new System.Drawing.Size(13, 13);
-            this.labelCurrentMPop.TabIndex = 1;
-            this.labelCurrentMPop.Text = "0";
-            // 
-            // flowLayoutPanel15
-            // 
-            this.flowLayoutPanel15.Controls.Add(this.label16);
-            this.flowLayoutPanel15.Controls.Add(this.labelCurrentVlPop);
-            this.flowLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel15.Location = new System.Drawing.Point(3, 29);
-            this.flowLayoutPanel15.Name = "flowLayoutPanel15";
-            this.flowLayoutPanel15.Size = new System.Drawing.Size(120, 20);
-            this.flowLayoutPanel15.TabIndex = 3;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(3, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(23, 13);
-            this.label16.TabIndex = 0;
-            this.label16.Text = "VL:";
-            // 
-            // labelCurrentVlPop
-            // 
-            this.labelCurrentVlPop.AutoSize = true;
-            this.labelCurrentVlPop.Location = new System.Drawing.Point(32, 0);
-            this.labelCurrentVlPop.Name = "labelCurrentVlPop";
-            this.labelCurrentVlPop.Size = new System.Drawing.Size(13, 13);
-            this.labelCurrentVlPop.TabIndex = 1;
-            this.labelCurrentVlPop.Text = "0";
-            // 
-            // flowLayoutPanel16
-            // 
-            this.flowLayoutPanel16.Controls.Add(this.label18);
-            this.flowLayoutPanel16.Controls.Add(this.labelCurrentMlPop);
-            this.flowLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel16.Location = new System.Drawing.Point(129, 29);
-            this.flowLayoutPanel16.Name = "flowLayoutPanel16";
-            this.flowLayoutPanel16.Size = new System.Drawing.Size(120, 20);
-            this.flowLayoutPanel16.TabIndex = 4;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(3, 0);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(25, 13);
-            this.label18.TabIndex = 0;
-            this.label18.Text = "ML:";
-            // 
-            // labelCurrentMlPop
-            // 
-            this.labelCurrentMlPop.AutoSize = true;
-            this.labelCurrentMlPop.Location = new System.Drawing.Point(34, 0);
-            this.labelCurrentMlPop.Name = "labelCurrentMlPop";
-            this.labelCurrentMlPop.Size = new System.Drawing.Size(13, 13);
-            this.labelCurrentMlPop.TabIndex = 1;
-            this.labelCurrentMlPop.Text = "0";
-            // 
-            // flowLayoutPanel17
-            // 
-            this.flowLayoutPanel17.Controls.Add(this.label20);
-            this.flowLayoutPanel17.Controls.Add(this.labelCurrentVdPop);
-            this.flowLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel17.Location = new System.Drawing.Point(3, 55);
-            this.flowLayoutPanel17.Name = "flowLayoutPanel17";
-            this.flowLayoutPanel17.Size = new System.Drawing.Size(120, 21);
-            this.flowLayoutPanel17.TabIndex = 5;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(3, 0);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(25, 13);
-            this.label20.TabIndex = 0;
-            this.label20.Text = "VD:";
-            // 
-            // labelCurrentVdPop
-            // 
-            this.labelCurrentVdPop.AutoSize = true;
-            this.labelCurrentVdPop.Location = new System.Drawing.Point(34, 0);
-            this.labelCurrentVdPop.Name = "labelCurrentVdPop";
-            this.labelCurrentVdPop.Size = new System.Drawing.Size(13, 13);
-            this.labelCurrentVdPop.TabIndex = 1;
-            this.labelCurrentVdPop.Text = "0";
-            // 
-            // flowLayoutPanel18
-            // 
-            this.flowLayoutPanel18.Controls.Add(this.label22);
-            this.flowLayoutPanel18.Controls.Add(this.labelCurrentMdPop);
-            this.flowLayoutPanel18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel18.Location = new System.Drawing.Point(129, 55);
-            this.flowLayoutPanel18.Name = "flowLayoutPanel18";
-            this.flowLayoutPanel18.Size = new System.Drawing.Size(120, 21);
-            this.flowLayoutPanel18.TabIndex = 6;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(3, 0);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(27, 13);
-            this.label22.TabIndex = 0;
-            this.label22.Text = "MD:";
-            // 
-            // labelCurrentMdPop
-            // 
-            this.labelCurrentMdPop.AutoSize = true;
-            this.labelCurrentMdPop.Location = new System.Drawing.Point(36, 0);
-            this.labelCurrentMdPop.Name = "labelCurrentMdPop";
-            this.labelCurrentMdPop.Size = new System.Drawing.Size(13, 13);
-            this.labelCurrentMdPop.TabIndex = 1;
-            this.labelCurrentMdPop.Text = "0";
-            // 
-            // tableLayoutPanel5
-            // 
-            this.tableLayoutPanel5.ColumnCount = 2;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Controls.Add(this.flowLayoutPanel19, 1, 0);
-            this.tableLayoutPanel5.Controls.Add(this.flowLayoutPanel27, 0, 0);
-            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 16);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 1;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(356, 161);
-            this.tableLayoutPanel5.TabIndex = 1;
-            // 
-            // flowLayoutPanel19
-            // 
-            this.flowLayoutPanel19.AutoSize = true;
-            this.flowLayoutPanel19.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flowLayoutPanel19.Controls.Add(this.label13);
-            this.flowLayoutPanel19.Controls.Add(this.flowLayoutPanel20);
-            this.flowLayoutPanel19.Controls.Add(this.tableLayoutPanel6);
-            this.flowLayoutPanel19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel19.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel19.Location = new System.Drawing.Point(73, 3);
-            this.flowLayoutPanel19.Name = "flowLayoutPanel19";
-            this.flowLayoutPanel19.Size = new System.Drawing.Size(280, 155);
-            this.flowLayoutPanel19.TabIndex = 0;
-            this.flowLayoutPanel19.WrapContents = false;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(3, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(40, 13);
-            this.label13.TabIndex = 4;
-            this.label13.Text = "Palette";
-            // 
-            // flowLayoutPanel20
-            // 
-            this.flowLayoutPanel20.Controls.Add(this.paletteLastV);
-            this.flowLayoutPanel20.Controls.Add(this.paletteLastVl);
-            this.flowLayoutPanel20.Controls.Add(this.paletteLastVd);
-            this.flowLayoutPanel20.Controls.Add(this.paletteLastM);
-            this.flowLayoutPanel20.Controls.Add(this.paletteLastMl);
-            this.flowLayoutPanel20.Controls.Add(this.paletteLastMd);
-            this.flowLayoutPanel20.Location = new System.Drawing.Point(3, 16);
-            this.flowLayoutPanel20.Name = "flowLayoutPanel20";
-            this.flowLayoutPanel20.Size = new System.Drawing.Size(252, 40);
-            this.flowLayoutPanel20.TabIndex = 2;
-            this.flowLayoutPanel20.WrapContents = false;
-            // 
-            // paletteLastV
-            // 
-            this.paletteLastV.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.paletteLastV.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.paletteLastV.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.paletteLastV.Location = new System.Drawing.Point(3, 0);
-            this.paletteLastV.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.paletteLastV.Name = "paletteLastV";
-            this.paletteLastV.Size = new System.Drawing.Size(40, 40);
-            this.paletteLastV.TabIndex = 0;
-            // 
-            // paletteLastVl
-            // 
-            this.paletteLastVl.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.paletteLastVl.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.paletteLastVl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.paletteLastVl.Location = new System.Drawing.Point(43, 0);
-            this.paletteLastVl.Margin = new System.Windows.Forms.Padding(0);
-            this.paletteLastVl.Name = "paletteLastVl";
-            this.paletteLastVl.Size = new System.Drawing.Size(40, 40);
-            this.paletteLastVl.TabIndex = 1;
-            // 
-            // paletteLastVd
-            // 
-            this.paletteLastVd.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.paletteLastVd.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.paletteLastVd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.paletteLastVd.Location = new System.Drawing.Point(83, 0);
-            this.paletteLastVd.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.paletteLastVd.Name = "paletteLastVd";
-            this.paletteLastVd.Size = new System.Drawing.Size(40, 40);
-            this.paletteLastVd.TabIndex = 2;
-            // 
-            // paletteLastM
-            // 
-            this.paletteLastM.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.paletteLastM.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.paletteLastM.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.paletteLastM.Location = new System.Drawing.Point(129, 0);
-            this.paletteLastM.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.paletteLastM.Name = "paletteLastM";
-            this.paletteLastM.Size = new System.Drawing.Size(40, 40);
-            this.paletteLastM.TabIndex = 3;
-            // 
-            // paletteLastMl
-            // 
-            this.paletteLastMl.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.paletteLastMl.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.paletteLastMl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.paletteLastMl.Location = new System.Drawing.Point(169, 0);
-            this.paletteLastMl.Margin = new System.Windows.Forms.Padding(0);
-            this.paletteLastMl.Name = "paletteLastMl";
-            this.paletteLastMl.Size = new System.Drawing.Size(40, 40);
-            this.paletteLastMl.TabIndex = 4;
-            // 
-            // paletteLastMd
-            // 
-            this.paletteLastMd.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.paletteLastMd.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.paletteLastMd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.paletteLastMd.Location = new System.Drawing.Point(209, 0);
-            this.paletteLastMd.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.paletteLastMd.Name = "paletteLastMd";
-            this.paletteLastMd.Size = new System.Drawing.Size(40, 40);
-            this.paletteLastMd.TabIndex = 5;
-            // 
-            // tableLayoutPanel6
-            // 
-            this.tableLayoutPanel6.ColumnCount = 2;
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Controls.Add(this.flowLayoutPanel21, 1, 2);
-            this.tableLayoutPanel6.Controls.Add(this.flowLayoutPanel22, 0, 2);
-            this.tableLayoutPanel6.Controls.Add(this.flowLayoutPanel23, 1, 1);
-            this.tableLayoutPanel6.Controls.Add(this.flowLayoutPanel24, 0, 1);
-            this.tableLayoutPanel6.Controls.Add(this.flowLayoutPanel25, 1, 0);
-            this.tableLayoutPanel6.Controls.Add(this.flowLayoutPanel26, 0, 0);
-            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 62);
-            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.RowCount = 3;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(252, 79);
-            this.tableLayoutPanel6.TabIndex = 5;
-            // 
-            // flowLayoutPanel21
-            // 
-            this.flowLayoutPanel21.Controls.Add(this.label15);
-            this.flowLayoutPanel21.Controls.Add(this.labelLastMdPop);
-            this.flowLayoutPanel21.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel21.Location = new System.Drawing.Point(129, 55);
-            this.flowLayoutPanel21.Name = "flowLayoutPanel21";
-            this.flowLayoutPanel21.Size = new System.Drawing.Size(120, 21);
-            this.flowLayoutPanel21.TabIndex = 6;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(3, 0);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(27, 13);
-            this.label15.TabIndex = 0;
-            this.label15.Text = "MD:";
-            // 
-            // labelLastMdPop
-            // 
-            this.labelLastMdPop.AutoSize = true;
-            this.labelLastMdPop.Location = new System.Drawing.Point(36, 0);
-            this.labelLastMdPop.Name = "labelLastMdPop";
-            this.labelLastMdPop.Size = new System.Drawing.Size(13, 13);
-            this.labelLastMdPop.TabIndex = 1;
-            this.labelLastMdPop.Text = "0";
-            // 
-            // flowLayoutPanel22
-            // 
-            this.flowLayoutPanel22.Controls.Add(this.label19);
-            this.flowLayoutPanel22.Controls.Add(this.labelLastVdPop);
-            this.flowLayoutPanel22.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel22.Location = new System.Drawing.Point(3, 55);
-            this.flowLayoutPanel22.Name = "flowLayoutPanel22";
-            this.flowLayoutPanel22.Size = new System.Drawing.Size(120, 21);
-            this.flowLayoutPanel22.TabIndex = 5;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(3, 0);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(25, 13);
-            this.label19.TabIndex = 0;
-            this.label19.Text = "VD:";
-            // 
-            // labelLastVdPop
-            // 
-            this.labelLastVdPop.AutoSize = true;
-            this.labelLastVdPop.Location = new System.Drawing.Point(34, 0);
-            this.labelLastVdPop.Name = "labelLastVdPop";
-            this.labelLastVdPop.Size = new System.Drawing.Size(13, 13);
-            this.labelLastVdPop.TabIndex = 1;
-            this.labelLastVdPop.Text = "0";
-            // 
-            // flowLayoutPanel23
-            // 
-            this.flowLayoutPanel23.Controls.Add(this.label23);
-            this.flowLayoutPanel23.Controls.Add(this.labelLastMlPop);
-            this.flowLayoutPanel23.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel23.Location = new System.Drawing.Point(129, 29);
-            this.flowLayoutPanel23.Name = "flowLayoutPanel23";
-            this.flowLayoutPanel23.Size = new System.Drawing.Size(120, 20);
-            this.flowLayoutPanel23.TabIndex = 4;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(3, 0);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(25, 13);
-            this.label23.TabIndex = 0;
-            this.label23.Text = "ML:";
-            // 
-            // labelLastMlPop
-            // 
-            this.labelLastMlPop.AutoSize = true;
-            this.labelLastMlPop.Location = new System.Drawing.Point(34, 0);
-            this.labelLastMlPop.Name = "labelLastMlPop";
-            this.labelLastMlPop.Size = new System.Drawing.Size(13, 13);
-            this.labelLastMlPop.TabIndex = 1;
-            this.labelLastMlPop.Text = "0";
-            // 
-            // flowLayoutPanel24
-            // 
-            this.flowLayoutPanel24.Controls.Add(this.label25);
-            this.flowLayoutPanel24.Controls.Add(this.labelLastVlPop);
-            this.flowLayoutPanel24.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel24.Location = new System.Drawing.Point(3, 29);
-            this.flowLayoutPanel24.Name = "flowLayoutPanel24";
-            this.flowLayoutPanel24.Size = new System.Drawing.Size(120, 20);
-            this.flowLayoutPanel24.TabIndex = 3;
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(3, 0);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(23, 13);
-            this.label25.TabIndex = 0;
-            this.label25.Text = "VL:";
-            // 
-            // labelLastVlPop
-            // 
-            this.labelLastVlPop.AutoSize = true;
-            this.labelLastVlPop.Location = new System.Drawing.Point(32, 0);
-            this.labelLastVlPop.Name = "labelLastVlPop";
-            this.labelLastVlPop.Size = new System.Drawing.Size(13, 13);
-            this.labelLastVlPop.TabIndex = 1;
-            this.labelLastVlPop.Text = "0";
-            // 
-            // flowLayoutPanel25
-            // 
-            this.flowLayoutPanel25.Controls.Add(this.label27);
-            this.flowLayoutPanel25.Controls.Add(this.labelLastMPop);
-            this.flowLayoutPanel25.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel25.Location = new System.Drawing.Point(129, 3);
-            this.flowLayoutPanel25.Name = "flowLayoutPanel25";
-            this.flowLayoutPanel25.Size = new System.Drawing.Size(120, 20);
-            this.flowLayoutPanel25.TabIndex = 2;
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(3, 0);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(19, 13);
-            this.label27.TabIndex = 0;
-            this.label27.Text = "M:";
-            // 
-            // labelLastMPop
-            // 
-            this.labelLastMPop.AutoSize = true;
-            this.labelLastMPop.Location = new System.Drawing.Point(28, 0);
-            this.labelLastMPop.Name = "labelLastMPop";
-            this.labelLastMPop.Size = new System.Drawing.Size(13, 13);
-            this.labelLastMPop.TabIndex = 1;
-            this.labelLastMPop.Text = "0";
-            // 
-            // flowLayoutPanel26
-            // 
-            this.flowLayoutPanel26.Controls.Add(this.label29);
-            this.flowLayoutPanel26.Controls.Add(this.labelLastVPop);
-            this.flowLayoutPanel26.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel26.Location = new System.Drawing.Point(3, 3);
-            this.flowLayoutPanel26.Name = "flowLayoutPanel26";
-            this.flowLayoutPanel26.Size = new System.Drawing.Size(120, 20);
-            this.flowLayoutPanel26.TabIndex = 1;
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(3, 0);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(17, 13);
-            this.label29.TabIndex = 0;
-            this.label29.Text = "V:";
-            // 
-            // labelLastVPop
-            // 
-            this.labelLastVPop.AutoSize = true;
-            this.labelLastVPop.Location = new System.Drawing.Point(26, 0);
-            this.labelLastVPop.Name = "labelLastVPop";
-            this.labelLastVPop.Size = new System.Drawing.Size(13, 13);
-            this.labelLastVPop.TabIndex = 1;
-            this.labelLastVPop.Text = "0";
-            // 
-            // flowLayoutPanel27
-            // 
-            this.flowLayoutPanel27.Controls.Add(this.label31);
-            this.flowLayoutPanel27.Controls.Add(this.paletteLastD);
-            this.flowLayoutPanel27.Controls.Add(this.label32);
-            this.flowLayoutPanel27.Controls.Add(this.labelLastDPop);
-            this.flowLayoutPanel27.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel27.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel27.Location = new System.Drawing.Point(3, 3);
-            this.flowLayoutPanel27.Name = "flowLayoutPanel27";
-            this.flowLayoutPanel27.Size = new System.Drawing.Size(64, 155);
-            this.flowLayoutPanel27.TabIndex = 0;
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(3, 0);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(52, 13);
-            this.label31.TabIndex = 6;
-            this.label31.Text = "Dominant";
-            // 
-            // paletteLastD
-            // 
-            this.paletteLastD.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.paletteLastD.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.paletteLastD.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.paletteLastD.Location = new System.Drawing.Point(3, 16);
-            this.paletteLastD.Name = "paletteLastD";
-            this.paletteLastD.Size = new System.Drawing.Size(57, 57);
-            this.paletteLastD.TabIndex = 5;
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(3, 76);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(29, 13);
-            this.label32.TabIndex = 7;
-            this.label32.Text = "Pop:";
-            // 
-            // labelLastDPop
-            // 
-            this.labelLastDPop.AutoSize = true;
-            this.labelLastDPop.Location = new System.Drawing.Point(3, 89);
-            this.labelLastDPop.Name = "labelLastDPop";
-            this.labelLastDPop.Size = new System.Drawing.Size(13, 13);
-            this.labelLastDPop.TabIndex = 8;
-            this.labelLastDPop.Text = "0";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(3, 29);
-            this.label17.Margin = new System.Windows.Forms.Padding(3, 0, 3, 9);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(129, 13);
-            this.label17.TabIndex = 4;
-            this.label17.Text = "Fetches current wallpaper";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(3, 80);
-            this.label21.Margin = new System.Windows.Forms.Padding(3, 0, 3, 9);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(211, 26);
-            this.label21.TabIndex = 5;
-            this.label21.Text = "Generates a palette based on the currently previewed wallpaper";
+            // button1
+            // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.button1.AutoSize = true;
+            this.button1.Location = new System.Drawing.Point(3, 118);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(118, 23);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Save Palette";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // ConfigForm
             // 
@@ -1546,16 +1560,55 @@
             this.Text = "Marble Manager - Config";
             this.tabControl1.ResumeLayout(false);
             this.tabPageStatus.ResumeLayout(false);
-            this.groupBoxWallpaper.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWallpaper)).EndInit();
-            this.groupBoxPalette.ResumeLayout(false);
-            this.flowLayoutPanel2.ResumeLayout(false);
-            this.flowLayoutPanel2.PerformLayout();
-            this.flowLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.flowLayoutPanel4.ResumeLayout(false);
             this.flowLayoutPanel4.PerformLayout();
+            this.groupBoxPalette.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
+            this.flowLayoutPanel2.ResumeLayout(false);
+            this.flowLayoutPanel2.PerformLayout();
+            this.flowLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.flowLayoutPanel18.ResumeLayout(false);
+            this.flowLayoutPanel18.PerformLayout();
+            this.flowLayoutPanel17.ResumeLayout(false);
+            this.flowLayoutPanel17.PerformLayout();
+            this.flowLayoutPanel16.ResumeLayout(false);
+            this.flowLayoutPanel16.PerformLayout();
+            this.flowLayoutPanel15.ResumeLayout(false);
+            this.flowLayoutPanel15.PerformLayout();
+            this.flowLayoutPanel7.ResumeLayout(false);
+            this.flowLayoutPanel7.PerformLayout();
+            this.flowLayoutPanel6.ResumeLayout(false);
+            this.flowLayoutPanel6.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
+            this.groupBoxWallpaper.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWallpaper)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel5.PerformLayout();
+            this.flowLayoutPanel19.ResumeLayout(false);
+            this.flowLayoutPanel19.PerformLayout();
+            this.flowLayoutPanel20.ResumeLayout(false);
+            this.tableLayoutPanel6.ResumeLayout(false);
+            this.flowLayoutPanel21.ResumeLayout(false);
+            this.flowLayoutPanel21.PerformLayout();
+            this.flowLayoutPanel22.ResumeLayout(false);
+            this.flowLayoutPanel22.PerformLayout();
+            this.flowLayoutPanel23.ResumeLayout(false);
+            this.flowLayoutPanel23.PerformLayout();
+            this.flowLayoutPanel24.ResumeLayout(false);
+            this.flowLayoutPanel24.PerformLayout();
+            this.flowLayoutPanel25.ResumeLayout(false);
+            this.flowLayoutPanel25.PerformLayout();
+            this.flowLayoutPanel26.ResumeLayout(false);
+            this.flowLayoutPanel26.PerformLayout();
+            this.flowLayoutPanel27.ResumeLayout(false);
+            this.flowLayoutPanel27.PerformLayout();
             this.tabPageConfig.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.groupBoxConfigGeneral.ResumeLayout(false);
@@ -1585,45 +1638,6 @@
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.PerformLayout();
-            this.tableLayoutPanel4.ResumeLayout(false);
-            this.flowLayoutPanel6.ResumeLayout(false);
-            this.flowLayoutPanel6.PerformLayout();
-            this.flowLayoutPanel7.ResumeLayout(false);
-            this.flowLayoutPanel7.PerformLayout();
-            this.flowLayoutPanel15.ResumeLayout(false);
-            this.flowLayoutPanel15.PerformLayout();
-            this.flowLayoutPanel16.ResumeLayout(false);
-            this.flowLayoutPanel16.PerformLayout();
-            this.flowLayoutPanel17.ResumeLayout(false);
-            this.flowLayoutPanel17.PerformLayout();
-            this.flowLayoutPanel18.ResumeLayout(false);
-            this.flowLayoutPanel18.PerformLayout();
-            this.tableLayoutPanel5.ResumeLayout(false);
-            this.tableLayoutPanel5.PerformLayout();
-            this.flowLayoutPanel19.ResumeLayout(false);
-            this.flowLayoutPanel19.PerformLayout();
-            this.flowLayoutPanel20.ResumeLayout(false);
-            this.tableLayoutPanel6.ResumeLayout(false);
-            this.flowLayoutPanel21.ResumeLayout(false);
-            this.flowLayoutPanel21.PerformLayout();
-            this.flowLayoutPanel22.ResumeLayout(false);
-            this.flowLayoutPanel22.PerformLayout();
-            this.flowLayoutPanel23.ResumeLayout(false);
-            this.flowLayoutPanel23.PerformLayout();
-            this.flowLayoutPanel24.ResumeLayout(false);
-            this.flowLayoutPanel24.PerformLayout();
-            this.flowLayoutPanel25.ResumeLayout(false);
-            this.flowLayoutPanel25.PerformLayout();
-            this.flowLayoutPanel26.ResumeLayout(false);
-            this.flowLayoutPanel26.PerformLayout();
-            this.flowLayoutPanel27.ResumeLayout(false);
-            this.flowLayoutPanel27.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1755,5 +1769,6 @@
         private System.Windows.Forms.Label labelLastDPop;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Button button1;
     }
 }

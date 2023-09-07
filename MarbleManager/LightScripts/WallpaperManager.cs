@@ -11,18 +11,24 @@ namespace MarbleManager.LightScripts
 {
     internal static class WallpaperManager
     {
+        static string wallpaperFilePath = "output\\wallpaper.jpg";
 
-        public static void CopyWallpaperToJpg () {
+        private static void CopyWallpaperToJpg () {
             string transcodedWallpaperPath = GetWallpaperPath();
             if (transcodedWallpaperPath != null)
             {
                 // Temp output file path and rename - current directory
-                string newFileName = "output\\wallpaper.jpg";
-                string destinationPath = Path.Combine(Environment.CurrentDirectory, newFileName);
+                string destinationPath = Path.Combine(Environment.CurrentDirectory, wallpaperFilePath);
 
                 // Copy and rename
                 File.Copy(transcodedWallpaperPath, destinationPath, true);
             }
+        }
+        public static Bitmap GetWallpaperJpg()
+        {
+            CopyWallpaperToJpg();
+
+            return new Bitmap(wallpaperFilePath);
         }
 
         public static Bitmap GetWallpaperBitmap ()
