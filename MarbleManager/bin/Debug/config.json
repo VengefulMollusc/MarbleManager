@@ -1,7 +1,7 @@
 {
   "generalConfig": {
-    "syncOnWallpaperChange": false,
-    "turnOnOffWithPc": true
+    "syncOnWallpaperChange": true,
+    "turnOnOffWithPc": false
   },
   "nanoleafConfig": {
     "ipAddress": "192.168.68.66",

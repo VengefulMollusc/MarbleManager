@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MarbleManager.LightScripts
+namespace MarbleManager.Colours
 {
     internal static class WallpaperManager
     {

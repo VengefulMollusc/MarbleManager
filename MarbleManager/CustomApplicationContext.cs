@@ -1,4 +1,6 @@
-﻿using MarbleManager.LightScripts;
+﻿using MarbleManager.Config;
+using MarbleManager.Colours;
+using MarbleManager.Lights;
 using MarbleManager.Properties;
 using System;
 using System.Collections.Generic;
@@ -18,12 +20,13 @@ namespace MarbleManager
 
         ConfigForm configForm;
 
-        // TODO swap this for a single script manager
+        GlobalLightController lightController;
 
         public CustomApplicationContext() {
             InitializeContext();
 
-            // init actual scripts etc.
+            // init actual scripts
+            lightController = new GlobalLightController();
         }
 
         private void InitializeContext()

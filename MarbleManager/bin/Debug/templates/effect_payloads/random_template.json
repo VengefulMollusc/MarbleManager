@@ -1,0 +1,21 @@
+{
+    "write": {
+        "command": "display",
+        "version": "1.0",
+        "animType": "random",
+        "colorType": "HSB",
+        "transTime": {
+            "minValue": 10,
+            "maxValue": 60
+        },
+        "brightnessRange": {
+            "minValue": 25,
+            "maxValue": 100
+        },
+        "delayTime": {
+            "minValue": 20,
+            "maxValue": 100
+        },
+        "palette": []
+    }
+}

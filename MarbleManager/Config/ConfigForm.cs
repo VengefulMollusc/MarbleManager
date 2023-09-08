@@ -1,5 +1,5 @@
 ﻿using MarbleManager.Config;
-using MarbleManager.LightScripts;
+using MarbleManager.Colours;
 using PaletteSharp;
 using System;
 using System.Collections.Generic;
@@ -17,8 +17,6 @@ namespace MarbleManager
 {
     public partial class ConfigForm : Form
     {
-        private ConfigHandler configHandler;
-
         public Bitmap wallpaper;
 
         public ConfigForm()
@@ -107,22 +105,23 @@ namespace MarbleManager
 
         private void LoadConfig()
         {
-            // init config handler if needed
-            if (configHandler == null)
+            // Load config
+            ConfigObject config = ConfigManager.GetConfig();
+
+            if (config == null)
             {
-                configHandler = new ConfigHandler();
+                Console.WriteLine("Config load error - null object returned");
+                return;
             }
 
             // init general config
-            GeneralConfig generalConfig = configHandler.GetGeneralConfig();
-            checkBoxSyncOnWallpaperChange.Checked = generalConfig.syncOnWallpaperChange;
-            checkBoxAutoTurnOnOff.Checked = generalConfig.turnOnOffWithPc;
+            checkBoxSyncOnWallpaperChange.Checked = config.generalConfig.syncOnWallpaperChange;
+            checkBoxAutoTurnOnOff.Checked = config.generalConfig.turnOnOffWithPc;
 
             // init nanoleaf config
-            NanoleafConfig nanoleafConfig = configHandler.GetNanoleafConfig();
-            textBoxNanoleafIP.Text = nanoleafConfig.ipAddress;
-            textBoxNanoleafApiKey.Text = nanoleafConfig.apiKey;
-            switch (nanoleafConfig.effect)
+            textBoxNanoleafIP.Text = config.nanoleafConfig.ipAddress;
+            textBoxNanoleafApiKey.Text = config.nanoleafConfig.apiKey;
+            switch (config.nanoleafConfig.effect)
             {
                 case NanoleafEffect.Highlight:
                     radioButtonLightEffectHighlight.Checked = true;
@@ -134,18 +133,15 @@ namespace MarbleManager
             }
 
             // init lifx config
-            LifxConfig lifxConfig = configHandler.GetLifxConfig();
-            textBoxLifxSelector.Text = lifxConfig.selector;
-            textBoxLifxAuthKey.Text = lifxConfig.authKey;
+            textBoxLifxSelector.Text = config.lifxConfig.selector;
+            textBoxLifxAuthKey.Text = config.lifxConfig.authKey;
 
             Console.WriteLine("Config loaded");
         }
 
         private void SaveConfig()
         {
-            if (configHandler == null) { throw new Exception("Cannot save when no configHandler exists"); }
-
-            configHandler.ApplyChanges(new ConfigObject()
+            ConfigManager.ApplyConfig(new ConfigObject()
             {
                 generalConfig = new GeneralConfig()
                 {

@@ -9,7 +9,7 @@ using System.Linq;
 using System.Net.NetworkInformation;
 using System.Text;
 
-namespace MarbleManager.LightScripts
+namespace MarbleManager.Colours
 {
     internal static class PaletteManager
     {
@@ -35,11 +35,6 @@ namespace MarbleManager.LightScripts
                 Console.WriteLine("No palette file found to load");
                 return null;
             }
-        }
-
-        public static void SavePalette(Palette palette)
-        {
-            SavePalette(ConvertToPaletteObject(palette));
         }
 
         public static void SavePalette(PaletteObject palette)

@@ -1,4 +1,4 @@
-﻿namespace MarbleManager.LightScripts
+﻿namespace MarbleManager.Colours
 {
     public class PaletteObject
     {

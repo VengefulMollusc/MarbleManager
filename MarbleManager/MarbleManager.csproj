@@ -62,13 +62,18 @@
       <DependentUpon>ConfigForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Config\ConfigData.cs" />
-    <Compile Include="Config\ConfigHandler.cs" />
+    <Compile Include="Config\ConfigManager.cs" />
     <Compile Include="CustomApplicationContext.cs" />
-    <Compile Include="LightScripts\PaletteData.cs" />
-    <Compile Include="LightScripts\PaletteManager.cs" />
-    <Compile Include="LightScripts\WallpaperManager.cs" />
+    <Compile Include="Lights\ILightController.cs" />
+    <Compile Include="Lights\GlobalLightController.cs" />
+    <Compile Include="Colours\PaletteData.cs" />
+    <Compile Include="Colours\PaletteManager.cs" />
+    <Compile Include="Colours\WallpaperManager.cs" />
+    <Compile Include="Lights\LifxLightController.cs" />
+    <Compile Include="Lights\NanoleafLightController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities.cs" />
     <EmbeddedResource Include="Config\ConfigForm.resx">
       <DependentUpon>ConfigForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -82,6 +87,18 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Content Include="templates\getNanoleafUrl_template.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\effect_payloads\random_template.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\turnOffLights_template.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\turnOnLights_template.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\ConfigForm.datasource" />
     <None Include="Properties\Settings.settings">
