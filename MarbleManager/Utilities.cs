@@ -32,7 +32,7 @@ namespace MarbleManager
                 // Write the modified content to the destination file
                 File.WriteAllText(destinationFilePath, fileContent);
 
-                Console.WriteLine("File copied and modified successfully.");
+                Console.WriteLine("File " + inputFile + " copied and modified successfully.");
             }
             catch (Exception ex)
             {

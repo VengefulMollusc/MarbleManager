@@ -13,20 +13,27 @@ namespace MarbleManager.Lights
 
         public GlobalLightController() {
             ConfigObject config = ConfigManager.GetConfig();
-            // populate light controllers
-            lightControllers = new ILightController[]
-            {
-                new LifxLightController(config),
-                new NanoleafLightController(config),
-            };
+
+            UpdateConfig(config);
         }
 
-        public void TurnLightsOnOff(bool _state)
+        internal void TurnLightsOnOff(bool _state)
         {
             foreach (var lightController in lightControllers)
             {
                 lightController.TurnOnOff(_state);
             }
+        }
+
+        internal void UpdateConfig(ConfigObject config)
+        {
+            // populate light controllers
+            lightControllers = new ILightController[]
+            {
+                // in future populate this based on config values
+                new LifxLightController(config),
+                new NanoleafLightController(config),
+            };
         }
 
         //public void SyncToWallpaper()

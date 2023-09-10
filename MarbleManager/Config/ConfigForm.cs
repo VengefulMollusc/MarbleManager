@@ -153,7 +153,7 @@ namespace MarbleManager
 
         private void SaveConfig()
         {
-            ConfigManager.ApplyConfig(new ConfigObject()
+            ConfigObject newConfig = new ConfigObject()
             {
                 generalConfig = new GeneralConfig()
                 {
@@ -171,7 +171,10 @@ namespace MarbleManager
                     selector = textBoxLifxSelector.Text,
                     authKey = textBoxLifxAuthKey.Text
                 }
-            });
+            };
+
+            lightController.UpdateConfig(newConfig);
+            ConfigManager.ApplyConfig(newConfig);
         }
 
         private void LoadLastPalette()
@@ -209,6 +212,7 @@ namespace MarbleManager
 
         private void buttonConfigApplyChanges_Click(object sender, EventArgs e)
         {
+            // save to file and regenerate scripts etc.
             SaveConfig();
         }
 
