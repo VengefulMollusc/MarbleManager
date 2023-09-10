@@ -12,12 +12,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MarbleManager.Lights;
 
 namespace MarbleManager
 {
     public partial class ConfigForm : Form
     {
-        public Bitmap wallpaper;
+        Bitmap wallpaper;
+        GlobalLightController lightController;
 
         public ConfigForm()
         {
@@ -27,6 +29,11 @@ namespace MarbleManager
             // init config
             LoadConfig();
             LoadLastPalette();
+        }
+
+        internal void SetLightController(GlobalLightController _lightController)
+        {
+            lightController = _lightController;
         }
 
         private void RedirectConsoleOutput ()
@@ -40,9 +47,14 @@ namespace MarbleManager
 
         protected override void OnClosing(CancelEventArgs e)
         {
-            if (wallpaper != null) { 
-                wallpaper.Dispose(); 
+            if (wallpaper != null)
+            {
+                wallpaper.Dispose();
                 WallpaperManager.DeleteCopiedWallpaper();
+            }
+            if (lightController != null)
+            {
+                lightController = null;
             }
             base.OnClosing(e);
         }
@@ -228,10 +240,32 @@ namespace MarbleManager
             PaletteManager.SavePalette(palette);
             LoadLastPalette();
         }
+
+        private void buttonLightsOn_Click(object sender, EventArgs e)
+        {
+            if (lightController == null)
+            {
+                Console.WriteLine("lightcontroller is null");
+                return;
+            }
+            Console.WriteLine("Turning lights On");
+            lightController.TurnLightsOnOff(true);
+        }
+
+        private void buttonLightsOff_Click(object sender, EventArgs e)
+        {
+            if (lightController == null)
+            {
+                Console.WriteLine("lightcontroller is null");
+                return;
+            }
+            Console.WriteLine("Turning lights Off");
+            lightController.TurnLightsOnOff(false);
+        }
     }
 
     // Custom TextWriter to redirect output to the TextBox control
-    public class TextBoxStreamWriter : TextWriter
+    internal class TextBoxStreamWriter : TextWriter
     {
         private TextBox textBox;
 

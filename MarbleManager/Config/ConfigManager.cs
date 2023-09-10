@@ -15,7 +15,7 @@ namespace MarbleManager.Config
         static string templatesDirPath = "templates\\";
         static string scriptOutputDirPath = "output\\scripts\\";
 
-        public static ConfigObject GetConfig()
+        internal static ConfigObject GetConfig()
         {
             try
             {
@@ -36,7 +36,7 @@ namespace MarbleManager.Config
             return null;
         }
 
-        public static void ApplyConfig(ConfigObject newConfig)
+        internal static void ApplyConfig(ConfigObject newConfig)
         {
             SaveConfigToFile(newConfig);
 

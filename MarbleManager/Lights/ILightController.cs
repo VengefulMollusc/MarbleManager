@@ -10,9 +10,8 @@ namespace MarbleManager.Lights
 {
     internal interface ILightController
     {
-        void SetConfig(ConfigObject config);
-        void TurnOn();
-        void TurnOff();
-        void ApplyPalette(PaletteObject palette);
+        void SetConfig(ConfigObject _config);
+        void TurnOnOff(bool _state);
+        void ApplyPalette(PaletteObject _palette);
     }
 }

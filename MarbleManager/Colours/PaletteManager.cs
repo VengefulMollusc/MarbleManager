@@ -15,7 +15,7 @@ namespace MarbleManager.Colours
     {
         static string paletteFilePath = "output\\palette.json";
 
-        public static PaletteObject LoadPalette ()
+        internal static PaletteObject LoadPalette ()
         {
             try
             {
@@ -37,7 +37,7 @@ namespace MarbleManager.Colours
             }
         }
 
-        public static void SavePalette(PaletteObject palette)
+        internal static void SavePalette(PaletteObject palette)
         {
             // save to file
             try
@@ -56,7 +56,7 @@ namespace MarbleManager.Colours
             }
         }
 
-        public static PaletteObject GetPaletteFromBitmap (Bitmap image)
+        internal static PaletteObject GetPaletteFromBitmap (Bitmap image)
         {
             if (image == null) { return null; }
 

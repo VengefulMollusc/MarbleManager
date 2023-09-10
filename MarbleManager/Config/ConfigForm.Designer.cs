@@ -1415,7 +1415,7 @@
             this.flowLayoutPanel8.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel8.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel8.Name = "flowLayoutPanel8";
-            this.flowLayoutPanel8.Size = new System.Drawing.Size(166, 320);
+            this.flowLayoutPanel8.Size = new System.Drawing.Size(166, 220);
             this.flowLayoutPanel8.TabIndex = 1;
             // 
             // groupBoxOnOff
@@ -1452,6 +1452,7 @@
             this.buttonLightsOn.TabIndex = 0;
             this.buttonLightsOn.Text = "Turn lights ON";
             this.buttonLightsOn.UseVisualStyleBackColor = true;
+            this.buttonLightsOn.Click += new System.EventHandler(this.buttonLightsOn_Click);
             // 
             // buttonLightsOff
             // 
@@ -1464,6 +1465,7 @@
             this.buttonLightsOff.TabIndex = 1;
             this.buttonLightsOff.Text = "Turn lights OFF";
             this.buttonLightsOff.UseVisualStyleBackColor = true;
+            this.buttonLightsOff.Click += new System.EventHandler(this.buttonLightsOff_Click);
             // 
             // groupBoxLightFunctions
             // 
@@ -1507,7 +1509,7 @@
             this.txtConsole.Multiline = true;
             this.txtConsole.Name = "txtConsole";
             this.txtConsole.ReadOnly = true;
-            this.txtConsole.Size = new System.Drawing.Size(166, 76);
+            this.txtConsole.Size = new System.Drawing.Size(166, 176);
             this.txtConsole.TabIndex = 3;
             // 
             // menuStrip1
@@ -1548,7 +1550,6 @@
             // 
             this.tableLayoutPanel7.ColumnCount = 1;
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel7.Controls.Add(this.flowLayoutPanel8, 0, 0);
             this.tableLayoutPanel7.Controls.Add(this.panel1, 0, 1);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Left;
@@ -1556,7 +1557,7 @@
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 2;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 200F));
             this.tableLayoutPanel7.Size = new System.Drawing.Size(172, 426);
             this.tableLayoutPanel7.TabIndex = 2;
             // 
@@ -1565,9 +1566,9 @@
             this.panel1.Controls.Add(this.label24);
             this.panel1.Controls.Add(this.txtConsole);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 329);
+            this.panel1.Location = new System.Drawing.Point(3, 229);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(166, 94);
+            this.panel1.Size = new System.Drawing.Size(166, 194);
             this.panel1.TabIndex = 2;
             // 
             // ConfigForm

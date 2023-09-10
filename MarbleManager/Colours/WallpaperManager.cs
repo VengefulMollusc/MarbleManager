@@ -13,19 +13,7 @@ namespace MarbleManager.Colours
     {
         static string wallpaperFilePath = "output\\wallpaper.jpg";
 
-        // copy from transcoded file to local directory
-        private static void CopyWallpaperToJpg () {
-            string transcodedWallpaperPath = GetWallpaperPath();
-            if (transcodedWallpaperPath != null)
-            {
-                // Temp output file path and rename - current directory
-                string destinationPath = Path.Combine(Environment.CurrentDirectory, wallpaperFilePath);
-
-                // Copy and rename
-                File.Copy(transcodedWallpaperPath, destinationPath, true);
-            }
-        }
-        public static Bitmap GetWallpaperJpg()
+        internal static Bitmap GetWallpaperJpg()
         {
             CopyWallpaperToJpg();
 
@@ -33,7 +21,7 @@ namespace MarbleManager.Colours
         }
 
         // delete copied wallpaper file
-        public static void DeleteCopiedWallpaper()
+        internal static void DeleteCopiedWallpaper()
         {
             try
             {
@@ -57,7 +45,7 @@ namespace MarbleManager.Colours
 
         // get wallpaper directly from the transcoded image file
         // using this prevents wallpaper change as the image is in memory
-        public static Bitmap GetWallpaperBitmap ()
+        internal static Bitmap GetWallpaperBitmap ()
         {
             string transcodedWallpaperPath = GetWallpaperPath();
             if (transcodedWallpaperPath != null)
@@ -85,6 +73,20 @@ namespace MarbleManager.Colours
             }
 
             return null;
+        }
+
+        // copy from transcoded file to local directory
+        private static void CopyWallpaperToJpg()
+        {
+            string transcodedWallpaperPath = GetWallpaperPath();
+            if (transcodedWallpaperPath != null)
+            {
+                // Temp output file path and rename - current directory
+                string destinationPath = Path.Combine(Environment.CurrentDirectory, wallpaperFilePath);
+
+                // Copy and rename
+                File.Copy(transcodedWallpaperPath, destinationPath, true);
+            }
         }
     }
 }

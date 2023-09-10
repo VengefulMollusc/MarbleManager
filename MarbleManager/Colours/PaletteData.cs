@@ -1,6 +1,6 @@
 ﻿namespace MarbleManager.Colours
 {
-    public class PaletteObject
+    internal class PaletteObject
     {
         public SwatchObject dominant { get; set; }
         public SwatchObject vibrant { get; set; }
@@ -11,7 +11,7 @@
         public SwatchObject darkMuted { get; set; }
     }
 
-    public class SwatchObject
+    internal class SwatchObject
     {
         public int population { get; set; }
         public int r { get; set; }

@@ -10,7 +10,7 @@ namespace MarbleManager
 {
     internal static class Utilities
     {
-        public static void CopyFileAndReplaceValues(string inputDir, string inputFile, string outputDir, string outputFile, Dictionary<string, string> variables)
+        public static void CopyFileAndReplaceValues(string inputDir, string inputFile, string outputDir, string outputFile, Dictionary<string, string> toReplace)
         {
             try
             {
@@ -18,7 +18,7 @@ namespace MarbleManager
                 string fileContent = File.ReadAllText(inputDir + inputFile);
 
                 // Replace <variables> with the new value
-                foreach (var variable in variables)
+                foreach (var variable in toReplace)
                 {
                     fileContent = fileContent.Replace(variable.Key, variable.Value);
                 }

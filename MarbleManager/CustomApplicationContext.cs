@@ -68,9 +68,22 @@ namespace MarbleManager
 
             // dynamically add items to context strip
             notifyIcon.ContextMenuStrip.Items.Add(submenuItem);
+            notifyIcon.ContextMenuStrip.Items.Add("Lights On", null, lightsOnFormItem_Click);
+            notifyIcon.ContextMenuStrip.Items.Add("Lights Off", null, lightsOffFormItem_Click);
+            notifyIcon.ContextMenuStrip.Items.Add(new ToolStripSeparator());
             notifyIcon.ContextMenuStrip.Items.Add("Config", null, openConfigFormItem_Click);
             notifyIcon.ContextMenuStrip.Items.Add(new ToolStripSeparator());
             notifyIcon.ContextMenuStrip.Items.Add("&Exit", null, exitItem_Click);
+        }
+
+        private void lightsOnFormItem_Click(object sender, EventArgs e)
+        {
+            lightController.TurnLightsOnOff(true);
+        }
+
+        private void lightsOffFormItem_Click(object sender, EventArgs e)
+        {
+            lightController.TurnLightsOnOff(false);
         }
 
         private void openConfigFormItem_Click(object sender, EventArgs e)
@@ -78,10 +91,12 @@ namespace MarbleManager
             if (configForm != null)
             {
                 configForm.Activate();
-            } else
+            }
+            else
             {
                 configForm = new ConfigForm();
                 configForm.FormClosed += ConfigForm_FormClosed;
+                configForm.SetLightController(lightController);
                 configForm.Show();
             }
         }
