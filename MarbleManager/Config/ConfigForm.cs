@@ -270,6 +270,8 @@ namespace MarbleManager
         private void buttonSyncLightColours_Click(object sender, EventArgs e)
         {
             lightController.SyncToWallpaper();
+
+            LoadLastPalette();
         }
     }
 

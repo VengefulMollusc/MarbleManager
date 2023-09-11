@@ -150,9 +150,9 @@ namespace MarbleManager.Lights
         private JObject FormatColour(SwatchObject _swatch)
         {
             JObject colour = new JObject();
-            colour["hue"] = _swatch.hsl[0];
-            colour["saturation"] = _swatch.hsl[1];
-            colour["brightness"] = _swatch.hsl[2];
+            colour["hue"] = _swatch.h;
+            colour["saturation"] = _swatch.s;
+            colour["brightness"] = _swatch.l;
             return colour;
         }
 

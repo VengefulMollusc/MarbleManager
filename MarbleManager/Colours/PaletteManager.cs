@@ -86,13 +86,16 @@ namespace MarbleManager.Colours
             if (swatch == null) { return null; }
 
             Color rgb = swatch.GetArgb();
+            float[] hsl = swatch.GetHsl();
             return new SwatchObject()
             {
                 population = swatch.GetPopulation(),
                 r = rgb.R,
                 g = rgb.G,
                 b = rgb.B,
-                hsl = swatch.GetHsl(),
+                h = hsl[0],
+                s = hsl[1],
+                l = hsl[2]
             };
         }
     }
