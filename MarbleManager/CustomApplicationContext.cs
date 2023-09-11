@@ -68,6 +68,8 @@ namespace MarbleManager
 
             // dynamically add items to context strip
             notifyIcon.ContextMenuStrip.Items.Add(submenuItem);
+            notifyIcon.ContextMenuStrip.Items.Add("Sync to wallpaper", null, syncFormItem_Click);
+            notifyIcon.ContextMenuStrip.Items.Add(new ToolStripSeparator());
             notifyIcon.ContextMenuStrip.Items.Add("Lights On", null, lightsOnFormItem_Click);
             notifyIcon.ContextMenuStrip.Items.Add("Lights Off", null, lightsOffFormItem_Click);
             notifyIcon.ContextMenuStrip.Items.Add(new ToolStripSeparator());
@@ -84,6 +86,11 @@ namespace MarbleManager
         private void lightsOffFormItem_Click(object sender, EventArgs e)
         {
             lightController.TurnLightsOnOff(false);
+        }
+
+        private void syncFormItem_Click(object sender, EventArgs e)
+        {
+            lightController.SyncToWallpaper();
         }
 
         private void openConfigFormItem_Click(object sender, EventArgs e)

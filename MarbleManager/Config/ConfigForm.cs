@@ -266,6 +266,11 @@ namespace MarbleManager
             Console.WriteLine("Turning lights Off");
             lightController.TurnLightsOnOff(false);
         }
+
+        private void buttonSyncLightColours_Click(object sender, EventArgs e)
+        {
+            lightController.SyncToWallpaper();
+        }
     }
 
     // Custom TextWriter to redirect output to the TextBox control

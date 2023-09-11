@@ -1501,6 +1501,7 @@
             this.buttonSyncLightColours.TabIndex = 0;
             this.buttonSyncLightColours.Text = "Sync colours with wallpaper";
             this.buttonSyncLightColours.UseVisualStyleBackColor = true;
+            this.buttonSyncLightColours.Click += new System.EventHandler(this.buttonSyncLightColours_Click);
             // 
             // txtConsole
             // 

@@ -10,9 +10,9 @@
         public SwatchObject lightMuted { get; set; }
         public SwatchObject darkMuted { get; set; }
 
+        // this doesn't return dominant as it's included as one of the other swatches
         public SwatchObject[] Swatches { get {
                 return new SwatchObject[] { 
-                    dominant, 
                     vibrant, 
                     lightVibrant, 
                     darkVibrant,

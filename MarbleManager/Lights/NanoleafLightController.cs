@@ -29,19 +29,19 @@ namespace MarbleManager.Lights
         public void ApplyPalette(PaletteObject _palette)
         {
             // get payload template based on config setting
-            dynamic payload = GetPayloadTemplate();
+            JObject payload = GetPayloadTemplate();
 
             // insert palette into payload
-            object[] palette = FormatPalette(_palette);
-            if (palette == null || palette.Length <= 0) {
-                Console.WriteLine("palette is empty??");
+            JArray palette = FormatPalette(_palette);
+            if (palette == null || palette.Count <= 0) {
+                Console.WriteLine("nanoleaf palette should not be empty");
                 return; 
             }
 
-            payload.write.palette = palette;
+            payload["write"]["palette"] = palette;
 
             // send payload
-            SendPayload(GetStatePayload(payload), "/effect");
+            SendPayload(payload, "/effect");
         }
 
         public void SetConfig(ConfigObject _config)
@@ -95,7 +95,7 @@ namespace MarbleManager.Lights
                 }
             }
         }
-        private dynamic GetPayloadTemplate()
+        private JObject GetPayloadTemplate()
         {
             try
             {
@@ -104,7 +104,7 @@ namespace MarbleManager.Lights
                 using (StreamReader r = new StreamReader(filePath))
                 {
                     string json = r.ReadToEnd();
-                    dynamic payload = JsonConvert.DeserializeObject<JObject>(json);
+                    JObject payload = JsonConvert.DeserializeObject<JObject>(json);
                     Console.WriteLine("Loaded effect payload");
                     return payload;
                 }
@@ -132,29 +132,28 @@ namespace MarbleManager.Lights
             }
         }
 
-        private dynamic FormatPalette(PaletteObject _palette)
+        private JArray FormatPalette(PaletteObject _palette)
         {
             // formats palette into nanoleaf api format
-            object[] palette = new object[] { };
+            JArray palette = new JArray();
             
             foreach (SwatchObject swatch in _palette.Swatches)
             {
                 if (swatch == null) { continue; }
 
-                palette.Append(FormatColour(swatch));
+                palette.Add(FormatColour(swatch));
             }
 
             return palette;
         }
 
-        private object FormatColour(SwatchObject _swatch)
+        private JObject FormatColour(SwatchObject _swatch)
         {
-            return new
-            {
-                hue = _swatch.hsl[0],
-                saturation = _swatch.hsl[1],
-                brightness = _swatch.hsl[2]
-            };
+            JObject colour = new JObject();
+            colour["hue"] = _swatch.hsl[0];
+            colour["saturation"] = _swatch.hsl[1];
+            colour["brightness"] = _swatch.hsl[2];
+            return colour;
         }
 
         private object GetStatePayload(bool _state)
