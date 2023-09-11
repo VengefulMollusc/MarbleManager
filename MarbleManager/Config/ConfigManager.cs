@@ -15,6 +15,8 @@ namespace MarbleManager.Config
         static string templatesDirPath = "templates\\";
         static string scriptOutputDirPath = "output\\scripts\\";
 
+        internal static string TemplatesDirectory { get { return templatesDirPath; } }
+
         internal static ConfigObject GetConfig()
         {
             try

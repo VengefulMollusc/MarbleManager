@@ -1,12 +1,15 @@
 ﻿using MarbleManager.Colours;
 using MarbleManager.Config;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.AxHost;
 
 namespace MarbleManager.Lights
 {
@@ -14,6 +17,7 @@ namespace MarbleManager.Lights
     {
         NanoleafConfig config;
 
+        static string effectPayloadDir = "effect_payloads\\";
         static string baseUrl = "http://<nanoleafIp>:16021";
         string populatedUrl;
 
@@ -24,17 +28,31 @@ namespace MarbleManager.Lights
 
         public void ApplyPalette(PaletteObject _palette)
         {
-            throw new NotImplementedException();
+            // get payload template based on config setting
+            dynamic payload = GetPayloadTemplate();
+
+            // insert palette into payload
+            object[] palette = FormatPalette(_palette);
+            if (palette == null || palette.Length <= 0) {
+                Console.WriteLine("palette is empty??");
+                return; 
+            }
+
+            payload.write.palette = palette;
+
+            // send payload
+            SendPayload(GetStatePayload(payload), "/effect");
         }
 
         public void SetConfig(ConfigObject _config)
         {
             config = _config.nanoleafConfig;
 
+            // populate url with ip address
             populatedUrl = baseUrl.Replace("<nanoleafIp>", config.ipAddress);
         }
 
-        public void TurnOnOff(bool _state)
+        public void SetOnOffState(bool _state)
         {
             if (populatedUrl == null)
             {
@@ -42,7 +60,7 @@ namespace MarbleManager.Lights
                 throw new Exception("nanoleaf url not set up");
             }
 
-            SendPayload(OnOffPayload(_state), "api/v1/" + config.apiKey + "/state");
+            SendPayload(GetStatePayload(_state), "/state");
         }
 
         private async void SendPayload(object payload, string endpoint)
@@ -62,7 +80,7 @@ namespace MarbleManager.Lights
                 StringContent content = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
 
                 // send the request
-                HttpResponseMessage response = await client.PutAsync(endpoint, content);
+                HttpResponseMessage response = await client.PutAsync("api/v1/" + config.apiKey + endpoint, content);
 
                 // Check if the request was successful
                 if (response.IsSuccessStatusCode)
@@ -77,14 +95,75 @@ namespace MarbleManager.Lights
                 }
             }
         }
+        private dynamic GetPayloadTemplate()
+        {
+            try
+            {
+                string filePath = Path.Combine(ConfigManager.TemplatesDirectory, effectPayloadDir, GetTemplateName());
+                // load file here if exists
+                using (StreamReader r = new StreamReader(filePath))
+                {
+                    string json = r.ReadToEnd();
+                    dynamic payload = JsonConvert.DeserializeObject<JObject>(json);
+                    Console.WriteLine("Loaded effect payload");
+                    return payload;
+                }
+            }
+            catch (Exception ex)
+            {
+                // file not found etc.
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine("Error loading payload");
+            }
+            return null;
+        }
 
-        private object OnOffPayload(bool state)
+        private string GetTemplateName()
+        {
+            // returns the filename of the relevant payload template
+            switch (config.effect)
+            {
+                case NanoleafEffect.Random:
+                    return "random_template.json";
+                case NanoleafEffect.Highlight:
+                    return "random_template.json";
+                default:
+                    return "random_template.json";
+            }
+        }
+
+        private dynamic FormatPalette(PaletteObject _palette)
+        {
+            // formats palette into nanoleaf api format
+            object[] palette = new object[] { };
+            
+            foreach (SwatchObject swatch in _palette.Swatches)
+            {
+                if (swatch == null) { continue; }
+
+                palette.Append(FormatColour(swatch));
+            }
+
+            return palette;
+        }
+
+        private object FormatColour(SwatchObject _swatch)
+        {
+            return new
+            {
+                hue = _swatch.hsl[0],
+                saturation = _swatch.hsl[1],
+                brightness = _swatch.hsl[2]
+            };
+        }
+
+        private object GetStatePayload(bool _state)
         {
             return new
             {
                 on = new
                 {
-                    value = state
+                    value = _state
                 }
             };
         }

@@ -32,7 +32,7 @@ namespace MarbleManager.Lights
             config = _config.lifxConfig;
         }
 
-        public void TurnOnOff(bool _state)
+        public void SetOnOffState(bool _state)
         {
             SendPayload(
                 "power=" + (_state ? "on" : "off"), 

@@ -21,7 +21,7 @@ namespace MarbleManager.Lights
         {
             foreach (var lightController in lightControllers)
             {
-                lightController.TurnOnOff(_state);
+                lightController.SetOnOffState(_state);
             }
         }
 
@@ -30,15 +30,16 @@ namespace MarbleManager.Lights
             // populate light controllers
             lightControllers = new ILightController[]
             {
-                // in future populate this based on config values
+                // in future populate this based on config values?
+                // multiple lights of the same type should be handled by one controller?
                 new LifxLightController(config),
                 new NanoleafLightController(config),
             };
         }
 
-        //public void SyncToWallpaper()
-        //{
+        internal void SyncToWallpaper()
+        {
 
-        //}
+        }
     }
 }

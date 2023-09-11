@@ -9,6 +9,19 @@
         public SwatchObject muted { get; set; }
         public SwatchObject lightMuted { get; set; }
         public SwatchObject darkMuted { get; set; }
+
+        public SwatchObject[] Swatches { get {
+                return new SwatchObject[] { 
+                    dominant, 
+                    vibrant, 
+                    lightVibrant, 
+                    darkVibrant,
+                    muted,
+                    lightMuted,
+                    darkMuted
+                };
+            } 
+        }
     }
 
     internal class SwatchObject
