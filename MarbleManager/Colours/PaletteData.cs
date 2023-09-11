@@ -37,6 +37,9 @@ namespace MarbleManager.Colours
         public int g { get; set; }
         public int b { get; set; }
         // HSL
+        // H 0-360
+        // S 0-1
+        // L 0-1
         public float h { get; set; }
         public float s { get; set; }
         public float l { get; set; }

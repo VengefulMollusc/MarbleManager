@@ -16,6 +16,37 @@
             "minValue": 20,
             "maxValue": 100
         },
-        "palette": []
+      "palette": [
+        {
+          "hue": 21,
+          "saturation": 86,
+          "brightness": 51
+        },
+        {
+          "hue": 346,
+          "saturation": 84,
+          "brightness": 29
+        },
+        {
+          "hue": 39,
+          "saturation": 89,
+          "brightness": 69
+        },
+        {
+          "hue": 16,
+          "saturation": 32,
+          "brightness": 48
+        },
+        {
+          "hue": 323,
+          "saturation": 37,
+          "brightness": 20
+        },
+        {
+          "hue": 60,
+          "saturation": 18,
+          "brightness": 70
+        }
+      ]
     }
 }

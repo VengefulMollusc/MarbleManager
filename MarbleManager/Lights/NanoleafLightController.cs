@@ -32,16 +32,16 @@ namespace MarbleManager.Lights
             JObject payload = GetPayloadTemplate();
 
             // insert palette into payload
-            JArray palette = FormatPalette(_palette);
-            if (palette == null || palette.Count <= 0) {
-                Console.WriteLine("nanoleaf palette should not be empty");
-                return; 
-            }
+            //JArray palette = FormatPalette(_palette);
+            //if (palette == null || palette.Count <= 0) {
+            //    Console.WriteLine("nanoleaf palette should not be empty");
+            //    return; 
+            //}
 
-            payload["write"]["palette"] = palette;
+            //payload["write"]["palette"] = palette;
 
             // send payload
-            SendPayload(payload, "/effect");
+            SendPayload(payload, "/effects");
         }
 
         public void SetConfig(ConfigObject _config)
@@ -151,8 +151,8 @@ namespace MarbleManager.Lights
         {
             JObject colour = new JObject();
             colour["hue"] = _swatch.h;
-            colour["saturation"] = _swatch.s;
-            colour["brightness"] = _swatch.l;
+            colour["saturation"] = _swatch.s * 100;
+            colour["brightness"] = _swatch.l * 100;
             return colour;
         }
 
