@@ -239,7 +239,7 @@ namespace MarbleManager
             Console.WriteLine("Palette preview created");
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonSavePalette_Click(object sender, EventArgs e)
         {
             // save palette
             if (wallpaper == null)

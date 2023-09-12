@@ -69,17 +69,27 @@ namespace MarbleManager.Colours
         {
             if (_palette == null) { return null; }
 
-            List<float> proportions = GetProportions(_palette);
+            List<Swatch> relevantSwatches = new List<Swatch>()
+            {
+                _palette.GetDominantSwatch(),
+                _palette.GetVibrantSwatch(),
+                _palette.GetLightVibrantSwatch(),
+                _palette.GetDarkVibrantSwatch(),
+                _palette.GetMutedSwatch(),
+                _palette.GetLightMutedSwatch(),
+                _palette.GetDarkMutedSwatch(),
+            };
+            List<float> proportions = GetProportions(relevantSwatches);
 
             return new PaletteObject()
             {
-                dominant = ConvertToSwatchObject(_palette.GetDominantSwatch(), proportions[0]),
-                vibrant = ConvertToSwatchObject(_palette.GetVibrantSwatch(), proportions[1]),
-                lightVibrant = ConvertToSwatchObject(_palette.GetLightVibrantSwatch(), proportions[2]),
-                darkVibrant = ConvertToSwatchObject(_palette.GetDarkVibrantSwatch(), proportions[3]),
-                muted = ConvertToSwatchObject(_palette.GetMutedSwatch(), proportions[4]),
-                lightMuted = ConvertToSwatchObject(_palette.GetLightMutedSwatch(), proportions[5]),
-                darkMuted = ConvertToSwatchObject(_palette.GetDarkMutedSwatch(), proportions[6]),
+                dominant = ConvertToSwatchObject(relevantSwatches[0], proportions[0]),
+                vibrant = ConvertToSwatchObject(relevantSwatches[1], proportions[1]),
+                lightVibrant = ConvertToSwatchObject(relevantSwatches[2], proportions[2]),
+                darkVibrant = ConvertToSwatchObject(relevantSwatches[3], proportions[3]),
+                muted = ConvertToSwatchObject(relevantSwatches[4], proportions[4]),
+                lightMuted = ConvertToSwatchObject(relevantSwatches[5], proportions[5]),
+                darkMuted = ConvertToSwatchObject(relevantSwatches[6], proportions[6]),
             };
         }
 
@@ -89,6 +99,7 @@ namespace MarbleManager.Colours
 
             Color rgb = _swatch.GetArgb();
             float[] hsl = _swatch.GetHsl();
+
             return new SwatchObject()
             {
                 population = _swatch.GetPopulation(),
@@ -102,21 +113,20 @@ namespace MarbleManager.Colours
             };
         }
 
-        private static List<float> GetProportions(Palette _palette)
+        private static List<float> GetProportions(List<Swatch> _swatches)
         {
-            List<Swatch> swatches = _palette.GetSwatches();
             int totalPop = 0;
 
-            foreach (Swatch swatch in swatches)
+            foreach (Swatch swatch in _swatches)
             {
                 if (swatch != null) totalPop += swatch.GetPopulation();
             }
 
             List<float> proportions = new List<float>();
-            foreach (Swatch swatch in swatches)
+            foreach (Swatch swatch in _swatches)
             {
                 proportions.Add(swatch != null
-                    ? swatch.GetPopulation() / totalPop
+                    ? (float)swatch.GetPopulation() / totalPop
                     : 0);
             }
 
