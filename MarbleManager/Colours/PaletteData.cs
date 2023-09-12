@@ -18,7 +18,7 @@ namespace MarbleManager.Colours
 
         // this doesn't return dominant as it's included as one of the other swatches
         [JsonIgnore]
-        public List<SwatchObject> Swatches { get {
+        public List<SwatchObject> MainSwatches { get {
                 List<SwatchObject> swatches = new List<SwatchObject>();
                 if (vibrant != null) swatches.Add(vibrant);
                 if (lightVibrant != null) swatches.Add(lightVibrant);
@@ -33,6 +33,8 @@ namespace MarbleManager.Colours
                 return swatches;
             } 
         }
+
+        public List<SwatchObject> allSwatches { get; set; }
     }
 
     internal class SwatchObject
@@ -42,6 +44,7 @@ namespace MarbleManager.Colours
         // proportion of swatch compared to other colours in source image
         public float proportion {  get; set; }
         // RGB
+        // 0-255
         public int r { get; set; }
         public int g { get; set; }
         public int b { get; set; }

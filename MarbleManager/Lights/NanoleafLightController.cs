@@ -160,7 +160,7 @@ namespace MarbleManager.Lights
             // formats palette into nanoleaf api format
             JArray palette = new JArray();
             
-            foreach (SwatchObject swatch in _palette.Swatches)
+            foreach (SwatchObject swatch in _palette.MainSwatches)
             {
                 if (swatch == null) { continue; }
 

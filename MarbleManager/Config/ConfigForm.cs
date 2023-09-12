@@ -69,52 +69,52 @@ namespace MarbleManager
             base.OnClosing(e);
         }
 
-        private void PreviewPalette (PaletteObject palette, bool isPreview = true)
+        private void PreviewPalette (PaletteObject _palette, bool _isPreview = true)
         {
-            if (palette == null) { return; }
+            if (_palette == null) { return; }
 
-            if (isPreview)
+            if (_isPreview)
             {
-                ApplySwatch(paletteCurrentD, new List<Label>() { labelCurrentDPop, labelCurrentDh, labelCurrentDs, labelCurrentDl }, palette.dominant);
-                ApplySwatch(paletteCurrentV, new List<Label>() { labelCurrentVPop, labelCurrentVh, labelCurrentVs, labelCurrentVl }, palette.vibrant);
-                ApplySwatch(paletteCurrentVl, new List<Label>() { labelCurrentVlPop, labelCurrentVlh, labelCurrentVls, labelCurrentVll }, palette.lightVibrant);
-                ApplySwatch(paletteCurrentVd, new List<Label>() { labelCurrentVdPop, labelCurrentVdh, labelCurrentVds, labelCurrentVdl }, palette.darkVibrant);
-                ApplySwatch(paletteCurrentM, new List<Label>() { labelCurrentMPop, labelCurrentMh, labelCurrentMs, labelCurrentMl }, palette.muted);
-                ApplySwatch(paletteCurrentMl, new List<Label>() { labelCurrentMlPop, labelCurrentMlh, labelCurrentMls, labelCurrentMll }, palette.lightMuted);
-                ApplySwatch(paletteCurrentMd, new List<Label>() { labelCurrentMdPop, labelCurrentMdh, labelCurrentMds, labelCurrentMdl }, palette.darkMuted);
+                ApplySwatch(paletteCurrentD, new List<Label>() { labelCurrentDPop, labelCurrentDh, labelCurrentDs, labelCurrentDl }, _palette.dominant);
+                ApplySwatch(paletteCurrentV, new List<Label>() { labelCurrentVPop, labelCurrentVh, labelCurrentVs, labelCurrentVl }, _palette.vibrant);
+                ApplySwatch(paletteCurrentVl, new List<Label>() { labelCurrentVlPop, labelCurrentVlh, labelCurrentVls, labelCurrentVll }, _palette.lightVibrant);
+                ApplySwatch(paletteCurrentVd, new List<Label>() { labelCurrentVdPop, labelCurrentVdh, labelCurrentVds, labelCurrentVdl }, _palette.darkVibrant);
+                ApplySwatch(paletteCurrentM, new List<Label>() { labelCurrentMPop, labelCurrentMh, labelCurrentMs, labelCurrentMl }, _palette.muted);
+                ApplySwatch(paletteCurrentMl, new List<Label>() { labelCurrentMlPop, labelCurrentMlh, labelCurrentMls, labelCurrentMll }, _palette.lightMuted);
+                ApplySwatch(paletteCurrentMd, new List<Label>() { labelCurrentMdPop, labelCurrentMdh, labelCurrentMds, labelCurrentMdl }, _palette.darkMuted);
             }
             else
             {
-                ApplySwatch(paletteLastD, new List<Label>() { labelLastDPop, labelLastDh, labelLastDs, labelLastDl }, palette.dominant);
-                ApplySwatch(paletteLastV, new List<Label>() { labelLastVPop, labelLastVh, labelLastVs, labelLastVl }, palette.vibrant);
-                ApplySwatch(paletteLastVl, new List<Label>() { labelLastVlPop, labelLastVlh, labelLastVls, labelLastVll }, palette.lightVibrant);
-                ApplySwatch(paletteLastVd, new List<Label>() { labelLastVdPop, labelLastVdh, labelLastVds, labelLastVdl }, palette.darkVibrant);
-                ApplySwatch(paletteLastM, new List<Label>() { labelLastMPop, labelLastMh, labelLastMs, labelLastMl }, palette.muted);
-                ApplySwatch(paletteLastMl, new List<Label>() { labelLastMlPop, labelLastMlh, labelLastMls, labelLastMll }, palette.lightMuted);
-                ApplySwatch(paletteLastMd, new List<Label>() { labelLastMdPop, labelLastMdh, labelLastMds, labelLastMdl }, palette.darkMuted);
+                ApplySwatch(paletteLastD, new List<Label>() { labelLastDPop, labelLastDh, labelLastDs, labelLastDl }, _palette.dominant);
+                ApplySwatch(paletteLastV, new List<Label>() { labelLastVPop, labelLastVh, labelLastVs, labelLastVl }, _palette.vibrant);
+                ApplySwatch(paletteLastVl, new List<Label>() { labelLastVlPop, labelLastVlh, labelLastVls, labelLastVll }, _palette.lightVibrant);
+                ApplySwatch(paletteLastVd, new List<Label>() { labelLastVdPop, labelLastVdh, labelLastVds, labelLastVdl }, _palette.darkVibrant);
+                ApplySwatch(paletteLastM, new List<Label>() { labelLastMPop, labelLastMh, labelLastMs, labelLastMl }, _palette.muted);
+                ApplySwatch(paletteLastMl, new List<Label>() { labelLastMlPop, labelLastMlh, labelLastMls, labelLastMll }, _palette.lightMuted);
+                ApplySwatch(paletteLastMd, new List<Label>() { labelLastMdPop, labelLastMdh, labelLastMds, labelLastMdl }, _palette.darkMuted);
             }
         }
 
-        private void ApplySwatch (Panel panel, List<Label> labels, SwatchObject swatch)
+        private void ApplySwatch (Panel _panel, List<Label> _labels, SwatchObject _swatch)
         {
-            if (swatch == null)
+            if (_swatch == null)
             {
-                panel.BackColor = Color.WhiteSmoke;
-                panel.BorderStyle = BorderStyle.FixedSingle;
-                labels[0].Text = "no swatch";
-                labels[1].Text = "0";
-                labels[2].Text = "0";
-                labels[3].Text = "0";
+                _panel.BackColor = Color.WhiteSmoke;
+                _panel.BorderStyle = BorderStyle.FixedSingle;
+                _labels[0].Text = "no swatch";
+                _labels[1].Text = "0";
+                _labels[2].Text = "0";
+                _labels[3].Text = "0";
                 return;
             }
 
             // apply colour if not null
-            panel.BackColor = Color.FromArgb(swatch.r, swatch.g, swatch.b);
-            panel.BorderStyle = BorderStyle.None;
-            labels[0].Text = swatch.population.ToString();
-            labels[1].Text = swatch.h.ToString();
-            labels[2].Text = swatch.s.ToString();
-            labels[3].Text = swatch.l.ToString();
+            _panel.BackColor = Color.FromArgb(_swatch.r, _swatch.g, _swatch.b);
+            _panel.BorderStyle = BorderStyle.None;
+            _labels[0].Text = _swatch.population.ToString();
+            _labels[1].Text = _swatch.h.ToString();
+            _labels[2].Text = _swatch.s.ToString();
+            _labels[3].Text = _swatch.l.ToString();
         }
 
         private void PreviewCurrentWallpaper()
@@ -296,15 +296,15 @@ namespace MarbleManager
     {
         private TextBox textBox;
 
-        public TextBoxStreamWriter(TextBox textBox)
+        public TextBoxStreamWriter(TextBox _textBox)
         {
-            this.textBox = textBox;
+            this.textBox = _textBox;
         }
 
-        public override void Write(char value)
+        public override void Write(char _value)
         {
             // Append the character to the TextBox
-            textBox.AppendText(value.ToString());
+            textBox.AppendText(_value.ToString());
         }
 
         public override Encoding Encoding
