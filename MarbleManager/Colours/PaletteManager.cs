@@ -23,6 +23,9 @@ namespace MarbleManager.Colours
             }
         }
 
+        /**
+         * Loads a PaletteObject from json file
+         */
         internal static PaletteObject LoadPalette ()
         {
             try
@@ -45,6 +48,9 @@ namespace MarbleManager.Colours
             }
         }
 
+        /**
+         * Saves a PaletteObject to a json file
+         */
         internal static void SavePalette(PaletteObject _palette)
         {
             // save to file
@@ -67,6 +73,9 @@ namespace MarbleManager.Colours
             }
         }
 
+        /**
+         * Creates a PaletteObject of colours generated from an image
+         */
         internal static PaletteObject GetPaletteFromBitmap (Bitmap _image)
         {
             if (_image == null) { return null; }
@@ -76,6 +85,9 @@ namespace MarbleManager.Colours
             return ConvertToPaletteObject(palette);
         }
 
+        /**
+         * Converts a PaletteSharp Palette to a local PaletteObject for easier json storage and handling etc.
+         */
         private static PaletteObject ConvertToPaletteObject (Palette _palette)
         {
             if (_palette == null) { return null; }
@@ -104,12 +116,19 @@ namespace MarbleManager.Colours
             };
         }
 
+        /**
+         * Converts a PaletteSharp Swatch to a local SwatchObject for easier json storage and handling etc.
+         */
         private static SwatchObject ConvertToSwatchObject(Swatch _swatch, float _proportion)
         {
             if (_swatch == null) { return null; }
 
             Color rgb = _swatch.GetArgb();
-            float[] hsl = _swatch.GetHsl();
+
+            // PaletteSharp's hsl conversion appears to be WRONG
+            // therefore doing own conversion from rgb here
+            int h, s, l;
+            Utilities.RgbToHsl(rgb, out h, out s, out l);
 
             return new SwatchObject()
             {
@@ -118,12 +137,15 @@ namespace MarbleManager.Colours
                 r = rgb.R,
                 g = rgb.G,
                 b = rgb.B,
-                h = hsl[0],
-                s = hsl[1],
-                l = hsl[2]
+                h = h,
+                s = s,
+                l = l
             };
         }
 
+        /**
+         * Creates a list of proportional values corresponding to the relative populations of the swatches
+         */
         private static List<float> GetProportions(List<Swatch> _swatches)
         {
             int totalPop = 0;

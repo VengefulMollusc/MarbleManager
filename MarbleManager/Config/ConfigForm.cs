@@ -21,6 +21,8 @@ namespace MarbleManager
         Bitmap wallpaper;
         GlobalLightController lightController;
 
+        TextWriter originalOut;
+
         public ConfigForm()
         {
             InitializeComponent();
@@ -38,6 +40,8 @@ namespace MarbleManager
 
         private void RedirectConsoleOutput ()
         {
+            originalOut = Console.Out;
+
             // Create a TextWriter to redirect standard output to the TextBox control
             TextWriter writer = new TextBoxStreamWriter(txtConsole);
 
@@ -47,6 +51,11 @@ namespace MarbleManager
 
         protected override void OnClosing(CancelEventArgs e)
         {
+            // reset console output
+            Console.SetOut(originalOut);
+            originalOut = null;
+
+            // clear values to help memory
             if (wallpaper != null)
             {
                 wallpaper.Dispose();
@@ -56,6 +65,7 @@ namespace MarbleManager
             {
                 lightController = null;
             }
+
             base.OnClosing(e);
         }
 
@@ -102,9 +112,9 @@ namespace MarbleManager
             panel.BackColor = Color.FromArgb(swatch.r, swatch.g, swatch.b);
             panel.BorderStyle = BorderStyle.None;
             labels[0].Text = swatch.population.ToString();
-            labels[1].Text = Math.Round(swatch.h).ToString();
-            labels[2].Text = Math.Round(swatch.s, 3).ToString();
-            labels[3].Text = Math.Round(swatch.l, 3).ToString();
+            labels[1].Text = swatch.h.ToString();
+            labels[2].Text = swatch.s.ToString();
+            labels[3].Text = swatch.l.ToString();
         }
 
         private void PreviewCurrentWallpaper()

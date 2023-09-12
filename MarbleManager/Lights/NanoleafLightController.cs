@@ -26,24 +26,31 @@ namespace MarbleManager.Lights
             SetConfig(_config);
         }
 
+        /**
+         * Applies a colour palette to the light
+         */
         public void ApplyPalette(PaletteObject _palette)
         {
             // get payload template based on config setting
             JObject payload = GetPayloadTemplate();
 
             // insert palette into payload
-            //JArray palette = FormatPalette(_palette);
-            //if (palette == null || palette.Count <= 0) {
-            //    Console.WriteLine("nanoleaf palette should not be empty");
-            //    return; 
-            //}
+            JArray palette = FormatPalette(_palette);
+            if (palette == null || palette.Count <= 0)
+            {
+                Console.WriteLine("nanoleaf palette should not be empty");
+                return;
+            }
 
-            //payload["write"]["palette"] = palette;
+            payload["write"]["palette"] = palette;
 
             // send payload
             SendPayload(payload, "/effects");
         }
 
+        /**
+         * Sets the config object for the light
+         */
         public void SetConfig(ConfigObject _config)
         {
             config = _config.nanoleafConfig;
@@ -52,6 +59,9 @@ namespace MarbleManager.Lights
             populatedUrl = baseUrl.Replace("<nanoleafIp>", config.ipAddress);
         }
 
+        /**
+         * Turns the light on/off 
+         */
         public void SetOnOffState(bool _state)
         {
             if (populatedUrl == null)
@@ -63,9 +73,12 @@ namespace MarbleManager.Lights
             SendPayload(GetStatePayload(_state), "/state");
         }
 
-        private async void SendPayload(object payload, string endpoint)
+        /**
+         * Sends a payload to a given nanoleaf api endpoint
+         */
+        private async void SendPayload(object _payload, string _endpoint)
         {
-            if (payload == null)
+            if (_payload == null)
             {
                 throw new Exception("null payload");
             }
@@ -76,11 +89,11 @@ namespace MarbleManager.Lights
                 client.BaseAddress = new Uri(populatedUrl);
 
                 // create payload string
-                string jsonPayload = JsonConvert.SerializeObject(payload);
+                string jsonPayload = JsonConvert.SerializeObject(_payload);
                 StringContent content = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
 
                 // send the request
-                HttpResponseMessage response = await client.PutAsync("api/v1/" + config.apiKey + endpoint, content);
+                HttpResponseMessage response = await client.PutAsync("api/v1/" + config.apiKey + _endpoint, content);
 
                 // Check if the request was successful
                 if (response.IsSuccessStatusCode)
@@ -95,6 +108,10 @@ namespace MarbleManager.Lights
                 }
             }
         }
+
+        /**
+         * Gets the API payload template object from file
+         */
         private JObject GetPayloadTemplate()
         {
             try
@@ -118,6 +135,9 @@ namespace MarbleManager.Lights
             return null;
         }
 
+        /**
+         * Returns the template file name according to the current effect setting
+         */
         private string GetTemplateName()
         {
             // returns the filename of the relevant payload template
@@ -132,6 +152,9 @@ namespace MarbleManager.Lights
             }
         }
 
+        /**
+         * Creates a JSON array of colours in the Nanoleaf API format
+         */
         private JArray FormatPalette(PaletteObject _palette)
         {
             // formats palette into nanoleaf api format
@@ -147,15 +170,21 @@ namespace MarbleManager.Lights
             return palette;
         }
 
+        /**
+         * Formats a swatch into the right JSON object for Nanoleaf API
+         */
         private JObject FormatColour(SwatchObject _swatch)
         {
             JObject colour = new JObject();
             colour["hue"] = _swatch.h;
-            colour["saturation"] = _swatch.s * 100;
-            colour["brightness"] = _swatch.l * 100;
+            colour["saturation"] = _swatch.s;
+            colour["brightness"] = _swatch.l;
             return colour;
         }
 
+        /**
+         * Returns a simple on/off state object
+         */
         private object GetStatePayload(bool _state)
         {
             return new
