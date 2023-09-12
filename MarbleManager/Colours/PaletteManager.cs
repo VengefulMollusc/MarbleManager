@@ -37,12 +37,12 @@ namespace MarbleManager.Colours
             }
         }
 
-        internal static void SavePalette(PaletteObject palette)
+        internal static void SavePalette(PaletteObject _palette)
         {
             // save to file
             try
             {
-                string jsonString = JsonConvert.SerializeObject(palette, Formatting.Indented);
+                string jsonString = JsonConvert.SerializeObject(_palette, Formatting.Indented);
                 using (StreamWriter outputFile = new StreamWriter(paletteFilePath))
                 {
                     outputFile.WriteLine(jsonString);
@@ -56,40 +56,43 @@ namespace MarbleManager.Colours
             }
         }
 
-        internal static PaletteObject GetPaletteFromBitmap (Bitmap image)
+        internal static PaletteObject GetPaletteFromBitmap (Bitmap _image)
         {
-            if (image == null) { return null; }
+            if (_image == null) { return null; }
 
-            Palette palette = Palette.From(image).Generate();
+            Palette palette = Palette.From(_image).Generate();
             palette.Generate();
             return ConvertToPaletteObject(palette);
         }
 
-        private static PaletteObject ConvertToPaletteObject (Palette palette)
+        private static PaletteObject ConvertToPaletteObject (Palette _palette)
         {
-            if (palette == null) { return null; }
+            if (_palette == null) { return null; }
+
+            List<float> proportions = GetProportions(_palette);
 
             return new PaletteObject()
             {
-                dominant = ConvertToSwatchObject(palette.GetDominantSwatch()),
-                vibrant = ConvertToSwatchObject(palette.GetVibrantSwatch()),
-                lightVibrant = ConvertToSwatchObject(palette.GetLightVibrantSwatch()),
-                darkVibrant = ConvertToSwatchObject(palette.GetDarkVibrantSwatch()),
-                muted = ConvertToSwatchObject(palette.GetMutedSwatch()),
-                lightMuted = ConvertToSwatchObject(palette.GetLightMutedSwatch()),
-                darkMuted = ConvertToSwatchObject(palette.GetDarkMutedSwatch()),
+                dominant = ConvertToSwatchObject(_palette.GetDominantSwatch(), proportions[0]),
+                vibrant = ConvertToSwatchObject(_palette.GetVibrantSwatch(), proportions[1]),
+                lightVibrant = ConvertToSwatchObject(_palette.GetLightVibrantSwatch(), proportions[2]),
+                darkVibrant = ConvertToSwatchObject(_palette.GetDarkVibrantSwatch(), proportions[3]),
+                muted = ConvertToSwatchObject(_palette.GetMutedSwatch(), proportions[4]),
+                lightMuted = ConvertToSwatchObject(_palette.GetLightMutedSwatch(), proportions[5]),
+                darkMuted = ConvertToSwatchObject(_palette.GetDarkMutedSwatch(), proportions[6]),
             };
         }
 
-        private static SwatchObject ConvertToSwatchObject(Swatch swatch)
+        private static SwatchObject ConvertToSwatchObject(Swatch _swatch, float _proportion)
         {
-            if (swatch == null) { return null; }
+            if (_swatch == null) { return null; }
 
-            Color rgb = swatch.GetArgb();
-            float[] hsl = swatch.GetHsl();
+            Color rgb = _swatch.GetArgb();
+            float[] hsl = _swatch.GetHsl();
             return new SwatchObject()
             {
-                population = swatch.GetPopulation(),
+                population = _swatch.GetPopulation(),
+                proportion = _proportion,
                 r = rgb.R,
                 g = rgb.G,
                 b = rgb.B,
@@ -97,6 +100,27 @@ namespace MarbleManager.Colours
                 s = hsl[1],
                 l = hsl[2]
             };
+        }
+
+        private static List<float> GetProportions(Palette _palette)
+        {
+            List<Swatch> swatches = _palette.GetSwatches();
+            int totalPop = 0;
+
+            foreach (Swatch swatch in swatches)
+            {
+                if (swatch != null) totalPop += swatch.GetPopulation();
+            }
+
+            List<float> proportions = new List<float>();
+            foreach (Swatch swatch in swatches)
+            {
+                proportions.Add(swatch != null
+                    ? swatch.GetPopulation() / totalPop
+                    : 0);
+            }
+
+            return proportions;
         }
     }
 }

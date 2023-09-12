@@ -1,4 +1,6 @@
 ﻿using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace MarbleManager.Colours
 {
@@ -16,22 +18,29 @@ namespace MarbleManager.Colours
 
         // this doesn't return dominant as it's included as one of the other swatches
         [JsonIgnore]
-        public SwatchObject[] Swatches { get {
-                return new SwatchObject[] { 
-                    vibrant, 
-                    lightVibrant, 
-                    darkVibrant,
-                    muted,
-                    lightMuted,
-                    darkMuted
-                };
+        public List<SwatchObject> Swatches { get {
+                List<SwatchObject> swatches = new List<SwatchObject>();
+                if (vibrant != null) swatches.Add(vibrant);
+                if (lightVibrant != null) swatches.Add(lightVibrant);
+                if (darkVibrant != null) swatches.Add(darkVibrant);
+                if (muted != null) swatches.Add(muted);
+                if (lightMuted != null) swatches.Add(lightMuted);
+                if (darkMuted != null) swatches.Add(darkMuted);
+                if (dominant != null && !swatches.Exists(x => x.population == dominant.population)) {
+                    // include dominant swatch if it is not already included
+                    swatches.Prepend(dominant);
+                }
+                return swatches;
             } 
         }
     }
 
     internal class SwatchObject
     {
+        // population of swatch in source image
         public int population { get; set; }
+        // proportion of swatch compared to other colours in source image
+        public float proportion {  get; set; }
         // RGB
         public int r { get; set; }
         public int g { get; set; }
