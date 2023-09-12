@@ -12,10 +12,12 @@ namespace MarbleManager.Config
     internal static class ConfigManager
     {
         static string configFilePath = "config.json";
+        static string dataDirPath = "data\\";
         static string templatesDirPath = "templates\\";
-        static string scriptOutputDirPath = "output\\scripts\\";
+        static string scriptOutputDirPath = "scripts\\";
 
         internal static string TemplatesDirectory { get { return templatesDirPath; } }
+        internal static string DataDirectory { get { return dataDirPath; } }
 
         internal static ConfigObject GetConfig()
         {
@@ -93,7 +95,12 @@ namespace MarbleManager.Config
 
             for (int i = 0; i < templates.Length; i++)
             {
-                Utilities.CopyFileAndReplaceValues(templatesDirPath, templates[i], scriptOutputDirPath, outputs[i], variables);
+                Utilities.CopyFileAndReplaceValues(
+                    Path.Combine(Environment.CurrentDirectory, templatesDirPath), 
+                    templates[i], 
+                    Path.Combine(Environment.CurrentDirectory, dataDirPath, scriptOutputDirPath),
+                    outputs[i], 
+                    variables);
             }
         }
     }

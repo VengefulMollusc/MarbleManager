@@ -102,7 +102,7 @@ namespace MarbleManager
             panel.BackColor = Color.FromArgb(swatch.r, swatch.g, swatch.b);
             panel.BorderStyle = BorderStyle.None;
             labels[0].Text = swatch.population.ToString();
-            labels[1].Text = Math.Round(swatch.h, 3).ToString();
+            labels[1].Text = Math.Round(swatch.h).ToString();
             labels[2].Text = Math.Round(swatch.s, 3).ToString();
             labels[3].Text = Math.Round(swatch.l, 3).ToString();
         }

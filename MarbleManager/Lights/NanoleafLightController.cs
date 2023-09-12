@@ -99,7 +99,7 @@ namespace MarbleManager.Lights
         {
             try
             {
-                string filePath = Path.Combine(ConfigManager.TemplatesDirectory, effectPayloadDir, GetTemplateName());
+                string filePath = Path.Combine(Environment.CurrentDirectory, ConfigManager.TemplatesDirectory, effectPayloadDir, GetTemplateName());
                 // load file here if exists
                 using (StreamReader r = new StreamReader(filePath))
                 {

@@ -13,14 +13,22 @@ namespace MarbleManager.Colours
 {
     internal static class PaletteManager
     {
-        static string paletteFilePath = "output\\palette.json";
+        static string paletteFileName = "palette.json";
+
+        static string PaletteFilePath
+        {
+            get
+            {
+                return Path.Combine(Environment.CurrentDirectory, ConfigManager.DataDirectory, paletteFileName);
+            }
+        }
 
         internal static PaletteObject LoadPalette ()
         {
             try
             {
                 // load file here if exists
-                using (StreamReader r = new StreamReader(paletteFilePath))
+                using (StreamReader r = new StreamReader(PaletteFilePath))
                 {
                     string json = r.ReadToEnd();
                     PaletteObject palette = JsonConvert.DeserializeObject<PaletteObject>(json);
@@ -42,8 +50,11 @@ namespace MarbleManager.Colours
             // save to file
             try
             {
+                // Create the destination directory if it doesn't exist
+                Directory.CreateDirectory(Path.Combine(Environment.CurrentDirectory, ConfigManager.DataDirectory));
+
                 string jsonString = JsonConvert.SerializeObject(_palette, Formatting.Indented);
-                using (StreamWriter outputFile = new StreamWriter(paletteFilePath))
+                using (StreamWriter outputFile = new StreamWriter(PaletteFilePath))
                 {
                     outputFile.WriteLine(jsonString);
                 }

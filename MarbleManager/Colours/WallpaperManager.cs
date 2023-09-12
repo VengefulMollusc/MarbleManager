@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32;
+using MarbleManager.Config;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -11,13 +12,21 @@ namespace MarbleManager.Colours
 {
     internal static class WallpaperManager
     {
-        static string wallpaperFilePath = "output\\wallpaper.jpg";
+        static string wallpaperFileName = "wallpaper.jpg";
+
+        static string WallpaperPath
+        {
+            get
+            {
+                return Path.Combine(Environment.CurrentDirectory, ConfigManager.DataDirectory, wallpaperFileName);
+            }
+        }
 
         internal static Bitmap GetWallpaperJpg()
         {
             CopyWallpaperToJpg();
 
-            return new Bitmap(wallpaperFilePath);
+            return new Bitmap(WallpaperPath);
         }
 
         // delete copied wallpaper file
@@ -26,10 +35,10 @@ namespace MarbleManager.Colours
             try
             {
                 // Check if the file exists before attempting to delete it
-                if (File.Exists(wallpaperFilePath))
+                if (File.Exists(WallpaperPath))
                 {
                     // Delete the file
-                    File.Delete(wallpaperFilePath);
+                    File.Delete(WallpaperPath);
                     Console.WriteLine("File deleted successfully.");
                 }
                 else
@@ -81,11 +90,8 @@ namespace MarbleManager.Colours
             string transcodedWallpaperPath = GetWallpaperPath();
             if (transcodedWallpaperPath != null)
             {
-                // Temp output file path and rename - current directory
-                string destinationPath = Path.Combine(Environment.CurrentDirectory, wallpaperFilePath);
-
                 // Copy and rename
-                File.Copy(transcodedWallpaperPath, destinationPath, true);
+                File.Copy(transcodedWallpaperPath, WallpaperPath, true);
             }
         }
     }
