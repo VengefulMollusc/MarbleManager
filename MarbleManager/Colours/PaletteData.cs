@@ -16,6 +16,8 @@ namespace MarbleManager.Colours
         public SwatchObject lightMuted { get; set; }
         public SwatchObject darkMuted { get; set; }
 
+        public List<SwatchObject> AllSwatches { get; set; }
+
         // this doesn't return dominant as it's included as one of the other swatches
         [JsonIgnore]
         public List<SwatchObject> MainSwatches { get {
@@ -26,15 +28,17 @@ namespace MarbleManager.Colours
                 if (muted != null) swatches.Add(muted);
                 if (lightMuted != null) swatches.Add(lightMuted);
                 if (darkMuted != null) swatches.Add(darkMuted);
-                if (dominant != null && !swatches.Exists(x => x.population == dominant.population)) {
+                if (dominant != null && !swatches.Exists(x => 
+                    x.population == dominant.population
+                    && x.r == dominant.r
+                    && x.g == dominant.g
+                    && x.b == dominant.b)) {
                     // include dominant swatch if it is not already included
                     swatches.Prepend(dominant);
                 }
-                return swatches;
+                return swatches.OrderByDescending(x => x.population).ToList();
             } 
         }
-
-        public List<SwatchObject> allSwatches { get; set; }
     }
 
     internal class SwatchObject

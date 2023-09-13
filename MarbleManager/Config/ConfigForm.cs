@@ -95,23 +95,23 @@ namespace MarbleManager
             }
         }
 
-        private void PreviewSwatch (List<Panel> _panels, List<Label> _labels, SwatchObject _swatch, bool showHsl = false)
+        private void PreviewSwatch (List<Panel> _panels, List<Label> _labels, SwatchObject _swatch, bool showHsl = true)
         {
             Color bgColour;
             BorderStyle borderStyle;
-            string popText, hslText;
+            string propText, hslText;
 
             if (_swatch == null)
             {
                 bgColour = Color.WhiteSmoke;
                 borderStyle = BorderStyle.FixedSingle;
-                popText = "pop: none";
+                propText = "prop: none";
                 hslText = showHsl ? "hsl:--- --- ---" : "rgb:--- --- ---";
             } else
             {
                 bgColour = Color.FromArgb(_swatch.r, _swatch.g, _swatch.b);
                 borderStyle = BorderStyle.None;
-                popText = "pop:" + _swatch.population.ToString();
+                propText = "prop:" + ((int)Math.Round(_swatch.proportion * 100f, 0, MidpointRounding.AwayFromZero)).ToString() + "%";
                 hslText = showHsl ? 
                     "hsl:" + _swatch.h.ToString() + " " + _swatch.s.ToString() + " " + _swatch.l.ToString() :
                     "rgb:" + _swatch.r.ToString() + " " + _swatch.g.ToString() + " " + _swatch.b.ToString();
@@ -123,7 +123,7 @@ namespace MarbleManager
                 panel.BackColor = bgColour;
                 panel.BorderStyle = borderStyle;
             }
-            _labels[0].Text = popText;
+            _labels[0].Text = propText;
             _labels[1].Text = hslText;
         }
 
@@ -155,6 +155,7 @@ namespace MarbleManager
             // init general config
             checkBoxSyncOnWallpaperChange.Checked = config.generalConfig.syncOnWallpaperChange;
             checkBoxAutoTurnOnOff.Checked = config.generalConfig.turnOnOffWithPc;
+            checkBoxUseMainSwatches.Checked = config.generalConfig.onlyUseMainSwatches;
 
             // init nanoleaf config
             textBoxNanoleafIP.Text = config.nanoleafConfig.ipAddress;
@@ -169,6 +170,8 @@ namespace MarbleManager
                     radioButtonLightEffectRandom.Checked = true;
                     break;
             }
+            checkBoxOverrideMainColourProb.Checked = config.nanoleafConfig.overrideMainColourProb;
+            numericUpDownProbValue.Value = config.nanoleafConfig.mainColourProb;
 
             // init lifx config
             textBoxLifxSelector.Text = config.lifxConfig.selector;
@@ -185,12 +188,15 @@ namespace MarbleManager
                 {
                     syncOnWallpaperChange = checkBoxSyncOnWallpaperChange.Checked,
                     turnOnOffWithPc = checkBoxAutoTurnOnOff.Checked,
+                    onlyUseMainSwatches = checkBoxUseMainSwatches.Checked,
                 },
                 nanoleafConfig = new NanoleafConfig()
                 {
                     ipAddress = textBoxNanoleafIP.Text,
                     apiKey = textBoxNanoleafApiKey.Text,
-                    effect = GetSelectedNanoleafEffect()
+                    effect = GetSelectedNanoleafEffect(),
+                    overrideMainColourProb = checkBoxOverrideMainColourProb.Checked,
+                    mainColourProb = (int)numericUpDownProbValue.Value,
                 },
                 lifxConfig = new LifxConfig()
                 {
@@ -299,9 +305,19 @@ namespace MarbleManager
 
             LoadLastPalette();
         }
+
+        /**
+         * Toggle visibility of the highlight extra options panel
+         */
+        private void radioButtonLightEffectHighlight_CheckedChanged(object sender, EventArgs e)
+        {
+            groupBoxHighlightOptions.Visible = radioButtonLightEffectHighlight.Checked;
+        }
     }
 
-    // Custom TextWriter to redirect output to the TextBox control
+    /**
+     * Custom TextWriter to redirect output to the TextBox control
+     */
     internal class TextBoxStreamWriter : TextWriter
     {
         private TextBox textBox;

@@ -130,6 +130,7 @@
             this.flowLayoutPanel14 = new System.Windows.Forms.FlowLayoutPanel();
             this.checkBoxSyncOnWallpaperChange = new System.Windows.Forms.CheckBox();
             this.checkBoxAutoTurnOnOff = new System.Windows.Forms.CheckBox();
+            this.checkBoxUseMainSwatches = new System.Windows.Forms.CheckBox();
             this.groupBoxConfigLifx = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel13 = new System.Windows.Forms.FlowLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
@@ -146,13 +147,16 @@
             this.flowLayoutPanel10 = new System.Windows.Forms.FlowLayoutPanel();
             this.radioButtonLightEffectRandom = new System.Windows.Forms.RadioButton();
             this.radioButtonLightEffectHighlight = new System.Windows.Forms.RadioButton();
+            this.groupBoxHighlightOptions = new System.Windows.Forms.GroupBox();
+            this.flowLayoutPanel28 = new System.Windows.Forms.FlowLayoutPanel();
+            this.checkBoxOverrideMainColourProb = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel11 = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonConfigReset = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.buttonConfigApplyChanges = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.flowLayoutPanel8 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBoxOnOff = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
@@ -168,6 +172,7 @@
             this.label24 = new System.Windows.Forms.Label();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.numericUpDownProbValue = new System.Windows.Forms.NumericUpDown();
             this.tabControl1.SuspendLayout();
             this.tabPageStatus.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -209,6 +214,8 @@
             this.groupBoxConfigNanoleaf.SuspendLayout();
             this.flowLayoutPanel12.SuspendLayout();
             this.flowLayoutPanel10.SuspendLayout();
+            this.groupBoxHighlightOptions.SuspendLayout();
+            this.flowLayoutPanel28.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.flowLayoutPanel11.SuspendLayout();
             this.flowLayoutPanel8.SuspendLayout();
@@ -219,6 +226,7 @@
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownProbValue)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -525,9 +533,9 @@
             this.labelCurrentMdPop.Location = new System.Drawing.Point(12, 0);
             this.labelCurrentMdPop.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.labelCurrentMdPop.Name = "labelCurrentMdPop";
-            this.labelCurrentMdPop.Size = new System.Drawing.Size(52, 13);
+            this.labelCurrentMdPop.Size = new System.Drawing.Size(58, 13);
             this.labelCurrentMdPop.TabIndex = 1;
-            this.labelCurrentMdPop.Text = "pop:0000";
+            this.labelCurrentMdPop.Text = "prop: none";
             // 
             // labelCurrentMdhsl
             // 
@@ -535,9 +543,9 @@
             this.labelCurrentMdhsl.Location = new System.Drawing.Point(0, 13);
             this.labelCurrentMdhsl.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.labelCurrentMdhsl.Name = "labelCurrentMdhsl";
-            this.labelCurrentMdhsl.Size = new System.Drawing.Size(83, 13);
+            this.labelCurrentMdhsl.Size = new System.Drawing.Size(56, 13);
             this.labelCurrentMdhsl.TabIndex = 9;
-            this.labelCurrentMdhsl.Text = "hsl:000 000 000";
+            this.labelCurrentMdhsl.Text = "hsl:--- --- ---";
             // 
             // flowLayoutPanel17
             // 
@@ -567,9 +575,9 @@
             this.labelCurrentVdPop.Location = new System.Drawing.Point(12, 0);
             this.labelCurrentVdPop.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.labelCurrentVdPop.Name = "labelCurrentVdPop";
-            this.labelCurrentVdPop.Size = new System.Drawing.Size(52, 13);
+            this.labelCurrentVdPop.Size = new System.Drawing.Size(58, 13);
             this.labelCurrentVdPop.TabIndex = 1;
-            this.labelCurrentVdPop.Text = "pop:0000";
+            this.labelCurrentVdPop.Text = "prop: none";
             // 
             // labelCurrentVdhsl
             // 
@@ -577,9 +585,9 @@
             this.labelCurrentVdhsl.Location = new System.Drawing.Point(0, 13);
             this.labelCurrentVdhsl.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.labelCurrentVdhsl.Name = "labelCurrentVdhsl";
-            this.labelCurrentVdhsl.Size = new System.Drawing.Size(83, 13);
+            this.labelCurrentVdhsl.Size = new System.Drawing.Size(56, 13);
             this.labelCurrentVdhsl.TabIndex = 9;
-            this.labelCurrentVdhsl.Text = "hsl:000 000 000";
+            this.labelCurrentVdhsl.Text = "hsl:--- --- ---";
             // 
             // flowLayoutPanel16
             // 
@@ -609,9 +617,9 @@
             this.labelCurrentMlPop.Location = new System.Drawing.Point(12, 0);
             this.labelCurrentMlPop.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.labelCurrentMlPop.Name = "labelCurrentMlPop";
-            this.labelCurrentMlPop.Size = new System.Drawing.Size(52, 13);
+            this.labelCurrentMlPop.Size = new System.Drawing.Size(58, 13);
             this.labelCurrentMlPop.TabIndex = 1;
-            this.labelCurrentMlPop.Text = "pop:0000";
+            this.labelCurrentMlPop.Text = "prop: none";
             // 
             // labelCurrentMlhsl
             // 
@@ -619,9 +627,9 @@
             this.labelCurrentMlhsl.Location = new System.Drawing.Point(0, 13);
             this.labelCurrentMlhsl.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.labelCurrentMlhsl.Name = "labelCurrentMlhsl";
-            this.labelCurrentMlhsl.Size = new System.Drawing.Size(83, 13);
+            this.labelCurrentMlhsl.Size = new System.Drawing.Size(56, 13);
             this.labelCurrentMlhsl.TabIndex = 9;
-            this.labelCurrentMlhsl.Text = "hsl:000 000 000";
+            this.labelCurrentMlhsl.Text = "hsl:--- --- ---";
             // 
             // flowLayoutPanel15
             // 
@@ -651,9 +659,9 @@
             this.labelCurrentVlPop.Location = new System.Drawing.Point(12, 0);
             this.labelCurrentVlPop.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.labelCurrentVlPop.Name = "labelCurrentVlPop";
-            this.labelCurrentVlPop.Size = new System.Drawing.Size(52, 13);
+            this.labelCurrentVlPop.Size = new System.Drawing.Size(58, 13);
             this.labelCurrentVlPop.TabIndex = 1;
-            this.labelCurrentVlPop.Text = "pop:0000";
+            this.labelCurrentVlPop.Text = "prop: none";
             // 
             // labelCurrentVlhsl
             // 
@@ -661,9 +669,9 @@
             this.labelCurrentVlhsl.Location = new System.Drawing.Point(0, 13);
             this.labelCurrentVlhsl.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.labelCurrentVlhsl.Name = "labelCurrentVlhsl";
-            this.labelCurrentVlhsl.Size = new System.Drawing.Size(83, 13);
+            this.labelCurrentVlhsl.Size = new System.Drawing.Size(56, 13);
             this.labelCurrentVlhsl.TabIndex = 9;
-            this.labelCurrentVlhsl.Text = "hsl:000 000 000";
+            this.labelCurrentVlhsl.Text = "hsl:--- --- ---";
             // 
             // flowLayoutPanel7
             // 
@@ -693,9 +701,9 @@
             this.labelCurrentMPop.Location = new System.Drawing.Point(12, 0);
             this.labelCurrentMPop.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.labelCurrentMPop.Name = "labelCurrentMPop";
-            this.labelCurrentMPop.Size = new System.Drawing.Size(52, 13);
+            this.labelCurrentMPop.Size = new System.Drawing.Size(58, 13);
             this.labelCurrentMPop.TabIndex = 1;
-            this.labelCurrentMPop.Text = "pop:0000";
+            this.labelCurrentMPop.Text = "prop: none";
             // 
             // labelCurrentMhsl
             // 
@@ -703,9 +711,9 @@
             this.labelCurrentMhsl.Location = new System.Drawing.Point(0, 13);
             this.labelCurrentMhsl.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.labelCurrentMhsl.Name = "labelCurrentMhsl";
-            this.labelCurrentMhsl.Size = new System.Drawing.Size(83, 13);
+            this.labelCurrentMhsl.Size = new System.Drawing.Size(56, 13);
             this.labelCurrentMhsl.TabIndex = 9;
-            this.labelCurrentMhsl.Text = "hsl:000 000 000";
+            this.labelCurrentMhsl.Text = "hsl:--- --- ---";
             // 
             // flowLayoutPanel6
             // 
@@ -735,9 +743,9 @@
             this.labelCurrentVPop.Location = new System.Drawing.Point(12, 0);
             this.labelCurrentVPop.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.labelCurrentVPop.Name = "labelCurrentVPop";
-            this.labelCurrentVPop.Size = new System.Drawing.Size(52, 13);
+            this.labelCurrentVPop.Size = new System.Drawing.Size(58, 13);
             this.labelCurrentVPop.TabIndex = 1;
-            this.labelCurrentVPop.Text = "pop:0000";
+            this.labelCurrentVPop.Text = "prop: none";
             // 
             // labelCurrentVhsl
             // 
@@ -745,9 +753,9 @@
             this.labelCurrentVhsl.Location = new System.Drawing.Point(0, 13);
             this.labelCurrentVhsl.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.labelCurrentVhsl.Name = "labelCurrentVhsl";
-            this.labelCurrentVhsl.Size = new System.Drawing.Size(83, 13);
+            this.labelCurrentVhsl.Size = new System.Drawing.Size(56, 13);
             this.labelCurrentVhsl.TabIndex = 3;
-            this.labelCurrentVhsl.Text = "hsl:000 000 000";
+            this.labelCurrentVhsl.Text = "hsl:--- --- ---";
             // 
             // flowLayoutPanel1
             // 
@@ -786,18 +794,18 @@
             this.labelCurrentDPop.AutoSize = true;
             this.labelCurrentDPop.Location = new System.Drawing.Point(3, 76);
             this.labelCurrentDPop.Name = "labelCurrentDPop";
-            this.labelCurrentDPop.Size = new System.Drawing.Size(52, 13);
+            this.labelCurrentDPop.Size = new System.Drawing.Size(58, 13);
             this.labelCurrentDPop.TabIndex = 8;
-            this.labelCurrentDPop.Text = "pop:0000";
+            this.labelCurrentDPop.Text = "prop: none";
             // 
             // labelCurrentDhsl
             // 
             this.labelCurrentDhsl.AutoSize = true;
             this.labelCurrentDhsl.Location = new System.Drawing.Point(3, 89);
             this.labelCurrentDhsl.Name = "labelCurrentDhsl";
-            this.labelCurrentDhsl.Size = new System.Drawing.Size(46, 26);
+            this.labelCurrentDhsl.Size = new System.Drawing.Size(56, 13);
             this.labelCurrentDhsl.TabIndex = 10;
-            this.labelCurrentDhsl.Text = "hsl:000 000 000";
+            this.labelCurrentDhsl.Text = "hsl:--- --- ---";
             // 
             // groupBoxWallpaper
             // 
@@ -1008,9 +1016,9 @@
             this.labelLastMdPop.Location = new System.Drawing.Point(12, 0);
             this.labelLastMdPop.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.labelLastMdPop.Name = "labelLastMdPop";
-            this.labelLastMdPop.Size = new System.Drawing.Size(52, 13);
+            this.labelLastMdPop.Size = new System.Drawing.Size(58, 13);
             this.labelLastMdPop.TabIndex = 1;
-            this.labelLastMdPop.Text = "pop:0000";
+            this.labelLastMdPop.Text = "prop: none";
             // 
             // labelLastMdhsl
             // 
@@ -1018,9 +1026,9 @@
             this.labelLastMdhsl.Location = new System.Drawing.Point(0, 13);
             this.labelLastMdhsl.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.labelLastMdhsl.Name = "labelLastMdhsl";
-            this.labelLastMdhsl.Size = new System.Drawing.Size(83, 13);
+            this.labelLastMdhsl.Size = new System.Drawing.Size(56, 13);
             this.labelLastMdhsl.TabIndex = 9;
-            this.labelLastMdhsl.Text = "hsl:000 000 000";
+            this.labelLastMdhsl.Text = "hsl:--- --- ---";
             // 
             // flowLayoutPanel22
             // 
@@ -1050,9 +1058,9 @@
             this.labelLastVdPop.Location = new System.Drawing.Point(12, 0);
             this.labelLastVdPop.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.labelLastVdPop.Name = "labelLastVdPop";
-            this.labelLastVdPop.Size = new System.Drawing.Size(52, 13);
+            this.labelLastVdPop.Size = new System.Drawing.Size(58, 13);
             this.labelLastVdPop.TabIndex = 1;
-            this.labelLastVdPop.Text = "pop:0000";
+            this.labelLastVdPop.Text = "prop: none";
             // 
             // labelLastVdhsl
             // 
@@ -1060,9 +1068,9 @@
             this.labelLastVdhsl.Location = new System.Drawing.Point(0, 13);
             this.labelLastVdhsl.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.labelLastVdhsl.Name = "labelLastVdhsl";
-            this.labelLastVdhsl.Size = new System.Drawing.Size(83, 13);
+            this.labelLastVdhsl.Size = new System.Drawing.Size(56, 13);
             this.labelLastVdhsl.TabIndex = 9;
-            this.labelLastVdhsl.Text = "hsl:000 000 000";
+            this.labelLastVdhsl.Text = "hsl:--- --- ---";
             // 
             // flowLayoutPanel23
             // 
@@ -1092,9 +1100,9 @@
             this.labelLastMlPop.Location = new System.Drawing.Point(12, 0);
             this.labelLastMlPop.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.labelLastMlPop.Name = "labelLastMlPop";
-            this.labelLastMlPop.Size = new System.Drawing.Size(52, 13);
+            this.labelLastMlPop.Size = new System.Drawing.Size(58, 13);
             this.labelLastMlPop.TabIndex = 1;
-            this.labelLastMlPop.Text = "pop:0000";
+            this.labelLastMlPop.Text = "prop: none";
             // 
             // labelLastMlhsl
             // 
@@ -1102,9 +1110,9 @@
             this.labelLastMlhsl.Location = new System.Drawing.Point(0, 13);
             this.labelLastMlhsl.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.labelLastMlhsl.Name = "labelLastMlhsl";
-            this.labelLastMlhsl.Size = new System.Drawing.Size(83, 13);
+            this.labelLastMlhsl.Size = new System.Drawing.Size(56, 13);
             this.labelLastMlhsl.TabIndex = 9;
-            this.labelLastMlhsl.Text = "hsl:000 000 000";
+            this.labelLastMlhsl.Text = "hsl:--- --- ---";
             // 
             // flowLayoutPanel24
             // 
@@ -1134,9 +1142,9 @@
             this.labelLastVlPop.Location = new System.Drawing.Point(12, 0);
             this.labelLastVlPop.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.labelLastVlPop.Name = "labelLastVlPop";
-            this.labelLastVlPop.Size = new System.Drawing.Size(52, 13);
+            this.labelLastVlPop.Size = new System.Drawing.Size(58, 13);
             this.labelLastVlPop.TabIndex = 1;
-            this.labelLastVlPop.Text = "pop:0000";
+            this.labelLastVlPop.Text = "prop: none";
             // 
             // labelLastVlhsl
             // 
@@ -1144,9 +1152,9 @@
             this.labelLastVlhsl.Location = new System.Drawing.Point(0, 13);
             this.labelLastVlhsl.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.labelLastVlhsl.Name = "labelLastVlhsl";
-            this.labelLastVlhsl.Size = new System.Drawing.Size(83, 13);
+            this.labelLastVlhsl.Size = new System.Drawing.Size(56, 13);
             this.labelLastVlhsl.TabIndex = 9;
-            this.labelLastVlhsl.Text = "hsl:000 000 000";
+            this.labelLastVlhsl.Text = "hsl:--- --- ---";
             // 
             // flowLayoutPanel25
             // 
@@ -1176,9 +1184,9 @@
             this.labelLastMPop.Location = new System.Drawing.Point(12, 0);
             this.labelLastMPop.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.labelLastMPop.Name = "labelLastMPop";
-            this.labelLastMPop.Size = new System.Drawing.Size(52, 13);
+            this.labelLastMPop.Size = new System.Drawing.Size(58, 13);
             this.labelLastMPop.TabIndex = 1;
-            this.labelLastMPop.Text = "pop:0000";
+            this.labelLastMPop.Text = "prop: none";
             // 
             // labelLastMhsl
             // 
@@ -1186,9 +1194,9 @@
             this.labelLastMhsl.Location = new System.Drawing.Point(0, 13);
             this.labelLastMhsl.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.labelLastMhsl.Name = "labelLastMhsl";
-            this.labelLastMhsl.Size = new System.Drawing.Size(83, 13);
+            this.labelLastMhsl.Size = new System.Drawing.Size(56, 13);
             this.labelLastMhsl.TabIndex = 9;
-            this.labelLastMhsl.Text = "hsl:000 000 000";
+            this.labelLastMhsl.Text = "hsl:--- --- ---";
             // 
             // flowLayoutPanel26
             // 
@@ -1218,9 +1226,9 @@
             this.labelLastVPop.Location = new System.Drawing.Point(12, 0);
             this.labelLastVPop.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.labelLastVPop.Name = "labelLastVPop";
-            this.labelLastVPop.Size = new System.Drawing.Size(52, 13);
+            this.labelLastVPop.Size = new System.Drawing.Size(58, 13);
             this.labelLastVPop.TabIndex = 1;
-            this.labelLastVPop.Text = "pop:0000";
+            this.labelLastVPop.Text = "prop: none";
             // 
             // labelLastVhsl
             // 
@@ -1228,9 +1236,9 @@
             this.labelLastVhsl.Location = new System.Drawing.Point(0, 13);
             this.labelLastVhsl.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.labelLastVhsl.Name = "labelLastVhsl";
-            this.labelLastVhsl.Size = new System.Drawing.Size(83, 13);
+            this.labelLastVhsl.Size = new System.Drawing.Size(56, 13);
             this.labelLastVhsl.TabIndex = 9;
-            this.labelLastVhsl.Text = "hsl:000 000 000";
+            this.labelLastVhsl.Text = "hsl:--- --- ---";
             // 
             // flowLayoutPanel27
             // 
@@ -1269,18 +1277,18 @@
             this.labelLastDPop.AutoSize = true;
             this.labelLastDPop.Location = new System.Drawing.Point(3, 76);
             this.labelLastDPop.Name = "labelLastDPop";
-            this.labelLastDPop.Size = new System.Drawing.Size(52, 13);
+            this.labelLastDPop.Size = new System.Drawing.Size(58, 13);
             this.labelLastDPop.TabIndex = 8;
-            this.labelLastDPop.Text = "pop:0000";
+            this.labelLastDPop.Text = "prop: none";
             // 
             // labelLastDhsl
             // 
             this.labelLastDhsl.AutoSize = true;
             this.labelLastDhsl.Location = new System.Drawing.Point(3, 89);
             this.labelLastDhsl.Name = "labelLastDhsl";
-            this.labelLastDhsl.Size = new System.Drawing.Size(46, 26);
+            this.labelLastDhsl.Size = new System.Drawing.Size(56, 13);
             this.labelLastDhsl.TabIndex = 16;
-            this.labelLastDhsl.Text = "hsl:000 000 000";
+            this.labelLastDhsl.Text = "hsl:--- --- ---";
             // 
             // tabPageConfig
             // 
@@ -1306,8 +1314,8 @@
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(612, 431);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
@@ -1316,9 +1324,9 @@
             this.groupBoxConfigGeneral.BackColor = System.Drawing.Color.Transparent;
             this.groupBoxConfigGeneral.Controls.Add(this.flowLayoutPanel14);
             this.groupBoxConfigGeneral.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBoxConfigGeneral.Location = new System.Drawing.Point(3, 218);
+            this.groupBoxConfigGeneral.Location = new System.Drawing.Point(3, 261);
             this.groupBoxConfigGeneral.Name = "groupBoxConfigGeneral";
-            this.groupBoxConfigGeneral.Size = new System.Drawing.Size(300, 210);
+            this.groupBoxConfigGeneral.Size = new System.Drawing.Size(300, 167);
             this.groupBoxConfigGeneral.TabIndex = 2;
             this.groupBoxConfigGeneral.TabStop = false;
             this.groupBoxConfigGeneral.Text = "General";
@@ -1327,11 +1335,12 @@
             // 
             this.flowLayoutPanel14.Controls.Add(this.checkBoxSyncOnWallpaperChange);
             this.flowLayoutPanel14.Controls.Add(this.checkBoxAutoTurnOnOff);
+            this.flowLayoutPanel14.Controls.Add(this.checkBoxUseMainSwatches);
             this.flowLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel14.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel14.Location = new System.Drawing.Point(3, 16);
             this.flowLayoutPanel14.Name = "flowLayoutPanel14";
-            this.flowLayoutPanel14.Size = new System.Drawing.Size(294, 191);
+            this.flowLayoutPanel14.Size = new System.Drawing.Size(294, 148);
             this.flowLayoutPanel14.TabIndex = 0;
             // 
             // checkBoxSyncOnWallpaperChange
@@ -1354,6 +1363,16 @@
             this.checkBoxAutoTurnOnOff.Text = "Turn lights on/off with PC state";
             this.checkBoxAutoTurnOnOff.UseVisualStyleBackColor = true;
             // 
+            // checkBoxUseMainSwatches
+            // 
+            this.checkBoxUseMainSwatches.AutoSize = true;
+            this.checkBoxUseMainSwatches.Location = new System.Drawing.Point(3, 49);
+            this.checkBoxUseMainSwatches.Name = "checkBoxUseMainSwatches";
+            this.checkBoxUseMainSwatches.Size = new System.Drawing.Size(140, 17);
+            this.checkBoxUseMainSwatches.TabIndex = 5;
+            this.checkBoxUseMainSwatches.Text = "Only use main swatches";
+            this.checkBoxUseMainSwatches.UseVisualStyleBackColor = true;
+            // 
             // groupBoxConfigLifx
             // 
             this.groupBoxConfigLifx.BackColor = System.Drawing.Color.Transparent;
@@ -1361,13 +1380,14 @@
             this.groupBoxConfigLifx.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBoxConfigLifx.Location = new System.Drawing.Point(309, 3);
             this.groupBoxConfigLifx.Name = "groupBoxConfigLifx";
-            this.groupBoxConfigLifx.Size = new System.Drawing.Size(300, 209);
+            this.groupBoxConfigLifx.Size = new System.Drawing.Size(300, 252);
             this.groupBoxConfigLifx.TabIndex = 1;
             this.groupBoxConfigLifx.TabStop = false;
             this.groupBoxConfigLifx.Text = "Lifx";
             // 
             // flowLayoutPanel13
             // 
+            this.flowLayoutPanel13.AutoScroll = true;
             this.flowLayoutPanel13.Controls.Add(this.label5);
             this.flowLayoutPanel13.Controls.Add(this.textBoxLifxSelector);
             this.flowLayoutPanel13.Controls.Add(this.label6);
@@ -1376,7 +1396,7 @@
             this.flowLayoutPanel13.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel13.Location = new System.Drawing.Point(3, 16);
             this.flowLayoutPanel13.Name = "flowLayoutPanel13";
-            this.flowLayoutPanel13.Size = new System.Drawing.Size(294, 190);
+            this.flowLayoutPanel13.Size = new System.Drawing.Size(294, 233);
             this.flowLayoutPanel13.TabIndex = 0;
             // 
             // label5
@@ -1392,7 +1412,7 @@
             // 
             this.textBoxLifxSelector.Location = new System.Drawing.Point(3, 16);
             this.textBoxLifxSelector.Name = "textBoxLifxSelector";
-            this.textBoxLifxSelector.Size = new System.Drawing.Size(272, 20);
+            this.textBoxLifxSelector.Size = new System.Drawing.Size(270, 20);
             this.textBoxLifxSelector.TabIndex = 1;
             // 
             // label6
@@ -1408,7 +1428,7 @@
             // 
             this.textBoxLifxAuthKey.Location = new System.Drawing.Point(3, 55);
             this.textBoxLifxAuthKey.Name = "textBoxLifxAuthKey";
-            this.textBoxLifxAuthKey.Size = new System.Drawing.Size(272, 20);
+            this.textBoxLifxAuthKey.Size = new System.Drawing.Size(270, 20);
             this.textBoxLifxAuthKey.TabIndex = 3;
             // 
             // groupBoxConfigNanoleaf
@@ -1418,25 +1438,28 @@
             this.groupBoxConfigNanoleaf.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBoxConfigNanoleaf.Location = new System.Drawing.Point(3, 3);
             this.groupBoxConfigNanoleaf.Name = "groupBoxConfigNanoleaf";
-            this.groupBoxConfigNanoleaf.Size = new System.Drawing.Size(300, 209);
+            this.groupBoxConfigNanoleaf.Size = new System.Drawing.Size(300, 252);
             this.groupBoxConfigNanoleaf.TabIndex = 0;
             this.groupBoxConfigNanoleaf.TabStop = false;
             this.groupBoxConfigNanoleaf.Text = "Nanoleaf";
             // 
             // flowLayoutPanel12
             // 
+            this.flowLayoutPanel12.AutoScroll = true;
             this.flowLayoutPanel12.Controls.Add(this.label3);
             this.flowLayoutPanel12.Controls.Add(this.textBoxNanoleafIP);
             this.flowLayoutPanel12.Controls.Add(this.label4);
             this.flowLayoutPanel12.Controls.Add(this.textBoxNanoleafApiKey);
             this.flowLayoutPanel12.Controls.Add(this.label7);
             this.flowLayoutPanel12.Controls.Add(this.flowLayoutPanel10);
+            this.flowLayoutPanel12.Controls.Add(this.groupBoxHighlightOptions);
             this.flowLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel12.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel12.Location = new System.Drawing.Point(3, 16);
             this.flowLayoutPanel12.Name = "flowLayoutPanel12";
-            this.flowLayoutPanel12.Size = new System.Drawing.Size(294, 190);
+            this.flowLayoutPanel12.Size = new System.Drawing.Size(294, 233);
             this.flowLayoutPanel12.TabIndex = 0;
+            this.flowLayoutPanel12.WrapContents = false;
             // 
             // label3
             // 
@@ -1451,7 +1474,7 @@
             // 
             this.textBoxNanoleafIP.Location = new System.Drawing.Point(3, 16);
             this.textBoxNanoleafIP.Name = "textBoxNanoleafIP";
-            this.textBoxNanoleafIP.Size = new System.Drawing.Size(272, 20);
+            this.textBoxNanoleafIP.Size = new System.Drawing.Size(270, 20);
             this.textBoxNanoleafIP.TabIndex = 1;
             // 
             // label4
@@ -1467,7 +1490,7 @@
             // 
             this.textBoxNanoleafApiKey.Location = new System.Drawing.Point(3, 55);
             this.textBoxNanoleafApiKey.Name = "textBoxNanoleafApiKey";
-            this.textBoxNanoleafApiKey.Size = new System.Drawing.Size(272, 20);
+            this.textBoxNanoleafApiKey.Size = new System.Drawing.Size(270, 20);
             this.textBoxNanoleafApiKey.TabIndex = 3;
             // 
             // label7
@@ -1509,14 +1532,60 @@
             this.radioButtonLightEffectHighlight.TabIndex = 1;
             this.radioButtonLightEffectHighlight.Text = "Highlight";
             this.radioButtonLightEffectHighlight.UseVisualStyleBackColor = true;
+            this.radioButtonLightEffectHighlight.CheckedChanged += new System.EventHandler(this.radioButtonLightEffectHighlight_CheckedChanged);
+            // 
+            // groupBoxHighlightOptions
+            // 
+            this.groupBoxHighlightOptions.AutoSize = true;
+            this.groupBoxHighlightOptions.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.groupBoxHighlightOptions.Controls.Add(this.flowLayoutPanel28);
+            this.groupBoxHighlightOptions.Location = new System.Drawing.Point(3, 125);
+            this.groupBoxHighlightOptions.Name = "groupBoxHighlightOptions";
+            this.groupBoxHighlightOptions.Size = new System.Drawing.Size(185, 81);
+            this.groupBoxHighlightOptions.TabIndex = 5;
+            this.groupBoxHighlightOptions.TabStop = false;
+            this.groupBoxHighlightOptions.Text = "Highlight options";
+            // 
+            // flowLayoutPanel28
+            // 
+            this.flowLayoutPanel28.AutoSize = true;
+            this.flowLayoutPanel28.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flowLayoutPanel28.Controls.Add(this.checkBoxOverrideMainColourProb);
+            this.flowLayoutPanel28.Controls.Add(this.label2);
+            this.flowLayoutPanel28.Controls.Add(this.numericUpDownProbValue);
+            this.flowLayoutPanel28.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel28.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel28.Location = new System.Drawing.Point(3, 16);
+            this.flowLayoutPanel28.Name = "flowLayoutPanel28";
+            this.flowLayoutPanel28.Size = new System.Drawing.Size(179, 62);
+            this.flowLayoutPanel28.TabIndex = 0;
+            // 
+            // checkBoxOverrideMainColourProb
+            // 
+            this.checkBoxOverrideMainColourProb.AutoSize = true;
+            this.checkBoxOverrideMainColourProb.Location = new System.Drawing.Point(3, 3);
+            this.checkBoxOverrideMainColourProb.Name = "checkBoxOverrideMainColourProb";
+            this.checkBoxOverrideMainColourProb.Size = new System.Drawing.Size(173, 17);
+            this.checkBoxOverrideMainColourProb.TabIndex = 6;
+            this.checkBoxOverrideMainColourProb.Text = "Override main colour probability";
+            this.checkBoxOverrideMainColourProb.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 23);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(34, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Value";
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.flowLayoutPanel11);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(309, 218);
+            this.groupBox2.Location = new System.Drawing.Point(309, 261);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(300, 210);
+            this.groupBox2.Size = new System.Drawing.Size(300, 167);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Save/Load";
@@ -1527,12 +1596,11 @@
             this.flowLayoutPanel11.Controls.Add(this.label9);
             this.flowLayoutPanel11.Controls.Add(this.buttonConfigApplyChanges);
             this.flowLayoutPanel11.Controls.Add(this.label8);
-            this.flowLayoutPanel11.Controls.Add(this.label10);
             this.flowLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel11.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel11.Location = new System.Drawing.Point(3, 16);
             this.flowLayoutPanel11.Name = "flowLayoutPanel11";
-            this.flowLayoutPanel11.Size = new System.Drawing.Size(294, 191);
+            this.flowLayoutPanel11.Size = new System.Drawing.Size(294, 148);
             this.flowLayoutPanel11.TabIndex = 0;
             // 
             // buttonConfigReset
@@ -1579,16 +1647,6 @@
             this.label8.TabIndex = 0;
             this.label8.Text = "Applying changes will update script files with new values, and activate/deactivat" +
     "e hooks for turning on and off lights etc.";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(3, 128);
-            this.label10.Margin = new System.Windows.Forms.Padding(3, 0, 3, 9);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(271, 26);
-            this.label10.TabIndex = 5;
-            this.label10.Text = "Note: No validation is done on form values as I can\'t be bothered";
             // 
             // flowLayoutPanel8
             // 
@@ -1759,6 +1817,13 @@
             this.panel1.Size = new System.Drawing.Size(166, 194);
             this.panel1.TabIndex = 2;
             // 
+            // numericUpDownProbValue
+            // 
+            this.numericUpDownProbValue.Location = new System.Drawing.Point(3, 39);
+            this.numericUpDownProbValue.Name = "numericUpDownProbValue";
+            this.numericUpDownProbValue.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDownProbValue.TabIndex = 9;
+            // 
             // ConfigForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1835,6 +1900,10 @@
             this.flowLayoutPanel12.PerformLayout();
             this.flowLayoutPanel10.ResumeLayout(false);
             this.flowLayoutPanel10.PerformLayout();
+            this.groupBoxHighlightOptions.ResumeLayout(false);
+            this.groupBoxHighlightOptions.PerformLayout();
+            this.flowLayoutPanel28.ResumeLayout(false);
+            this.flowLayoutPanel28.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.flowLayoutPanel11.ResumeLayout(false);
             this.flowLayoutPanel11.PerformLayout();
@@ -1852,6 +1921,7 @@
             this.tableLayoutPanel7.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownProbValue)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1916,7 +1986,6 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel11;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Panel paletteCurrentD;
@@ -1997,5 +2066,11 @@
         private System.Windows.Forms.Panel paletteLastVl2;
         private System.Windows.Forms.Panel paletteLastM2;
         private System.Windows.Forms.Panel paletteLastV2;
+        private System.Windows.Forms.CheckBox checkBoxUseMainSwatches;
+        private System.Windows.Forms.GroupBox groupBoxHighlightOptions;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel28;
+        private System.Windows.Forms.CheckBox checkBoxOverrideMainColourProb;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.NumericUpDown numericUpDownProbValue;
     }
 }

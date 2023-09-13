@@ -116,7 +116,7 @@ namespace MarbleManager.Colours
                 muted = mainSwatches[4],
                 lightMuted = mainSwatches[5],
                 darkMuted = mainSwatches[6],
-                allSwatches = allSwatches
+                AllSwatches = allSwatches.OrderByDescending(x => x.population).ToList()
             };
         }
 

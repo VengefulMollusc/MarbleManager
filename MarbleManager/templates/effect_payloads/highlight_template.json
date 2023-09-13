@@ -2,8 +2,9 @@
   "write": {
     "command": "display",
     "version": "1.0",
-    "animType": "random",
+    "animType": "highlight",
     "colorType": "HSB",
+    "loop": true,
     "brightnessRange": {
       "minValue": 25,
       "maxValue": 100
@@ -13,8 +14,8 @@
       "maxValue": 60
     },
     "delayTime": {
-      "minValue": 20,
-      "maxValue": 100
+      "minValue": 0,
+      "maxValue": 0
     },
     "palette": []
   }

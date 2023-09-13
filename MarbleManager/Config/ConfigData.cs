@@ -11,6 +11,7 @@
     {
         public bool syncOnWallpaperChange { get; set; }
         public bool turnOnOffWithPc { get; set; }
+        public bool onlyUseMainSwatches { get; set; }
     }
 
     public class NanoleafConfig
@@ -18,7 +19,8 @@
         public string ipAddress { get; set; }
         public string apiKey { get; set; }
         public NanoleafEffect effect { get; set; }
-
+        public bool overrideMainColourProb { get; set; }
+        public int mainColourProb { get; set; }
     }
 
     public class LifxConfig

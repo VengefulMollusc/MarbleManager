@@ -16,6 +16,7 @@ namespace MarbleManager.Lights
     internal class NanoleafLightController : ILightController
     {
         NanoleafConfig config;
+        bool onlyUseMainSwatches;
 
         static string effectPayloadDir = "effect_payloads\\";
         static string baseUrl = "http://<nanoleafIp>:16021";
@@ -54,6 +55,7 @@ namespace MarbleManager.Lights
         public void SetConfig(ConfigObject _config)
         {
             config = _config.nanoleafConfig;
+            onlyUseMainSwatches = _config.generalConfig.onlyUseMainSwatches;
 
             // populate url with ip address
             populatedUrl = baseUrl.Replace("<nanoleafIp>", config.ipAddress);
@@ -146,7 +148,7 @@ namespace MarbleManager.Lights
                 case NanoleafEffect.Random:
                     return "random_template.json";
                 case NanoleafEffect.Highlight:
-                    return "random_template.json";
+                    return "highlight_template.json";
                 default:
                     return "random_template.json";
             }
@@ -159,12 +161,15 @@ namespace MarbleManager.Lights
         {
             // formats palette into nanoleaf api format
             JArray palette = new JArray();
-            
-            foreach (SwatchObject swatch in _palette.MainSwatches)
+
+            bool overrideProb = config.overrideMainColourProb;
+            foreach (SwatchObject swatch in (onlyUseMainSwatches ? _palette.MainSwatches : _palette.AllSwatches))
             {
                 if (swatch == null) { continue; }
 
-                palette.Add(FormatColour(swatch));
+                palette.Add(FormatColour(swatch, overrideProb));
+                
+                if (overrideProb) overrideProb = false;
             }
 
             return palette;
@@ -173,12 +178,13 @@ namespace MarbleManager.Lights
         /**
          * Formats a swatch into the right JSON object for Nanoleaf API
          */
-        private JObject FormatColour(SwatchObject _swatch)
+        private JObject FormatColour(SwatchObject _swatch, bool overrideProb)
         {
             JObject colour = new JObject();
             colour["hue"] = _swatch.h;
             colour["saturation"] = _swatch.s;
             colour["brightness"] = _swatch.l;
+            colour["probability"] = overrideProb ? config.mainColourProb : (int)Math.Round(_swatch.proportion * 100f, 0, MidpointRounding.AwayFromZero);
             return colour;
         }
 
