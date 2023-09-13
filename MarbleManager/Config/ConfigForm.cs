@@ -176,8 +176,9 @@ namespace MarbleManager
 
             // init general config
             checkBoxSyncOnWallpaperChange.Checked = config.generalConfig.syncOnWallpaperChange;
-            checkBoxAutoTurnOnOff.Checked = config.generalConfig.turnOnOffWithPc;
+            checkBoxAutoTurnOnOff.Checked = config.generalConfig.autoTurnOnOff;
             checkBoxUseMainSwatches.Checked = config.generalConfig.onlyUseMainSwatches;
+            checkBoxRunOnBoot.Checked = config.generalConfig.runOnBoot;
 
             // init nanoleaf config
             textBoxNanoleafIP.Text = config.nanoleafConfig.ipAddress;
@@ -212,8 +213,9 @@ namespace MarbleManager
                 generalConfig = new GeneralConfig()
                 {
                     syncOnWallpaperChange = checkBoxSyncOnWallpaperChange.Checked,
-                    turnOnOffWithPc = checkBoxAutoTurnOnOff.Checked,
+                    autoTurnOnOff = checkBoxAutoTurnOnOff.Checked,
                     onlyUseMainSwatches = checkBoxUseMainSwatches.Checked,
+                    runOnBoot = checkBoxRunOnBoot.Checked,
                 },
                 nanoleafConfig = new NanoleafConfig()
                 {

@@ -1,5 +1,6 @@
 ﻿using MarbleManager.Colours;
 using MarbleManager.Config;
+using Microsoft.Win32;
 using PaletteSharp;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,10 @@ namespace MarbleManager.Lights
             ConfigObject config = ConfigManager.GetConfig();
 
             UpdateConfig(config);
+
+            // if setting for auto lights is on, trigger to turn on
+            // this should happen on app boot
+            if (config.generalConfig.autoTurnOnOff) TurnLightsOnOff(true);
         }
 
         /**
@@ -45,6 +50,15 @@ namespace MarbleManager.Lights
                 new LifxLightController(config),
                 new NanoleafLightController(config),
             };
+
+            // hook up lights to logoff event
+            if (config.generalConfig.autoTurnOnOff)
+            {
+                SystemEvents.SessionEnding += OnSessionEnding;
+            } else
+            {
+                SystemEvents.SessionEnding -= OnSessionEnding;
+            }
         }
 
         /**
@@ -68,6 +82,19 @@ namespace MarbleManager.Lights
 
             // dispose to free up memory
             wallpaper.Dispose();
+        }
+
+        /**
+         * Triggers lights off on session ending
+         */
+        private void OnSessionEnding(object sender, SessionEndingEventArgs e)
+        {
+            Console.WriteLine("User is logging off: triggering lights off");
+            // turn off lights
+            TurnLightsOnOff(false);
+
+            // unsubscribe from the event
+            SystemEvents.SessionEnding -= OnSessionEnding;
         }
     }
 }

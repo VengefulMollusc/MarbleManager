@@ -11,7 +11,7 @@ namespace MarbleManager.Config
 {
     internal static class ConfigManager
     {
-        static string configFilePath = "config.json";
+        static string configFileName = "config.json";
         static string dataDirPath = "data\\";
         static string templatesDirPath = "templates\\";
         static string scriptOutputDirPath = "scripts\\";
@@ -27,7 +27,7 @@ namespace MarbleManager.Config
             try
             {
                 // load file here if exists
-                using (StreamReader r = new StreamReader(configFilePath))
+                using (StreamReader r = new StreamReader(Path.Combine(Environment.CurrentDirectory, configFileName)))
                 {
                     string json = r.ReadToEnd();
                     ConfigObject config = JsonConvert.DeserializeObject<ConfigObject>(json);
@@ -46,14 +46,16 @@ namespace MarbleManager.Config
         /**
          * Saves a config object to file then applies changes by generating scripts etc.
          */
-        internal static void ApplyConfig(ConfigObject newConfig)
+        internal static void ApplyConfig(ConfigObject _config)
         {
-            SaveConfigToFile(newConfig);
+            SaveConfigToFile(_config);
 
             // write script files with new values using template files
-            CreateScriptFilesFromTemplates(newConfig);
+            // TODO remove if these aren't needed or arent configurable from code
+            CreateScriptFilesFromTemplates(_config);
 
             // apply changes to add startup scripts etc.
+            ConfigureRunOnBoot(_config.generalConfig.runOnBoot);
 
             Console.WriteLine("Changes successfully applied");
         }
@@ -61,13 +63,13 @@ namespace MarbleManager.Config
         /**
          * Saves a config object to file
          */
-        private static void SaveConfigToFile(ConfigObject newConfig)
+        private static void SaveConfigToFile(ConfigObject _config)
         {
             // save to file
             try
             {
-                string jsonString = JsonConvert.SerializeObject(newConfig, Formatting.Indented);
-                using (StreamWriter outputFile = new StreamWriter(configFilePath))
+                string jsonString = JsonConvert.SerializeObject(_config, Formatting.Indented);
+                using (StreamWriter outputFile = new StreamWriter(Path.Combine(Environment.CurrentDirectory, configFileName)))
                 {
                     outputFile.WriteLine(jsonString);
                 }
@@ -80,9 +82,49 @@ namespace MarbleManager.Config
         }
 
         /**
+         * Handles adding/removing this app from windows startup apps
+         */
+        private static void ConfigureRunOnBoot(bool _runOnBoot)
+        {
+            // Get relevant paths, names etc.
+            string appPath = Path.Combine(Environment.CurrentDirectory, AppDomain.CurrentDomain.FriendlyName);
+            string startupFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.Startup);
+            string shortcutName = Path.GetFileNameWithoutExtension(appPath) + "_autoShortcut.lnk";
+            string shortcutPath = Path.Combine(startupFolderPath, shortcutName);
+
+            // remove shortcut if exists from startup folder
+            try
+            {
+                // Check if the file exists before attempting to delete it
+                if (File.Exists(shortcutPath))
+                {
+                    // Delete the file
+                    File.Delete(shortcutPath);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+
+            if (_runOnBoot) {
+                // add shortcut in startup folder
+                using (StreamWriter writer = new StreamWriter(shortcutPath))
+                {
+                    writer.WriteLine("[InternetShortcut]");
+                    writer.WriteLine("URL=file:///" + appPath.Replace('\\', '/')); // Use file:/// for local file paths
+                    writer.WriteLine("IconIndex=0");
+                    writer.WriteLine("IconFile=" + appPath.Replace('\\', '/')); // Use the application's path as the icon source
+                    writer.Flush();
+                    Console.WriteLine("Created: " + shortcutPath);
+                }
+            }
+        }
+
+        /**
          * Creates script files from templates with new values from config
          */
-        private static void CreateScriptFilesFromTemplates (ConfigObject config)
+        private static void CreateScriptFilesFromTemplates (ConfigObject _config)
         {
             string[] templates = {
                 "turnOnLights_template.bat",
@@ -99,10 +141,10 @@ namespace MarbleManager.Config
 
             Dictionary<string, string> variables = new Dictionary<string, string>
             {
-                { "<nanoleafIp>", config.nanoleafConfig.ipAddress },
-                { "<nanoleafApiKey>", config.nanoleafConfig.apiKey },
-                { "<lifxSelector>", config.lifxConfig.selector },
-                { "<lifxAuthKey>", config.lifxConfig.authKey },
+                { "<nanoleafIp>", _config.nanoleafConfig.ipAddress },
+                { "<nanoleafApiKey>", _config.nanoleafConfig.apiKey },
+                { "<lifxSelector>", _config.lifxConfig.selector },
+                { "<lifxAuthKey>", _config.lifxConfig.authKey },
             };
 
             for (int i = 0; i < templates.Length; i++)

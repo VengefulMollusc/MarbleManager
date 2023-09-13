@@ -25,10 +25,12 @@ namespace MarbleManager
         public CustomApplicationContext() {
             InitializeContext();
 
-            // init actual scripts
             lightController = new GlobalLightController();
         }
 
+        /**
+         * setup the app context
+         */
         private void InitializeContext()
         {
             components = new Container();
@@ -46,12 +48,9 @@ namespace MarbleManager
             // I assume could add menu items here if static
         }
 
-        private void NotifyIcon_DoubleClick(object sender, EventArgs e)
-        {
-            // open config form on double click
-            openConfigFormItem_Click(sender, e);
-        }
-
+        /**
+         * creates the context menu strip items
+         */
         private void ContextMenuStrip_Opening(object sender, CancelEventArgs e)
         {
             e.Cancel = false;
@@ -78,6 +77,15 @@ namespace MarbleManager
             notifyIcon.ContextMenuStrip.Items.Add("&Exit", null, exitItem_Click);
         }
 
+        /**
+         * Opens config form on double click
+         */
+        private void NotifyIcon_DoubleClick(object sender, EventArgs e)
+        {
+            // open config form on double click
+            openConfigFormItem_Click(sender, e);
+        }
+
         private void lightsOnFormItem_Click(object sender, EventArgs e)
         {
             lightController.TurnLightsOnOff(true);
@@ -93,6 +101,9 @@ namespace MarbleManager
             lightController.SyncToWallpaper();
         }
 
+        /**
+         * opens the config form
+         */
         private void openConfigFormItem_Click(object sender, EventArgs e)
         {
             if (configForm != null)
@@ -108,6 +119,9 @@ namespace MarbleManager
             }
         }
 
+        /**
+         * disposes of the config form when closed to free up memory
+         */
         private void ConfigForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             configForm?.Dispose();
