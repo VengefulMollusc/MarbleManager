@@ -109,15 +109,7 @@ namespace MarbleManager.Config
 
             if (_runOnBoot) {
                 // add shortcut in startup folder
-                using (StreamWriter writer = new StreamWriter(shortcutPath))
-                {
-                    writer.WriteLine("[InternetShortcut]");
-                    writer.WriteLine("URL=file:///" + appPath.Replace('\\', '/')); // Use file:/// for local file paths
-                    writer.WriteLine("IconIndex=0");
-                    writer.WriteLine("IconFile=" + appPath.Replace('\\', '/')); // Use the application's path as the icon source
-                    writer.Flush();
-                    Console.WriteLine("Created: " + shortcutPath);
-                }
+                Utilities.CreateShortcut(shortcutPath, appPath);
             }
         }
 

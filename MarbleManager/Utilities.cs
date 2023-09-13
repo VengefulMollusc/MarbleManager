@@ -1,4 +1,5 @@
-﻿using MarbleManager.Colours;
+﻿using IWshRuntimeLibrary;
+using MarbleManager.Colours;
 using MarbleManager.Config;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,7 @@ namespace MarbleManager
             try
             {
                 // Read the content of the source file
-                string fileContent = File.ReadAllText(inputDir + inputFile);
+                string fileContent = System.IO.File.ReadAllText(inputDir + inputFile);
 
                 // Replace <variables> with the new value
                 foreach (var variable in toReplace)
@@ -38,7 +39,7 @@ namespace MarbleManager
                 string destinationFilePath = Path.Combine(outputDir, outputFile);
 
                 // Write the modified content to the destination file
-                File.WriteAllText(destinationFilePath, fileContent);
+                System.IO.File.WriteAllText(destinationFilePath, fileContent);
 
                 Console.WriteLine("File " + inputFile + " copied and modified successfully.");
             }
@@ -96,6 +97,18 @@ namespace MarbleManager
             _h = (int)Math.Round(floatH * 360f, 0, MidpointRounding.AwayFromZero);
             _s = (int)Math.Round(floatS * 100f, 0, MidpointRounding.AwayFromZero);
             _l = (int)Math.Round(floatL * 100f, 0, MidpointRounding.AwayFromZero);
+        }
+
+        internal static void CreateShortcut(string shortcutFilePath, string targetFilePath)
+        {
+            WshShell shell = new WshShell();
+            IWshShortcut shortcut = (IWshShortcut)shell.CreateShortcut(shortcutFilePath);
+
+            //shortcut.Description = "My shortcut description";   // The description of the shortcut
+            //shortcut.IconLocation = @"c:\myicon.ico";           // The icon of the shortcut
+            shortcut.WorkingDirectory = Environment.CurrentDirectory;
+            shortcut.TargetPath = targetFilePath;                 // The path of the file that will launch when the shortcut is run
+            shortcut.Save();                                    // Save the shortcut
         }
     }
 }
