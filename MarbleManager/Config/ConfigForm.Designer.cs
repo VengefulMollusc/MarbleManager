@@ -52,70 +52,34 @@
             this.paletteCurrentMd = new System.Windows.Forms.Panel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel18 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label22 = new System.Windows.Forms.Label();
+            this.paletteCurrentMd2 = new System.Windows.Forms.Panel();
             this.labelCurrentMdPop = new System.Windows.Forms.Label();
-            this.label57 = new System.Windows.Forms.Label();
-            this.labelCurrentMdh = new System.Windows.Forms.Label();
-            this.label59 = new System.Windows.Forms.Label();
-            this.labelCurrentMds = new System.Windows.Forms.Label();
-            this.label61 = new System.Windows.Forms.Label();
-            this.labelCurrentMdl = new System.Windows.Forms.Label();
+            this.labelCurrentMdhsl = new System.Windows.Forms.Label();
             this.flowLayoutPanel17 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label20 = new System.Windows.Forms.Label();
+            this.paletteCurrentVd2 = new System.Windows.Forms.Panel();
             this.labelCurrentVdPop = new System.Windows.Forms.Label();
-            this.label51 = new System.Windows.Forms.Label();
-            this.labelCurrentVdh = new System.Windows.Forms.Label();
-            this.label53 = new System.Windows.Forms.Label();
-            this.labelCurrentVds = new System.Windows.Forms.Label();
-            this.label55 = new System.Windows.Forms.Label();
-            this.labelCurrentVdl = new System.Windows.Forms.Label();
+            this.labelCurrentVdhsl = new System.Windows.Forms.Label();
             this.flowLayoutPanel16 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label18 = new System.Windows.Forms.Label();
+            this.paletteCurrentMl2 = new System.Windows.Forms.Panel();
             this.labelCurrentMlPop = new System.Windows.Forms.Label();
-            this.label45 = new System.Windows.Forms.Label();
-            this.labelCurrentMlh = new System.Windows.Forms.Label();
-            this.label47 = new System.Windows.Forms.Label();
-            this.labelCurrentMls = new System.Windows.Forms.Label();
-            this.label49 = new System.Windows.Forms.Label();
-            this.labelCurrentMll = new System.Windows.Forms.Label();
+            this.labelCurrentMlhsl = new System.Windows.Forms.Label();
             this.flowLayoutPanel15 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label16 = new System.Windows.Forms.Label();
+            this.paletteCurrentVl2 = new System.Windows.Forms.Panel();
             this.labelCurrentVlPop = new System.Windows.Forms.Label();
-            this.label39 = new System.Windows.Forms.Label();
-            this.labelCurrentVlh = new System.Windows.Forms.Label();
-            this.label41 = new System.Windows.Forms.Label();
-            this.labelCurrentVls = new System.Windows.Forms.Label();
-            this.label43 = new System.Windows.Forms.Label();
-            this.labelCurrentVll = new System.Windows.Forms.Label();
+            this.labelCurrentVlhsl = new System.Windows.Forms.Label();
             this.flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label14 = new System.Windows.Forms.Label();
+            this.paletteCurrentM2 = new System.Windows.Forms.Panel();
             this.labelCurrentMPop = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.labelCurrentMh = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
-            this.labelCurrentMs = new System.Windows.Forms.Label();
-            this.label37 = new System.Windows.Forms.Label();
-            this.labelCurrentMl = new System.Windows.Forms.Label();
+            this.labelCurrentMhsl = new System.Windows.Forms.Label();
             this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label12 = new System.Windows.Forms.Label();
+            this.paletteCurrentV2 = new System.Windows.Forms.Panel();
             this.labelCurrentVPop = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.labelCurrentVh = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.labelCurrentVs = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.labelCurrentVl = new System.Windows.Forms.Label();
+            this.labelCurrentVhsl = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label11 = new System.Windows.Forms.Label();
             this.paletteCurrentD = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.labelCurrentDPop = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.labelCurrentDh = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
-            this.labelCurrentDs = new System.Windows.Forms.Label();
-            this.label42 = new System.Windows.Forms.Label();
-            this.labelCurrentDl = new System.Windows.Forms.Label();
+            this.labelCurrentDhsl = new System.Windows.Forms.Label();
             this.groupBoxWallpaper = new System.Windows.Forms.GroupBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.pictureBoxWallpaper = new System.Windows.Forms.PictureBox();
@@ -132,70 +96,34 @@
             this.paletteLastMd = new System.Windows.Forms.Panel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel21 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label15 = new System.Windows.Forms.Label();
+            this.paletteLastMd2 = new System.Windows.Forms.Panel();
             this.labelLastMdPop = new System.Windows.Forms.Label();
-            this.label93 = new System.Windows.Forms.Label();
-            this.labelLastMdh = new System.Windows.Forms.Label();
-            this.label95 = new System.Windows.Forms.Label();
-            this.labelLastMds = new System.Windows.Forms.Label();
-            this.label97 = new System.Windows.Forms.Label();
-            this.labelLastMdl = new System.Windows.Forms.Label();
+            this.labelLastMdhsl = new System.Windows.Forms.Label();
             this.flowLayoutPanel22 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label19 = new System.Windows.Forms.Label();
+            this.paletteLastVd2 = new System.Windows.Forms.Panel();
             this.labelLastVdPop = new System.Windows.Forms.Label();
-            this.label87 = new System.Windows.Forms.Label();
-            this.labelLastVdh = new System.Windows.Forms.Label();
-            this.label89 = new System.Windows.Forms.Label();
-            this.labelLastVds = new System.Windows.Forms.Label();
-            this.label91 = new System.Windows.Forms.Label();
-            this.labelLastVdl = new System.Windows.Forms.Label();
+            this.labelLastVdhsl = new System.Windows.Forms.Label();
             this.flowLayoutPanel23 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label23 = new System.Windows.Forms.Label();
+            this.paletteLastMl2 = new System.Windows.Forms.Panel();
             this.labelLastMlPop = new System.Windows.Forms.Label();
-            this.label81 = new System.Windows.Forms.Label();
-            this.labelLastMlh = new System.Windows.Forms.Label();
-            this.label83 = new System.Windows.Forms.Label();
-            this.labelLastMls = new System.Windows.Forms.Label();
-            this.label85 = new System.Windows.Forms.Label();
-            this.labelLastMll = new System.Windows.Forms.Label();
+            this.labelLastMlhsl = new System.Windows.Forms.Label();
             this.flowLayoutPanel24 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label25 = new System.Windows.Forms.Label();
+            this.paletteLastVl2 = new System.Windows.Forms.Panel();
             this.labelLastVlPop = new System.Windows.Forms.Label();
-            this.label75 = new System.Windows.Forms.Label();
-            this.labelLastVlh = new System.Windows.Forms.Label();
-            this.label77 = new System.Windows.Forms.Label();
-            this.labelLastVls = new System.Windows.Forms.Label();
-            this.label79 = new System.Windows.Forms.Label();
-            this.labelLastVll = new System.Windows.Forms.Label();
+            this.labelLastVlhsl = new System.Windows.Forms.Label();
             this.flowLayoutPanel25 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label27 = new System.Windows.Forms.Label();
+            this.paletteLastM2 = new System.Windows.Forms.Panel();
             this.labelLastMPop = new System.Windows.Forms.Label();
-            this.label69 = new System.Windows.Forms.Label();
-            this.labelLastMh = new System.Windows.Forms.Label();
-            this.label71 = new System.Windows.Forms.Label();
-            this.labelLastMs = new System.Windows.Forms.Label();
-            this.label73 = new System.Windows.Forms.Label();
-            this.labelLastMl = new System.Windows.Forms.Label();
+            this.labelLastMhsl = new System.Windows.Forms.Label();
             this.flowLayoutPanel26 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label29 = new System.Windows.Forms.Label();
+            this.paletteLastV2 = new System.Windows.Forms.Panel();
             this.labelLastVPop = new System.Windows.Forms.Label();
-            this.label63 = new System.Windows.Forms.Label();
-            this.labelLastVh = new System.Windows.Forms.Label();
-            this.label65 = new System.Windows.Forms.Label();
-            this.labelLastVs = new System.Windows.Forms.Label();
-            this.label67 = new System.Windows.Forms.Label();
-            this.labelLastVl = new System.Windows.Forms.Label();
+            this.labelLastVhsl = new System.Windows.Forms.Label();
             this.flowLayoutPanel27 = new System.Windows.Forms.FlowLayoutPanel();
             this.label31 = new System.Windows.Forms.Label();
             this.paletteLastD = new System.Windows.Forms.Panel();
-            this.label32 = new System.Windows.Forms.Label();
             this.labelLastDPop = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
-            this.labelLastDh = new System.Windows.Forms.Label();
-            this.label44 = new System.Windows.Forms.Label();
-            this.labelLastDs = new System.Windows.Forms.Label();
-            this.label48 = new System.Windows.Forms.Label();
-            this.labelLastDl = new System.Windows.Forms.Label();
+            this.labelLastDhsl = new System.Windows.Forms.Label();
             this.tabPageConfig = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBoxConfigGeneral = new System.Windows.Forms.GroupBox();
@@ -309,7 +237,7 @@
             this.tabPageStatus.Controls.Add(this.tableLayoutPanel1);
             this.tabPageStatus.Location = new System.Drawing.Point(4, 22);
             this.tabPageStatus.Name = "tabPageStatus";
-            this.tabPageStatus.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPageStatus.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageStatus.Size = new System.Drawing.Size(618, 437);
             this.tabPageStatus.TabIndex = 0;
             this.tabPageStatus.Text = "Status";
@@ -318,8 +246,8 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 346F));
             this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.groupBoxPalette, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.groupBoxWallpaper, 0, 0);
@@ -340,7 +268,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(3, 218);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(238, 210);
+            this.groupBox1.Size = new System.Drawing.Size(260, 210);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Preview Functions";
@@ -356,7 +284,7 @@
             this.flowLayoutPanel4.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 16);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(232, 191);
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(254, 191);
             this.flowLayoutPanel4.TabIndex = 2;
             // 
             // buttonPreviewWallpaper
@@ -423,9 +351,9 @@
             this.groupBoxPalette.BackColor = System.Drawing.Color.Transparent;
             this.groupBoxPalette.Controls.Add(this.tableLayoutPanel2);
             this.groupBoxPalette.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBoxPalette.Location = new System.Drawing.Point(247, 3);
+            this.groupBoxPalette.Location = new System.Drawing.Point(269, 3);
             this.groupBoxPalette.Name = "groupBoxPalette";
-            this.groupBoxPalette.Size = new System.Drawing.Size(362, 209);
+            this.groupBoxPalette.Size = new System.Drawing.Size(340, 209);
             this.groupBoxPalette.TabIndex = 1;
             this.groupBoxPalette.TabStop = false;
             this.groupBoxPalette.Text = "Preview";
@@ -442,7 +370,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(356, 190);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(334, 190);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // flowLayoutPanel2
@@ -456,7 +384,7 @@
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(73, 3);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(280, 184);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(258, 184);
             this.flowLayoutPanel2.TabIndex = 0;
             this.flowLayoutPanel2.WrapContents = false;
             // 
@@ -571,592 +499,262 @@
             // 
             // flowLayoutPanel18
             // 
-            this.flowLayoutPanel18.Controls.Add(this.label22);
+            this.flowLayoutPanel18.Controls.Add(this.paletteCurrentMd2);
             this.flowLayoutPanel18.Controls.Add(this.labelCurrentMdPop);
-            this.flowLayoutPanel18.Controls.Add(this.label57);
-            this.flowLayoutPanel18.Controls.Add(this.labelCurrentMdh);
-            this.flowLayoutPanel18.Controls.Add(this.label59);
-            this.flowLayoutPanel18.Controls.Add(this.labelCurrentMds);
-            this.flowLayoutPanel18.Controls.Add(this.label61);
-            this.flowLayoutPanel18.Controls.Add(this.labelCurrentMdl);
+            this.flowLayoutPanel18.Controls.Add(this.labelCurrentMdhsl);
             this.flowLayoutPanel18.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel18.Location = new System.Drawing.Point(129, 81);
             this.flowLayoutPanel18.Name = "flowLayoutPanel18";
             this.flowLayoutPanel18.Size = new System.Drawing.Size(120, 34);
             this.flowLayoutPanel18.TabIndex = 6;
             // 
-            // label22
+            // paletteCurrentMd2
             // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(3, 0);
-            this.label22.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(27, 13);
-            this.label22.TabIndex = 0;
-            this.label22.Text = "DM:";
+            this.paletteCurrentMd2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.paletteCurrentMd2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.paletteCurrentMd2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.paletteCurrentMd2.Location = new System.Drawing.Point(0, 0);
+            this.paletteCurrentMd2.Margin = new System.Windows.Forms.Padding(0);
+            this.paletteCurrentMd2.Name = "paletteCurrentMd2";
+            this.paletteCurrentMd2.Size = new System.Drawing.Size(12, 12);
+            this.paletteCurrentMd2.TabIndex = 10;
             // 
             // labelCurrentMdPop
             // 
             this.labelCurrentMdPop.AutoSize = true;
-            this.labelCurrentMdPop.Location = new System.Drawing.Point(30, 0);
+            this.labelCurrentMdPop.Location = new System.Drawing.Point(12, 0);
             this.labelCurrentMdPop.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.labelCurrentMdPop.Name = "labelCurrentMdPop";
-            this.labelCurrentMdPop.Size = new System.Drawing.Size(13, 13);
+            this.labelCurrentMdPop.Size = new System.Drawing.Size(52, 13);
             this.labelCurrentMdPop.TabIndex = 1;
-            this.labelCurrentMdPop.Text = "0";
+            this.labelCurrentMdPop.Text = "pop:0000";
             // 
-            // label57
+            // labelCurrentMdhsl
             // 
-            this.label57.AutoSize = true;
-            this.label57.Location = new System.Drawing.Point(49, 0);
-            this.label57.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(16, 13);
-            this.label57.TabIndex = 8;
-            this.label57.Text = "h:";
-            // 
-            // labelCurrentMdh
-            // 
-            this.labelCurrentMdh.AutoSize = true;
-            this.labelCurrentMdh.Location = new System.Drawing.Point(65, 0);
-            this.labelCurrentMdh.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.labelCurrentMdh.Name = "labelCurrentMdh";
-            this.labelCurrentMdh.Size = new System.Drawing.Size(13, 13);
-            this.labelCurrentMdh.TabIndex = 9;
-            this.labelCurrentMdh.Text = "0";
-            // 
-            // label59
-            // 
-            this.label59.AutoSize = true;
-            this.label59.Location = new System.Drawing.Point(84, 0);
-            this.label59.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(15, 13);
-            this.label59.TabIndex = 10;
-            this.label59.Text = "s:";
-            // 
-            // labelCurrentMds
-            // 
-            this.labelCurrentMds.AutoSize = true;
-            this.labelCurrentMds.Location = new System.Drawing.Point(99, 0);
-            this.labelCurrentMds.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.labelCurrentMds.Name = "labelCurrentMds";
-            this.labelCurrentMds.Size = new System.Drawing.Size(13, 13);
-            this.labelCurrentMds.TabIndex = 11;
-            this.labelCurrentMds.Text = "0";
-            // 
-            // label61
-            // 
-            this.label61.AutoSize = true;
-            this.label61.Location = new System.Drawing.Point(3, 13);
-            this.label61.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(12, 13);
-            this.label61.TabIndex = 12;
-            this.label61.Text = "l:";
-            // 
-            // labelCurrentMdl
-            // 
-            this.labelCurrentMdl.AutoSize = true;
-            this.labelCurrentMdl.Location = new System.Drawing.Point(15, 13);
-            this.labelCurrentMdl.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.labelCurrentMdl.Name = "labelCurrentMdl";
-            this.labelCurrentMdl.Size = new System.Drawing.Size(13, 13);
-            this.labelCurrentMdl.TabIndex = 13;
-            this.labelCurrentMdl.Text = "0";
+            this.labelCurrentMdhsl.AutoSize = true;
+            this.labelCurrentMdhsl.Location = new System.Drawing.Point(0, 13);
+            this.labelCurrentMdhsl.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.labelCurrentMdhsl.Name = "labelCurrentMdhsl";
+            this.labelCurrentMdhsl.Size = new System.Drawing.Size(83, 13);
+            this.labelCurrentMdhsl.TabIndex = 9;
+            this.labelCurrentMdhsl.Text = "hsl:000 000 000";
             // 
             // flowLayoutPanel17
             // 
-            this.flowLayoutPanel17.Controls.Add(this.label20);
+            this.flowLayoutPanel17.Controls.Add(this.paletteCurrentVd2);
             this.flowLayoutPanel17.Controls.Add(this.labelCurrentVdPop);
-            this.flowLayoutPanel17.Controls.Add(this.label51);
-            this.flowLayoutPanel17.Controls.Add(this.labelCurrentVdh);
-            this.flowLayoutPanel17.Controls.Add(this.label53);
-            this.flowLayoutPanel17.Controls.Add(this.labelCurrentVds);
-            this.flowLayoutPanel17.Controls.Add(this.label55);
-            this.flowLayoutPanel17.Controls.Add(this.labelCurrentVdl);
+            this.flowLayoutPanel17.Controls.Add(this.labelCurrentVdhsl);
             this.flowLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel17.Location = new System.Drawing.Point(3, 81);
             this.flowLayoutPanel17.Name = "flowLayoutPanel17";
             this.flowLayoutPanel17.Size = new System.Drawing.Size(120, 34);
             this.flowLayoutPanel17.TabIndex = 5;
             // 
-            // label20
+            // paletteCurrentVd2
             // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(3, 0);
-            this.label20.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(25, 13);
-            this.label20.TabIndex = 0;
-            this.label20.Text = "DV:";
+            this.paletteCurrentVd2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.paletteCurrentVd2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.paletteCurrentVd2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.paletteCurrentVd2.Location = new System.Drawing.Point(0, 0);
+            this.paletteCurrentVd2.Margin = new System.Windows.Forms.Padding(0);
+            this.paletteCurrentVd2.Name = "paletteCurrentVd2";
+            this.paletteCurrentVd2.Size = new System.Drawing.Size(12, 12);
+            this.paletteCurrentVd2.TabIndex = 10;
             // 
             // labelCurrentVdPop
             // 
             this.labelCurrentVdPop.AutoSize = true;
-            this.labelCurrentVdPop.Location = new System.Drawing.Point(28, 0);
+            this.labelCurrentVdPop.Location = new System.Drawing.Point(12, 0);
             this.labelCurrentVdPop.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.labelCurrentVdPop.Name = "labelCurrentVdPop";
-            this.labelCurrentVdPop.Size = new System.Drawing.Size(13, 13);
+            this.labelCurrentVdPop.Size = new System.Drawing.Size(52, 13);
             this.labelCurrentVdPop.TabIndex = 1;
-            this.labelCurrentVdPop.Text = "0";
+            this.labelCurrentVdPop.Text = "pop:0000";
             // 
-            // label51
+            // labelCurrentVdhsl
             // 
-            this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(47, 0);
-            this.label51.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(16, 13);
-            this.label51.TabIndex = 8;
-            this.label51.Text = "h:";
-            // 
-            // labelCurrentVdh
-            // 
-            this.labelCurrentVdh.AutoSize = true;
-            this.labelCurrentVdh.Location = new System.Drawing.Point(63, 0);
-            this.labelCurrentVdh.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.labelCurrentVdh.Name = "labelCurrentVdh";
-            this.labelCurrentVdh.Size = new System.Drawing.Size(13, 13);
-            this.labelCurrentVdh.TabIndex = 9;
-            this.labelCurrentVdh.Text = "0";
-            // 
-            // label53
-            // 
-            this.label53.AutoSize = true;
-            this.label53.Location = new System.Drawing.Point(82, 0);
-            this.label53.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(15, 13);
-            this.label53.TabIndex = 10;
-            this.label53.Text = "s:";
-            // 
-            // labelCurrentVds
-            // 
-            this.labelCurrentVds.AutoSize = true;
-            this.labelCurrentVds.Location = new System.Drawing.Point(97, 0);
-            this.labelCurrentVds.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.labelCurrentVds.Name = "labelCurrentVds";
-            this.labelCurrentVds.Size = new System.Drawing.Size(13, 13);
-            this.labelCurrentVds.TabIndex = 11;
-            this.labelCurrentVds.Text = "0";
-            // 
-            // label55
-            // 
-            this.label55.AutoSize = true;
-            this.label55.Location = new System.Drawing.Point(3, 13);
-            this.label55.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(12, 13);
-            this.label55.TabIndex = 12;
-            this.label55.Text = "l:";
-            // 
-            // labelCurrentVdl
-            // 
-            this.labelCurrentVdl.AutoSize = true;
-            this.labelCurrentVdl.Location = new System.Drawing.Point(15, 13);
-            this.labelCurrentVdl.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.labelCurrentVdl.Name = "labelCurrentVdl";
-            this.labelCurrentVdl.Size = new System.Drawing.Size(13, 13);
-            this.labelCurrentVdl.TabIndex = 13;
-            this.labelCurrentVdl.Text = "0";
+            this.labelCurrentVdhsl.AutoSize = true;
+            this.labelCurrentVdhsl.Location = new System.Drawing.Point(0, 13);
+            this.labelCurrentVdhsl.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.labelCurrentVdhsl.Name = "labelCurrentVdhsl";
+            this.labelCurrentVdhsl.Size = new System.Drawing.Size(83, 13);
+            this.labelCurrentVdhsl.TabIndex = 9;
+            this.labelCurrentVdhsl.Text = "hsl:000 000 000";
             // 
             // flowLayoutPanel16
             // 
-            this.flowLayoutPanel16.Controls.Add(this.label18);
+            this.flowLayoutPanel16.Controls.Add(this.paletteCurrentMl2);
             this.flowLayoutPanel16.Controls.Add(this.labelCurrentMlPop);
-            this.flowLayoutPanel16.Controls.Add(this.label45);
-            this.flowLayoutPanel16.Controls.Add(this.labelCurrentMlh);
-            this.flowLayoutPanel16.Controls.Add(this.label47);
-            this.flowLayoutPanel16.Controls.Add(this.labelCurrentMls);
-            this.flowLayoutPanel16.Controls.Add(this.label49);
-            this.flowLayoutPanel16.Controls.Add(this.labelCurrentMll);
+            this.flowLayoutPanel16.Controls.Add(this.labelCurrentMlhsl);
             this.flowLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel16.Location = new System.Drawing.Point(129, 42);
             this.flowLayoutPanel16.Name = "flowLayoutPanel16";
             this.flowLayoutPanel16.Size = new System.Drawing.Size(120, 33);
             this.flowLayoutPanel16.TabIndex = 4;
             // 
-            // label18
+            // paletteCurrentMl2
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(3, 0);
-            this.label18.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(25, 13);
-            this.label18.TabIndex = 0;
-            this.label18.Text = "LM:";
+            this.paletteCurrentMl2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.paletteCurrentMl2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.paletteCurrentMl2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.paletteCurrentMl2.Location = new System.Drawing.Point(0, 0);
+            this.paletteCurrentMl2.Margin = new System.Windows.Forms.Padding(0);
+            this.paletteCurrentMl2.Name = "paletteCurrentMl2";
+            this.paletteCurrentMl2.Size = new System.Drawing.Size(12, 12);
+            this.paletteCurrentMl2.TabIndex = 10;
             // 
             // labelCurrentMlPop
             // 
             this.labelCurrentMlPop.AutoSize = true;
-            this.labelCurrentMlPop.Location = new System.Drawing.Point(28, 0);
+            this.labelCurrentMlPop.Location = new System.Drawing.Point(12, 0);
             this.labelCurrentMlPop.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.labelCurrentMlPop.Name = "labelCurrentMlPop";
-            this.labelCurrentMlPop.Size = new System.Drawing.Size(13, 13);
+            this.labelCurrentMlPop.Size = new System.Drawing.Size(52, 13);
             this.labelCurrentMlPop.TabIndex = 1;
-            this.labelCurrentMlPop.Text = "0";
+            this.labelCurrentMlPop.Text = "pop:0000";
             // 
-            // label45
+            // labelCurrentMlhsl
             // 
-            this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(47, 0);
-            this.label45.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(16, 13);
-            this.label45.TabIndex = 8;
-            this.label45.Text = "h:";
-            // 
-            // labelCurrentMlh
-            // 
-            this.labelCurrentMlh.AutoSize = true;
-            this.labelCurrentMlh.Location = new System.Drawing.Point(63, 0);
-            this.labelCurrentMlh.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.labelCurrentMlh.Name = "labelCurrentMlh";
-            this.labelCurrentMlh.Size = new System.Drawing.Size(13, 13);
-            this.labelCurrentMlh.TabIndex = 9;
-            this.labelCurrentMlh.Text = "0";
-            // 
-            // label47
-            // 
-            this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(82, 0);
-            this.label47.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(15, 13);
-            this.label47.TabIndex = 10;
-            this.label47.Text = "s:";
-            // 
-            // labelCurrentMls
-            // 
-            this.labelCurrentMls.AutoSize = true;
-            this.labelCurrentMls.Location = new System.Drawing.Point(97, 0);
-            this.labelCurrentMls.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.labelCurrentMls.Name = "labelCurrentMls";
-            this.labelCurrentMls.Size = new System.Drawing.Size(13, 13);
-            this.labelCurrentMls.TabIndex = 11;
-            this.labelCurrentMls.Text = "0";
-            // 
-            // label49
-            // 
-            this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(3, 13);
-            this.label49.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(12, 13);
-            this.label49.TabIndex = 12;
-            this.label49.Text = "l:";
-            // 
-            // labelCurrentMll
-            // 
-            this.labelCurrentMll.AutoSize = true;
-            this.labelCurrentMll.Location = new System.Drawing.Point(15, 13);
-            this.labelCurrentMll.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.labelCurrentMll.Name = "labelCurrentMll";
-            this.labelCurrentMll.Size = new System.Drawing.Size(13, 13);
-            this.labelCurrentMll.TabIndex = 13;
-            this.labelCurrentMll.Text = "0";
+            this.labelCurrentMlhsl.AutoSize = true;
+            this.labelCurrentMlhsl.Location = new System.Drawing.Point(0, 13);
+            this.labelCurrentMlhsl.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.labelCurrentMlhsl.Name = "labelCurrentMlhsl";
+            this.labelCurrentMlhsl.Size = new System.Drawing.Size(83, 13);
+            this.labelCurrentMlhsl.TabIndex = 9;
+            this.labelCurrentMlhsl.Text = "hsl:000 000 000";
             // 
             // flowLayoutPanel15
             // 
-            this.flowLayoutPanel15.Controls.Add(this.label16);
+            this.flowLayoutPanel15.Controls.Add(this.paletteCurrentVl2);
             this.flowLayoutPanel15.Controls.Add(this.labelCurrentVlPop);
-            this.flowLayoutPanel15.Controls.Add(this.label39);
-            this.flowLayoutPanel15.Controls.Add(this.labelCurrentVlh);
-            this.flowLayoutPanel15.Controls.Add(this.label41);
-            this.flowLayoutPanel15.Controls.Add(this.labelCurrentVls);
-            this.flowLayoutPanel15.Controls.Add(this.label43);
-            this.flowLayoutPanel15.Controls.Add(this.labelCurrentVll);
+            this.flowLayoutPanel15.Controls.Add(this.labelCurrentVlhsl);
             this.flowLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel15.Location = new System.Drawing.Point(3, 42);
             this.flowLayoutPanel15.Name = "flowLayoutPanel15";
             this.flowLayoutPanel15.Size = new System.Drawing.Size(120, 33);
             this.flowLayoutPanel15.TabIndex = 3;
             // 
-            // label16
+            // paletteCurrentVl2
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(3, 0);
-            this.label16.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(23, 13);
-            this.label16.TabIndex = 0;
-            this.label16.Text = "LV:";
+            this.paletteCurrentVl2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.paletteCurrentVl2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.paletteCurrentVl2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.paletteCurrentVl2.Location = new System.Drawing.Point(0, 0);
+            this.paletteCurrentVl2.Margin = new System.Windows.Forms.Padding(0);
+            this.paletteCurrentVl2.Name = "paletteCurrentVl2";
+            this.paletteCurrentVl2.Size = new System.Drawing.Size(12, 12);
+            this.paletteCurrentVl2.TabIndex = 10;
             // 
             // labelCurrentVlPop
             // 
             this.labelCurrentVlPop.AutoSize = true;
-            this.labelCurrentVlPop.Location = new System.Drawing.Point(26, 0);
+            this.labelCurrentVlPop.Location = new System.Drawing.Point(12, 0);
             this.labelCurrentVlPop.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.labelCurrentVlPop.Name = "labelCurrentVlPop";
-            this.labelCurrentVlPop.Size = new System.Drawing.Size(13, 13);
+            this.labelCurrentVlPop.Size = new System.Drawing.Size(52, 13);
             this.labelCurrentVlPop.TabIndex = 1;
-            this.labelCurrentVlPop.Text = "0";
+            this.labelCurrentVlPop.Text = "pop:0000";
             // 
-            // label39
+            // labelCurrentVlhsl
             // 
-            this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(45, 0);
-            this.label39.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(16, 13);
-            this.label39.TabIndex = 8;
-            this.label39.Text = "h:";
-            // 
-            // labelCurrentVlh
-            // 
-            this.labelCurrentVlh.AutoSize = true;
-            this.labelCurrentVlh.Location = new System.Drawing.Point(61, 0);
-            this.labelCurrentVlh.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.labelCurrentVlh.Name = "labelCurrentVlh";
-            this.labelCurrentVlh.Size = new System.Drawing.Size(13, 13);
-            this.labelCurrentVlh.TabIndex = 9;
-            this.labelCurrentVlh.Text = "0";
-            // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(80, 0);
-            this.label41.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(15, 13);
-            this.label41.TabIndex = 10;
-            this.label41.Text = "s:";
-            // 
-            // labelCurrentVls
-            // 
-            this.labelCurrentVls.AutoSize = true;
-            this.labelCurrentVls.Location = new System.Drawing.Point(95, 0);
-            this.labelCurrentVls.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.labelCurrentVls.Name = "labelCurrentVls";
-            this.labelCurrentVls.Size = new System.Drawing.Size(13, 13);
-            this.labelCurrentVls.TabIndex = 11;
-            this.labelCurrentVls.Text = "0";
-            // 
-            // label43
-            // 
-            this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(3, 13);
-            this.label43.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(12, 13);
-            this.label43.TabIndex = 12;
-            this.label43.Text = "l:";
-            // 
-            // labelCurrentVll
-            // 
-            this.labelCurrentVll.AutoSize = true;
-            this.labelCurrentVll.Location = new System.Drawing.Point(15, 13);
-            this.labelCurrentVll.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.labelCurrentVll.Name = "labelCurrentVll";
-            this.labelCurrentVll.Size = new System.Drawing.Size(13, 13);
-            this.labelCurrentVll.TabIndex = 13;
-            this.labelCurrentVll.Text = "0";
+            this.labelCurrentVlhsl.AutoSize = true;
+            this.labelCurrentVlhsl.Location = new System.Drawing.Point(0, 13);
+            this.labelCurrentVlhsl.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.labelCurrentVlhsl.Name = "labelCurrentVlhsl";
+            this.labelCurrentVlhsl.Size = new System.Drawing.Size(83, 13);
+            this.labelCurrentVlhsl.TabIndex = 9;
+            this.labelCurrentVlhsl.Text = "hsl:000 000 000";
             // 
             // flowLayoutPanel7
             // 
-            this.flowLayoutPanel7.Controls.Add(this.label14);
+            this.flowLayoutPanel7.Controls.Add(this.paletteCurrentM2);
             this.flowLayoutPanel7.Controls.Add(this.labelCurrentMPop);
-            this.flowLayoutPanel7.Controls.Add(this.label28);
-            this.flowLayoutPanel7.Controls.Add(this.labelCurrentMh);
-            this.flowLayoutPanel7.Controls.Add(this.label35);
-            this.flowLayoutPanel7.Controls.Add(this.labelCurrentMs);
-            this.flowLayoutPanel7.Controls.Add(this.label37);
-            this.flowLayoutPanel7.Controls.Add(this.labelCurrentMl);
+            this.flowLayoutPanel7.Controls.Add(this.labelCurrentMhsl);
             this.flowLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel7.Location = new System.Drawing.Point(129, 3);
             this.flowLayoutPanel7.Name = "flowLayoutPanel7";
             this.flowLayoutPanel7.Size = new System.Drawing.Size(120, 33);
             this.flowLayoutPanel7.TabIndex = 2;
             // 
-            // label14
+            // paletteCurrentM2
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(3, 0);
-            this.label14.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(19, 13);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "M:";
+            this.paletteCurrentM2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.paletteCurrentM2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.paletteCurrentM2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.paletteCurrentM2.Location = new System.Drawing.Point(0, 0);
+            this.paletteCurrentM2.Margin = new System.Windows.Forms.Padding(0);
+            this.paletteCurrentM2.Name = "paletteCurrentM2";
+            this.paletteCurrentM2.Size = new System.Drawing.Size(12, 12);
+            this.paletteCurrentM2.TabIndex = 10;
             // 
             // labelCurrentMPop
             // 
             this.labelCurrentMPop.AutoSize = true;
-            this.labelCurrentMPop.Location = new System.Drawing.Point(22, 0);
+            this.labelCurrentMPop.Location = new System.Drawing.Point(12, 0);
             this.labelCurrentMPop.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.labelCurrentMPop.Name = "labelCurrentMPop";
-            this.labelCurrentMPop.Size = new System.Drawing.Size(13, 13);
+            this.labelCurrentMPop.Size = new System.Drawing.Size(52, 13);
             this.labelCurrentMPop.TabIndex = 1;
-            this.labelCurrentMPop.Text = "0";
+            this.labelCurrentMPop.Text = "pop:0000";
             // 
-            // label28
+            // labelCurrentMhsl
             // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(41, 0);
-            this.label28.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(16, 13);
-            this.label28.TabIndex = 8;
-            this.label28.Text = "h:";
-            // 
-            // labelCurrentMh
-            // 
-            this.labelCurrentMh.AutoSize = true;
-            this.labelCurrentMh.Location = new System.Drawing.Point(57, 0);
-            this.labelCurrentMh.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.labelCurrentMh.Name = "labelCurrentMh";
-            this.labelCurrentMh.Size = new System.Drawing.Size(13, 13);
-            this.labelCurrentMh.TabIndex = 9;
-            this.labelCurrentMh.Text = "0";
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(76, 0);
-            this.label35.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(15, 13);
-            this.label35.TabIndex = 10;
-            this.label35.Text = "s:";
-            // 
-            // labelCurrentMs
-            // 
-            this.labelCurrentMs.AutoSize = true;
-            this.labelCurrentMs.Location = new System.Drawing.Point(91, 0);
-            this.labelCurrentMs.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.labelCurrentMs.Name = "labelCurrentMs";
-            this.labelCurrentMs.Size = new System.Drawing.Size(13, 13);
-            this.labelCurrentMs.TabIndex = 11;
-            this.labelCurrentMs.Text = "0";
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(3, 13);
-            this.label37.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(12, 13);
-            this.label37.TabIndex = 12;
-            this.label37.Text = "l:";
-            // 
-            // labelCurrentMl
-            // 
-            this.labelCurrentMl.AutoSize = true;
-            this.labelCurrentMl.Location = new System.Drawing.Point(15, 13);
-            this.labelCurrentMl.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.labelCurrentMl.Name = "labelCurrentMl";
-            this.labelCurrentMl.Size = new System.Drawing.Size(13, 13);
-            this.labelCurrentMl.TabIndex = 13;
-            this.labelCurrentMl.Text = "0";
+            this.labelCurrentMhsl.AutoSize = true;
+            this.labelCurrentMhsl.Location = new System.Drawing.Point(0, 13);
+            this.labelCurrentMhsl.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.labelCurrentMhsl.Name = "labelCurrentMhsl";
+            this.labelCurrentMhsl.Size = new System.Drawing.Size(83, 13);
+            this.labelCurrentMhsl.TabIndex = 9;
+            this.labelCurrentMhsl.Text = "hsl:000 000 000";
             // 
             // flowLayoutPanel6
             // 
-            this.flowLayoutPanel6.Controls.Add(this.label12);
+            this.flowLayoutPanel6.Controls.Add(this.paletteCurrentV2);
             this.flowLayoutPanel6.Controls.Add(this.labelCurrentVPop);
-            this.flowLayoutPanel6.Controls.Add(this.label26);
-            this.flowLayoutPanel6.Controls.Add(this.labelCurrentVh);
-            this.flowLayoutPanel6.Controls.Add(this.label30);
-            this.flowLayoutPanel6.Controls.Add(this.labelCurrentVs);
-            this.flowLayoutPanel6.Controls.Add(this.label34);
-            this.flowLayoutPanel6.Controls.Add(this.labelCurrentVl);
+            this.flowLayoutPanel6.Controls.Add(this.labelCurrentVhsl);
             this.flowLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel6.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel6.Name = "flowLayoutPanel6";
             this.flowLayoutPanel6.Size = new System.Drawing.Size(120, 33);
             this.flowLayoutPanel6.TabIndex = 1;
             // 
-            // label12
+            // paletteCurrentV2
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(3, 0);
-            this.label12.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(17, 13);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "V:";
+            this.paletteCurrentV2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.paletteCurrentV2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.paletteCurrentV2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.paletteCurrentV2.Location = new System.Drawing.Point(0, 0);
+            this.paletteCurrentV2.Margin = new System.Windows.Forms.Padding(0);
+            this.paletteCurrentV2.Name = "paletteCurrentV2";
+            this.paletteCurrentV2.Size = new System.Drawing.Size(12, 12);
+            this.paletteCurrentV2.TabIndex = 4;
             // 
             // labelCurrentVPop
             // 
             this.labelCurrentVPop.AutoSize = true;
-            this.labelCurrentVPop.Location = new System.Drawing.Point(20, 0);
+            this.labelCurrentVPop.Location = new System.Drawing.Point(12, 0);
             this.labelCurrentVPop.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.labelCurrentVPop.Name = "labelCurrentVPop";
-            this.labelCurrentVPop.Size = new System.Drawing.Size(13, 13);
+            this.labelCurrentVPop.Size = new System.Drawing.Size(52, 13);
             this.labelCurrentVPop.TabIndex = 1;
-            this.labelCurrentVPop.Text = "0";
+            this.labelCurrentVPop.Text = "pop:0000";
             // 
-            // label26
+            // labelCurrentVhsl
             // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(39, 0);
-            this.label26.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(16, 13);
-            this.label26.TabIndex = 2;
-            this.label26.Text = "h:";
-            // 
-            // labelCurrentVh
-            // 
-            this.labelCurrentVh.AutoSize = true;
-            this.labelCurrentVh.Location = new System.Drawing.Point(55, 0);
-            this.labelCurrentVh.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.labelCurrentVh.Name = "labelCurrentVh";
-            this.labelCurrentVh.Size = new System.Drawing.Size(13, 13);
-            this.labelCurrentVh.TabIndex = 3;
-            this.labelCurrentVh.Text = "0";
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(74, 0);
-            this.label30.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(15, 13);
-            this.label30.TabIndex = 4;
-            this.label30.Text = "s:";
-            // 
-            // labelCurrentVs
-            // 
-            this.labelCurrentVs.AutoSize = true;
-            this.labelCurrentVs.Location = new System.Drawing.Point(89, 0);
-            this.labelCurrentVs.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.labelCurrentVs.Name = "labelCurrentVs";
-            this.labelCurrentVs.Size = new System.Drawing.Size(13, 13);
-            this.labelCurrentVs.TabIndex = 5;
-            this.labelCurrentVs.Text = "0";
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(108, 0);
-            this.label34.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(12, 13);
-            this.label34.TabIndex = 6;
-            this.label34.Text = "l:";
-            // 
-            // labelCurrentVl
-            // 
-            this.labelCurrentVl.AutoSize = true;
-            this.labelCurrentVl.Location = new System.Drawing.Point(0, 13);
-            this.labelCurrentVl.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.labelCurrentVl.Name = "labelCurrentVl";
-            this.labelCurrentVl.Size = new System.Drawing.Size(13, 13);
-            this.labelCurrentVl.TabIndex = 7;
-            this.labelCurrentVl.Text = "0";
+            this.labelCurrentVhsl.AutoSize = true;
+            this.labelCurrentVhsl.Location = new System.Drawing.Point(0, 13);
+            this.labelCurrentVhsl.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.labelCurrentVhsl.Name = "labelCurrentVhsl";
+            this.labelCurrentVhsl.Size = new System.Drawing.Size(83, 13);
+            this.labelCurrentVhsl.TabIndex = 3;
+            this.labelCurrentVhsl.Text = "hsl:000 000 000";
             // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.label11);
             this.flowLayoutPanel1.Controls.Add(this.paletteCurrentD);
-            this.flowLayoutPanel1.Controls.Add(this.label2);
             this.flowLayoutPanel1.Controls.Add(this.labelCurrentDPop);
-            this.flowLayoutPanel1.Controls.Add(this.label33);
-            this.flowLayoutPanel1.Controls.Add(this.labelCurrentDh);
-            this.flowLayoutPanel1.Controls.Add(this.label38);
-            this.flowLayoutPanel1.Controls.Add(this.labelCurrentDs);
-            this.flowLayoutPanel1.Controls.Add(this.label42);
-            this.flowLayoutPanel1.Controls.Add(this.labelCurrentDl);
+            this.flowLayoutPanel1.Controls.Add(this.labelCurrentDhsl);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
@@ -1183,77 +781,23 @@
             this.paletteCurrentD.Size = new System.Drawing.Size(57, 57);
             this.paletteCurrentD.TabIndex = 5;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 76);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 13);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Pop:";
-            // 
             // labelCurrentDPop
             // 
             this.labelCurrentDPop.AutoSize = true;
-            this.labelCurrentDPop.Location = new System.Drawing.Point(3, 89);
+            this.labelCurrentDPop.Location = new System.Drawing.Point(3, 76);
             this.labelCurrentDPop.Name = "labelCurrentDPop";
-            this.labelCurrentDPop.Size = new System.Drawing.Size(13, 13);
+            this.labelCurrentDPop.Size = new System.Drawing.Size(52, 13);
             this.labelCurrentDPop.TabIndex = 8;
-            this.labelCurrentDPop.Text = "0";
+            this.labelCurrentDPop.Text = "pop:0000";
             // 
-            // label33
+            // labelCurrentDhsl
             // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(3, 102);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(16, 13);
-            this.label33.TabIndex = 9;
-            this.label33.Text = "h:";
-            // 
-            // labelCurrentDh
-            // 
-            this.labelCurrentDh.AutoSize = true;
-            this.labelCurrentDh.Location = new System.Drawing.Point(3, 115);
-            this.labelCurrentDh.Name = "labelCurrentDh";
-            this.labelCurrentDh.Size = new System.Drawing.Size(13, 13);
-            this.labelCurrentDh.TabIndex = 10;
-            this.labelCurrentDh.Text = "0";
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(3, 128);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(15, 13);
-            this.label38.TabIndex = 11;
-            this.label38.Text = "s:";
-            // 
-            // labelCurrentDs
-            // 
-            this.labelCurrentDs.AutoSize = true;
-            this.labelCurrentDs.Location = new System.Drawing.Point(3, 141);
-            this.labelCurrentDs.Name = "labelCurrentDs";
-            this.labelCurrentDs.Size = new System.Drawing.Size(13, 13);
-            this.labelCurrentDs.TabIndex = 12;
-            this.labelCurrentDs.Text = "0";
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(3, 154);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(12, 13);
-            this.label42.TabIndex = 13;
-            this.label42.Text = "l:";
-            // 
-            // labelCurrentDl
-            // 
-            this.labelCurrentDl.AutoSize = true;
-            this.labelCurrentDl.Location = new System.Drawing.Point(3, 167);
-            this.labelCurrentDl.Name = "labelCurrentDl";
-            this.labelCurrentDl.Size = new System.Drawing.Size(13, 13);
-            this.labelCurrentDl.TabIndex = 14;
-            this.labelCurrentDl.Text = "0";
+            this.labelCurrentDhsl.AutoSize = true;
+            this.labelCurrentDhsl.Location = new System.Drawing.Point(3, 89);
+            this.labelCurrentDhsl.Name = "labelCurrentDhsl";
+            this.labelCurrentDhsl.Size = new System.Drawing.Size(46, 26);
+            this.labelCurrentDhsl.TabIndex = 10;
+            this.labelCurrentDhsl.Text = "hsl:000 000 000";
             // 
             // groupBoxWallpaper
             // 
@@ -1262,7 +806,7 @@
             this.groupBoxWallpaper.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBoxWallpaper.Location = new System.Drawing.Point(3, 3);
             this.groupBoxWallpaper.Name = "groupBoxWallpaper";
-            this.groupBoxWallpaper.Size = new System.Drawing.Size(238, 209);
+            this.groupBoxWallpaper.Size = new System.Drawing.Size(260, 209);
             this.groupBoxWallpaper.TabIndex = 0;
             this.groupBoxWallpaper.TabStop = false;
             this.groupBoxWallpaper.Text = "Wallpaper";
@@ -1273,7 +817,7 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(3, 16);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(232, 190);
+            this.panel7.Size = new System.Drawing.Size(254, 190);
             this.panel7.TabIndex = 0;
             // 
             // pictureBoxWallpaper
@@ -1281,7 +825,7 @@
             this.pictureBoxWallpaper.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBoxWallpaper.Location = new System.Drawing.Point(0, 0);
             this.pictureBoxWallpaper.Name = "pictureBoxWallpaper";
-            this.pictureBoxWallpaper.Size = new System.Drawing.Size(232, 190);
+            this.pictureBoxWallpaper.Size = new System.Drawing.Size(254, 190);
             this.pictureBoxWallpaper.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxWallpaper.TabIndex = 2;
             this.pictureBoxWallpaper.TabStop = false;
@@ -1290,9 +834,9 @@
             // 
             this.groupBox3.Controls.Add(this.tableLayoutPanel5);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox3.Location = new System.Drawing.Point(247, 218);
+            this.groupBox3.Location = new System.Drawing.Point(269, 218);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(362, 210);
+            this.groupBox3.Size = new System.Drawing.Size(340, 210);
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Last Sent";
@@ -1309,7 +853,7 @@
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(356, 191);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(334, 191);
             this.tableLayoutPanel5.TabIndex = 1;
             // 
             // flowLayoutPanel19
@@ -1323,7 +867,7 @@
             this.flowLayoutPanel19.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel19.Location = new System.Drawing.Point(73, 3);
             this.flowLayoutPanel19.Name = "flowLayoutPanel19";
-            this.flowLayoutPanel19.Size = new System.Drawing.Size(280, 185);
+            this.flowLayoutPanel19.Size = new System.Drawing.Size(258, 185);
             this.flowLayoutPanel19.TabIndex = 0;
             this.flowLayoutPanel19.WrapContents = false;
             // 
@@ -1438,592 +982,262 @@
             // 
             // flowLayoutPanel21
             // 
-            this.flowLayoutPanel21.Controls.Add(this.label15);
+            this.flowLayoutPanel21.Controls.Add(this.paletteLastMd2);
             this.flowLayoutPanel21.Controls.Add(this.labelLastMdPop);
-            this.flowLayoutPanel21.Controls.Add(this.label93);
-            this.flowLayoutPanel21.Controls.Add(this.labelLastMdh);
-            this.flowLayoutPanel21.Controls.Add(this.label95);
-            this.flowLayoutPanel21.Controls.Add(this.labelLastMds);
-            this.flowLayoutPanel21.Controls.Add(this.label97);
-            this.flowLayoutPanel21.Controls.Add(this.labelLastMdl);
+            this.flowLayoutPanel21.Controls.Add(this.labelLastMdhsl);
             this.flowLayoutPanel21.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel21.Location = new System.Drawing.Point(129, 81);
             this.flowLayoutPanel21.Name = "flowLayoutPanel21";
             this.flowLayoutPanel21.Size = new System.Drawing.Size(120, 34);
             this.flowLayoutPanel21.TabIndex = 6;
             // 
-            // label15
+            // paletteLastMd2
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(3, 0);
-            this.label15.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(27, 13);
-            this.label15.TabIndex = 0;
-            this.label15.Text = "DM:";
+            this.paletteLastMd2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.paletteLastMd2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.paletteLastMd2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.paletteLastMd2.Location = new System.Drawing.Point(0, 0);
+            this.paletteLastMd2.Margin = new System.Windows.Forms.Padding(0);
+            this.paletteLastMd2.Name = "paletteLastMd2";
+            this.paletteLastMd2.Size = new System.Drawing.Size(12, 12);
+            this.paletteLastMd2.TabIndex = 10;
             // 
             // labelLastMdPop
             // 
             this.labelLastMdPop.AutoSize = true;
-            this.labelLastMdPop.Location = new System.Drawing.Point(30, 0);
+            this.labelLastMdPop.Location = new System.Drawing.Point(12, 0);
             this.labelLastMdPop.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.labelLastMdPop.Name = "labelLastMdPop";
-            this.labelLastMdPop.Size = new System.Drawing.Size(13, 13);
+            this.labelLastMdPop.Size = new System.Drawing.Size(52, 13);
             this.labelLastMdPop.TabIndex = 1;
-            this.labelLastMdPop.Text = "0";
+            this.labelLastMdPop.Text = "pop:0000";
             // 
-            // label93
+            // labelLastMdhsl
             // 
-            this.label93.AutoSize = true;
-            this.label93.Location = new System.Drawing.Point(49, 0);
-            this.label93.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label93.Name = "label93";
-            this.label93.Size = new System.Drawing.Size(16, 13);
-            this.label93.TabIndex = 8;
-            this.label93.Text = "h:";
-            // 
-            // labelLastMdh
-            // 
-            this.labelLastMdh.AutoSize = true;
-            this.labelLastMdh.Location = new System.Drawing.Point(65, 0);
-            this.labelLastMdh.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.labelLastMdh.Name = "labelLastMdh";
-            this.labelLastMdh.Size = new System.Drawing.Size(13, 13);
-            this.labelLastMdh.TabIndex = 9;
-            this.labelLastMdh.Text = "0";
-            // 
-            // label95
-            // 
-            this.label95.AutoSize = true;
-            this.label95.Location = new System.Drawing.Point(84, 0);
-            this.label95.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label95.Name = "label95";
-            this.label95.Size = new System.Drawing.Size(15, 13);
-            this.label95.TabIndex = 10;
-            this.label95.Text = "s:";
-            // 
-            // labelLastMds
-            // 
-            this.labelLastMds.AutoSize = true;
-            this.labelLastMds.Location = new System.Drawing.Point(99, 0);
-            this.labelLastMds.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.labelLastMds.Name = "labelLastMds";
-            this.labelLastMds.Size = new System.Drawing.Size(13, 13);
-            this.labelLastMds.TabIndex = 11;
-            this.labelLastMds.Text = "0";
-            // 
-            // label97
-            // 
-            this.label97.AutoSize = true;
-            this.label97.Location = new System.Drawing.Point(3, 13);
-            this.label97.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label97.Name = "label97";
-            this.label97.Size = new System.Drawing.Size(12, 13);
-            this.label97.TabIndex = 12;
-            this.label97.Text = "l:";
-            // 
-            // labelLastMdl
-            // 
-            this.labelLastMdl.AutoSize = true;
-            this.labelLastMdl.Location = new System.Drawing.Point(15, 13);
-            this.labelLastMdl.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.labelLastMdl.Name = "labelLastMdl";
-            this.labelLastMdl.Size = new System.Drawing.Size(13, 13);
-            this.labelLastMdl.TabIndex = 13;
-            this.labelLastMdl.Text = "0";
+            this.labelLastMdhsl.AutoSize = true;
+            this.labelLastMdhsl.Location = new System.Drawing.Point(0, 13);
+            this.labelLastMdhsl.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.labelLastMdhsl.Name = "labelLastMdhsl";
+            this.labelLastMdhsl.Size = new System.Drawing.Size(83, 13);
+            this.labelLastMdhsl.TabIndex = 9;
+            this.labelLastMdhsl.Text = "hsl:000 000 000";
             // 
             // flowLayoutPanel22
             // 
-            this.flowLayoutPanel22.Controls.Add(this.label19);
+            this.flowLayoutPanel22.Controls.Add(this.paletteLastVd2);
             this.flowLayoutPanel22.Controls.Add(this.labelLastVdPop);
-            this.flowLayoutPanel22.Controls.Add(this.label87);
-            this.flowLayoutPanel22.Controls.Add(this.labelLastVdh);
-            this.flowLayoutPanel22.Controls.Add(this.label89);
-            this.flowLayoutPanel22.Controls.Add(this.labelLastVds);
-            this.flowLayoutPanel22.Controls.Add(this.label91);
-            this.flowLayoutPanel22.Controls.Add(this.labelLastVdl);
+            this.flowLayoutPanel22.Controls.Add(this.labelLastVdhsl);
             this.flowLayoutPanel22.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel22.Location = new System.Drawing.Point(3, 81);
             this.flowLayoutPanel22.Name = "flowLayoutPanel22";
             this.flowLayoutPanel22.Size = new System.Drawing.Size(120, 34);
             this.flowLayoutPanel22.TabIndex = 5;
             // 
-            // label19
+            // paletteLastVd2
             // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(3, 0);
-            this.label19.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(25, 13);
-            this.label19.TabIndex = 0;
-            this.label19.Text = "DV:";
+            this.paletteLastVd2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.paletteLastVd2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.paletteLastVd2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.paletteLastVd2.Location = new System.Drawing.Point(0, 0);
+            this.paletteLastVd2.Margin = new System.Windows.Forms.Padding(0);
+            this.paletteLastVd2.Name = "paletteLastVd2";
+            this.paletteLastVd2.Size = new System.Drawing.Size(12, 12);
+            this.paletteLastVd2.TabIndex = 10;
             // 
             // labelLastVdPop
             // 
             this.labelLastVdPop.AutoSize = true;
-            this.labelLastVdPop.Location = new System.Drawing.Point(28, 0);
+            this.labelLastVdPop.Location = new System.Drawing.Point(12, 0);
             this.labelLastVdPop.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.labelLastVdPop.Name = "labelLastVdPop";
-            this.labelLastVdPop.Size = new System.Drawing.Size(13, 13);
+            this.labelLastVdPop.Size = new System.Drawing.Size(52, 13);
             this.labelLastVdPop.TabIndex = 1;
-            this.labelLastVdPop.Text = "0";
+            this.labelLastVdPop.Text = "pop:0000";
             // 
-            // label87
+            // labelLastVdhsl
             // 
-            this.label87.AutoSize = true;
-            this.label87.Location = new System.Drawing.Point(47, 0);
-            this.label87.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label87.Name = "label87";
-            this.label87.Size = new System.Drawing.Size(16, 13);
-            this.label87.TabIndex = 8;
-            this.label87.Text = "h:";
-            // 
-            // labelLastVdh
-            // 
-            this.labelLastVdh.AutoSize = true;
-            this.labelLastVdh.Location = new System.Drawing.Point(63, 0);
-            this.labelLastVdh.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.labelLastVdh.Name = "labelLastVdh";
-            this.labelLastVdh.Size = new System.Drawing.Size(13, 13);
-            this.labelLastVdh.TabIndex = 9;
-            this.labelLastVdh.Text = "0";
-            // 
-            // label89
-            // 
-            this.label89.AutoSize = true;
-            this.label89.Location = new System.Drawing.Point(82, 0);
-            this.label89.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label89.Name = "label89";
-            this.label89.Size = new System.Drawing.Size(15, 13);
-            this.label89.TabIndex = 10;
-            this.label89.Text = "s:";
-            // 
-            // labelLastVds
-            // 
-            this.labelLastVds.AutoSize = true;
-            this.labelLastVds.Location = new System.Drawing.Point(97, 0);
-            this.labelLastVds.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.labelLastVds.Name = "labelLastVds";
-            this.labelLastVds.Size = new System.Drawing.Size(13, 13);
-            this.labelLastVds.TabIndex = 11;
-            this.labelLastVds.Text = "0";
-            // 
-            // label91
-            // 
-            this.label91.AutoSize = true;
-            this.label91.Location = new System.Drawing.Point(3, 13);
-            this.label91.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label91.Name = "label91";
-            this.label91.Size = new System.Drawing.Size(12, 13);
-            this.label91.TabIndex = 12;
-            this.label91.Text = "l:";
-            // 
-            // labelLastVdl
-            // 
-            this.labelLastVdl.AutoSize = true;
-            this.labelLastVdl.Location = new System.Drawing.Point(15, 13);
-            this.labelLastVdl.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.labelLastVdl.Name = "labelLastVdl";
-            this.labelLastVdl.Size = new System.Drawing.Size(13, 13);
-            this.labelLastVdl.TabIndex = 13;
-            this.labelLastVdl.Text = "0";
+            this.labelLastVdhsl.AutoSize = true;
+            this.labelLastVdhsl.Location = new System.Drawing.Point(0, 13);
+            this.labelLastVdhsl.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.labelLastVdhsl.Name = "labelLastVdhsl";
+            this.labelLastVdhsl.Size = new System.Drawing.Size(83, 13);
+            this.labelLastVdhsl.TabIndex = 9;
+            this.labelLastVdhsl.Text = "hsl:000 000 000";
             // 
             // flowLayoutPanel23
             // 
-            this.flowLayoutPanel23.Controls.Add(this.label23);
+            this.flowLayoutPanel23.Controls.Add(this.paletteLastMl2);
             this.flowLayoutPanel23.Controls.Add(this.labelLastMlPop);
-            this.flowLayoutPanel23.Controls.Add(this.label81);
-            this.flowLayoutPanel23.Controls.Add(this.labelLastMlh);
-            this.flowLayoutPanel23.Controls.Add(this.label83);
-            this.flowLayoutPanel23.Controls.Add(this.labelLastMls);
-            this.flowLayoutPanel23.Controls.Add(this.label85);
-            this.flowLayoutPanel23.Controls.Add(this.labelLastMll);
+            this.flowLayoutPanel23.Controls.Add(this.labelLastMlhsl);
             this.flowLayoutPanel23.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel23.Location = new System.Drawing.Point(129, 42);
             this.flowLayoutPanel23.Name = "flowLayoutPanel23";
             this.flowLayoutPanel23.Size = new System.Drawing.Size(120, 33);
             this.flowLayoutPanel23.TabIndex = 4;
             // 
-            // label23
+            // paletteLastMl2
             // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(3, 0);
-            this.label23.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(25, 13);
-            this.label23.TabIndex = 0;
-            this.label23.Text = "LM:";
+            this.paletteLastMl2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.paletteLastMl2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.paletteLastMl2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.paletteLastMl2.Location = new System.Drawing.Point(0, 0);
+            this.paletteLastMl2.Margin = new System.Windows.Forms.Padding(0);
+            this.paletteLastMl2.Name = "paletteLastMl2";
+            this.paletteLastMl2.Size = new System.Drawing.Size(12, 12);
+            this.paletteLastMl2.TabIndex = 10;
             // 
             // labelLastMlPop
             // 
             this.labelLastMlPop.AutoSize = true;
-            this.labelLastMlPop.Location = new System.Drawing.Point(28, 0);
+            this.labelLastMlPop.Location = new System.Drawing.Point(12, 0);
             this.labelLastMlPop.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.labelLastMlPop.Name = "labelLastMlPop";
-            this.labelLastMlPop.Size = new System.Drawing.Size(13, 13);
+            this.labelLastMlPop.Size = new System.Drawing.Size(52, 13);
             this.labelLastMlPop.TabIndex = 1;
-            this.labelLastMlPop.Text = "0";
+            this.labelLastMlPop.Text = "pop:0000";
             // 
-            // label81
+            // labelLastMlhsl
             // 
-            this.label81.AutoSize = true;
-            this.label81.Location = new System.Drawing.Point(47, 0);
-            this.label81.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label81.Name = "label81";
-            this.label81.Size = new System.Drawing.Size(16, 13);
-            this.label81.TabIndex = 8;
-            this.label81.Text = "h:";
-            // 
-            // labelLastMlh
-            // 
-            this.labelLastMlh.AutoSize = true;
-            this.labelLastMlh.Location = new System.Drawing.Point(63, 0);
-            this.labelLastMlh.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.labelLastMlh.Name = "labelLastMlh";
-            this.labelLastMlh.Size = new System.Drawing.Size(13, 13);
-            this.labelLastMlh.TabIndex = 9;
-            this.labelLastMlh.Text = "0";
-            // 
-            // label83
-            // 
-            this.label83.AutoSize = true;
-            this.label83.Location = new System.Drawing.Point(82, 0);
-            this.label83.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label83.Name = "label83";
-            this.label83.Size = new System.Drawing.Size(15, 13);
-            this.label83.TabIndex = 10;
-            this.label83.Text = "s:";
-            // 
-            // labelLastMls
-            // 
-            this.labelLastMls.AutoSize = true;
-            this.labelLastMls.Location = new System.Drawing.Point(97, 0);
-            this.labelLastMls.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.labelLastMls.Name = "labelLastMls";
-            this.labelLastMls.Size = new System.Drawing.Size(13, 13);
-            this.labelLastMls.TabIndex = 11;
-            this.labelLastMls.Text = "0";
-            // 
-            // label85
-            // 
-            this.label85.AutoSize = true;
-            this.label85.Location = new System.Drawing.Point(3, 13);
-            this.label85.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label85.Name = "label85";
-            this.label85.Size = new System.Drawing.Size(12, 13);
-            this.label85.TabIndex = 12;
-            this.label85.Text = "l:";
-            // 
-            // labelLastMll
-            // 
-            this.labelLastMll.AutoSize = true;
-            this.labelLastMll.Location = new System.Drawing.Point(15, 13);
-            this.labelLastMll.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.labelLastMll.Name = "labelLastMll";
-            this.labelLastMll.Size = new System.Drawing.Size(13, 13);
-            this.labelLastMll.TabIndex = 13;
-            this.labelLastMll.Text = "0";
+            this.labelLastMlhsl.AutoSize = true;
+            this.labelLastMlhsl.Location = new System.Drawing.Point(0, 13);
+            this.labelLastMlhsl.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.labelLastMlhsl.Name = "labelLastMlhsl";
+            this.labelLastMlhsl.Size = new System.Drawing.Size(83, 13);
+            this.labelLastMlhsl.TabIndex = 9;
+            this.labelLastMlhsl.Text = "hsl:000 000 000";
             // 
             // flowLayoutPanel24
             // 
-            this.flowLayoutPanel24.Controls.Add(this.label25);
+            this.flowLayoutPanel24.Controls.Add(this.paletteLastVl2);
             this.flowLayoutPanel24.Controls.Add(this.labelLastVlPop);
-            this.flowLayoutPanel24.Controls.Add(this.label75);
-            this.flowLayoutPanel24.Controls.Add(this.labelLastVlh);
-            this.flowLayoutPanel24.Controls.Add(this.label77);
-            this.flowLayoutPanel24.Controls.Add(this.labelLastVls);
-            this.flowLayoutPanel24.Controls.Add(this.label79);
-            this.flowLayoutPanel24.Controls.Add(this.labelLastVll);
+            this.flowLayoutPanel24.Controls.Add(this.labelLastVlhsl);
             this.flowLayoutPanel24.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel24.Location = new System.Drawing.Point(3, 42);
             this.flowLayoutPanel24.Name = "flowLayoutPanel24";
             this.flowLayoutPanel24.Size = new System.Drawing.Size(120, 33);
             this.flowLayoutPanel24.TabIndex = 3;
             // 
-            // label25
+            // paletteLastVl2
             // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(3, 0);
-            this.label25.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(23, 13);
-            this.label25.TabIndex = 0;
-            this.label25.Text = "LV:";
+            this.paletteLastVl2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.paletteLastVl2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.paletteLastVl2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.paletteLastVl2.Location = new System.Drawing.Point(0, 0);
+            this.paletteLastVl2.Margin = new System.Windows.Forms.Padding(0);
+            this.paletteLastVl2.Name = "paletteLastVl2";
+            this.paletteLastVl2.Size = new System.Drawing.Size(12, 12);
+            this.paletteLastVl2.TabIndex = 10;
             // 
             // labelLastVlPop
             // 
             this.labelLastVlPop.AutoSize = true;
-            this.labelLastVlPop.Location = new System.Drawing.Point(26, 0);
+            this.labelLastVlPop.Location = new System.Drawing.Point(12, 0);
             this.labelLastVlPop.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.labelLastVlPop.Name = "labelLastVlPop";
-            this.labelLastVlPop.Size = new System.Drawing.Size(13, 13);
+            this.labelLastVlPop.Size = new System.Drawing.Size(52, 13);
             this.labelLastVlPop.TabIndex = 1;
-            this.labelLastVlPop.Text = "0";
+            this.labelLastVlPop.Text = "pop:0000";
             // 
-            // label75
+            // labelLastVlhsl
             // 
-            this.label75.AutoSize = true;
-            this.label75.Location = new System.Drawing.Point(45, 0);
-            this.label75.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label75.Name = "label75";
-            this.label75.Size = new System.Drawing.Size(16, 13);
-            this.label75.TabIndex = 8;
-            this.label75.Text = "h:";
-            // 
-            // labelLastVlh
-            // 
-            this.labelLastVlh.AutoSize = true;
-            this.labelLastVlh.Location = new System.Drawing.Point(61, 0);
-            this.labelLastVlh.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.labelLastVlh.Name = "labelLastVlh";
-            this.labelLastVlh.Size = new System.Drawing.Size(13, 13);
-            this.labelLastVlh.TabIndex = 9;
-            this.labelLastVlh.Text = "0";
-            // 
-            // label77
-            // 
-            this.label77.AutoSize = true;
-            this.label77.Location = new System.Drawing.Point(80, 0);
-            this.label77.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label77.Name = "label77";
-            this.label77.Size = new System.Drawing.Size(15, 13);
-            this.label77.TabIndex = 10;
-            this.label77.Text = "s:";
-            // 
-            // labelLastVls
-            // 
-            this.labelLastVls.AutoSize = true;
-            this.labelLastVls.Location = new System.Drawing.Point(95, 0);
-            this.labelLastVls.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.labelLastVls.Name = "labelLastVls";
-            this.labelLastVls.Size = new System.Drawing.Size(13, 13);
-            this.labelLastVls.TabIndex = 11;
-            this.labelLastVls.Text = "0";
-            // 
-            // label79
-            // 
-            this.label79.AutoSize = true;
-            this.label79.Location = new System.Drawing.Point(3, 13);
-            this.label79.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label79.Name = "label79";
-            this.label79.Size = new System.Drawing.Size(12, 13);
-            this.label79.TabIndex = 12;
-            this.label79.Text = "l:";
-            // 
-            // labelLastVll
-            // 
-            this.labelLastVll.AutoSize = true;
-            this.labelLastVll.Location = new System.Drawing.Point(15, 13);
-            this.labelLastVll.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.labelLastVll.Name = "labelLastVll";
-            this.labelLastVll.Size = new System.Drawing.Size(13, 13);
-            this.labelLastVll.TabIndex = 13;
-            this.labelLastVll.Text = "0";
+            this.labelLastVlhsl.AutoSize = true;
+            this.labelLastVlhsl.Location = new System.Drawing.Point(0, 13);
+            this.labelLastVlhsl.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.labelLastVlhsl.Name = "labelLastVlhsl";
+            this.labelLastVlhsl.Size = new System.Drawing.Size(83, 13);
+            this.labelLastVlhsl.TabIndex = 9;
+            this.labelLastVlhsl.Text = "hsl:000 000 000";
             // 
             // flowLayoutPanel25
             // 
-            this.flowLayoutPanel25.Controls.Add(this.label27);
+            this.flowLayoutPanel25.Controls.Add(this.paletteLastM2);
             this.flowLayoutPanel25.Controls.Add(this.labelLastMPop);
-            this.flowLayoutPanel25.Controls.Add(this.label69);
-            this.flowLayoutPanel25.Controls.Add(this.labelLastMh);
-            this.flowLayoutPanel25.Controls.Add(this.label71);
-            this.flowLayoutPanel25.Controls.Add(this.labelLastMs);
-            this.flowLayoutPanel25.Controls.Add(this.label73);
-            this.flowLayoutPanel25.Controls.Add(this.labelLastMl);
+            this.flowLayoutPanel25.Controls.Add(this.labelLastMhsl);
             this.flowLayoutPanel25.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel25.Location = new System.Drawing.Point(129, 3);
             this.flowLayoutPanel25.Name = "flowLayoutPanel25";
             this.flowLayoutPanel25.Size = new System.Drawing.Size(120, 33);
             this.flowLayoutPanel25.TabIndex = 2;
             // 
-            // label27
+            // paletteLastM2
             // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(3, 0);
-            this.label27.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(19, 13);
-            this.label27.TabIndex = 0;
-            this.label27.Text = "M:";
+            this.paletteLastM2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.paletteLastM2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.paletteLastM2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.paletteLastM2.Location = new System.Drawing.Point(0, 0);
+            this.paletteLastM2.Margin = new System.Windows.Forms.Padding(0);
+            this.paletteLastM2.Name = "paletteLastM2";
+            this.paletteLastM2.Size = new System.Drawing.Size(12, 12);
+            this.paletteLastM2.TabIndex = 10;
             // 
             // labelLastMPop
             // 
             this.labelLastMPop.AutoSize = true;
-            this.labelLastMPop.Location = new System.Drawing.Point(22, 0);
+            this.labelLastMPop.Location = new System.Drawing.Point(12, 0);
             this.labelLastMPop.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.labelLastMPop.Name = "labelLastMPop";
-            this.labelLastMPop.Size = new System.Drawing.Size(13, 13);
+            this.labelLastMPop.Size = new System.Drawing.Size(52, 13);
             this.labelLastMPop.TabIndex = 1;
-            this.labelLastMPop.Text = "0";
+            this.labelLastMPop.Text = "pop:0000";
             // 
-            // label69
+            // labelLastMhsl
             // 
-            this.label69.AutoSize = true;
-            this.label69.Location = new System.Drawing.Point(41, 0);
-            this.label69.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label69.Name = "label69";
-            this.label69.Size = new System.Drawing.Size(16, 13);
-            this.label69.TabIndex = 8;
-            this.label69.Text = "h:";
-            // 
-            // labelLastMh
-            // 
-            this.labelLastMh.AutoSize = true;
-            this.labelLastMh.Location = new System.Drawing.Point(57, 0);
-            this.labelLastMh.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.labelLastMh.Name = "labelLastMh";
-            this.labelLastMh.Size = new System.Drawing.Size(13, 13);
-            this.labelLastMh.TabIndex = 9;
-            this.labelLastMh.Text = "0";
-            // 
-            // label71
-            // 
-            this.label71.AutoSize = true;
-            this.label71.Location = new System.Drawing.Point(76, 0);
-            this.label71.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label71.Name = "label71";
-            this.label71.Size = new System.Drawing.Size(15, 13);
-            this.label71.TabIndex = 10;
-            this.label71.Text = "s:";
-            // 
-            // labelLastMs
-            // 
-            this.labelLastMs.AutoSize = true;
-            this.labelLastMs.Location = new System.Drawing.Point(91, 0);
-            this.labelLastMs.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.labelLastMs.Name = "labelLastMs";
-            this.labelLastMs.Size = new System.Drawing.Size(13, 13);
-            this.labelLastMs.TabIndex = 11;
-            this.labelLastMs.Text = "0";
-            // 
-            // label73
-            // 
-            this.label73.AutoSize = true;
-            this.label73.Location = new System.Drawing.Point(3, 13);
-            this.label73.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label73.Name = "label73";
-            this.label73.Size = new System.Drawing.Size(12, 13);
-            this.label73.TabIndex = 12;
-            this.label73.Text = "l:";
-            // 
-            // labelLastMl
-            // 
-            this.labelLastMl.AutoSize = true;
-            this.labelLastMl.Location = new System.Drawing.Point(15, 13);
-            this.labelLastMl.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.labelLastMl.Name = "labelLastMl";
-            this.labelLastMl.Size = new System.Drawing.Size(13, 13);
-            this.labelLastMl.TabIndex = 13;
-            this.labelLastMl.Text = "0";
+            this.labelLastMhsl.AutoSize = true;
+            this.labelLastMhsl.Location = new System.Drawing.Point(0, 13);
+            this.labelLastMhsl.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.labelLastMhsl.Name = "labelLastMhsl";
+            this.labelLastMhsl.Size = new System.Drawing.Size(83, 13);
+            this.labelLastMhsl.TabIndex = 9;
+            this.labelLastMhsl.Text = "hsl:000 000 000";
             // 
             // flowLayoutPanel26
             // 
-            this.flowLayoutPanel26.Controls.Add(this.label29);
+            this.flowLayoutPanel26.Controls.Add(this.paletteLastV2);
             this.flowLayoutPanel26.Controls.Add(this.labelLastVPop);
-            this.flowLayoutPanel26.Controls.Add(this.label63);
-            this.flowLayoutPanel26.Controls.Add(this.labelLastVh);
-            this.flowLayoutPanel26.Controls.Add(this.label65);
-            this.flowLayoutPanel26.Controls.Add(this.labelLastVs);
-            this.flowLayoutPanel26.Controls.Add(this.label67);
-            this.flowLayoutPanel26.Controls.Add(this.labelLastVl);
+            this.flowLayoutPanel26.Controls.Add(this.labelLastVhsl);
             this.flowLayoutPanel26.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel26.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel26.Name = "flowLayoutPanel26";
             this.flowLayoutPanel26.Size = new System.Drawing.Size(120, 33);
             this.flowLayoutPanel26.TabIndex = 1;
             // 
-            // label29
+            // paletteLastV2
             // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(3, 0);
-            this.label29.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(17, 13);
-            this.label29.TabIndex = 0;
-            this.label29.Text = "V:";
+            this.paletteLastV2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.paletteLastV2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.paletteLastV2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.paletteLastV2.Location = new System.Drawing.Point(0, 0);
+            this.paletteLastV2.Margin = new System.Windows.Forms.Padding(0);
+            this.paletteLastV2.Name = "paletteLastV2";
+            this.paletteLastV2.Size = new System.Drawing.Size(12, 12);
+            this.paletteLastV2.TabIndex = 10;
             // 
             // labelLastVPop
             // 
             this.labelLastVPop.AutoSize = true;
-            this.labelLastVPop.Location = new System.Drawing.Point(20, 0);
+            this.labelLastVPop.Location = new System.Drawing.Point(12, 0);
             this.labelLastVPop.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.labelLastVPop.Name = "labelLastVPop";
-            this.labelLastVPop.Size = new System.Drawing.Size(13, 13);
+            this.labelLastVPop.Size = new System.Drawing.Size(52, 13);
             this.labelLastVPop.TabIndex = 1;
-            this.labelLastVPop.Text = "0";
+            this.labelLastVPop.Text = "pop:0000";
             // 
-            // label63
+            // labelLastVhsl
             // 
-            this.label63.AutoSize = true;
-            this.label63.Location = new System.Drawing.Point(39, 0);
-            this.label63.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label63.Name = "label63";
-            this.label63.Size = new System.Drawing.Size(16, 13);
-            this.label63.TabIndex = 8;
-            this.label63.Text = "h:";
-            // 
-            // labelLastVh
-            // 
-            this.labelLastVh.AutoSize = true;
-            this.labelLastVh.Location = new System.Drawing.Point(55, 0);
-            this.labelLastVh.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.labelLastVh.Name = "labelLastVh";
-            this.labelLastVh.Size = new System.Drawing.Size(13, 13);
-            this.labelLastVh.TabIndex = 9;
-            this.labelLastVh.Text = "0";
-            // 
-            // label65
-            // 
-            this.label65.AutoSize = true;
-            this.label65.Location = new System.Drawing.Point(74, 0);
-            this.label65.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label65.Name = "label65";
-            this.label65.Size = new System.Drawing.Size(15, 13);
-            this.label65.TabIndex = 10;
-            this.label65.Text = "s:";
-            // 
-            // labelLastVs
-            // 
-            this.labelLastVs.AutoSize = true;
-            this.labelLastVs.Location = new System.Drawing.Point(89, 0);
-            this.labelLastVs.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.labelLastVs.Name = "labelLastVs";
-            this.labelLastVs.Size = new System.Drawing.Size(13, 13);
-            this.labelLastVs.TabIndex = 11;
-            this.labelLastVs.Text = "0";
-            // 
-            // label67
-            // 
-            this.label67.AutoSize = true;
-            this.label67.Location = new System.Drawing.Point(108, 0);
-            this.label67.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label67.Name = "label67";
-            this.label67.Size = new System.Drawing.Size(12, 13);
-            this.label67.TabIndex = 12;
-            this.label67.Text = "l:";
-            // 
-            // labelLastVl
-            // 
-            this.labelLastVl.AutoSize = true;
-            this.labelLastVl.Location = new System.Drawing.Point(0, 13);
-            this.labelLastVl.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.labelLastVl.Name = "labelLastVl";
-            this.labelLastVl.Size = new System.Drawing.Size(13, 13);
-            this.labelLastVl.TabIndex = 13;
-            this.labelLastVl.Text = "0";
+            this.labelLastVhsl.AutoSize = true;
+            this.labelLastVhsl.Location = new System.Drawing.Point(0, 13);
+            this.labelLastVhsl.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.labelLastVhsl.Name = "labelLastVhsl";
+            this.labelLastVhsl.Size = new System.Drawing.Size(83, 13);
+            this.labelLastVhsl.TabIndex = 9;
+            this.labelLastVhsl.Text = "hsl:000 000 000";
             // 
             // flowLayoutPanel27
             // 
             this.flowLayoutPanel27.Controls.Add(this.label31);
             this.flowLayoutPanel27.Controls.Add(this.paletteLastD);
-            this.flowLayoutPanel27.Controls.Add(this.label32);
             this.flowLayoutPanel27.Controls.Add(this.labelLastDPop);
-            this.flowLayoutPanel27.Controls.Add(this.label36);
-            this.flowLayoutPanel27.Controls.Add(this.labelLastDh);
-            this.flowLayoutPanel27.Controls.Add(this.label44);
-            this.flowLayoutPanel27.Controls.Add(this.labelLastDs);
-            this.flowLayoutPanel27.Controls.Add(this.label48);
-            this.flowLayoutPanel27.Controls.Add(this.labelLastDl);
+            this.flowLayoutPanel27.Controls.Add(this.labelLastDhsl);
             this.flowLayoutPanel27.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel27.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel27.Location = new System.Drawing.Point(3, 3);
@@ -2050,84 +1264,30 @@
             this.paletteLastD.Size = new System.Drawing.Size(57, 57);
             this.paletteLastD.TabIndex = 5;
             // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(3, 76);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(29, 13);
-            this.label32.TabIndex = 7;
-            this.label32.Text = "Pop:";
-            // 
             // labelLastDPop
             // 
             this.labelLastDPop.AutoSize = true;
-            this.labelLastDPop.Location = new System.Drawing.Point(3, 89);
+            this.labelLastDPop.Location = new System.Drawing.Point(3, 76);
             this.labelLastDPop.Name = "labelLastDPop";
-            this.labelLastDPop.Size = new System.Drawing.Size(13, 13);
+            this.labelLastDPop.Size = new System.Drawing.Size(52, 13);
             this.labelLastDPop.TabIndex = 8;
-            this.labelLastDPop.Text = "0";
+            this.labelLastDPop.Text = "pop:0000";
             // 
-            // label36
+            // labelLastDhsl
             // 
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(3, 102);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(16, 13);
-            this.label36.TabIndex = 15;
-            this.label36.Text = "h:";
-            // 
-            // labelLastDh
-            // 
-            this.labelLastDh.AutoSize = true;
-            this.labelLastDh.Location = new System.Drawing.Point(3, 115);
-            this.labelLastDh.Name = "labelLastDh";
-            this.labelLastDh.Size = new System.Drawing.Size(13, 13);
-            this.labelLastDh.TabIndex = 16;
-            this.labelLastDh.Text = "0";
-            // 
-            // label44
-            // 
-            this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(3, 128);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(15, 13);
-            this.label44.TabIndex = 17;
-            this.label44.Text = "s:";
-            // 
-            // labelLastDs
-            // 
-            this.labelLastDs.AutoSize = true;
-            this.labelLastDs.Location = new System.Drawing.Point(3, 141);
-            this.labelLastDs.Name = "labelLastDs";
-            this.labelLastDs.Size = new System.Drawing.Size(13, 13);
-            this.labelLastDs.TabIndex = 18;
-            this.labelLastDs.Text = "0";
-            // 
-            // label48
-            // 
-            this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(3, 154);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(12, 13);
-            this.label48.TabIndex = 19;
-            this.label48.Text = "l:";
-            // 
-            // labelLastDl
-            // 
-            this.labelLastDl.AutoSize = true;
-            this.labelLastDl.Location = new System.Drawing.Point(3, 167);
-            this.labelLastDl.Name = "labelLastDl";
-            this.labelLastDl.Size = new System.Drawing.Size(13, 13);
-            this.labelLastDl.TabIndex = 20;
-            this.labelLastDl.Text = "0";
+            this.labelLastDhsl.AutoSize = true;
+            this.labelLastDhsl.Location = new System.Drawing.Point(3, 89);
+            this.labelLastDhsl.Name = "labelLastDhsl";
+            this.labelLastDhsl.Size = new System.Drawing.Size(46, 26);
+            this.labelLastDhsl.TabIndex = 16;
+            this.labelLastDhsl.Text = "hsl:000 000 000";
             // 
             // tabPageConfig
             // 
             this.tabPageConfig.Controls.Add(this.tableLayoutPanel3);
             this.tabPageConfig.Location = new System.Drawing.Point(4, 22);
             this.tabPageConfig.Name = "tabPageConfig";
-            this.tabPageConfig.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPageConfig.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageConfig.Size = new System.Drawing.Size(618, 437);
             this.tabPageConfig.TabIndex = 1;
             this.tabPageConfig.Text = "Config";
@@ -2763,26 +1923,19 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label labelCurrentDPop;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel6;
         private System.Windows.Forms.Label labelCurrentVPop;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel18;
-        private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label labelCurrentMdPop;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel17;
-        private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label labelCurrentVdPop;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel16;
-        private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label labelCurrentMlPop;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel15;
-        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label labelCurrentVlPop;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel7;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label labelCurrentMPop;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel19;
@@ -2796,27 +1949,20 @@
         private System.Windows.Forms.Panel paletteLastMd;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel21;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label labelLastMdPop;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel22;
-        private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label labelLastVdPop;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel23;
-        private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label labelLastMlPop;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel24;
-        private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label labelLastVlPop;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel25;
-        private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label labelLastMPop;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel26;
-        private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label labelLastVPop;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel27;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Panel paletteLastD;
-        private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label labelLastDPop;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label21;
@@ -2825,89 +1971,31 @@
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label57;
-        private System.Windows.Forms.Label labelCurrentMdh;
-        private System.Windows.Forms.Label label59;
-        private System.Windows.Forms.Label labelCurrentMds;
-        private System.Windows.Forms.Label label61;
-        private System.Windows.Forms.Label labelCurrentMdl;
-        private System.Windows.Forms.Label label51;
-        private System.Windows.Forms.Label labelCurrentVdh;
-        private System.Windows.Forms.Label label53;
-        private System.Windows.Forms.Label labelCurrentVds;
-        private System.Windows.Forms.Label label55;
-        private System.Windows.Forms.Label labelCurrentVdl;
-        private System.Windows.Forms.Label label45;
-        private System.Windows.Forms.Label labelCurrentMlh;
-        private System.Windows.Forms.Label label47;
-        private System.Windows.Forms.Label labelCurrentMls;
-        private System.Windows.Forms.Label label49;
-        private System.Windows.Forms.Label labelCurrentMll;
-        private System.Windows.Forms.Label label39;
-        private System.Windows.Forms.Label labelCurrentVlh;
-        private System.Windows.Forms.Label label41;
-        private System.Windows.Forms.Label labelCurrentVls;
-        private System.Windows.Forms.Label label43;
-        private System.Windows.Forms.Label labelCurrentVll;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.Label labelCurrentMh;
-        private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.Label labelCurrentMs;
-        private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.Label labelCurrentMl;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label labelCurrentVh;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.Label labelCurrentVs;
-        private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.Label labelCurrentVl;
-        private System.Windows.Forms.Label label93;
-        private System.Windows.Forms.Label labelLastMdh;
-        private System.Windows.Forms.Label label95;
-        private System.Windows.Forms.Label labelLastMds;
-        private System.Windows.Forms.Label label97;
-        private System.Windows.Forms.Label labelLastMdl;
-        private System.Windows.Forms.Label label87;
-        private System.Windows.Forms.Label labelLastVdh;
-        private System.Windows.Forms.Label label89;
-        private System.Windows.Forms.Label labelLastVds;
-        private System.Windows.Forms.Label label91;
-        private System.Windows.Forms.Label labelLastVdl;
-        private System.Windows.Forms.Label label81;
-        private System.Windows.Forms.Label labelLastMlh;
-        private System.Windows.Forms.Label label83;
-        private System.Windows.Forms.Label labelLastMls;
-        private System.Windows.Forms.Label label85;
-        private System.Windows.Forms.Label labelLastMll;
-        private System.Windows.Forms.Label label75;
-        private System.Windows.Forms.Label labelLastVlh;
-        private System.Windows.Forms.Label label77;
-        private System.Windows.Forms.Label labelLastVls;
-        private System.Windows.Forms.Label label79;
-        private System.Windows.Forms.Label labelLastVll;
-        private System.Windows.Forms.Label label69;
-        private System.Windows.Forms.Label labelLastMh;
-        private System.Windows.Forms.Label label71;
-        private System.Windows.Forms.Label labelLastMs;
-        private System.Windows.Forms.Label label73;
-        private System.Windows.Forms.Label labelLastMl;
-        private System.Windows.Forms.Label label63;
-        private System.Windows.Forms.Label labelLastVh;
-        private System.Windows.Forms.Label label65;
-        private System.Windows.Forms.Label labelLastVs;
-        private System.Windows.Forms.Label label67;
-        private System.Windows.Forms.Label labelLastVl;
-        private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.Label labelCurrentDh;
-        private System.Windows.Forms.Label label38;
-        private System.Windows.Forms.Label labelCurrentDs;
-        private System.Windows.Forms.Label label42;
-        private System.Windows.Forms.Label labelCurrentDl;
-        private System.Windows.Forms.Label label36;
-        private System.Windows.Forms.Label labelLastDh;
-        private System.Windows.Forms.Label label44;
-        private System.Windows.Forms.Label labelLastDs;
-        private System.Windows.Forms.Label label48;
-        private System.Windows.Forms.Label labelLastDl;
+        private System.Windows.Forms.Label labelCurrentMdhsl;
+        private System.Windows.Forms.Label labelCurrentVdhsl;
+        private System.Windows.Forms.Label labelCurrentMlhsl;
+        private System.Windows.Forms.Label labelCurrentVlhsl;
+        private System.Windows.Forms.Label labelCurrentMhsl;
+        private System.Windows.Forms.Label labelCurrentVhsl;
+        private System.Windows.Forms.Label labelLastMdhsl;
+        private System.Windows.Forms.Label labelLastVdhsl;
+        private System.Windows.Forms.Label labelLastMlhsl;
+        private System.Windows.Forms.Label labelLastVlhsl;
+        private System.Windows.Forms.Label labelLastMhsl;
+        private System.Windows.Forms.Label labelLastVhsl;
+        private System.Windows.Forms.Label labelCurrentDhsl;
+        private System.Windows.Forms.Label labelLastDhsl;
+        private System.Windows.Forms.Panel paletteCurrentV2;
+        private System.Windows.Forms.Panel paletteCurrentMd2;
+        private System.Windows.Forms.Panel paletteCurrentVd2;
+        private System.Windows.Forms.Panel paletteCurrentMl2;
+        private System.Windows.Forms.Panel paletteCurrentVl2;
+        private System.Windows.Forms.Panel paletteCurrentM2;
+        private System.Windows.Forms.Panel paletteLastMd2;
+        private System.Windows.Forms.Panel paletteLastVd2;
+        private System.Windows.Forms.Panel paletteLastMl2;
+        private System.Windows.Forms.Panel paletteLastVl2;
+        private System.Windows.Forms.Panel paletteLastM2;
+        private System.Windows.Forms.Panel paletteLastV2;
     }
 }
