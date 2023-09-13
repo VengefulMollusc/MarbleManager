@@ -110,6 +110,7 @@ namespace MarbleManager.Config
             if (_runOnBoot) {
                 // add shortcut in startup folder
                 Utilities.CreateShortcut(shortcutPath, appPath);
+                Console.WriteLine("Created shortcut: " + shortcutPath);
             }
         }
 

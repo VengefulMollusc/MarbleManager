@@ -23,7 +23,8 @@ namespace MarbleManager.Lights
 
             // if setting for auto lights is on, trigger to turn on
             // this should happen on app boot
-            if (config.generalConfig.autoTurnOnOff) TurnLightsOnOff(true);
+            // NEED ANOTHER APPROACH FOR THIS, App boot is too late
+            //if (config.generalConfig.autoTurnOnOff) TurnLightsOnOff(true);
         }
 
         /**
@@ -51,14 +52,14 @@ namespace MarbleManager.Lights
                 new NanoleafLightController(config),
             };
 
-            // hook up lights to logoff event
-            if (config.generalConfig.autoTurnOnOff)
-            {
-                SystemEvents.SessionEnding += OnSessionEnding;
-            } else
-            {
-                SystemEvents.SessionEnding -= OnSessionEnding;
-            }
+            //// hook up lights to logoff event
+            //if (config.generalConfig.autoTurnLightsOnOff)
+            //{
+            //    SystemEvents.SessionEnding += OnSessionEnding;
+            //} else
+            //{
+            //    SystemEvents.SessionEnding -= OnSessionEnding;
+            //}
         }
 
         /**
@@ -84,17 +85,17 @@ namespace MarbleManager.Lights
             wallpaper.Dispose();
         }
 
-        /**
-         * Triggers lights off on session ending
-         */
-        private void OnSessionEnding(object sender, SessionEndingEventArgs e)
-        {
-            Console.WriteLine("User is logging off: triggering lights off");
-            // turn off lights
-            TurnLightsOnOff(false);
+        ///**
+        // * Triggers lights off on session ending
+        // */
+        //private void OnSessionEnding(object sender, SessionEndingEventArgs e)
+        //{
+        //    Console.WriteLine("User is logging off: triggering lights off");
+        //    // turn off lights
+        //    TurnLightsOnOff(false);
 
-            // unsubscribe from the event
-            SystemEvents.SessionEnding -= OnSessionEnding;
-        }
+        //    // unsubscribe from the event
+        //    SystemEvents.SessionEnding -= OnSessionEnding;
+        //}
     }
 }

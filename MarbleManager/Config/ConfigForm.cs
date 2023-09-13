@@ -176,7 +176,7 @@ namespace MarbleManager
 
             // init general config
             checkBoxSyncOnWallpaperChange.Checked = config.generalConfig.syncOnWallpaperChange;
-            checkBoxAutoTurnOnOff.Checked = config.generalConfig.autoTurnOnOff;
+            checkBoxAutoTurnOnOff.Checked = config.generalConfig.autoTurnLightsOnOff;
             checkBoxUseMainSwatches.Checked = config.generalConfig.onlyUseMainSwatches;
             checkBoxRunOnBoot.Checked = config.generalConfig.runOnBoot;
 
@@ -213,7 +213,7 @@ namespace MarbleManager
                 generalConfig = new GeneralConfig()
                 {
                     syncOnWallpaperChange = checkBoxSyncOnWallpaperChange.Checked,
-                    autoTurnOnOff = checkBoxAutoTurnOnOff.Checked,
+                    autoTurnLightsOnOff = checkBoxAutoTurnOnOff.Checked,
                     onlyUseMainSwatches = checkBoxUseMainSwatches.Checked,
                     runOnBoot = checkBoxRunOnBoot.Checked,
                 },

@@ -128,8 +128,9 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBoxConfigGeneral = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel14 = new System.Windows.Forms.FlowLayoutPanel();
-            this.checkBoxSyncOnWallpaperChange = new System.Windows.Forms.CheckBox();
+            this.checkBoxRunOnBoot = new System.Windows.Forms.CheckBox();
             this.checkBoxAutoTurnOnOff = new System.Windows.Forms.CheckBox();
+            this.checkBoxSyncOnWallpaperChange = new System.Windows.Forms.CheckBox();
             this.checkBoxUseMainSwatches = new System.Windows.Forms.CheckBox();
             this.groupBoxConfigLifx = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel13 = new System.Windows.Forms.FlowLayoutPanel();
@@ -173,7 +174,7 @@
             this.label24 = new System.Windows.Forms.Label();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.checkBoxRunOnBoot = new System.Windows.Forms.CheckBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPageStatus.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -1334,10 +1335,11 @@
             // 
             // flowLayoutPanel14
             // 
+            this.flowLayoutPanel14.Controls.Add(this.checkBoxUseMainSwatches);
             this.flowLayoutPanel14.Controls.Add(this.checkBoxRunOnBoot);
+            this.flowLayoutPanel14.Controls.Add(this.label10);
             this.flowLayoutPanel14.Controls.Add(this.checkBoxAutoTurnOnOff);
             this.flowLayoutPanel14.Controls.Add(this.checkBoxSyncOnWallpaperChange);
-            this.flowLayoutPanel14.Controls.Add(this.checkBoxUseMainSwatches);
             this.flowLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel14.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel14.Location = new System.Drawing.Point(3, 16);
@@ -1345,30 +1347,40 @@
             this.flowLayoutPanel14.Size = new System.Drawing.Size(294, 148);
             this.flowLayoutPanel14.TabIndex = 0;
             // 
-            // checkBoxSyncOnWallpaperChange
+            // checkBoxRunOnBoot
             // 
-            this.checkBoxSyncOnWallpaperChange.AutoSize = true;
-            this.checkBoxSyncOnWallpaperChange.Location = new System.Drawing.Point(3, 49);
-            this.checkBoxSyncOnWallpaperChange.Name = "checkBoxSyncOnWallpaperChange";
-            this.checkBoxSyncOnWallpaperChange.Size = new System.Drawing.Size(152, 17);
-            this.checkBoxSyncOnWallpaperChange.TabIndex = 0;
-            this.checkBoxSyncOnWallpaperChange.Text = "Sync on wallpaper change";
-            this.checkBoxSyncOnWallpaperChange.UseVisualStyleBackColor = true;
+            this.checkBoxRunOnBoot.AutoSize = true;
+            this.checkBoxRunOnBoot.Location = new System.Drawing.Point(3, 26);
+            this.checkBoxRunOnBoot.Name = "checkBoxRunOnBoot";
+            this.checkBoxRunOnBoot.Size = new System.Drawing.Size(165, 17);
+            this.checkBoxRunOnBoot.TabIndex = 6;
+            this.checkBoxRunOnBoot.Text = "Run Marble Manager on boot";
+            this.checkBoxRunOnBoot.UseVisualStyleBackColor = true;
             // 
             // checkBoxAutoTurnOnOff
             // 
             this.checkBoxAutoTurnOnOff.AutoSize = true;
-            this.checkBoxAutoTurnOnOff.Location = new System.Drawing.Point(3, 26);
+            this.checkBoxAutoTurnOnOff.Location = new System.Drawing.Point(3, 71);
             this.checkBoxAutoTurnOnOff.Name = "checkBoxAutoTurnOnOff";
             this.checkBoxAutoTurnOnOff.Size = new System.Drawing.Size(184, 17);
             this.checkBoxAutoTurnOnOff.TabIndex = 2;
             this.checkBoxAutoTurnOnOff.Text = "Turn lights on/off with logon state";
             this.checkBoxAutoTurnOnOff.UseVisualStyleBackColor = true;
             // 
+            // checkBoxSyncOnWallpaperChange
+            // 
+            this.checkBoxSyncOnWallpaperChange.AutoSize = true;
+            this.checkBoxSyncOnWallpaperChange.Location = new System.Drawing.Point(3, 94);
+            this.checkBoxSyncOnWallpaperChange.Name = "checkBoxSyncOnWallpaperChange";
+            this.checkBoxSyncOnWallpaperChange.Size = new System.Drawing.Size(152, 17);
+            this.checkBoxSyncOnWallpaperChange.TabIndex = 0;
+            this.checkBoxSyncOnWallpaperChange.Text = "Sync on wallpaper change";
+            this.checkBoxSyncOnWallpaperChange.UseVisualStyleBackColor = true;
+            // 
             // checkBoxUseMainSwatches
             // 
             this.checkBoxUseMainSwatches.AutoSize = true;
-            this.checkBoxUseMainSwatches.Location = new System.Drawing.Point(3, 72);
+            this.checkBoxUseMainSwatches.Location = new System.Drawing.Point(3, 3);
             this.checkBoxUseMainSwatches.Name = "checkBoxUseMainSwatches";
             this.checkBoxUseMainSwatches.Size = new System.Drawing.Size(140, 17);
             this.checkBoxUseMainSwatches.TabIndex = 5;
@@ -1826,15 +1838,15 @@
             this.panel1.Size = new System.Drawing.Size(166, 194);
             this.panel1.TabIndex = 2;
             // 
-            // checkBoxRunOnBoot
+            // label10
             // 
-            this.checkBoxRunOnBoot.AutoSize = true;
-            this.checkBoxRunOnBoot.Location = new System.Drawing.Point(3, 3);
-            this.checkBoxRunOnBoot.Name = "checkBoxRunOnBoot";
-            this.checkBoxRunOnBoot.Size = new System.Drawing.Size(165, 17);
-            this.checkBoxRunOnBoot.TabIndex = 6;
-            this.checkBoxRunOnBoot.Text = "Run Marble Manager on boot";
-            this.checkBoxRunOnBoot.UseVisualStyleBackColor = true;
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(3, 55);
+            this.label10.Margin = new System.Windows.Forms.Padding(3, 9, 3, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(102, 13);
+            this.label10.TabIndex = 7;
+            this.label10.Text = "Non-functional (yet):";
             // 
             // ConfigForm
             // 
@@ -2085,5 +2097,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.NumericUpDown numericUpDownProbValue;
         private System.Windows.Forms.CheckBox checkBoxRunOnBoot;
+        private System.Windows.Forms.Label label10;
     }
 }

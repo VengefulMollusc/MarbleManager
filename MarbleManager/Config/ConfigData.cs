@@ -12,7 +12,7 @@
         // toggles updating light palette on wallpaper change
         public bool syncOnWallpaperChange { get; set; }
         // toggles activating scripts to turn on/off lights at logon/logoff
-        public bool autoTurnOnOff { get; set; }
+        public bool autoTurnLightsOnOff { get; set; }
         // toggles between using MainSwatches and AllSwatches for applying palettes
         public bool onlyUseMainSwatches { get; set; }
         // whether this app runs on boot or not
