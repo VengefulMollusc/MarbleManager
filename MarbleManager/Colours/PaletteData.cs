@@ -8,7 +8,7 @@ namespace MarbleManager.Colours
     {
         // dominant colour
         public SwatchObject dominant { get; set; }
-        // swatches
+        // main swatches
         public SwatchObject vibrant { get; set; }
         public SwatchObject lightVibrant { get; set; }
         public SwatchObject darkVibrant { get; set; }
@@ -16,9 +16,10 @@ namespace MarbleManager.Colours
         public SwatchObject lightMuted { get; set; }
         public SwatchObject darkMuted { get; set; }
 
+        // all swatches (can be many more than just main)
         public List<SwatchObject> AllSwatches { get; set; }
 
-        // this doesn't return dominant as it's included as one of the other swatches
+        // gets just the main swatches, including dominant if it doesn't match one of them
         [JsonIgnore]
         public List<SwatchObject> MainSwatches { get {
                 List<SwatchObject> swatches = new List<SwatchObject>();

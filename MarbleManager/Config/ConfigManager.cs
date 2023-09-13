@@ -19,6 +19,9 @@ namespace MarbleManager.Config
         internal static string TemplatesDirectory { get { return templatesDirPath; } }
         internal static string DataDirectory { get { return dataDirPath; } }
 
+        /**
+         * Loads config from file
+         */
         internal static ConfigObject GetConfig()
         {
             try
@@ -40,6 +43,9 @@ namespace MarbleManager.Config
             return null;
         }
 
+        /**
+         * Saves a config object to file then applies changes by generating scripts etc.
+         */
         internal static void ApplyConfig(ConfigObject newConfig)
         {
             SaveConfigToFile(newConfig);
@@ -52,6 +58,9 @@ namespace MarbleManager.Config
             Console.WriteLine("Changes successfully applied");
         }
 
+        /**
+         * Saves a config object to file
+         */
         private static void SaveConfigToFile(ConfigObject newConfig)
         {
             // save to file
@@ -67,9 +76,12 @@ namespace MarbleManager.Config
             {
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine("Error saving config");
-            }         
+            }
         }
 
+        /**
+         * Creates script files from templates with new values from config
+         */
         private static void CreateScriptFilesFromTemplates (ConfigObject config)
         {
             string[] templates = {

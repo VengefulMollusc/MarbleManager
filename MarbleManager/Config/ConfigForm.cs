@@ -33,11 +33,17 @@ namespace MarbleManager
             LoadLastPalette();
         }
 
+        /**
+         * Sets the light controller object
+         */
         internal void SetLightController(GlobalLightController _lightController)
         {
             lightController = _lightController;
         }
 
+        /**
+         * Redirects Console.WriteLine calls to the 'console' box in the UI when form is open
+         */
         private void RedirectConsoleOutput ()
         {
             originalOut = Console.Out;
@@ -49,6 +55,9 @@ namespace MarbleManager
             Console.SetOut(writer);
         }
 
+        /**
+         * cleanup values on form close
+         */
         protected override void OnClosing(CancelEventArgs e)
         {
             // reset console output
@@ -69,6 +78,9 @@ namespace MarbleManager
             base.OnClosing(e);
         }
 
+        /**
+         * Previews a colour palette on the UI
+         */
         private void PreviewPalette (PaletteObject _palette, bool _isPreview = true)
         {
             if (_palette == null) { return; }
@@ -95,6 +107,10 @@ namespace MarbleManager
             }
         }
 
+        /**
+         * Applies a swatch to a set of preview UI objects
+         * shows the colour, plus details on labels
+         */
         private void PreviewSwatch (List<Panel> _panels, List<Label> _labels, SwatchObject _swatch, bool showHsl = true)
         {
             Color bgColour;
@@ -127,6 +143,9 @@ namespace MarbleManager
             _labels[1].Text = hslText;
         }
 
+        /**
+         * Fetches the current wallpaper and previews on the UI
+         */
         private void PreviewCurrentWallpaper()
         {
             // cleanup existing value to stop RAM use increasing
@@ -141,6 +160,9 @@ namespace MarbleManager
             Console.WriteLine("Loaded current wallpaper");
         }
 
+        /**
+         * Loads a config object from the manager and populates the UI accordingly
+         */
         private void LoadConfig()
         {
             // Load config
@@ -180,6 +202,9 @@ namespace MarbleManager
             Console.WriteLine("Config loaded");
         }
 
+        /**
+         * Forms a config object from current ui form values and applies the changes
+         */
         private void SaveConfig()
         {
             ConfigObject newConfig = new ConfigObject()
@@ -209,6 +234,9 @@ namespace MarbleManager
             ConfigManager.ApplyConfig(newConfig);
         }
 
+        /**
+         * Loads the last send palette into the relevant preview box
+         */
         private void LoadLastPalette()
         {
             PaletteObject palette = PaletteManager.LoadPalette();
@@ -219,6 +247,10 @@ namespace MarbleManager
             PreviewPalette(palette, false);
         }
 
+
+        /**
+         * Fetches the currently selected nanoleaf effect enum
+         */
         private NanoleafEffect GetSelectedNanoleafEffect()
         {
             if (radioButtonLightEffectHighlight.Checked)
@@ -229,6 +261,9 @@ namespace MarbleManager
             return NanoleafEffect.Random;
         }
 
+        /**
+         * show confirmation dialog on exit
+         */
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are you sure you want to exit?", "Exit", MessageBoxButtons.OKCancel) == DialogResult.OK)
@@ -237,27 +272,39 @@ namespace MarbleManager
             }
         }
 
+        /**
+         * reset UI config values to last saved
+         */
         private void buttonConfigReset_Click(object sender, EventArgs e)
         {
             LoadConfig();
         }
 
+        /**
+         * Apply config changes
+         */
         private void buttonConfigApplyChanges_Click(object sender, EventArgs e)
         {
             // save to file and regenerate scripts etc.
             SaveConfig();
         }
 
+        /**
+         * Gets the current wallpaper
+         */
         private void buttonGetWallpaper_Click(object sender, EventArgs e)
         {
             PreviewCurrentWallpaper();
         }
 
+        /**
+         * Previews the palette for the current wallpaper
+         */
         private void buttonGetPalette_Click(object sender, EventArgs e)
         {
-            // sync palette panel colours to palette file
             if (wallpaper == null)
             {
+                // fetch wallpaper preview if not already
                 PreviewCurrentWallpaper();
             }
 
@@ -265,6 +312,9 @@ namespace MarbleManager
             Console.WriteLine("Palette preview created");
         }
 
+        /**
+         * Saves the currently previewed palette to file (as 'last sent')
+         */
         private void buttonSavePalette_Click(object sender, EventArgs e)
         {
             // save palette
@@ -277,6 +327,9 @@ namespace MarbleManager
             LoadLastPalette();
         }
 
+        /**
+         * Turns on the lights
+         */
         private void buttonLightsOn_Click(object sender, EventArgs e)
         {
             if (lightController == null)
@@ -288,6 +341,9 @@ namespace MarbleManager
             lightController.TurnLightsOnOff(true);
         }
 
+        /**
+         * Turns off the lights
+         */
         private void buttonLightsOff_Click(object sender, EventArgs e)
         {
             if (lightController == null)
@@ -299,6 +355,10 @@ namespace MarbleManager
             lightController.TurnLightsOnOff(false);
         }
 
+        /**
+         * Syncs light colours to the current wallpaper
+         * note: NOT the currently previewed palette
+         */
         private void buttonSyncLightColours_Click(object sender, EventArgs e)
         {
             lightController.SyncToWallpaper();

@@ -21,6 +21,9 @@ namespace MarbleManager.Lights
             UpdateConfig(config);
         }
 
+        /**
+         * Triggers the lights to turn on or off
+         */
         internal void TurnLightsOnOff(bool _state)
         {
             foreach (var lightController in lightControllers)
@@ -29,6 +32,9 @@ namespace MarbleManager.Lights
             }
         }
 
+        /**
+         * Updates the config for each light
+         */
         internal void UpdateConfig(ConfigObject config)
         {
             // populate light controllers
@@ -41,6 +47,9 @@ namespace MarbleManager.Lights
             };
         }
 
+        /**
+         * Applies a palette generated from the current wallpaper to the lights
+         */
         internal void SyncToWallpaper()
         {
             // fetch current wallpaper

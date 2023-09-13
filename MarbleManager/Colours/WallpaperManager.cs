@@ -22,6 +22,10 @@ namespace MarbleManager.Colours
             }
         }
 
+        /**
+         * Copies the current transcodedWallpaper to a local dir then returns as a bitmap
+         * This avoids 'locking' the transcoded file by holding it in memory (eg: when previewed in UI)
+         */
         internal static Bitmap GetWallpaperJpg()
         {
             CopyWallpaperToJpg();
@@ -29,7 +33,9 @@ namespace MarbleManager.Colours
             return new Bitmap(WallpaperPath);
         }
 
-        // delete copied wallpaper file
+        /**
+         * Deletes the local wallpaper copy if exists
+         */
         internal static void DeleteCopiedWallpaper()
         {
             try
@@ -52,8 +58,11 @@ namespace MarbleManager.Colours
             }
         }
 
-        // get wallpaper directly from the transcoded image file
-        // using this prevents wallpaper change as the image is in memory
+        /**
+         * Returns the bitmap of the current transcodedWallpaper file
+         * This is fine for quickly applying a palette etc.
+         * but don't hold it in memory as it prevents wallpaper changes
+         */
         internal static Bitmap GetWallpaperBitmap ()
         {
             string transcodedWallpaperPath = GetWallpaperPath();
@@ -65,6 +74,9 @@ namespace MarbleManager.Colours
             return null;
         }
 
+        /**
+         * Returns the path to the transcodedWallpaper file
+         */
         private static string GetWallpaperPath ()
         {
             // Get the original wallpaper image path
@@ -84,7 +96,9 @@ namespace MarbleManager.Colours
             return null;
         }
 
-        // copy from transcoded file to local directory
+        /**
+         * Copies the transcodedWallpaper to a local directory
+         */
         private static void CopyWallpaperToJpg()
         {
             string transcodedWallpaperPath = GetWallpaperPath();

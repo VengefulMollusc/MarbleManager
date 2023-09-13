@@ -9,8 +9,11 @@
 
     public class GeneralConfig
     {
+        // toggles updating light palette on wallpaper change
         public bool syncOnWallpaperChange { get; set; }
+        // toggles activating scripts to turn on/off lights at logon/logoff
         public bool turnOnOffWithPc { get; set; }
+        // toggles between using MainSwatches and AllSwatches for applying palettes
         public bool onlyUseMainSwatches { get; set; }
     }
 
@@ -18,8 +21,13 @@
     {
         public string ipAddress { get; set; }
         public string apiKey { get; set; }
+        // The effect to use when applying palette to nanoleaf panels
         public NanoleafEffect effect { get; set; }
+        
+        // Highlight effect options
+        // forces the main colour probability to a certain value
         public bool overrideMainColourProb { get; set; }
+        // the value to set the main colour probability to
         public int mainColourProb { get; set; }
     }
 

@@ -21,17 +21,26 @@ namespace MarbleManager.Lights
             SetConfig(_config);
         }
 
+        /**
+         * Applies a colour palette
+         */
         public void ApplyPalette(PaletteObject _palette)
         {
             // no palette support (yet?)
             return;
         }
 
+        /**
+         * sets the current config
+         */
         public void SetConfig(ConfigObject _config)
         {
             config = _config.lifxConfig;
         }
 
+        /**
+         * Turns lights on or off
+         */
         public void SetOnOffState(bool _state)
         {
             SendPayload(
@@ -40,6 +49,9 @@ namespace MarbleManager.Lights
             );
         }
 
+        /**
+         * Sends a payload to Lifx lights at a given endpoint
+         */
         private async void SendPayload(string payload, string endpoint)
         {
             if (payload == null)
