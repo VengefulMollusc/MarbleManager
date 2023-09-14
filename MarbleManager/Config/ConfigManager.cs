@@ -76,23 +76,19 @@ namespace MarbleManager.Config
          */
         private static void CreateScriptFilesFromTemplates (ConfigObject _config)
         {
-            List<Utilities.CopyReplaceFilesData> toProcess = new List<Utilities.CopyReplaceFilesData>()
-            {
-                GetBatFilesToCopy(_config),
-                GetRegFilesToCopy(),
-            };
+            CreateBatScripts(_config);
 
-            Utilities.CopyFilesAndReplaceValues(toProcess);
+            CreateRegistryScripts();
 
             Console.WriteLine("Creating scripts done");
         }
 
         /**
-         * Generates object for copying bat files
+         * Creates output Bat scripts for turning on and off lights
          */
-        private static Utilities.CopyReplaceFilesData GetBatFilesToCopy(ConfigObject _config)
+        private static void CreateBatScripts(ConfigObject _config)
         {
-            return new Utilities.CopyReplaceFilesData()
+            Utilities.CopyFilesAndReplaceValues(new Utilities.CopyReplaceFilesData()
             {
                 inputDir = PathManager.BatScriptTemplateDir,
                 outputDir = PathManager.BatScriptOutputDir,
@@ -108,30 +104,30 @@ namespace MarbleManager.Config
                         { "<lifxSelector>", _config.lifxConfig.selector },
                         { "<lifxAuthKey>", _config.lifxConfig.authKey },
                     },
-            };
+            });
+            Console.WriteLine(".bat scripts done");
         }
 
         /**
-         * Generates object for copying regiles
+         * Creates .reg scripts for enabling log on/off light controls in registry
          */
-        private static Utilities.CopyReplaceFilesData GetRegFilesToCopy()
+        private static void CreateRegistryScripts()
         {
             string userSid = GetUserSid();
 
             if (userSid == null)
             {
                 Console.WriteLine("No user SID found");
-                return null;
+                return;
             }
 
-            return new Utilities.CopyReplaceFilesData()
+            Utilities.CopyResourcesAndReplaceValues(new Utilities.CopyReplaceResourcesData()
             {
-                inputDir = PathManager.RegScriptTemplateDir,
                 outputDir = PathManager.RegScriptOutputDir,
-                fileInOutNames = new Dictionary<string, string>
+                resourceInOutNames = new Dictionary<string, string>
                 {
-                    { "addLogOnOffScripts_template.reg", "addLogOnOffScripts.reg" },
-                    { "remLogOnOffScripts_template.reg", "remLogOnOffScripts.reg" },
+                    { "MarbleManager.templates.reg_scripts.addLogOnOffScripts_template.reg", "addLogOnOffScripts.reg" },
+                    { "MarbleManager.templates.reg_scripts.remLogOnOffScripts_template.reg", "remLogOnOffScripts.reg" },
                 },
                 toReplace = new Dictionary<string, string>
                     {
@@ -139,7 +135,8 @@ namespace MarbleManager.Config
                         { "<turnOnScriptPath>", Path.Combine(PathManager.BatScriptOutputDir, "turnOnLights.bat").Escape() },
                         { "<turnOffScriptPath>", Path.Combine(PathManager.BatScriptOutputDir, "turnOffLights.bat").Escape() },
                     },
-            };
+            });
+            Console.WriteLine(".reg scripts done");
         }
 
         /**

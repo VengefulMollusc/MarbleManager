@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Net.NetworkInformation;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MarbleManager.Config
 {
@@ -29,7 +24,6 @@ namespace MarbleManager.Config
         // input paths
         static string templatesPath = "templates\\";
         static string batTemplatesSubPath = "bat_scripts\\";
-        static string regTemplatesSubPath = "reg_scripts\\";
         static string nanoleafEffectTemplateDir = "effect_payloads\\";
 
         // output paths
@@ -62,13 +56,6 @@ namespace MarbleManager.Config
         }
 
         // paths
-        internal static string TemplateDir
-        {
-            get
-            {
-                return Path.Combine(Environment.CurrentDirectory, templatesPath);
-            }
-        }
         internal static string DataOutputDir
         {
             get
@@ -88,13 +75,6 @@ namespace MarbleManager.Config
             get
             {
                 return Path.Combine(Environment.CurrentDirectory, dataOutputPath, scriptOutputSubPath, batScriptOutputSubPath);
-            }
-        }
-        internal static string RegScriptTemplateDir
-        {
-            get
-            {
-                return Path.Combine(Environment.CurrentDirectory, templatesPath, regTemplatesSubPath);
             }
         }
         internal static string RegScriptOutputDir

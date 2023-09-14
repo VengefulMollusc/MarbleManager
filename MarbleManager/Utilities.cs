@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,15 +17,12 @@ namespace MarbleManager
         /**
          * Performs bulk copy/replace functionality on a list of files and outputs
          */
-        internal static void CopyFilesAndReplaceValues(List<CopyReplaceFilesData> _copyReplaceFilesData)
+        internal static void CopyFilesAndReplaceValues(CopyReplaceFilesData _data)
         {
-            foreach (var data in _copyReplaceFilesData)
+            if (_data == null) return;
+            foreach (var fileInOutNames in _data.fileInOutNames)
             {
-                if (data == null) continue;
-                foreach (var fileInOutNames in data.fileInOutNames)
-                {
-                    CopyFileAndReplaceValues(data.inputDir, fileInOutNames.Key, data.outputDir, fileInOutNames.Value, data.toReplace);
-                }
+                CopyFileAndReplaceValues(_data.inputDir, fileInOutNames.Key, _data.outputDir, fileInOutNames.Value, _data.toReplace);
             }
         }
 
@@ -73,7 +71,69 @@ namespace MarbleManager
             public string outputDir { get; set; }
             public Dictionary<string, string> fileInOutNames {  get; set; }
             public Dictionary<string, string> toReplace { get; set; }
+        }
 
+        /**
+         * Performs bulk copy/replace functionality on a list of compiled resources and outputs
+         */
+        internal static void CopyResourcesAndReplaceValues(CopyReplaceResourcesData _data)
+        {
+            if (_data == null) return;
+            foreach (var fileInOutNames in _data.resourceInOutNames)
+            {
+                CopyResourceAndReplaceValues(fileInOutNames.Key, _data.outputDir, fileInOutNames.Value, _data.toReplace);
+            }
+        }
+
+        /**
+         * Copies a compiled resource to a file, renaming in the process.
+         * Also replaces given values in the file
+         * 
+         * used for writing values to compiled files eg registry scripts
+         */
+        internal static void CopyResourceAndReplaceValues(string _resourceName, string _outputDir, string _outputFile, Dictionary<string, string> _toReplace)
+        {
+            using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(_resourceName))
+            {
+                if (stream != null)
+                {
+                    using (StreamReader reader = new StreamReader(stream))
+                    {
+                        string fileContent = reader.ReadToEnd();
+
+                        // Replace <variables> with the new value
+                        foreach (var variable in _toReplace)
+                        {
+                            fileContent = fileContent.Replace(variable.Key, variable.Value);
+                        }
+
+                        // Create the destination directory if it doesn't exist
+                        Directory.CreateDirectory(_outputDir);
+
+                        // Combine the destination directory and the file name
+                        string destinationFilePath = Path.Combine(_outputDir, _outputFile);
+
+                        // Write the modified content to the destination file
+                        System.IO.File.WriteAllText(destinationFilePath, fileContent);
+
+                        Console.WriteLine("Processed: " + _resourceName);
+                    }
+                    stream.Close();
+                } else
+                {
+                    Console.WriteLine("Null stream for " + _resourceName);
+                }
+            }
+        }
+
+        /**
+         * Object class for copy/replace function
+         */
+        internal class CopyReplaceResourcesData
+        {
+            public string outputDir { get; set; }
+            public Dictionary<string, string> resourceInOutNames { get; set; }
+            public Dictionary<string, string> toReplace { get; set; }
         }
 
         /**

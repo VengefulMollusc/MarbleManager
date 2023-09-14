@@ -111,12 +111,8 @@
     <Content Include="templates\effect_payloads\highlight_template.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="templates\reg_scripts\addLogOnOffScripts_template.reg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="templates\reg_scripts\remLogOnOffScripts_template.reg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <EmbeddedResource Include="templates\reg_scripts\addLogOnOffScripts_template.reg" />
+    <EmbeddedResource Include="templates\reg_scripts\remLogOnOffScripts_template.reg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
