@@ -8,7 +8,7 @@ namespace MarbleManager.Lights
     {
         ILightController[] lightControllers;
 
-        public GlobalLightController() {
+        internal GlobalLightController() {
             ConfigObject config = ConfigManager.GetConfig();
 
             UpdateConfig(config);

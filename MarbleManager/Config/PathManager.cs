@@ -22,13 +22,12 @@ namespace MarbleManager.Config
         static string paletteFileName = "palette.json";
 
         // input paths
-        static string templatesPath = "templates\\";
-        static string batTemplatesSubPath = "bat_scripts\\";
+        static string templatesPath = "Scripts\\Templates\\";
         static string nanoleafEffectTemplateDir = "effect_payloads\\";
 
         // output paths
-        static string dataOutputPath = "data\\";
-        static string scriptOutputSubPath = "scripts\\";
+        static string dataOutputPath = "Data\\";
+        static string scriptOutputSubPath = "Scripts\\";
         static string batScriptOutputSubPath = "bat\\";
         static string regScriptOutputSubPath = "reg\\";
 
@@ -61,13 +60,6 @@ namespace MarbleManager.Config
             get
             {
                 return Path.Combine(Environment.CurrentDirectory, dataOutputPath);
-            }
-        }
-        internal static string BatScriptTemplateDir
-        {
-            get
-            {
-                return Path.Combine(Environment.CurrentDirectory, templatesPath, batTemplatesSubPath);
             }
         }
         internal static string BatScriptOutputDir

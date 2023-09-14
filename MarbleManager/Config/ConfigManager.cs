@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using MarbleManager.Scripts;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -39,9 +40,8 @@ namespace MarbleManager.Config
         {
             SaveConfigToFile(_config);
 
-            // write script files with new values using template files
-            // TODO remove if these aren't needed or arent configurable from code
-            CreateScriptFilesFromTemplates(_config);
+            // create script files with new values
+            ScriptBuilder.BuildScriptFiles(_config);
 
             // apply changes to add startup scripts etc.
             ConfigureRunOnBoot(_config.generalConfig.runOnBoot);
@@ -72,98 +72,6 @@ namespace MarbleManager.Config
         }
 
         /**
-         * Creates script files from templates with new values from config
-         */
-        private static void CreateScriptFilesFromTemplates (ConfigObject _config)
-        {
-            CreateBatScripts(_config);
-
-            CreateRegistryScripts();
-
-            Console.WriteLine("Creating scripts done");
-        }
-
-        /**
-         * Creates output Bat scripts for turning on and off lights
-         */
-        private static void CreateBatScripts(ConfigObject _config)
-        {
-            Utilities.CopyFilesAndReplaceValues(new Utilities.CopyReplaceFilesData()
-            {
-                inputDir = PathManager.BatScriptTemplateDir,
-                outputDir = PathManager.BatScriptOutputDir,
-                fileInOutNames = new Dictionary<string, string>
-                    {
-                        { "turnOnLights_template.bat", "turnOnLights.bat" },
-                        { "turnOffLights_template.bat", "turnOffLights.bat" },
-                    },
-                toReplace = new Dictionary<string, string>
-                    {
-                        { "<nanoleafIp>", _config.nanoleafConfig.ipAddress },
-                        { "<nanoleafApiKey>", _config.nanoleafConfig.apiKey },
-                        { "<lifxSelector>", _config.lifxConfig.selector },
-                        { "<lifxAuthKey>", _config.lifxConfig.authKey },
-                    },
-            });
-            Console.WriteLine(".bat scripts done");
-        }
-
-        /**
-         * Creates .reg scripts for enabling log on/off light controls in registry
-         */
-        private static void CreateRegistryScripts()
-        {
-            string userSid = GetUserSid();
-
-            if (userSid == null)
-            {
-                Console.WriteLine("No user SID found");
-                return;
-            }
-
-            Utilities.CopyResourcesAndReplaceValues(new Utilities.CopyReplaceResourcesData()
-            {
-                outputDir = PathManager.RegScriptOutputDir,
-                resourceInOutNames = new Dictionary<string, string>
-                {
-                    { "MarbleManager.templates.reg_scripts.addLogOnOffScripts_template.reg", "addLogOnOffScripts.reg" },
-                    { "MarbleManager.templates.reg_scripts.remLogOnOffScripts_template.reg", "remLogOnOffScripts.reg" },
-                },
-                toReplace = new Dictionary<string, string>
-                    {
-                        { "<userSID>", userSid },
-                        { "<turnOnScriptPath>", Path.Combine(PathManager.BatScriptOutputDir, "turnOnLights.bat").Escape() },
-                        { "<turnOffScriptPath>", Path.Combine(PathManager.BatScriptOutputDir, "turnOffLights.bat").Escape() },
-                    },
-            });
-            Console.WriteLine(".reg scripts done");
-        }
-
-        /**
-         * Retrieves the current user SID
-         */
-        private static string GetUserSid()
-        {
-            try
-            {
-                // Get the current Windows identity
-                WindowsIdentity windowsIdentity = WindowsIdentity.GetCurrent();
-
-                // Get the user's SID
-                string userSid = windowsIdentity.User.Value;
-
-                // Display the user's SID
-                Console.WriteLine("Current User SID: " + userSid);
-                return userSid;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error: " + ex.Message);
-            }
-            return null;
-        }
-
-        /**
          * Handles adding/removing this app from windows startup apps
          */
         private static void ConfigureRunOnBoot(bool _runOnBoot)
@@ -190,7 +98,7 @@ namespace MarbleManager.Config
          */
         private static void ConfigureAutoOnOff(bool _autoOnOff)
         {
-            // insert or remove generated script files from group policy
+            // run relevant .reg files
         }
     }
 }

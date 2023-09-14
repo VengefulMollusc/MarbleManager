@@ -128,10 +128,11 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBoxConfigGeneral = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel14 = new System.Windows.Forms.FlowLayoutPanel();
+            this.checkBoxUseMainSwatches = new System.Windows.Forms.CheckBox();
             this.checkBoxRunOnBoot = new System.Windows.Forms.CheckBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.checkBoxAutoTurnOnOff = new System.Windows.Forms.CheckBox();
             this.checkBoxSyncOnWallpaperChange = new System.Windows.Forms.CheckBox();
-            this.checkBoxUseMainSwatches = new System.Windows.Forms.CheckBox();
             this.groupBoxConfigLifx = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel13 = new System.Windows.Forms.FlowLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
@@ -174,7 +175,6 @@
             this.label24 = new System.Windows.Forms.Label();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label10 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPageStatus.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -1347,6 +1347,16 @@
             this.flowLayoutPanel14.Size = new System.Drawing.Size(294, 148);
             this.flowLayoutPanel14.TabIndex = 0;
             // 
+            // checkBoxUseMainSwatches
+            // 
+            this.checkBoxUseMainSwatches.AutoSize = true;
+            this.checkBoxUseMainSwatches.Location = new System.Drawing.Point(3, 3);
+            this.checkBoxUseMainSwatches.Name = "checkBoxUseMainSwatches";
+            this.checkBoxUseMainSwatches.Size = new System.Drawing.Size(140, 17);
+            this.checkBoxUseMainSwatches.TabIndex = 5;
+            this.checkBoxUseMainSwatches.Text = "Only use main swatches";
+            this.checkBoxUseMainSwatches.UseVisualStyleBackColor = true;
+            // 
             // checkBoxRunOnBoot
             // 
             this.checkBoxRunOnBoot.AutoSize = true;
@@ -1356,6 +1366,16 @@
             this.checkBoxRunOnBoot.TabIndex = 6;
             this.checkBoxRunOnBoot.Text = "Run Marble Manager on boot";
             this.checkBoxRunOnBoot.UseVisualStyleBackColor = true;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(3, 55);
+            this.label10.Margin = new System.Windows.Forms.Padding(3, 9, 3, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(102, 13);
+            this.label10.TabIndex = 7;
+            this.label10.Text = "Non-functional (yet):";
             // 
             // checkBoxAutoTurnOnOff
             // 
@@ -1376,16 +1396,6 @@
             this.checkBoxSyncOnWallpaperChange.TabIndex = 0;
             this.checkBoxSyncOnWallpaperChange.Text = "Sync on wallpaper change";
             this.checkBoxSyncOnWallpaperChange.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxUseMainSwatches
-            // 
-            this.checkBoxUseMainSwatches.AutoSize = true;
-            this.checkBoxUseMainSwatches.Location = new System.Drawing.Point(3, 3);
-            this.checkBoxUseMainSwatches.Name = "checkBoxUseMainSwatches";
-            this.checkBoxUseMainSwatches.Size = new System.Drawing.Size(140, 17);
-            this.checkBoxUseMainSwatches.TabIndex = 5;
-            this.checkBoxUseMainSwatches.Text = "Only use main swatches";
-            this.checkBoxUseMainSwatches.UseVisualStyleBackColor = true;
             // 
             // groupBoxConfigLifx
             // 
@@ -1418,9 +1428,9 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(3, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(46, 13);
+            this.label5.Size = new System.Drawing.Size(51, 13);
             this.label5.TabIndex = 0;
-            this.label5.Text = "Selector";
+            this.label5.Text = "Selectors";
             // 
             // textBoxLifxSelector
             // 
@@ -1480,9 +1490,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(3, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 13);
+            this.label3.Size = new System.Drawing.Size(68, 13);
             this.label3.TabIndex = 0;
-            this.label3.Text = "IP address";
+            this.label3.Text = "IP addresses";
             // 
             // textBoxNanoleafIP
             // 
@@ -1837,16 +1847,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(166, 194);
             this.panel1.TabIndex = 2;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(3, 55);
-            this.label10.Margin = new System.Windows.Forms.Padding(3, 9, 3, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(102, 13);
-            this.label10.TabIndex = 7;
-            this.label10.Text = "Non-functional (yet):";
             // 
             // ConfigForm
             // 

@@ -181,7 +181,7 @@ namespace MarbleManager
             checkBoxRunOnBoot.Checked = config.generalConfig.runOnBoot;
 
             // init nanoleaf config
-            textBoxNanoleafIP.Text = config.nanoleafConfig.ipAddress;
+            textBoxNanoleafIP.Text = config.nanoleafConfig.ipAddresses;
             textBoxNanoleafApiKey.Text = config.nanoleafConfig.apiKey;
             switch (config.nanoleafConfig.effect)
             {
@@ -197,7 +197,7 @@ namespace MarbleManager
             numericUpDownProbValue.Value = config.nanoleafConfig.mainColourProb;
 
             // init lifx config
-            textBoxLifxSelector.Text = config.lifxConfig.selector;
+            textBoxLifxSelector.Text = config.lifxConfig.selectors;
             textBoxLifxAuthKey.Text = config.lifxConfig.authKey;
 
             Console.WriteLine("Config loaded");
@@ -219,7 +219,7 @@ namespace MarbleManager
                 },
                 nanoleafConfig = new NanoleafConfig()
                 {
-                    ipAddress = textBoxNanoleafIP.Text,
+                    ipAddresses = textBoxNanoleafIP.Text,
                     apiKey = textBoxNanoleafApiKey.Text,
                     effect = GetSelectedNanoleafEffect(),
                     overrideMainColourProb = checkBoxOverrideMainColourProb.Checked,
@@ -227,7 +227,7 @@ namespace MarbleManager
                 },
                 lifxConfig = new LifxConfig()
                 {
-                    selector = textBoxLifxSelector.Text,
+                    selectors = textBoxLifxSelector.Text,
                     authKey = textBoxLifxAuthKey.Text
                 }
             };

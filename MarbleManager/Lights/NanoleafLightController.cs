@@ -3,9 +3,12 @@ using MarbleManager.Config;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net.Http;
 using System.Text;
+using static System.Windows.Forms.AxHost;
 
 namespace MarbleManager.Lights
 {
@@ -15,7 +18,7 @@ namespace MarbleManager.Lights
         bool onlyUseMainSwatches;
 
         static string baseUrl = "http://<nanoleafIp>:16021";
-        string populatedUrl;
+        List<string> populatedUrls;
 
         public NanoleafLightController(ConfigObject _config)
         {
@@ -27,6 +30,12 @@ namespace MarbleManager.Lights
          */
         public void ApplyPalette(PaletteObject _palette)
         {
+            if (populatedUrls == null)
+            {
+                Console.WriteLine("nanoleaf urls not set up");
+                throw new Exception("nanoleaf urls not set up");
+            }
+
             // get payload template based on config setting
             JObject payload = GetPayloadTemplate();
 
@@ -41,7 +50,10 @@ namespace MarbleManager.Lights
             payload["write"]["palette"] = palette;
 
             // send payload
-            SendPayload(payload, "/effects");
+            foreach (string url in populatedUrls)
+            {
+                SendPayload(url, payload, "/effects");
+            }
         }
 
         /**
@@ -52,8 +64,8 @@ namespace MarbleManager.Lights
             config = _config.nanoleafConfig;
             onlyUseMainSwatches = _config.generalConfig.onlyUseMainSwatches;
 
-            // populate url with ip address
-            populatedUrl = baseUrl.Replace("<nanoleafIp>", config.ipAddress);
+            // populate urls with ip addresses
+            populatedUrls = config.LightIps.Select(ip => baseUrl.Replace("<nanoleafIp>", ip)).ToList(); ;
         }
 
         /**
@@ -61,19 +73,22 @@ namespace MarbleManager.Lights
          */
         public void SetOnOffState(bool _state)
         {
-            if (populatedUrl == null)
+            if (populatedUrls == null)
             {
-                Console.WriteLine("nanoleaf url not set up");
-                throw new Exception("nanoleaf url not set up");
+                Console.WriteLine("nanoleaf urls not set up");
+                throw new Exception("nanoleaf urls not set up");
             }
 
-            SendPayload(GetStatePayload(_state), "/state");
+            foreach(string url in populatedUrls)
+            {
+                SendPayload(url, GetStatePayload(_state), "/state");
+            }
         }
 
         /**
          * Sends a payload to a given nanoleaf api endpoint
          */
-        private async void SendPayload(object _payload, string _endpoint)
+        private async void SendPayload(string _baseUrl, object _payload, string _endpoint)
         {
             if (_payload == null)
             {
@@ -83,7 +98,7 @@ namespace MarbleManager.Lights
             using (HttpClient client = new HttpClient())
             {
                 // set URL
-                client.BaseAddress = new Uri(populatedUrl);
+                client.BaseAddress = new Uri(_baseUrl);
 
                 // create payload string
                 string jsonPayload = JsonConvert.SerializeObject(_payload);

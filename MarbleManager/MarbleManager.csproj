@@ -64,6 +64,10 @@
     <Compile Include="Config\ConfigData.cs" />
     <Compile Include="Config\ConfigManager.cs" />
     <Compile Include="Config\PathManager.cs" />
+    <Compile Include="Scripts\LifxLightScriptBuilder.cs" />
+    <Compile Include="Scripts\LightScriptBuilder.cs" />
+    <Compile Include="Scripts\NanoleafLightScriptBuilder.cs" />
+    <Compile Include="Scripts\ScriptBuilder.cs" />
     <Compile Include="CustomApplicationContext.cs" />
     <Compile Include="Lights\ILightController.cs" />
     <Compile Include="Lights\GlobalLightController.cs" />
@@ -88,13 +92,13 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Content Include="templates\effect_payloads\random_template.json">
+    <Content Include="Scripts\Templates\effect_payloads\random_template.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="templates\bat_scripts\turnOffLights_template.bat">
+    <Content Include="Scripts\Templates\bat_scripts\turnOffLights_template.bat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="templates\bat_scripts\turnOnLights_template.bat">
+    <Content Include="Scripts\Templates\bat_scripts\turnOnLights_template.bat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="packages.config" />
@@ -108,11 +112,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Content Include="templates\effect_payloads\highlight_template.json">
+    <Content Include="Scripts\Templates\effect_payloads\highlight_template.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <EmbeddedResource Include="templates\reg_scripts\addLogOnOffScripts_template.reg" />
-    <EmbeddedResource Include="templates\reg_scripts\remLogOnOffScripts_template.reg" />
+    <EmbeddedResource Include="Scripts\Templates\reg_scripts\addLogOnOffScripts_template.reg" />
+    <EmbeddedResource Include="Scripts\Templates\reg_scripts\remLogOnOffScripts_template.reg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

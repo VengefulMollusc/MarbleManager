@@ -1,4 +1,10 @@
-﻿namespace MarbleManager.Config
+﻿using MarbleManager.Colours;
+using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.Net;
+using System.Threading;
+
+namespace MarbleManager.Config
 {
     public class ConfigObject
     {
@@ -21,7 +27,8 @@
 
     public class NanoleafConfig
     {
-        public string ipAddress { get; set; }
+        // light ips seperated by commas
+        public string ipAddresses { get; set; }
         public string apiKey { get; set; }
         // The effect to use when applying palette to nanoleaf panels
         public NanoleafEffect effect { get; set; }
@@ -31,12 +38,33 @@
         public bool overrideMainColourProb { get; set; }
         // the value to set the main colour probability to
         public int mainColourProb { get; set; }
+        
+        // gets all ips in a list
+        [JsonIgnore]
+        public List<string> LightIps
+        {
+            get
+            {
+                return ipAddresses != null ? new List<string>(ipAddresses.Split(',')) : new List<string>();
+            }
+        }
     }
 
     public class LifxConfig
     {
-        public string selector { get; set; }
+        // light selectors seperated by commas
+        public string selectors { get; set; }
         public string authKey { get; set; }
+
+        // gets all ips in a list
+        [JsonIgnore]
+        public List<string> LightSelectors
+        {
+            get
+            {
+                return selectors != null ? new List<string>(selectors.Split(',')) : new List<string>();
+            }
+        }
     }
 
     public enum NanoleafEffect

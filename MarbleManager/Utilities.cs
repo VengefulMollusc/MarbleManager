@@ -36,14 +36,7 @@ namespace MarbleManager
         {
             try
             {
-                // Read the content of the source file
-                string fileContent = System.IO.File.ReadAllText(_inputDir + _inputFile);
-
-                // Replace <variables> with the new value
-                foreach (var variable in _toReplace)
-                {
-                    fileContent = fileContent.Replace(variable.Key, variable.Value);
-                }
+                string fileContent = ReplaceValues(System.IO.File.ReadAllText(_inputDir + _inputFile), _toReplace);
 
                 // Create the destination directory if it doesn't exist
                 Directory.CreateDirectory(_outputDir);
@@ -99,13 +92,7 @@ namespace MarbleManager
                 {
                     using (StreamReader reader = new StreamReader(stream))
                     {
-                        string fileContent = reader.ReadToEnd();
-
-                        // Replace <variables> with the new value
-                        foreach (var variable in _toReplace)
-                        {
-                            fileContent = fileContent.Replace(variable.Key, variable.Value);
-                        }
+                        string fileContent = ReplaceValues(reader.ReadToEnd(), _toReplace);
 
                         // Create the destination directory if it doesn't exist
                         Directory.CreateDirectory(_outputDir);
@@ -226,6 +213,20 @@ namespace MarbleManager
             {
                 Console.WriteLine("Error: " + ex.Message);
             }
+        }
+
+        /**
+         * Replaces values in a string
+         */
+        internal static string ReplaceValues(string _input, Dictionary<string, string> _toReplace)
+        {
+            string output = _input;
+            // Replace <variables> with the new value
+            foreach (var variable in _toReplace)
+            {
+                output = output.Replace(variable.Key, variable.Value);
+            }
+            return output;
         }
     }
 }

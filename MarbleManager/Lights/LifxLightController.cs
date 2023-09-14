@@ -43,10 +43,13 @@ namespace MarbleManager.Lights
          */
         public void SetOnOffState(bool _state)
         {
-            SendPayload(
-                "power=" + (_state ? "on" : "off"), 
-                "v1/lights/" + config.selector + "/state"
-            );
+            foreach (string selector in config.LightSelectors)
+            {
+                SendPayload(
+                    "power=" + (_state ? "on" : "off"),
+                    "v1/lights/" + selector + "/state"
+                );
+            }
         }
 
         /**

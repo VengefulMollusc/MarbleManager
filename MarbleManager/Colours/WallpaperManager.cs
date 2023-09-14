@@ -73,6 +73,7 @@ namespace MarbleManager.Colours
             if (transcodedWallpaperPath != null)
             {
                 // Copy and rename
+                Directory.CreateDirectory(PathManager.DataOutputDir);
                 File.Copy(transcodedWallpaperPath, PathManager.WallpaperFile, true);
             }
         }
