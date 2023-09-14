@@ -95,12 +95,6 @@
     <Content Include="Scripts\Templates\effect_payloads\random_template.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Scripts\Templates\bat_scripts\turnOffLights_template.bat">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Scripts\Templates\bat_scripts\turnOnLights_template.bat">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\ConfigForm.datasource" />
     <None Include="Properties\Settings.settings">

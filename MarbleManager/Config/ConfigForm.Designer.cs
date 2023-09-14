@@ -1337,8 +1337,8 @@
             // 
             this.flowLayoutPanel14.Controls.Add(this.checkBoxUseMainSwatches);
             this.flowLayoutPanel14.Controls.Add(this.checkBoxRunOnBoot);
-            this.flowLayoutPanel14.Controls.Add(this.label10);
             this.flowLayoutPanel14.Controls.Add(this.checkBoxAutoTurnOnOff);
+            this.flowLayoutPanel14.Controls.Add(this.label10);
             this.flowLayoutPanel14.Controls.Add(this.checkBoxSyncOnWallpaperChange);
             this.flowLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel14.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
@@ -1370,7 +1370,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(3, 55);
+            this.label10.Location = new System.Drawing.Point(3, 78);
             this.label10.Margin = new System.Windows.Forms.Padding(3, 9, 3, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(102, 13);
@@ -1380,7 +1380,7 @@
             // checkBoxAutoTurnOnOff
             // 
             this.checkBoxAutoTurnOnOff.AutoSize = true;
-            this.checkBoxAutoTurnOnOff.Location = new System.Drawing.Point(3, 71);
+            this.checkBoxAutoTurnOnOff.Location = new System.Drawing.Point(3, 49);
             this.checkBoxAutoTurnOnOff.Name = "checkBoxAutoTurnOnOff";
             this.checkBoxAutoTurnOnOff.Size = new System.Drawing.Size(184, 17);
             this.checkBoxAutoTurnOnOff.TabIndex = 2;

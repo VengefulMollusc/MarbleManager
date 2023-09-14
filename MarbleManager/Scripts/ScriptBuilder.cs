@@ -14,17 +14,17 @@ namespace MarbleManager.Scripts
         static string turnOnLightsFileName = "turnOnLights.bat";
         static string turnOffLightsFileName = "turnOffLights.bat";
 
+        static string regTemplateNamespace = "MarbleManager.Scripts.Templates.reg_scripts.";
+
         /**
          * Creates script files from templates with new values from config
          */
-        internal static void BuildScriptFiles(ConfigObject _config)
+        internal static void BuildOnOffScriptFiles(ConfigObject _config)
         {
             CreateOnOffBatScript(true, _config);
             CreateOnOffBatScript(false, _config);
 
-            CreateRegistryScripts();
-
-            Console.WriteLine("Creating scripts done");
+            Console.WriteLine("Creating .bat scripts done");
         }
 
         /**
@@ -77,32 +77,30 @@ namespace MarbleManager.Scripts
         /**
          * Creates .reg scripts for enabling log on/off light controls in registry
          */
-        private static void CreateRegistryScripts()
+        internal static string BuildAutoOnOffRegistryScript(bool _enable)
         {
             string userSid = GetUserSid();
 
             if (userSid == null)
             {
                 Console.WriteLine("Null user SID");
-                return;
+                return null;
             }
 
-            Utilities.CopyResourcesAndReplaceValues(new Utilities.CopyReplaceResourcesData()
-            {
-                outputDir = PathManager.RegScriptOutputDir,
-                resourceInOutNames = new Dictionary<string, string>
-                {
-                    { "MarbleManager.Scripts.Templates.reg_scripts.addLogOnOffScripts_template.reg", "addLogOnOffScripts.reg" },
-                    { "MarbleManager.Scripts.Templates.reg_scripts.remLogOnOffScripts_template.reg", "remLogOnOffScripts.reg" },
-                },
-                toReplace = new Dictionary<string, string>
+            Utilities.CopyResourceAndReplaceValues(
+                regTemplateNamespace + (_enable ? "addLogOnOffScripts_template.reg" : "remLogOnOffScripts_template.reg"),
+                PathManager.RegScriptOutputDir,
+                _enable ? "addLogOnOffScripts.reg" : "remLogOnOffScripts.reg",
+                new Dictionary<string, string>
                     {
                         { "<userSID>", userSid },
                         { "<turnOnScriptPath>", Path.Combine(PathManager.BatScriptOutputDir, turnOnLightsFileName).Escape() },
                         { "<turnOffScriptPath>", Path.Combine(PathManager.BatScriptOutputDir, turnOffLightsFileName).Escape() },
-                    },
-            });
-            Console.WriteLine(".reg scripts done");
+                    }
+            );
+            Console.WriteLine(".reg script done");
+
+            return Path.Combine(PathManager.RegScriptOutputDir, _enable ? "addLogOnOffScripts.reg" : "remLogOnOffScripts.reg");
         }
 
         /**

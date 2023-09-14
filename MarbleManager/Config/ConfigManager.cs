@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Security.Principal;
 
@@ -41,7 +42,7 @@ namespace MarbleManager.Config
             SaveConfigToFile(_config);
 
             // create script files with new values
-            ScriptBuilder.BuildScriptFiles(_config);
+            ScriptBuilder.BuildOnOffScriptFiles(_config);
 
             // apply changes to add startup scripts etc.
             ConfigureRunOnBoot(_config.generalConfig.runOnBoot);
@@ -98,7 +99,32 @@ namespace MarbleManager.Config
          */
         private static void ConfigureAutoOnOff(bool _autoOnOff)
         {
-            // run relevant .reg files
+            // build .reg file to apply change
+            string regFilePath = ScriptBuilder.BuildAutoOnOffRegistryScript(_autoOnOff);
+
+            if (regFilePath == null)
+            {
+                Console.WriteLine("Null .reg file path");
+                return;
+            }
+
+            // Run the regedit.exe command with the .reg file as an argument.
+            Process regeditProcess = new Process();
+            regeditProcess.StartInfo.FileName = "regedit.exe";
+            regeditProcess.StartInfo.Arguments = "/s " + regFilePath; // /s is used to suppress dialogs
+            regeditProcess.Start();
+            regeditProcess.WaitForExit();
+
+            // Check the exit code if needed.
+            int exitCode = regeditProcess.ExitCode;
+
+            // Dispose of the process.
+            regeditProcess.Dispose();
+
+            // delete .reg file
+            Utilities.DeleteFile(regFilePath);
+
+            Console.WriteLine("Applied .reg file to " + (_autoOnOff ? "enable" : "disable") + " auto on/off functionality");
         }
     }
 }
