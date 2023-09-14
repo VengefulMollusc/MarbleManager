@@ -3,13 +3,9 @@ using MarbleManager.Config;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net.Http;
 using System.Text;
-using System.Threading.Tasks;
-using static System.Windows.Forms.AxHost;
 
 namespace MarbleManager.Lights
 {
@@ -18,7 +14,6 @@ namespace MarbleManager.Lights
         NanoleafConfig config;
         bool onlyUseMainSwatches;
 
-        static string effectPayloadDir = "effect_payloads\\";
         static string baseUrl = "http://<nanoleafIp>:16021";
         string populatedUrl;
 
@@ -118,7 +113,7 @@ namespace MarbleManager.Lights
         {
             try
             {
-                string filePath = Path.Combine(Environment.CurrentDirectory, ConfigManager.TemplatesDirectory, effectPayloadDir, GetTemplateName());
+                string filePath = Path.Combine(PathManager.NanoleafEffectTemplateDir, GetTemplateName());
                 // load file here if exists
                 using (StreamReader r = new StreamReader(filePath))
                 {

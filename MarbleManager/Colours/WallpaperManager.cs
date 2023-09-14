@@ -1,27 +1,12 @@
 ﻿using Microsoft.Win32;
 using MarbleManager.Config;
-using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MarbleManager.Colours
 {
     internal static class WallpaperManager
     {
-        static string wallpaperFileName = "wallpaper.jpg";
-
-        static string WallpaperPath
-        {
-            get
-            {
-                return Path.Combine(Environment.CurrentDirectory, ConfigManager.DataDirectory, wallpaperFileName);
-            }
-        }
-
         /**
          * Copies the current transcodedWallpaper to a local dir then returns as a bitmap
          * This avoids 'locking' the transcoded file by holding it in memory (eg: when previewed in UI)
@@ -30,7 +15,7 @@ namespace MarbleManager.Colours
         {
             CopyWallpaperToJpg();
 
-            return new Bitmap(WallpaperPath);
+            return new Bitmap(PathManager.WallpaperFile);
         }
 
         /**
@@ -38,24 +23,7 @@ namespace MarbleManager.Colours
          */
         internal static void DeleteCopiedWallpaper()
         {
-            try
-            {
-                // Check if the file exists before attempting to delete it
-                if (File.Exists(WallpaperPath))
-                {
-                    // Delete the file
-                    File.Delete(WallpaperPath);
-                    Console.WriteLine("File deleted successfully.");
-                }
-                else
-                {
-                    Console.WriteLine("File does not exist.");
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error: " + ex.Message);
-            }
+            Utilities.DeleteFile(PathManager.WallpaperFile);
         }
 
         /**
@@ -105,7 +73,7 @@ namespace MarbleManager.Colours
             if (transcodedWallpaperPath != null)
             {
                 // Copy and rename
-                File.Copy(transcodedWallpaperPath, WallpaperPath, true);
+                File.Copy(transcodedWallpaperPath, PathManager.WallpaperFile, true);
             }
         }
     }

@@ -2,23 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.Security.Principal;
 
 namespace MarbleManager.Config
 {
     internal static class ConfigManager
     {
-        static string configFileName = "config.json";
-        static string dataDirPath = "data\\";
-        static string templatesDirPath = "templates\\";
-        static string scriptOutputDirPath = "scripts\\";
-
-        internal static string TemplatesDirectory { get { return templatesDirPath; } }
-        internal static string DataDirectory { get { return dataDirPath; } }
-
         /**
          * Loads config from file
          */
@@ -27,7 +16,7 @@ namespace MarbleManager.Config
             try
             {
                 // load file here if exists
-                using (StreamReader r = new StreamReader(Path.Combine(Environment.CurrentDirectory, configFileName)))
+                using (StreamReader r = new StreamReader(PathManager.ConfigFile))
                 {
                     string json = r.ReadToEnd();
                     ConfigObject config = JsonConvert.DeserializeObject<ConfigObject>(json);
@@ -56,8 +45,9 @@ namespace MarbleManager.Config
 
             // apply changes to add startup scripts etc.
             ConfigureRunOnBoot(_config.generalConfig.runOnBoot);
+            ConfigureAutoOnOff(_config.generalConfig.autoTurnLightsOnOff);
 
-            Console.WriteLine("Changes successfully applied");
+            Console.WriteLine("Applying changes done");
         }
 
         /**
@@ -69,7 +59,7 @@ namespace MarbleManager.Config
             try
             {
                 string jsonString = JsonConvert.SerializeObject(_config, Formatting.Indented);
-                using (StreamWriter outputFile = new StreamWriter(Path.Combine(Environment.CurrentDirectory, configFileName)))
+                using (StreamWriter outputFile = new StreamWriter(PathManager.ConfigFile))
                 {
                     outputFile.WriteLine(jsonString);
                 }
@@ -79,6 +69,101 @@ namespace MarbleManager.Config
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine("Error saving config");
             }
+        }
+
+        /**
+         * Creates script files from templates with new values from config
+         */
+        private static void CreateScriptFilesFromTemplates (ConfigObject _config)
+        {
+            List<Utilities.CopyReplaceFilesData> toProcess = new List<Utilities.CopyReplaceFilesData>()
+            {
+                GetBatFilesToCopy(_config),
+                GetRegFilesToCopy(),
+            };
+
+            Utilities.CopyFilesAndReplaceValues(toProcess);
+
+            Console.WriteLine("Creating scripts done");
+        }
+
+        /**
+         * Generates object for copying bat files
+         */
+        private static Utilities.CopyReplaceFilesData GetBatFilesToCopy(ConfigObject _config)
+        {
+            return new Utilities.CopyReplaceFilesData()
+            {
+                inputDir = PathManager.BatScriptTemplateDir,
+                outputDir = PathManager.BatScriptOutputDir,
+                fileInOutNames = new Dictionary<string, string>
+                    {
+                        { "turnOnLights_template.bat", "turnOnLights.bat" },
+                        { "turnOffLights_template.bat", "turnOffLights.bat" },
+                    },
+                toReplace = new Dictionary<string, string>
+                    {
+                        { "<nanoleafIp>", _config.nanoleafConfig.ipAddress },
+                        { "<nanoleafApiKey>", _config.nanoleafConfig.apiKey },
+                        { "<lifxSelector>", _config.lifxConfig.selector },
+                        { "<lifxAuthKey>", _config.lifxConfig.authKey },
+                    },
+            };
+        }
+
+        /**
+         * Generates object for copying regiles
+         */
+        private static Utilities.CopyReplaceFilesData GetRegFilesToCopy()
+        {
+            string userSid = GetUserSid();
+
+            if (userSid == null)
+            {
+                Console.WriteLine("No user SID found");
+                return null;
+            }
+
+            return new Utilities.CopyReplaceFilesData()
+            {
+                inputDir = PathManager.RegScriptTemplateDir,
+                outputDir = PathManager.RegScriptOutputDir,
+                fileInOutNames = new Dictionary<string, string>
+                {
+                    { "addLogOnOffScripts_template.reg", "addLogOnOffScripts.reg" },
+                    { "remLogOnOffScripts_template.reg", "remLogOnOffScripts.reg" },
+                },
+                toReplace = new Dictionary<string, string>
+                    {
+                        { "<userSID>", userSid },
+                        { "<turnOnScriptPath>", Path.Combine(PathManager.BatScriptOutputDir, "turnOnLights.bat").Escape() },
+                        { "<turnOffScriptPath>", Path.Combine(PathManager.BatScriptOutputDir, "turnOffLights.bat").Escape() },
+                    },
+            };
+        }
+
+        /**
+         * Retrieves the current user SID
+         */
+        private static string GetUserSid()
+        {
+            try
+            {
+                // Get the current Windows identity
+                WindowsIdentity windowsIdentity = WindowsIdentity.GetCurrent();
+
+                // Get the user's SID
+                string userSid = windowsIdentity.User.Value;
+
+                // Display the user's SID
+                Console.WriteLine("Current User SID: " + userSid);
+                return userSid;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            return null;
         }
 
         /**
@@ -93,21 +178,10 @@ namespace MarbleManager.Config
             string shortcutPath = Path.Combine(startupFolderPath, shortcutName);
 
             // remove shortcut if exists from startup folder
-            try
-            {
-                // Check if the file exists before attempting to delete it
-                if (File.Exists(shortcutPath))
-                {
-                    // Delete the file
-                    File.Delete(shortcutPath);
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error: " + ex.Message);
-            }
+            Utilities.DeleteFile(shortcutPath);
 
-            if (_runOnBoot) {
+            if (_runOnBoot)
+            {
                 // add shortcut in startup folder
                 Utilities.CreateShortcut(shortcutPath, appPath);
                 Console.WriteLine("Created shortcut: " + shortcutPath);
@@ -115,40 +189,11 @@ namespace MarbleManager.Config
         }
 
         /**
-         * Creates script files from templates with new values from config
+         * Configures functionality to turn on/off lights with logon/logoff
          */
-        private static void CreateScriptFilesFromTemplates (ConfigObject _config)
+        private static void ConfigureAutoOnOff(bool _autoOnOff)
         {
-            string[] templates = {
-                "turnOnLights_template.bat",
-                "turnOffLights_template.bat",
-                "getNanoleafUrl_template.bat",
-            };
-
-            string[] outputs =
-            {
-                "turnOnLights.bat",
-                "turnOffLights.bat",
-                "getNanoleafUrl.bat",
-            };
-
-            Dictionary<string, string> variables = new Dictionary<string, string>
-            {
-                { "<nanoleafIp>", _config.nanoleafConfig.ipAddress },
-                { "<nanoleafApiKey>", _config.nanoleafConfig.apiKey },
-                { "<lifxSelector>", _config.lifxConfig.selector },
-                { "<lifxAuthKey>", _config.lifxConfig.authKey },
-            };
-
-            for (int i = 0; i < templates.Length; i++)
-            {
-                Utilities.CopyFileAndReplaceValues(
-                    Path.Combine(Environment.CurrentDirectory, templatesDirPath), 
-                    templates[i], 
-                    Path.Combine(Environment.CurrentDirectory, dataDirPath, scriptOutputDirPath),
-                    outputs[i], 
-                    variables);
-            }
+            // insert or remove generated script files from group policy
         }
     }
 }

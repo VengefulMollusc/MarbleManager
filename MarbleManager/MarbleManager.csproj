@@ -63,6 +63,7 @@
     </Compile>
     <Compile Include="Config\ConfigData.cs" />
     <Compile Include="Config\ConfigManager.cs" />
+    <Compile Include="Config\PathManager.cs" />
     <Compile Include="CustomApplicationContext.cs" />
     <Compile Include="Lights\ILightController.cs" />
     <Compile Include="Lights\GlobalLightController.cs" />
@@ -87,16 +88,13 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Content Include="templates\getNanoleafUrl_template.bat">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="templates\effect_payloads\random_template.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="templates\turnOffLights_template.bat">
+    <Content Include="templates\bat_scripts\turnOffLights_template.bat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="templates\turnOnLights_template.bat">
+    <Content Include="templates\bat_scripts\turnOnLights_template.bat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="packages.config" />
@@ -111,6 +109,12 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Content Include="templates\effect_payloads\highlight_template.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\reg_scripts\addLogOnOffScripts_template.reg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\reg_scripts\remLogOnOffScripts_template.reg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

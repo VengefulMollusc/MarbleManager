@@ -14,39 +14,66 @@ namespace MarbleManager
     internal static class Utilities
     {
         /**
+         * Performs bulk copy/replace functionality on a list of files and outputs
+         */
+        internal static void CopyFilesAndReplaceValues(List<CopyReplaceFilesData> _copyReplaceFilesData)
+        {
+            foreach (var data in _copyReplaceFilesData)
+            {
+                if (data == null) continue;
+                foreach (var fileInOutNames in data.fileInOutNames)
+                {
+                    CopyFileAndReplaceValues(data.inputDir, fileInOutNames.Key, data.outputDir, fileInOutNames.Value, data.toReplace);
+                }
+            }
+        }
+
+        /**
          * Copies a file, renaming in the process.
          * Also replaces given values in the file
          * 
          * used for writing api key changes etc to static script bat files
          */
-        internal static void CopyFileAndReplaceValues(string inputDir, string inputFile, string outputDir, string outputFile, Dictionary<string, string> toReplace)
+        internal static void CopyFileAndReplaceValues(string _inputDir, string _inputFile, string _outputDir, string _outputFile, Dictionary<string, string> _toReplace)
         {
             try
             {
                 // Read the content of the source file
-                string fileContent = System.IO.File.ReadAllText(inputDir + inputFile);
+                string fileContent = System.IO.File.ReadAllText(_inputDir + _inputFile);
 
                 // Replace <variables> with the new value
-                foreach (var variable in toReplace)
+                foreach (var variable in _toReplace)
                 {
                     fileContent = fileContent.Replace(variable.Key, variable.Value);
                 }
 
                 // Create the destination directory if it doesn't exist
-                Directory.CreateDirectory(outputDir);
+                Directory.CreateDirectory(_outputDir);
 
                 // Combine the destination directory and the file name
-                string destinationFilePath = Path.Combine(outputDir, outputFile);
+                string destinationFilePath = Path.Combine(_outputDir, _outputFile);
 
                 // Write the modified content to the destination file
                 System.IO.File.WriteAllText(destinationFilePath, fileContent);
 
-                Console.WriteLine("File " + inputFile + " copied and modified successfully.");
+                Console.WriteLine("Processed: " + _inputFile);
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error: " + ex.Message);
+                Console.WriteLine("Error copying: " + ex.Message);
             }
+        }
+
+        /**
+         * Object class for copy/replace function
+         */
+        internal class CopyReplaceFilesData
+        {
+            public string inputDir {  get; set; }
+            public string outputDir { get; set; }
+            public Dictionary<string, string> fileInOutNames {  get; set; }
+            public Dictionary<string, string> toReplace { get; set; }
+
         }
 
         /**
@@ -99,16 +126,46 @@ namespace MarbleManager
             _l = (int)Math.Round(floatL * 100f, 0, MidpointRounding.AwayFromZero);
         }
 
-        internal static void CreateShortcut(string shortcutFilePath, string targetFilePath)
+        /**
+         * Creates a shortcut to a given file in a given directory
+         * 
+         * mainly used for adding this program to startup directory
+         */
+        internal static void CreateShortcut(string _shortcutFilePath, string _targetFilePath)
         {
             WshShell shell = new WshShell();
-            IWshShortcut shortcut = (IWshShortcut)shell.CreateShortcut(shortcutFilePath);
+            IWshShortcut shortcut = (IWshShortcut)shell.CreateShortcut(_shortcutFilePath);
 
             //shortcut.Description = "My shortcut description";   // The description of the shortcut
             //shortcut.IconLocation = @"c:\myicon.ico";           // The icon of the shortcut
             shortcut.WorkingDirectory = Environment.CurrentDirectory;
-            shortcut.TargetPath = targetFilePath;                 // The path of the file that will launch when the shortcut is run
+            shortcut.TargetPath = _targetFilePath;                 // The path of the file that will launch when the shortcut is run
             shortcut.Save();                                    // Save the shortcut
+        }
+
+        /**
+         * Deletes a file if it exists
+         */
+        internal static void DeleteFile(string _filePath)
+        {
+            try
+            {
+                // Check if the file exists before attempting to delete it
+                if (System.IO.File.Exists(_filePath))
+                {
+                    // Delete the file
+                    System.IO.File.Delete(_filePath);
+                    Console.WriteLine("File " + _filePath + " deleted.");
+                }
+                else
+                {
+                    Console.WriteLine("File " + _filePath + " does not exist to delete.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
         }
     }
 }

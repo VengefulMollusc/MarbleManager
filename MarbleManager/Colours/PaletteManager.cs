@@ -6,23 +6,11 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Net.NetworkInformation;
-using System.Text;
 
 namespace MarbleManager.Colours
 {
     internal static class PaletteManager
     {
-        static string paletteFileName = "palette.json";
-
-        static string PaletteFilePath
-        {
-            get
-            {
-                return Path.Combine(Environment.CurrentDirectory, ConfigManager.DataDirectory, paletteFileName);
-            }
-        }
-
         /**
          * Loads a PaletteObject from json file
          */
@@ -31,7 +19,7 @@ namespace MarbleManager.Colours
             try
             {
                 // load file here if exists
-                using (StreamReader r = new StreamReader(PaletteFilePath))
+                using (StreamReader r = new StreamReader(PathManager.PaletteFile))
                 {
                     string json = r.ReadToEnd();
                     PaletteObject palette = JsonConvert.DeserializeObject<PaletteObject>(json);
@@ -57,10 +45,10 @@ namespace MarbleManager.Colours
             try
             {
                 // Create the destination directory if it doesn't exist
-                Directory.CreateDirectory(Path.Combine(Environment.CurrentDirectory, ConfigManager.DataDirectory));
+                Directory.CreateDirectory(PathManager.DataOutputDir);
 
                 string jsonString = JsonConvert.SerializeObject(_palette, Formatting.Indented);
-                using (StreamWriter outputFile = new StreamWriter(PaletteFilePath))
+                using (StreamWriter outputFile = new StreamWriter(PathManager.PaletteFile))
                 {
                     outputFile.WriteLine(jsonString);
                 }

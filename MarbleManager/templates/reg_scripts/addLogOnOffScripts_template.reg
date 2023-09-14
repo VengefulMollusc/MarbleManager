@@ -1,0 +1,99 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Group Policy\State\<userSID>\Scripts]
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Group Policy\State\<userSID>\Scripts\Logoff]
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Group Policy\State\<userSID>\Scripts\Logoff\0]
+"GPO-ID"="LocalGPO"
+"SOM-ID"="Local"
+"FileSysPath"="C:\\WINDOWS\\System32\\GroupPolicy\\User"
+"DisplayName"="Local Group Policy"
+"GPOName"="Local Group Policy"
+"PSScriptOrder"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Group Policy\State\<userSID>\Scripts\Logoff\0\0]
+"Script"="<turnOffScriptPath>"
+"Parameters"=""
+"ExecTime"=hex(b):00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Group Policy\State\<userSID>\Scripts\Logon]
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Group Policy\State\<userSID>\Scripts\Logon\0]
+"GPO-ID"="LocalGPO"
+"SOM-ID"="Local"
+"FileSysPath"="C:\\WINDOWS\\System32\\GroupPolicy\\User"
+"DisplayName"="Local Group Policy"
+"GPOName"="Local Group Policy"
+"PSScriptOrder"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Group Policy\State\<userSID>\Scripts\Logon\0\0]
+"Script"="<turnOnScriptPath>"
+"Parameters"=""
+"ExecTime"=hex(b):00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00
+
+[HKEY_USERS\<userSID>\SOFTWARE\Microsoft\Windows\CurrentVersion\Group Policy\Scripts]
+
+[HKEY_USERS\<userSID>\SOFTWARE\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Logoff]
+
+[HKEY_USERS\<userSID>\SOFTWARE\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Logoff\0]
+"GPO-ID"="LocalGPO"
+"SOM-ID"="Local"
+"FileSysPath"="C:\\WINDOWS\\System32\\GroupPolicy\\User"
+"DisplayName"="Local Group Policy"
+"GPOName"="Local Group Policy"
+"PSScriptOrder"=dword:00000001
+
+[HKEY_USERS\<userSID>\SOFTWARE\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Logoff\0\0]
+"Script"="<turnOffScriptPath>"
+"Parameters"=""
+"IsPowershell"=dword:00000000
+"ExecTime"=hex(b):00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00
+
+[HKEY_USERS\<userSID>\SOFTWARE\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Logon]
+
+[HKEY_USERS\<userSID>\SOFTWARE\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Logon\0]
+"GPO-ID"="LocalGPO"
+"SOM-ID"="Local"
+"FileSysPath"="C:\\WINDOWS\\System32\\GroupPolicy\\User"
+"DisplayName"="Local Group Policy"
+"GPOName"="Local Group Policy"
+"PSScriptOrder"=dword:00000001
+
+[HKEY_USERS\<userSID>\SOFTWARE\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Logon\0\0]
+"Script"="<turnOnScriptPath>"
+"Parameters"=""
+"IsPowershell"=dword:00000000
+"ExecTime"=hex(b):00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Group Policy\State\<userSID>\Scripts]
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Group Policy\State\<userSID>\Scripts\Logoff]
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Group Policy\State\<userSID>\Scripts\Logoff\0]
+"GPO-ID"="LocalGPO"
+"SOM-ID"="Local"
+"FileSysPath"="C:\\WINDOWS\\System32\\GroupPolicy\\User"
+"DisplayName"="Local Group Policy"
+"GPOName"="Local Group Policy"
+"PSScriptOrder"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Group Policy\State\<userSID>\Scripts\Logoff\0\0]
+"Script"="<turnOffScriptPath>"
+"Parameters"=""
+"ExecTime"=hex(b):00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Group Policy\State\<userSID>\Scripts\Logon]
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Group Policy\State\<userSID>\Scripts\Logon\0]
+"GPO-ID"="LocalGPO"
+"SOM-ID"="Local"
+"FileSysPath"="C:\\WINDOWS\\System32\\GroupPolicy\\User"
+"DisplayName"="Local Group Policy"
+"GPOName"="Local Group Policy"
+"PSScriptOrder"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Group Policy\State\<userSID>\Scripts\Logon\0\0]
+"Script"="<turnOnScriptPath>"
+"Parameters"=""
+"ExecTime"=hex(b):00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00

@@ -1,0 +1,25 @@
+Windows Registry Editor Version 5.00
+
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Group Policy\State\S-1-5-21-1866727419-4061658099-3703853513-1001\Scripts\Logoff\0\0]
+
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Group Policy\State\S-1-5-21-1866727419-4061658099-3703853513-1001\Scripts\Logoff\0]
+
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Group Policy\State\S-1-5-21-1866727419-4061658099-3703853513-1001\Scripts\Logon\0\0]
+
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Group Policy\State\S-1-5-21-1866727419-4061658099-3703853513-1001\Scripts\Logon\0]
+
+[-HKEY_USERS\S-1-5-21-1866727419-4061658099-3703853513-1001\SOFTWARE\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Logoff\0\0]
+
+[-HKEY_USERS\S-1-5-21-1866727419-4061658099-3703853513-1001\SOFTWARE\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Logoff\0]
+
+[-HKEY_USERS\S-1-5-21-1866727419-4061658099-3703853513-1001\SOFTWARE\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Logon\0\0]
+
+[-HKEY_USERS\S-1-5-21-1866727419-4061658099-3703853513-1001\SOFTWARE\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Logon\0]
+
+[-HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Group Policy\State\S-1-5-21-1866727419-4061658099-3703853513-1001\Scripts\Logoff\0\0]
+
+[-HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Group Policy\State\S-1-5-21-1866727419-4061658099-3703853513-1001\Scripts\Logoff\0]
+
+[-HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Group Policy\State\S-1-5-21-1866727419-4061658099-3703853513-1001\Scripts\Logon\0\0]
+
+[-HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Group Policy\State\S-1-5-21-1866727419-4061658099-3703853513-1001\Scripts\Logon\0]
