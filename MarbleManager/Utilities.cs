@@ -15,59 +15,7 @@ namespace MarbleManager
     internal static class Utilities
     {
         /**
-         * Performs bulk copy/replace functionality on a list of files and outputs
-         */
-        internal static void CopyFilesAndReplaceValues(CopyReplaceFilesData _data)
-        {
-            if (_data == null) return;
-            foreach (var fileInOutNames in _data.fileInOutNames)
-            {
-                CopyFileAndReplaceValues(_data.inputDir, fileInOutNames.Key, _data.outputDir, fileInOutNames.Value, _data.toReplace);
-            }
-        }
-
-        /**
-         * Copies a file, renaming in the process.
-         * Also replaces given values in the file
-         * 
-         * used for writing api key changes etc to static script bat files
-         */
-        internal static void CopyFileAndReplaceValues(string _inputDir, string _inputFile, string _outputDir, string _outputFile, Dictionary<string, string> _toReplace)
-        {
-            try
-            {
-                string fileContent = ReplaceValues(System.IO.File.ReadAllText(_inputDir + _inputFile), _toReplace);
-
-                // Create the destination directory if it doesn't exist
-                Directory.CreateDirectory(_outputDir);
-
-                // Combine the destination directory and the file name
-                string destinationFilePath = Path.Combine(_outputDir, _outputFile);
-
-                // Write the modified content to the destination file
-                System.IO.File.WriteAllText(destinationFilePath, fileContent);
-
-                Console.WriteLine("Processed: " + _inputFile);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error copying: " + ex.Message);
-            }
-        }
-
-        /**
-         * Object class for copy/replace function
-         */
-        internal class CopyReplaceFilesData
-        {
-            public string inputDir {  get; set; }
-            public string outputDir { get; set; }
-            public Dictionary<string, string> fileInOutNames {  get; set; }
-            public Dictionary<string, string> toReplace { get; set; }
-        }
-
-        /**
-         * Performs bulk copy/replace functionality on a list of compiled resources and outputs
+         * Performs bulk copy/replace functionality on compiled resources and output files
          */
         internal static void CopyResourcesAndReplaceValues(CopyReplaceResourcesData _data)
         {
@@ -227,6 +175,70 @@ namespace MarbleManager
                 output = output.Replace(variable.Key, variable.Value);
             }
             return output;
+        }
+
+        /**
+         * 
+         * 
+         * BELOW THIS POINT
+         * 
+         * Are things that aren't currently used
+         * 
+         * but I'm holding on to for the moment just in case
+         * 
+         * 
+         */
+
+        /**
+         * Performs bulk copy/replace functionality on a list of files and outputs
+         */
+        internal static void CopyFilesAndReplaceValues(CopyReplaceFilesData _data)
+        {
+            if (_data == null) return;
+            foreach (var fileInOutNames in _data.fileInOutNames)
+            {
+                CopyFileAndReplaceValues(_data.inputDir, fileInOutNames.Key, _data.outputDir, fileInOutNames.Value, _data.toReplace);
+            }
+        }
+
+        /**
+         * Copies a file, renaming in the process.
+         * Also replaces given values in the file
+         * 
+         * used for writing api key changes etc to static script bat files
+         */
+        internal static void CopyFileAndReplaceValues(string _inputDir, string _inputFile, string _outputDir, string _outputFile, Dictionary<string, string> _toReplace)
+        {
+            try
+            {
+                string fileContent = ReplaceValues(System.IO.File.ReadAllText(_inputDir + _inputFile), _toReplace);
+
+                // Create the destination directory if it doesn't exist
+                Directory.CreateDirectory(_outputDir);
+
+                // Combine the destination directory and the file name
+                string destinationFilePath = Path.Combine(_outputDir, _outputFile);
+
+                // Write the modified content to the destination file
+                System.IO.File.WriteAllText(destinationFilePath, fileContent);
+
+                Console.WriteLine("Processed: " + _inputFile);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error copying: " + ex.Message);
+            }
+        }
+
+        /**
+         * Object class for copy/replace function
+         */
+        internal class CopyReplaceFilesData
+        {
+            public string inputDir { get; set; }
+            public string outputDir { get; set; }
+            public Dictionary<string, string> fileInOutNames { get; set; }
+            public Dictionary<string, string> toReplace { get; set; }
         }
     }
 }
