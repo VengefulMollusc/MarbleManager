@@ -127,10 +127,10 @@ namespace MarbleManager
             {
                 bgColour = Color.FromArgb(_swatch.r, _swatch.g, _swatch.b);
                 borderStyle = BorderStyle.None;
-                propText = "prop:" + ((int)Math.Round(_swatch.proportion * 100f, 0, MidpointRounding.AwayFromZero)).ToString() + "%";
-                hslText = showHsl ? 
-                    "hsl:" + _swatch.h.ToString() + " " + _swatch.s.ToString() + " " + _swatch.l.ToString() :
-                    "rgb:" + _swatch.r.ToString() + " " + _swatch.g.ToString() + " " + _swatch.b.ToString();
+                propText = $"prop:{(int)Math.Round(_swatch.proportion * 100f, 0, MidpointRounding.AwayFromZero)}%";
+                hslText = showHsl ?
+                    $"hsl:{_swatch.h} {_swatch.s} {_swatch.l}" :
+                    $"rgb:{_swatch.r} {_swatch.g} {_swatch.b}";            
             }
 
             // apply stuff

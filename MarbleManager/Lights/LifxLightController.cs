@@ -46,8 +46,8 @@ namespace MarbleManager.Lights
             foreach (string selector in config.LightSelectors)
             {
                 SendPayload(
-                    "power=" + (_state ? "on" : "off"),
-                    "v1/lights/" + selector + "/state"
+                    $"power={(_state ? "on" : "off")}",
+                    $"v1/lights/{selector}/state"
                 );
             }
         }
@@ -68,7 +68,7 @@ namespace MarbleManager.Lights
                 client.BaseAddress = new Uri(baseUrl);
 
                 // set headers
-                client.DefaultRequestHeaders.Add("Authorization", "Bearer " + config.authKey);
+                client.DefaultRequestHeaders.Add("Authorization", $"Bearer {config.authKey}");
 
                 // create payload content
                 StringContent content = new StringContent(payload, Encoding.UTF8, "application/x-www-form-urlencoded");
@@ -81,11 +81,11 @@ namespace MarbleManager.Lights
                 {
                     // Read and process the response content (if any)
                     string responseContent = await response.Content.ReadAsStringAsync();
-                    Console.WriteLine("Lifx Success: " + responseContent);
+                    Console.WriteLine($"Lifx Success: {responseContent}");
                 }
                 else
                 {
-                    Console.WriteLine("Lifx Error: " + response.StatusCode);
+                    Console.WriteLine($"Lifx Error: {response.StatusCode}");
                 }
             }
         }

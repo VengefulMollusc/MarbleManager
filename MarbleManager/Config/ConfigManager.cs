@@ -80,7 +80,7 @@ namespace MarbleManager.Config
             // Get relevant paths, names etc.
             string appPath = Path.Combine(Environment.CurrentDirectory, AppDomain.CurrentDomain.FriendlyName);
             string startupFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.Startup);
-            string shortcutName = Path.GetFileNameWithoutExtension(appPath) + "_autoShortcut.lnk";
+            string shortcutName = $"{Path.GetFileNameWithoutExtension(appPath)}_autoShortcut.lnk";
             string shortcutPath = Path.Combine(startupFolderPath, shortcutName);
 
             // remove shortcut if exists from startup folder
@@ -90,7 +90,7 @@ namespace MarbleManager.Config
             {
                 // add shortcut in startup folder
                 Utilities.CreateShortcut(shortcutPath, appPath);
-                Console.WriteLine("Created shortcut: " + shortcutPath);
+                Console.WriteLine($"Created shortcut: {shortcutPath}");
             }
         }
 
@@ -111,7 +111,7 @@ namespace MarbleManager.Config
             // Run the regedit.exe command with the .reg file as an argument.
             Process regeditProcess = new Process();
             regeditProcess.StartInfo.FileName = "regedit.exe";
-            regeditProcess.StartInfo.Arguments = "/s " + regFilePath; // /s is used to suppress dialogs
+            regeditProcess.StartInfo.Arguments = $"/s {regFilePath}"; // /s is used to suppress dialogs
             regeditProcess.Start();
             regeditProcess.WaitForExit();
 
@@ -124,7 +124,7 @@ namespace MarbleManager.Config
             // delete .reg file
             Utilities.DeleteFile(regFilePath);
 
-            Console.WriteLine("Applied .reg file to " + (_autoOnOff ? "enable" : "disable") + " auto on/off functionality");
+            Console.WriteLine($"Applied .reg file to {(_autoOnOff ? "enable" : "disable")} auto on/off functionality");
         }
     }
 }

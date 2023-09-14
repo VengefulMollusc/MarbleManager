@@ -105,18 +105,18 @@ namespace MarbleManager.Lights
                 StringContent content = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
 
                 // send the request
-                HttpResponseMessage response = await client.PutAsync("api/v1/" + config.apiKey + _endpoint, content);
+                HttpResponseMessage response = await client.PutAsync($"api/v1/{config.apiKey}{_endpoint}", content);
 
                 // Check if the request was successful
                 if (response.IsSuccessStatusCode)
                 {
                     // Read and process the response content (if any)
                     string responseContent = await response.Content.ReadAsStringAsync();
-                    Console.WriteLine("Nanoleaf Success: " + responseContent);
+                    Console.WriteLine($"Nanoleaf Success: {responseContent}");
                 }
                 else
                 {
-                    Console.WriteLine("Nanoleaf Error: " + response.StatusCode);
+                    Console.WriteLine($"Nanoleaf Error: {response.StatusCode}");
                 }
             }
         }

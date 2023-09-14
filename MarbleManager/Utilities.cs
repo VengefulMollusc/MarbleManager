@@ -51,12 +51,12 @@ namespace MarbleManager
                         // Write the modified content to the destination file
                         System.IO.File.WriteAllText(destinationFilePath, fileContent);
 
-                        Console.WriteLine("Processed: " + _resourceName);
+                        Console.WriteLine($"Processed: {_resourceName}");
                     }
                     stream.Close();
                 } else
                 {
-                    Console.WriteLine("Null stream for " + _resourceName);
+                    Console.WriteLine($"Null stream for {_resourceName}");
                 }
             }
         }
@@ -150,11 +150,11 @@ namespace MarbleManager
                 {
                     // Delete the file
                     System.IO.File.Delete(_filePath);
-                    Console.WriteLine("File " + _filePath + " deleted.");
+                    Console.WriteLine($"File {_filePath} deleted.");
                 }
                 else
                 {
-                    Console.WriteLine("File " + _filePath + " does not exist to delete.");
+                    Console.WriteLine($"File {_filePath} does not exist to delete.");
                 }
             }
             catch (Exception ex)
@@ -222,7 +222,7 @@ namespace MarbleManager
                 // Write the modified content to the destination file
                 System.IO.File.WriteAllText(destinationFilePath, fileContent);
 
-                Console.WriteLine("Processed: " + _inputFile);
+                Console.WriteLine($"Processed: {_inputFile}");
             }
             catch (Exception ex)
             {

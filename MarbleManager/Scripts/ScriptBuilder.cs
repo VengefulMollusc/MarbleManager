@@ -14,7 +14,7 @@ namespace MarbleManager.Scripts
         static string turnOnLightsFileName = "turnOnLights.bat";
         static string turnOffLightsFileName = "turnOffLights.bat";
 
-        static string regTemplateNamespace = "MarbleManager.Scripts.Templates.reg_scripts.";
+        static string regTemplateNamespace = "MarbleManager.Scripts.Templates.reg_scripts";
 
         /**
          * Creates script files from templates with new values from config
@@ -66,7 +66,7 @@ namespace MarbleManager.Scripts
                 // Create the .bat file and write the batch commands to it.
                 File.WriteAllLines(outputFile, batchCommands);
 
-                Console.WriteLine("Batch file created successfully: " + outputFile);
+                Console.WriteLine($"Batch file created successfully: {outputFile}");
             }
             catch (Exception ex)
             {
@@ -88,7 +88,7 @@ namespace MarbleManager.Scripts
             }
 
             Utilities.CopyResourceAndReplaceValues(
-                regTemplateNamespace + (_enable ? "addLogOnOffScripts_template.reg" : "remLogOnOffScripts_template.reg"),
+                $"{regTemplateNamespace}.{(_enable ? "addLogOnOffScripts_template.reg" : "remLogOnOffScripts_template.reg")}",
                 PathManager.RegScriptOutputDir,
                 _enable ? "addLogOnOffScripts.reg" : "remLogOnOffScripts.reg",
                 new Dictionary<string, string>
@@ -114,11 +114,7 @@ namespace MarbleManager.Scripts
                 WindowsIdentity windowsIdentity = WindowsIdentity.GetCurrent();
 
                 // Get the user's SID
-                string userSid = windowsIdentity.User.Value;
-
-                // Display the user's SID
-                Console.WriteLine("Current User SID: " + userSid);
-                return userSid;
+                return windowsIdentity.User.Value;
             }
             catch (Exception ex)
             {
