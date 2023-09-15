@@ -382,7 +382,7 @@ namespace MarbleManager
      */
     internal class TextBoxStreamWriter : TextWriter
     {
-        private TextBox textBox;
+        private readonly TextBox textBox;
 
         public TextBoxStreamWriter(TextBox _textBox)
         {
@@ -391,8 +391,14 @@ namespace MarbleManager
 
         public override void Write(char _value)
         {
-            // Append the character to the TextBox
-            textBox.AppendText(_value.ToString());
+            if (textBox.InvokeRequired)
+            {
+                textBox.Invoke(new Action(() => textBox.AppendText(_value.ToString())));
+            }
+            else
+            {
+                textBox.AppendText(_value.ToString());
+            }
         }
 
         public override Encoding Encoding

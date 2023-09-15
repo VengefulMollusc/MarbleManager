@@ -64,6 +64,7 @@
     <Compile Include="Config\ConfigData.cs" />
     <Compile Include="Config\ConfigManager.cs" />
     <Compile Include="Config\PathManager.cs" />
+    <Compile Include="Config\WallpaperWatcher.cs" />
     <Compile Include="Scripts\LifxLightScriptBuilder.cs" />
     <Compile Include="Scripts\LightScriptBuilder.cs" />
     <Compile Include="Scripts\NanoleafLightScriptBuilder.cs" />

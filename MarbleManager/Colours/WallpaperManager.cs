@@ -33,7 +33,7 @@ namespace MarbleManager.Colours
          */
         internal static Bitmap GetWallpaperBitmap ()
         {
-            string transcodedWallpaperPath = GetWallpaperPath();
+            string transcodedWallpaperPath = GetTranscodedWallpaperPath();
             if (transcodedWallpaperPath != null)
             {
                 // return transcoded wallpaper as a bitmap
@@ -45,7 +45,7 @@ namespace MarbleManager.Colours
         /**
          * Returns the path to the transcodedWallpaper file
          */
-        private static string GetWallpaperPath ()
+        internal static string GetTranscodedWallpaperPath ()
         {
             // Get the original wallpaper image path
             using (var key = Registry.CurrentUser.OpenSubKey(@"Control Panel\Desktop"))
@@ -69,7 +69,7 @@ namespace MarbleManager.Colours
          */
         private static void CopyWallpaperToJpg()
         {
-            string transcodedWallpaperPath = GetWallpaperPath();
+            string transcodedWallpaperPath = GetTranscodedWallpaperPath();
             if (transcodedWallpaperPath != null)
             {
                 // Copy and rename
