@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigForm));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageStatus = new System.Windows.Forms.TabPage();
@@ -39,6 +40,7 @@
             this.buttonPreviewPalette = new System.Windows.Forms.Button();
             this.label21 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
             this.groupBoxPalette = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
@@ -130,8 +132,8 @@
             this.flowLayoutPanel14 = new System.Windows.Forms.FlowLayoutPanel();
             this.checkBoxUseMainSwatches = new System.Windows.Forms.CheckBox();
             this.checkBoxRunOnBoot = new System.Windows.Forms.CheckBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.checkBoxAutoTurnOnOff = new System.Windows.Forms.CheckBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.checkBoxSyncOnWallpaperChange = new System.Windows.Forms.CheckBox();
             this.groupBoxConfigLifx = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel13 = new System.Windows.Forms.FlowLayoutPanel();
@@ -175,6 +177,7 @@
             this.label24 = new System.Windows.Forms.Label();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPageStatus.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -290,6 +293,7 @@
             this.flowLayoutPanel4.Controls.Add(this.buttonPreviewPalette);
             this.flowLayoutPanel4.Controls.Add(this.label21);
             this.flowLayoutPanel4.Controls.Add(this.button1);
+            this.flowLayoutPanel4.Controls.Add(this.label12);
             this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel4.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 16);
@@ -355,6 +359,16 @@
             this.button1.Text = "Save Palette (TEMP)";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.buttonSavePalette_Click);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(3, 144);
+            this.label12.Margin = new System.Windows.Forms.Padding(3, 0, 3, 9);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(236, 26);
+            this.label12.TabIndex = 7;
+            this.label12.Text = "Saves the previewed palette to file as \'last sent\'. For testing";
             // 
             // groupBoxPalette
             // 
@@ -431,6 +445,7 @@
             this.paletteCurrentV.Name = "paletteCurrentV";
             this.paletteCurrentV.Size = new System.Drawing.Size(40, 40);
             this.paletteCurrentV.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.paletteCurrentV, "Vibrant");
             // 
             // paletteCurrentVl
             // 
@@ -442,6 +457,7 @@
             this.paletteCurrentVl.Name = "paletteCurrentVl";
             this.paletteCurrentVl.Size = new System.Drawing.Size(40, 40);
             this.paletteCurrentVl.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.paletteCurrentVl, "Light Vibrant");
             // 
             // paletteCurrentVd
             // 
@@ -453,6 +469,7 @@
             this.paletteCurrentVd.Name = "paletteCurrentVd";
             this.paletteCurrentVd.Size = new System.Drawing.Size(40, 40);
             this.paletteCurrentVd.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.paletteCurrentVd, "Dark Vibrant");
             // 
             // paletteCurrentM
             // 
@@ -464,6 +481,7 @@
             this.paletteCurrentM.Name = "paletteCurrentM";
             this.paletteCurrentM.Size = new System.Drawing.Size(40, 40);
             this.paletteCurrentM.TabIndex = 3;
+            this.toolTip1.SetToolTip(this.paletteCurrentM, "Muted");
             // 
             // paletteCurrentMl
             // 
@@ -475,6 +493,7 @@
             this.paletteCurrentMl.Name = "paletteCurrentMl";
             this.paletteCurrentMl.Size = new System.Drawing.Size(40, 40);
             this.paletteCurrentMl.TabIndex = 4;
+            this.toolTip1.SetToolTip(this.paletteCurrentMl, "Light Muted");
             // 
             // paletteCurrentMd
             // 
@@ -486,6 +505,7 @@
             this.paletteCurrentMd.Name = "paletteCurrentMd";
             this.paletteCurrentMd.Size = new System.Drawing.Size(40, 40);
             this.paletteCurrentMd.TabIndex = 5;
+            this.toolTip1.SetToolTip(this.paletteCurrentMd, "Dark Muted");
             // 
             // tableLayoutPanel4
             // 
@@ -914,6 +934,7 @@
             this.paletteLastV.Name = "paletteLastV";
             this.paletteLastV.Size = new System.Drawing.Size(40, 40);
             this.paletteLastV.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.paletteLastV, "Vibrant");
             // 
             // paletteLastVl
             // 
@@ -925,6 +946,7 @@
             this.paletteLastVl.Name = "paletteLastVl";
             this.paletteLastVl.Size = new System.Drawing.Size(40, 40);
             this.paletteLastVl.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.paletteLastVl, "Light Vibrant");
             // 
             // paletteLastVd
             // 
@@ -936,6 +958,7 @@
             this.paletteLastVd.Name = "paletteLastVd";
             this.paletteLastVd.Size = new System.Drawing.Size(40, 40);
             this.paletteLastVd.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.paletteLastVd, "Dark Vibrant");
             // 
             // paletteLastM
             // 
@@ -947,6 +970,7 @@
             this.paletteLastM.Name = "paletteLastM";
             this.paletteLastM.Size = new System.Drawing.Size(40, 40);
             this.paletteLastM.TabIndex = 3;
+            this.toolTip1.SetToolTip(this.paletteLastM, "Muted");
             // 
             // paletteLastMl
             // 
@@ -958,6 +982,7 @@
             this.paletteLastMl.Name = "paletteLastMl";
             this.paletteLastMl.Size = new System.Drawing.Size(40, 40);
             this.paletteLastMl.TabIndex = 4;
+            this.toolTip1.SetToolTip(this.paletteLastMl, "Light Muted");
             // 
             // paletteLastMd
             // 
@@ -969,6 +994,7 @@
             this.paletteLastMd.Name = "paletteLastMd";
             this.paletteLastMd.Size = new System.Drawing.Size(40, 40);
             this.paletteLastMd.TabIndex = 5;
+            this.toolTip1.SetToolTip(this.paletteLastMd, "Dark Muted");
             // 
             // tableLayoutPanel6
             // 
@@ -1355,6 +1381,8 @@
             this.checkBoxUseMainSwatches.Size = new System.Drawing.Size(140, 17);
             this.checkBoxUseMainSwatches.TabIndex = 5;
             this.checkBoxUseMainSwatches.Text = "Only use main swatches";
+            this.toolTip1.SetToolTip(this.checkBoxUseMainSwatches, "Toggles betwen using only the swatches displayed on the preview screen, and an ex" +
+        "tended range of colours");
             this.checkBoxUseMainSwatches.UseVisualStyleBackColor = true;
             // 
             // checkBoxRunOnBoot
@@ -1365,7 +1393,19 @@
             this.checkBoxRunOnBoot.Size = new System.Drawing.Size(165, 17);
             this.checkBoxRunOnBoot.TabIndex = 6;
             this.checkBoxRunOnBoot.Text = "Run Marble Manager on boot";
+            this.toolTip1.SetToolTip(this.checkBoxRunOnBoot, "Run this app on PC boot");
             this.checkBoxRunOnBoot.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxAutoTurnOnOff
+            // 
+            this.checkBoxAutoTurnOnOff.AutoSize = true;
+            this.checkBoxAutoTurnOnOff.Location = new System.Drawing.Point(3, 49);
+            this.checkBoxAutoTurnOnOff.Name = "checkBoxAutoTurnOnOff";
+            this.checkBoxAutoTurnOnOff.Size = new System.Drawing.Size(184, 17);
+            this.checkBoxAutoTurnOnOff.TabIndex = 2;
+            this.checkBoxAutoTurnOnOff.Text = "Turn lights on/off with logon state";
+            this.toolTip1.SetToolTip(this.checkBoxAutoTurnOnOff, "Trigger lights on/off when the current user logs on/off");
+            this.checkBoxAutoTurnOnOff.UseVisualStyleBackColor = true;
             // 
             // label10
             // 
@@ -1377,16 +1417,6 @@
             this.label10.TabIndex = 7;
             this.label10.Text = "Non-functional (yet):";
             // 
-            // checkBoxAutoTurnOnOff
-            // 
-            this.checkBoxAutoTurnOnOff.AutoSize = true;
-            this.checkBoxAutoTurnOnOff.Location = new System.Drawing.Point(3, 49);
-            this.checkBoxAutoTurnOnOff.Name = "checkBoxAutoTurnOnOff";
-            this.checkBoxAutoTurnOnOff.Size = new System.Drawing.Size(184, 17);
-            this.checkBoxAutoTurnOnOff.TabIndex = 2;
-            this.checkBoxAutoTurnOnOff.Text = "Turn lights on/off with logon state";
-            this.checkBoxAutoTurnOnOff.UseVisualStyleBackColor = true;
-            // 
             // checkBoxSyncOnWallpaperChange
             // 
             this.checkBoxSyncOnWallpaperChange.AutoSize = true;
@@ -1395,6 +1425,7 @@
             this.checkBoxSyncOnWallpaperChange.Size = new System.Drawing.Size(152, 17);
             this.checkBoxSyncOnWallpaperChange.TabIndex = 0;
             this.checkBoxSyncOnWallpaperChange.Text = "Sync on wallpaper change";
+            this.toolTip1.SetToolTip(this.checkBoxSyncOnWallpaperChange, "Sends an updated palette to the lights when the desktop wallpaper changes");
             this.checkBoxSyncOnWallpaperChange.UseVisualStyleBackColor = true;
             // 
             // groupBoxConfigLifx
@@ -1438,6 +1469,7 @@
             this.textBoxLifxSelector.Name = "textBoxLifxSelector";
             this.textBoxLifxSelector.Size = new System.Drawing.Size(270, 20);
             this.textBoxLifxSelector.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.textBoxLifxSelector, "Selectors for Lifx lights, seperated by commas");
             // 
             // label6
             // 
@@ -1500,6 +1532,7 @@
             this.textBoxNanoleafIP.Name = "textBoxNanoleafIP";
             this.textBoxNanoleafIP.Size = new System.Drawing.Size(270, 20);
             this.textBoxNanoleafIP.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.textBoxNanoleafIP, "IP addresses of Nanoleaf Lights, seperated by commas");
             // 
             // label4
             // 
@@ -1674,10 +1707,10 @@
             this.label8.Location = new System.Drawing.Point(3, 80);
             this.label8.Margin = new System.Windows.Forms.Padding(3, 0, 3, 9);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(284, 39);
+            this.label8.Size = new System.Drawing.Size(281, 39);
             this.label8.TabIndex = 0;
-            this.label8.Text = "Applying changes will update script files with new values, and activate/deactivat" +
-    "e hooks for turning on and off lights etc.";
+            this.label8.Text = "Applying changes will update generated script files with new values, and activate" +
+    "/deactivate hooks for turning on and off lights etc.";
             // 
             // flowLayoutPanel8
             // 
@@ -2098,5 +2131,7 @@
         private System.Windows.Forms.NumericUpDown numericUpDownProbValue;
         private System.Windows.Forms.CheckBox checkBoxRunOnBoot;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Label label12;
     }
 }

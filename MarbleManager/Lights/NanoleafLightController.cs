@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
+using System.Threading.Tasks;
 using static System.Windows.Forms.AxHost;
 
 namespace MarbleManager.Lights
@@ -28,12 +29,20 @@ namespace MarbleManager.Lights
         /**
          * Applies a colour palette to the light
          */
-        public void ApplyPalette(PaletteObject _palette)
+        public async void ApplyPalette(PaletteObject _palette)
         {
             if (populatedUrls == null)
             {
                 Console.WriteLine("nanoleaf urls not set up");
                 throw new Exception("nanoleaf urls not set up");
+            }
+
+            // only send palettes to lights that are ON
+            List<string> onLightUrls = await GetOnLightUrls();
+            if (onLightUrls.Count <= 0)
+            {
+                Console.WriteLine("Nanoleaf: No lights are on to send palette");
+                return;
             }
 
             // get payload template based on config setting
@@ -50,7 +59,7 @@ namespace MarbleManager.Lights
             payload["write"]["palette"] = palette;
 
             // send payload
-            foreach (string url in populatedUrls)
+            foreach (string url in onLightUrls)
             {
                 SendPayload(url, payload, "/effects");
             }
@@ -199,7 +208,71 @@ namespace MarbleManager.Lights
         }
 
         /**
-         * Returns a simple on/off state object
+         * Gets a list of urls of lights that are ON
+         * 
+         * used for only triggering palette updates on lights that are already on
+         */
+        private async Task<List<string>> GetOnLightUrls()
+        {
+            // check all lights
+            List<Task<string>> tasks = new List<Task<string>>();
+            foreach (string url in populatedUrls)
+            {
+                tasks.Add(IsLightOn(url));
+            }
+
+            await Task.WhenAll(tasks);
+
+            // return list of lights that are ON
+            List<string> onLights = new List<string>();
+            foreach (var task in tasks)
+            {
+                if (task.Result != null)
+                {
+                    onLights.Add(task.Result);
+                }
+            }
+            return onLights;
+        }
+
+        /**
+         * Checks if the light at the given URL is ON
+         * 
+         * returns the _baseUrl if the light is on
+         * null if not
+         */
+        private async Task<string> IsLightOn(string _baseUrl)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                // set URL
+                client.BaseAddress = new Uri(_baseUrl);
+
+                // send the request
+                HttpResponseMessage response = await client.GetAsync($"api/v1/{config.apiKey}/state/on");
+
+                // Check if the request was successful
+                if (response.IsSuccessStatusCode)
+                {
+                    // Read and process the response content (if any)
+                    string responseContent = await response.Content.ReadAsStringAsync();
+                    if (responseContent == @"{""value"":true}")
+                    {
+                        Console.WriteLine($"Nanoleaf {_baseUrl} is ON");
+                        return _baseUrl;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine($"Nanoleaf isOn Error: {_baseUrl} : {response.StatusCode}");
+                }
+            }
+            Console.WriteLine($"Nanoleaf {_baseUrl} is OFF");
+            return null;
+        }
+
+        /**
+         * Returns a simple on/off state object for turning lights on/off
          */
         private object GetStatePayload(bool _state)
         {

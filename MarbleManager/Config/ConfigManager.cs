@@ -116,7 +116,7 @@ namespace MarbleManager.Config
             regeditProcess.WaitForExit();
 
             // Check the exit code if needed.
-            int exitCode = regeditProcess.ExitCode;
+            //int exitCode = regeditProcess.ExitCode;
 
             // Dispose of the process.
             regeditProcess.Dispose();
