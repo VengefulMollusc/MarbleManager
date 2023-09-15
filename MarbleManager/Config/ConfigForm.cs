@@ -13,7 +13,7 @@ namespace MarbleManager
 {
     public partial class ConfigForm : Form
     {
-        Bitmap wallpaper;
+        Bitmap previewImage;
         GlobalLightController lightController;
 
         TextWriter originalOut;
@@ -60,9 +60,9 @@ namespace MarbleManager
             originalOut = null;
 
             // clear values to help memory
-            if (wallpaper != null)
+            if (previewImage != null)
             {
-                wallpaper.Dispose();
+                previewImage.Dispose();
                 WallpaperManager.DeleteCopiedWallpaper();
             }
             if (lightController != null)
@@ -144,13 +144,13 @@ namespace MarbleManager
         private void PreviewCurrentWallpaper()
         {
             // cleanup existing value to stop RAM use increasing
-            if (wallpaper != null) { wallpaper.Dispose(); }
+            if (previewImage != null) { previewImage.Dispose(); }
 
             Bitmap currentWallpaper = WallpaperManager.GetWallpaperJpg();
             if (currentWallpaper != null)
             {
-                wallpaper = currentWallpaper;
-                pictureBoxWallpaper.Image = wallpaper;
+                previewImage = currentWallpaper;
+                pictureBoxWallpaper.Image = previewImage;
             }
             Console.WriteLine("Loaded current wallpaper");
         }
@@ -299,13 +299,13 @@ namespace MarbleManager
          */
         private void buttonGetPalette_Click(object sender, EventArgs e)
         {
-            if (wallpaper == null)
+            if (previewImage == null)
             {
                 // fetch wallpaper preview if not already
                 PreviewCurrentWallpaper();
             }
 
-            PreviewPalette(PaletteManager.GetPaletteFromBitmap(wallpaper));
+            PreviewPalette(PaletteManager.GetPaletteFromBitmap(previewImage));
             Console.WriteLine("Palette preview created");
         }
 
@@ -315,11 +315,12 @@ namespace MarbleManager
         private void buttonSavePalette_Click(object sender, EventArgs e)
         {
             // save palette
-            if (wallpaper == null)
+            if (previewImage == null)
             {
-                PreviewCurrentWallpaper();
+                Console.WriteLine("Preview an image first.");
+                return;
             }
-            PaletteObject palette = PaletteManager.GetPaletteFromBitmap(wallpaper);
+            PaletteObject palette = PaletteManager.GetPaletteFromBitmap(previewImage);
             PaletteManager.SavePalette(palette);
             LoadLastPalette();
         }
@@ -377,6 +378,23 @@ namespace MarbleManager
         private void buttonReloadLastSent_Click(object sender, EventArgs e)
         {
             LoadLastPalette();
+        }
+
+        /**
+         * Loads an image from file into the preview box
+         */
+        private void buttonLoadImage_Click(object sender, EventArgs e)
+        {
+            // Show the Open File dialog. If the user clicks OK, load the
+            // picture that the user chose.
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                // cleanup existing value to stop RAM use increasing
+                if (previewImage != null) { previewImage.Dispose(); }
+
+                previewImage = new Bitmap(openFileDialog1.FileName);
+                pictureBoxWallpaper.Image = previewImage;
+            }
         }
     }
 

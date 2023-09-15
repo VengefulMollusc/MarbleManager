@@ -180,6 +180,7 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.flowLayoutPanel29 = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonLoadImage = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.tabControl1.SuspendLayout();
             this.tabPagePreview.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -1914,6 +1915,14 @@
             this.buttonLoadImage.TabIndex = 1;
             this.buttonLoadImage.Text = "Load image";
             this.buttonLoadImage.UseVisualStyleBackColor = true;
+            this.buttonLoadImage.Click += new System.EventHandler(this.buttonLoadImage_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.Filter = "JPEG Files (*.jpg)|*.jpg|PNG Files (*.png)|*.png|BMP Files (*.bmp)|*.bmp|All file" +
+    "s (*.*)|*.*";
+            this.openFileDialog1.Title = "Select an image file";
             // 
             // ConfigForm
             // 
@@ -2171,5 +2180,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel29;
         private System.Windows.Forms.Button buttonLoadImage;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
