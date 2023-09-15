@@ -62,8 +62,8 @@ namespace MarbleManager.Lights
 
         private void SyncOnWallpaperChange(object source, FileSystemEventArgs e)
         {
-            Console.WriteLine("Changed!");
-            //SyncToWallpaper();
+            Console.WriteLine("Triggering auto-sync");
+            SyncToWallpaper();
         }
 
         /**

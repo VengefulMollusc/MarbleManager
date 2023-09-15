@@ -133,7 +133,6 @@
             this.checkBoxUseMainSwatches = new System.Windows.Forms.CheckBox();
             this.checkBoxRunOnBoot = new System.Windows.Forms.CheckBox();
             this.checkBoxAutoTurnOnOff = new System.Windows.Forms.CheckBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.checkBoxSyncOnWallpaperChange = new System.Windows.Forms.CheckBox();
             this.groupBoxConfigLifx = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel13 = new System.Windows.Forms.FlowLayoutPanel();
@@ -1364,7 +1363,6 @@
             this.flowLayoutPanel14.Controls.Add(this.checkBoxUseMainSwatches);
             this.flowLayoutPanel14.Controls.Add(this.checkBoxRunOnBoot);
             this.flowLayoutPanel14.Controls.Add(this.checkBoxAutoTurnOnOff);
-            this.flowLayoutPanel14.Controls.Add(this.label10);
             this.flowLayoutPanel14.Controls.Add(this.checkBoxSyncOnWallpaperChange);
             this.flowLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel14.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
@@ -1407,24 +1405,14 @@
             this.toolTip1.SetToolTip(this.checkBoxAutoTurnOnOff, "Trigger lights on/off when the current user logs on/off");
             this.checkBoxAutoTurnOnOff.UseVisualStyleBackColor = true;
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(3, 78);
-            this.label10.Margin = new System.Windows.Forms.Padding(3, 9, 3, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(102, 13);
-            this.label10.TabIndex = 7;
-            this.label10.Text = "Non-functional (yet):";
-            // 
             // checkBoxSyncOnWallpaperChange
             // 
             this.checkBoxSyncOnWallpaperChange.AutoSize = true;
-            this.checkBoxSyncOnWallpaperChange.Location = new System.Drawing.Point(3, 94);
+            this.checkBoxSyncOnWallpaperChange.Location = new System.Drawing.Point(3, 72);
             this.checkBoxSyncOnWallpaperChange.Name = "checkBoxSyncOnWallpaperChange";
-            this.checkBoxSyncOnWallpaperChange.Size = new System.Drawing.Size(152, 17);
+            this.checkBoxSyncOnWallpaperChange.Size = new System.Drawing.Size(189, 17);
             this.checkBoxSyncOnWallpaperChange.TabIndex = 0;
-            this.checkBoxSyncOnWallpaperChange.Text = "Sync on wallpaper change";
+            this.checkBoxSyncOnWallpaperChange.Text = "Sync colours on wallpaper change";
             this.toolTip1.SetToolTip(this.checkBoxSyncOnWallpaperChange, "Sends an updated palette to the lights when the desktop wallpaper changes");
             this.checkBoxSyncOnWallpaperChange.UseVisualStyleBackColor = true;
             // 
@@ -1843,7 +1831,7 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -2130,7 +2118,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.NumericUpDown numericUpDownProbValue;
         private System.Windows.Forms.CheckBox checkBoxRunOnBoot;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Label label12;
     }

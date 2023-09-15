@@ -10,11 +10,11 @@ namespace MarbleManager.Config
 {
     internal class WallpaperWatcher : IDisposable
     {
-        FileSystemWatcher watcher;
-
         public delegate void ChangeEventHandler(object source, FileSystemEventArgs e);
-
         public event ChangeEventHandler OnChange;
+
+        FileSystemWatcher watcher;
+        bool isProcessing = false;
 
         public WallpaperWatcher() { 
             watcher = new FileSystemWatcher();
@@ -30,9 +30,21 @@ namespace MarbleManager.Config
 
         private async void TriggerOnChanged(object source, FileSystemEventArgs e)
         {
-            // delay for 1/2 second before syncing to allow file to free up
-            await Task.Delay(500);
-            OnChange?.Invoke(source, e);
+            // check if method is already processing
+            if (isProcessing) return;
+
+            isProcessing = true;
+
+            try
+            {
+                // delay before syncing to allow file to free up
+                await Task.Delay(500);
+                OnChange?.Invoke(source, e);
+            }
+            finally
+            {
+                isProcessing = false;
+            }
         }
 
         public void Dispose()
