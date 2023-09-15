@@ -396,6 +396,24 @@ namespace MarbleManager
                 pictureBoxWallpaper.Image = previewImage;
             }
         }
+
+        /**
+         * Performs a colour sync with the previewed image
+         * (rather than the wallpaper)
+         */
+        private void buttonSyncPreviewedPalette_Click(object sender, EventArgs e)
+        {
+            if (previewImage == null)
+            {
+                Console.WriteLine("Please preview an image first");
+                return;
+            }
+
+            lightController.SyncToWallpaper(previewImage);
+            LoadLastPalette();
+
+            Console.WriteLine("Preview palette synced to lights");
+        }
     }
 
     /**

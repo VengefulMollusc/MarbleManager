@@ -71,13 +71,13 @@ namespace MarbleManager.Lights
          * 
          * NOTE: No calls to Console.WriteLine can be used in this due to cross-thread issues when auto syncing
          */
-        internal void SyncToWallpaper()
+        internal void SyncToWallpaper(Bitmap _toSync = null)
         {
-            // fetch current wallpaper
-            Bitmap wallpaper = WallpaperManager.GetWallpaperBitmap();
+            // Select image to sync
+            Bitmap image = _toSync != null ? _toSync : WallpaperManager.GetWallpaperBitmap();
 
             // generate palette
-            PaletteObject palette = PaletteManager.GetPaletteFromBitmap(wallpaper);
+            PaletteObject palette = PaletteManager.GetPaletteFromBitmap(image);
             // save to file
             PaletteManager.SavePalette(palette);
 
@@ -88,7 +88,7 @@ namespace MarbleManager.Lights
             }
 
             // dispose to free up memory
-            wallpaper.Dispose();
+            image.Dispose();
         }
     }
 }

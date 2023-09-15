@@ -35,7 +35,9 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel29 = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonPreviewWallpaper = new System.Windows.Forms.Button();
+            this.buttonLoadImage = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.buttonPreviewPalette = new System.Windows.Forms.Button();
             this.label21 = new System.Windows.Forms.Label();
@@ -178,14 +180,15 @@
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.flowLayoutPanel29 = new System.Windows.Forms.FlowLayoutPanel();
-            this.buttonLoadImage = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.buttonSyncPreviewedPalette = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPagePreview.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
+            this.flowLayoutPanel29.SuspendLayout();
             this.groupBoxPalette.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -235,7 +238,6 @@
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.flowLayoutPanel29.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -307,6 +309,18 @@
             this.flowLayoutPanel4.TabIndex = 2;
             this.flowLayoutPanel4.WrapContents = false;
             // 
+            // flowLayoutPanel29
+            // 
+            this.flowLayoutPanel29.AutoSize = true;
+            this.flowLayoutPanel29.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flowLayoutPanel29.Controls.Add(this.buttonPreviewWallpaper);
+            this.flowLayoutPanel29.Controls.Add(this.buttonLoadImage);
+            this.flowLayoutPanel29.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel29.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel29.Name = "flowLayoutPanel29";
+            this.flowLayoutPanel29.Size = new System.Drawing.Size(212, 29);
+            this.flowLayoutPanel29.TabIndex = 9;
+            // 
             // buttonPreviewWallpaper
             // 
             this.buttonPreviewWallpaper.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -319,6 +333,19 @@
             this.buttonPreviewWallpaper.Text = "Fetch current wallpaper";
             this.buttonPreviewWallpaper.UseVisualStyleBackColor = true;
             this.buttonPreviewWallpaper.Click += new System.EventHandler(this.buttonGetWallpaper_Click);
+            // 
+            // buttonLoadImage
+            // 
+            this.buttonLoadImage.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.buttonLoadImage.AutoSize = true;
+            this.buttonLoadImage.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonLoadImage.Location = new System.Drawing.Point(137, 3);
+            this.buttonLoadImage.Name = "buttonLoadImage";
+            this.buttonLoadImage.Size = new System.Drawing.Size(72, 23);
+            this.buttonLoadImage.TabIndex = 1;
+            this.buttonLoadImage.Text = "Load image";
+            this.buttonLoadImage.UseVisualStyleBackColor = true;
+            this.buttonLoadImage.Click += new System.EventHandler(this.buttonLoadImage_Click);
             // 
             // label12
             // 
@@ -1779,7 +1806,7 @@
             this.groupBoxLightFunctions.Controls.Add(this.flowLayoutPanel9);
             this.groupBoxLightFunctions.Location = new System.Drawing.Point(3, 87);
             this.groupBoxLightFunctions.Name = "groupBoxLightFunctions";
-            this.groupBoxLightFunctions.Size = new System.Drawing.Size(160, 79);
+            this.groupBoxLightFunctions.Size = new System.Drawing.Size(160, 147);
             this.groupBoxLightFunctions.TabIndex = 2;
             this.groupBoxLightFunctions.TabStop = false;
             this.groupBoxLightFunctions.Text = "Sync";
@@ -1790,18 +1817,18 @@
             this.flowLayoutPanel9.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanel9.Controls.Add(this.buttonSyncLightColours);
             this.flowLayoutPanel9.Controls.Add(this.label10);
+            this.flowLayoutPanel9.Controls.Add(this.buttonSyncPreviewedPalette);
+            this.flowLayoutPanel9.Controls.Add(this.label14);
             this.flowLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel9.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel9.Location = new System.Drawing.Point(3, 16);
             this.flowLayoutPanel9.Name = "flowLayoutPanel9";
-            this.flowLayoutPanel9.Size = new System.Drawing.Size(154, 60);
+            this.flowLayoutPanel9.Size = new System.Drawing.Size(154, 128);
             this.flowLayoutPanel9.TabIndex = 1;
             this.flowLayoutPanel9.WrapContents = false;
             // 
             // buttonSyncLightColours
             // 
-            this.buttonSyncLightColours.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonSyncLightColours.AutoSize = true;
             this.buttonSyncLightColours.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.buttonSyncLightColours.Location = new System.Drawing.Point(3, 3);
@@ -1816,10 +1843,11 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(3, 29);
+            this.label10.Margin = new System.Windows.Forms.Padding(3, 0, 3, 9);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(146, 26);
+            this.label10.Size = new System.Drawing.Size(147, 26);
             this.label10.TabIndex = 6;
-            this.label10.Text = "Syncs from current wallpaper not previewed palette";
+            this.label10.Text = "Performs full sync with current wallpaper";
             // 
             // txtConsole
             // 
@@ -1892,37 +1920,34 @@
             this.panel1.Size = new System.Drawing.Size(166, 194);
             this.panel1.TabIndex = 2;
             // 
-            // flowLayoutPanel29
-            // 
-            this.flowLayoutPanel29.AutoSize = true;
-            this.flowLayoutPanel29.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flowLayoutPanel29.Controls.Add(this.buttonPreviewWallpaper);
-            this.flowLayoutPanel29.Controls.Add(this.buttonLoadImage);
-            this.flowLayoutPanel29.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel29.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel29.Name = "flowLayoutPanel29";
-            this.flowLayoutPanel29.Size = new System.Drawing.Size(212, 29);
-            this.flowLayoutPanel29.TabIndex = 9;
-            // 
-            // buttonLoadImage
-            // 
-            this.buttonLoadImage.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.buttonLoadImage.AutoSize = true;
-            this.buttonLoadImage.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonLoadImage.Location = new System.Drawing.Point(137, 3);
-            this.buttonLoadImage.Name = "buttonLoadImage";
-            this.buttonLoadImage.Size = new System.Drawing.Size(72, 23);
-            this.buttonLoadImage.TabIndex = 1;
-            this.buttonLoadImage.Text = "Load image";
-            this.buttonLoadImage.UseVisualStyleBackColor = true;
-            this.buttonLoadImage.Click += new System.EventHandler(this.buttonLoadImage_Click);
-            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.Filter = "JPEG Files (*.jpg)|*.jpg|PNG Files (*.png)|*.png|BMP Files (*.bmp)|*.bmp|All file" +
     "s (*.*)|*.*";
             this.openFileDialog1.Title = "Select an image file";
+            // 
+            // buttonSyncPreviewedPalette
+            // 
+            this.buttonSyncPreviewedPalette.AutoSize = true;
+            this.buttonSyncPreviewedPalette.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonSyncPreviewedPalette.Location = new System.Drawing.Point(3, 67);
+            this.buttonSyncPreviewedPalette.Name = "buttonSyncPreviewedPalette";
+            this.buttonSyncPreviewedPalette.Size = new System.Drawing.Size(128, 23);
+            this.buttonSyncPreviewedPalette.TabIndex = 7;
+            this.buttonSyncPreviewedPalette.Text = "Sync previewed palette";
+            this.buttonSyncPreviewedPalette.UseVisualStyleBackColor = true;
+            this.buttonSyncPreviewedPalette.Click += new System.EventHandler(this.buttonSyncPreviewedPalette_Click);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(3, 93);
+            this.label14.Margin = new System.Windows.Forms.Padding(3, 0, 3, 9);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(134, 26);
+            this.label14.TabIndex = 8;
+            this.label14.Text = "Syncs currently previewed palette";
             // 
             // ConfigForm
             // 
@@ -1942,6 +1967,8 @@
             this.groupBox1.ResumeLayout(false);
             this.flowLayoutPanel4.ResumeLayout(false);
             this.flowLayoutPanel4.PerformLayout();
+            this.flowLayoutPanel29.ResumeLayout(false);
+            this.flowLayoutPanel29.PerformLayout();
             this.groupBoxPalette.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
@@ -2022,8 +2049,6 @@
             this.tableLayoutPanel7.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.flowLayoutPanel29.ResumeLayout(false);
-            this.flowLayoutPanel29.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2181,5 +2206,7 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel29;
         private System.Windows.Forms.Button buttonLoadImage;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Button buttonSyncPreviewedPalette;
+        private System.Windows.Forms.Label label14;
     }
 }
