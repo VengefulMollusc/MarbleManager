@@ -42,31 +42,18 @@ namespace MarbleManager
                 Visible = true 
             };
 
-            notifyIcon.ContextMenuStrip.Opening += ContextMenuStrip_Opening;
-            notifyIcon.DoubleClick += NotifyIcon_DoubleClick;
+            // open config on double-click
+            notifyIcon.DoubleClick += openConfigFormItem_Click;
+            
+            //// setup a submenu
+            //ToolStripMenuItem submenuItem = new ToolStripMenuItem()
+            //{
+            //    Text = "Extra options",
+            //};
+            //submenuItem.DropDownItems.Add("Config form 2", null, openConfigFormItem_Click);
+            //notifyIcon.ContextMenuStrip.Items.Add(submenuItem);
 
-            // I assume could add menu items here if static
-        }
-
-        /**
-         * creates the context menu strip items
-         */
-        private void ContextMenuStrip_Opening(object sender, CancelEventArgs e)
-        {
-            e.Cancel = false;
-
-            // clear items
-            notifyIcon.ContextMenuStrip.Items.Clear();
-
-            // setup a submenu
-            ToolStripMenuItem submenuItem = new ToolStripMenuItem()
-            {
-                Text = "Extra options",
-            };
-            submenuItem.DropDownItems.Add("Config form 2", null, openConfigFormItem_Click);
-
-            // dynamically add items to context strip
-            notifyIcon.ContextMenuStrip.Items.Add(submenuItem);
+            // Add items to context strip
             notifyIcon.ContextMenuStrip.Items.Add("Sync to wallpaper", null, syncFormItem_Click);
             notifyIcon.ContextMenuStrip.Items.Add(new ToolStripSeparator());
             notifyIcon.ContextMenuStrip.Items.Add("Lights On", null, lightsOnFormItem_Click);
@@ -75,15 +62,6 @@ namespace MarbleManager
             notifyIcon.ContextMenuStrip.Items.Add("Config", null, openConfigFormItem_Click);
             notifyIcon.ContextMenuStrip.Items.Add(new ToolStripSeparator());
             notifyIcon.ContextMenuStrip.Items.Add("&Exit", null, exitItem_Click);
-        }
-
-        /**
-         * Opens config form on double click
-         */
-        private void NotifyIcon_DoubleClick(object sender, EventArgs e)
-        {
-            // open config form on double click
-            openConfigFormItem_Click(sender, e);
         }
 
         private void lightsOnFormItem_Click(object sender, EventArgs e)

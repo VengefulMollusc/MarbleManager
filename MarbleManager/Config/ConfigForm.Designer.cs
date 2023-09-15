@@ -31,16 +31,16 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigForm));
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPageStatus = new System.Windows.Forms.TabPage();
+            this.tabPagePreview = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonPreviewWallpaper = new System.Windows.Forms.Button();
-            this.label17 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.buttonPreviewPalette = new System.Windows.Forms.Button();
             this.label21 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
+            this.buttonReloadLastSent = new System.Windows.Forms.Button();
             this.groupBoxPalette = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
@@ -82,8 +82,8 @@
             this.paletteCurrentD = new System.Windows.Forms.Panel();
             this.labelCurrentDPop = new System.Windows.Forms.Label();
             this.labelCurrentDhsl = new System.Windows.Forms.Label();
-            this.groupBoxWallpaper = new System.Windows.Forms.GroupBox();
-            this.panel7 = new System.Windows.Forms.Panel();
+            this.groupBoxImage = new System.Windows.Forms.GroupBox();
+            this.panelPictureBoxWrapper = new System.Windows.Forms.Panel();
             this.pictureBoxWallpaper = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
@@ -169,6 +169,7 @@
             this.groupBoxLightFunctions = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel9 = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonSyncLightColours = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
             this.txtConsole = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -177,8 +178,10 @@
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.flowLayoutPanel29 = new System.Windows.Forms.FlowLayoutPanel();
+            this.buttonLoadImage = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
-            this.tabPageStatus.SuspendLayout();
+            this.tabPagePreview.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
@@ -194,8 +197,8 @@
             this.flowLayoutPanel7.SuspendLayout();
             this.flowLayoutPanel6.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            this.groupBoxWallpaper.SuspendLayout();
-            this.panel7.SuspendLayout();
+            this.groupBoxImage.SuspendLayout();
+            this.panelPictureBoxWrapper.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWallpaper)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
@@ -231,11 +234,12 @@
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.flowLayoutPanel29.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPageStatus);
+            this.tabControl1.Controls.Add(this.tabPagePreview);
             this.tabControl1.Controls.Add(this.tabPageConfig);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Right;
             this.tabControl1.Location = new System.Drawing.Point(174, 24);
@@ -244,16 +248,16 @@
             this.tabControl1.Size = new System.Drawing.Size(626, 463);
             this.tabControl1.TabIndex = 0;
             // 
-            // tabPageStatus
+            // tabPagePreview
             // 
-            this.tabPageStatus.Controls.Add(this.tableLayoutPanel1);
-            this.tabPageStatus.Location = new System.Drawing.Point(4, 22);
-            this.tabPageStatus.Name = "tabPageStatus";
-            this.tabPageStatus.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageStatus.Size = new System.Drawing.Size(618, 437);
-            this.tabPageStatus.TabIndex = 0;
-            this.tabPageStatus.Text = "Status";
-            this.tabPageStatus.UseVisualStyleBackColor = true;
+            this.tabPagePreview.Controls.Add(this.tableLayoutPanel1);
+            this.tabPagePreview.Location = new System.Drawing.Point(4, 22);
+            this.tabPagePreview.Name = "tabPagePreview";
+            this.tabPagePreview.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPagePreview.Size = new System.Drawing.Size(618, 437);
+            this.tabPagePreview.TabIndex = 0;
+            this.tabPagePreview.Text = "Preview";
+            this.tabPagePreview.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel1
             // 
@@ -262,7 +266,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 346F));
             this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.groupBoxPalette, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.groupBoxWallpaper, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.groupBoxImage, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.groupBox3, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
@@ -287,18 +291,20 @@
             // 
             // flowLayoutPanel4
             // 
-            this.flowLayoutPanel4.Controls.Add(this.buttonPreviewWallpaper);
-            this.flowLayoutPanel4.Controls.Add(this.label17);
+            this.flowLayoutPanel4.AutoScroll = true;
+            this.flowLayoutPanel4.Controls.Add(this.flowLayoutPanel29);
+            this.flowLayoutPanel4.Controls.Add(this.label12);
             this.flowLayoutPanel4.Controls.Add(this.buttonPreviewPalette);
             this.flowLayoutPanel4.Controls.Add(this.label21);
             this.flowLayoutPanel4.Controls.Add(this.button1);
-            this.flowLayoutPanel4.Controls.Add(this.label12);
+            this.flowLayoutPanel4.Controls.Add(this.buttonReloadLastSent);
             this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel4.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 16);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
             this.flowLayoutPanel4.Size = new System.Drawing.Size(254, 191);
             this.flowLayoutPanel4.TabIndex = 2;
+            this.flowLayoutPanel4.WrapContents = false;
             // 
             // buttonPreviewWallpaper
             // 
@@ -307,21 +313,21 @@
             this.buttonPreviewWallpaper.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.buttonPreviewWallpaper.Location = new System.Drawing.Point(3, 3);
             this.buttonPreviewWallpaper.Name = "buttonPreviewWallpaper";
-            this.buttonPreviewWallpaper.Size = new System.Drawing.Size(106, 23);
+            this.buttonPreviewWallpaper.Size = new System.Drawing.Size(128, 23);
             this.buttonPreviewWallpaper.TabIndex = 0;
-            this.buttonPreviewWallpaper.Text = "Preview Wallpaper";
+            this.buttonPreviewWallpaper.Text = "Fetch current wallpaper";
             this.buttonPreviewWallpaper.UseVisualStyleBackColor = true;
             this.buttonPreviewWallpaper.Click += new System.EventHandler(this.buttonGetWallpaper_Click);
             // 
-            // label17
+            // label12
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(3, 29);
-            this.label17.Margin = new System.Windows.Forms.Padding(3, 0, 3, 9);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(129, 13);
-            this.label17.TabIndex = 4;
-            this.label17.Text = "Fetches current wallpaper";
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(3, 29);
+            this.label12.Margin = new System.Windows.Forms.Padding(3, 0, 3, 9);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(111, 13);
+            this.label12.TabIndex = 8;
+            this.label12.Text = "Load a preview image";
             // 
             // buttonPreviewPalette
             // 
@@ -330,9 +336,9 @@
             this.buttonPreviewPalette.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.buttonPreviewPalette.Location = new System.Drawing.Point(3, 54);
             this.buttonPreviewPalette.Name = "buttonPreviewPalette";
-            this.buttonPreviewPalette.Size = new System.Drawing.Size(91, 23);
+            this.buttonPreviewPalette.Size = new System.Drawing.Size(90, 23);
             this.buttonPreviewPalette.TabIndex = 3;
-            this.buttonPreviewPalette.Text = "Preview Palette";
+            this.buttonPreviewPalette.Text = "Preview palette";
             this.buttonPreviewPalette.UseVisualStyleBackColor = true;
             this.buttonPreviewPalette.Click += new System.EventHandler(this.buttonGetPalette_Click);
             // 
@@ -342,9 +348,9 @@
             this.label21.Location = new System.Drawing.Point(3, 80);
             this.label21.Margin = new System.Windows.Forms.Padding(3, 0, 3, 9);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(211, 26);
+            this.label21.Size = new System.Drawing.Size(224, 26);
             this.label21.TabIndex = 5;
-            this.label21.Text = "Generates a palette based on the currently previewed wallpaper";
+            this.label21.Text = "Generates palette based on previewed image (fetches wallpaper if none loaded)";
             // 
             // button1
             // 
@@ -353,21 +359,26 @@
             this.button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.button1.Location = new System.Drawing.Point(3, 118);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(117, 23);
+            this.button1.Size = new System.Drawing.Size(129, 23);
             this.button1.TabIndex = 6;
-            this.button1.Text = "Save Palette (TEMP)";
+            this.button1.Text = "Save previewed palette";
+            this.toolTip1.SetToolTip(this.button1, "Saves the previewed palette to file as \'last sent\'. For testing");
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.buttonSavePalette_Click);
             // 
-            // label12
+            // buttonReloadLastSent
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(3, 144);
-            this.label12.Margin = new System.Windows.Forms.Padding(3, 0, 3, 9);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(236, 26);
-            this.label12.TabIndex = 7;
-            this.label12.Text = "Saves the previewed palette to file as \'last sent\'. For testing";
+            this.buttonReloadLastSent.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.buttonReloadLastSent.AutoSize = true;
+            this.buttonReloadLastSent.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonReloadLastSent.Location = new System.Drawing.Point(3, 147);
+            this.buttonReloadLastSent.Name = "buttonReloadLastSent";
+            this.buttonReloadLastSent.Size = new System.Drawing.Size(128, 23);
+            this.buttonReloadLastSent.TabIndex = 7;
+            this.buttonReloadLastSent.Text = "Reload last sent palette";
+            this.toolTip1.SetToolTip(this.buttonReloadLastSent, "Reloads the last sent palette (auto-synced changes will not show automatically)");
+            this.buttonReloadLastSent.UseVisualStyleBackColor = true;
+            this.buttonReloadLastSent.Click += new System.EventHandler(this.buttonReloadLastSent_Click);
             // 
             // groupBoxPalette
             // 
@@ -828,26 +839,26 @@
             this.labelCurrentDhsl.TabIndex = 10;
             this.labelCurrentDhsl.Text = "hsl:--- --- ---";
             // 
-            // groupBoxWallpaper
+            // groupBoxImage
             // 
-            this.groupBoxWallpaper.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxWallpaper.Controls.Add(this.panel7);
-            this.groupBoxWallpaper.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBoxWallpaper.Location = new System.Drawing.Point(3, 3);
-            this.groupBoxWallpaper.Name = "groupBoxWallpaper";
-            this.groupBoxWallpaper.Size = new System.Drawing.Size(260, 209);
-            this.groupBoxWallpaper.TabIndex = 0;
-            this.groupBoxWallpaper.TabStop = false;
-            this.groupBoxWallpaper.Text = "Wallpaper";
+            this.groupBoxImage.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxImage.Controls.Add(this.panelPictureBoxWrapper);
+            this.groupBoxImage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBoxImage.Location = new System.Drawing.Point(3, 3);
+            this.groupBoxImage.Name = "groupBoxImage";
+            this.groupBoxImage.Size = new System.Drawing.Size(260, 209);
+            this.groupBoxImage.TabIndex = 0;
+            this.groupBoxImage.TabStop = false;
+            this.groupBoxImage.Text = "Wallpaper/Image";
             // 
-            // panel7
+            // panelPictureBoxWrapper
             // 
-            this.panel7.Controls.Add(this.pictureBoxWallpaper);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(3, 16);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(254, 190);
-            this.panel7.TabIndex = 0;
+            this.panelPictureBoxWrapper.Controls.Add(this.pictureBoxWallpaper);
+            this.panelPictureBoxWrapper.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelPictureBoxWrapper.Location = new System.Drawing.Point(3, 16);
+            this.panelPictureBoxWrapper.Name = "panelPictureBoxWrapper";
+            this.panelPictureBoxWrapper.Size = new System.Drawing.Size(254, 190);
+            this.panelPictureBoxWrapper.TabIndex = 0;
             // 
             // pictureBoxWallpaper
             // 
@@ -1767,7 +1778,7 @@
             this.groupBoxLightFunctions.Controls.Add(this.flowLayoutPanel9);
             this.groupBoxLightFunctions.Location = new System.Drawing.Point(3, 87);
             this.groupBoxLightFunctions.Name = "groupBoxLightFunctions";
-            this.groupBoxLightFunctions.Size = new System.Drawing.Size(160, 48);
+            this.groupBoxLightFunctions.Size = new System.Drawing.Size(160, 79);
             this.groupBoxLightFunctions.TabIndex = 2;
             this.groupBoxLightFunctions.TabStop = false;
             this.groupBoxLightFunctions.Text = "Sync";
@@ -1777,12 +1788,14 @@
             this.flowLayoutPanel9.AutoSize = true;
             this.flowLayoutPanel9.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanel9.Controls.Add(this.buttonSyncLightColours);
+            this.flowLayoutPanel9.Controls.Add(this.label10);
             this.flowLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel9.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel9.Location = new System.Drawing.Point(3, 16);
             this.flowLayoutPanel9.Name = "flowLayoutPanel9";
-            this.flowLayoutPanel9.Size = new System.Drawing.Size(154, 29);
+            this.flowLayoutPanel9.Size = new System.Drawing.Size(154, 60);
             this.flowLayoutPanel9.TabIndex = 1;
+            this.flowLayoutPanel9.WrapContents = false;
             // 
             // buttonSyncLightColours
             // 
@@ -1797,6 +1810,15 @@
             this.buttonSyncLightColours.Text = "Sync colours with wallpaper";
             this.buttonSyncLightColours.UseVisualStyleBackColor = true;
             this.buttonSyncLightColours.Click += new System.EventHandler(this.buttonSyncLightColours_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(3, 29);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(146, 26);
+            this.label10.TabIndex = 6;
+            this.label10.Text = "Syncs from current wallpaper not previewed palette";
             // 
             // txtConsole
             // 
@@ -1831,7 +1853,7 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -1869,6 +1891,30 @@
             this.panel1.Size = new System.Drawing.Size(166, 194);
             this.panel1.TabIndex = 2;
             // 
+            // flowLayoutPanel29
+            // 
+            this.flowLayoutPanel29.AutoSize = true;
+            this.flowLayoutPanel29.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flowLayoutPanel29.Controls.Add(this.buttonPreviewWallpaper);
+            this.flowLayoutPanel29.Controls.Add(this.buttonLoadImage);
+            this.flowLayoutPanel29.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel29.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel29.Name = "flowLayoutPanel29";
+            this.flowLayoutPanel29.Size = new System.Drawing.Size(212, 29);
+            this.flowLayoutPanel29.TabIndex = 9;
+            // 
+            // buttonLoadImage
+            // 
+            this.buttonLoadImage.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.buttonLoadImage.AutoSize = true;
+            this.buttonLoadImage.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonLoadImage.Location = new System.Drawing.Point(137, 3);
+            this.buttonLoadImage.Name = "buttonLoadImage";
+            this.buttonLoadImage.Size = new System.Drawing.Size(72, 23);
+            this.buttonLoadImage.TabIndex = 1;
+            this.buttonLoadImage.Text = "Load image";
+            this.buttonLoadImage.UseVisualStyleBackColor = true;
+            // 
             // ConfigForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1882,7 +1928,7 @@
             this.Name = "ConfigForm";
             this.Text = "Marble Manager - Config";
             this.tabControl1.ResumeLayout(false);
-            this.tabPageStatus.ResumeLayout(false);
+            this.tabPagePreview.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.flowLayoutPanel4.ResumeLayout(false);
@@ -1908,8 +1954,8 @@
             this.flowLayoutPanel6.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
-            this.groupBoxWallpaper.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
+            this.groupBoxImage.ResumeLayout(false);
+            this.panelPictureBoxWrapper.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWallpaper)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
@@ -1967,6 +2013,8 @@
             this.tableLayoutPanel7.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.flowLayoutPanel29.ResumeLayout(false);
+            this.flowLayoutPanel29.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1974,9 +2022,9 @@
 
         #endregion
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPageStatus;
+        private System.Windows.Forms.TabPage tabPagePreview;
         private System.Windows.Forms.TabPage tabPageConfig;
-        private System.Windows.Forms.GroupBox groupBoxWallpaper;
+        private System.Windows.Forms.GroupBox groupBoxImage;
         private System.Windows.Forms.GroupBox groupBoxPalette;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
@@ -1988,7 +2036,6 @@
         private System.Windows.Forms.Panel paletteCurrentMl;
         private System.Windows.Forms.Panel paletteCurrentMd;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button buttonPreviewWallpaper;
         private System.Windows.Forms.PictureBox pictureBoxWallpaper;
         private System.Windows.Forms.GroupBox groupBoxOnOff;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel8;
@@ -2022,7 +2069,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.CheckBox checkBoxAutoTurnOnOff;
         private System.Windows.Forms.Button buttonConfigApplyChanges;
-        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel panelPictureBoxWrapper;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
@@ -2078,7 +2125,6 @@
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Panel paletteLastD;
         private System.Windows.Forms.Label labelLastDPop;
-        private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txtConsole;
@@ -2119,6 +2165,11 @@
         private System.Windows.Forms.NumericUpDown numericUpDownProbValue;
         private System.Windows.Forms.CheckBox checkBoxRunOnBoot;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button buttonReloadLastSent;
+        private System.Windows.Forms.Button buttonPreviewWallpaper;
+        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel29;
+        private System.Windows.Forms.Button buttonLoadImage;
     }
 }

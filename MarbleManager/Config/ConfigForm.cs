@@ -1,16 +1,11 @@
 ﻿using MarbleManager.Config;
 using MarbleManager.Colours;
-using PaletteSharp;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Text;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using MarbleManager.Lights;
 
@@ -374,6 +369,14 @@ namespace MarbleManager
         private void radioButtonLightEffectHighlight_CheckedChanged(object sender, EventArgs e)
         {
             groupBoxHighlightOptions.Visible = radioButtonLightEffectHighlight.Checked;
+        }
+
+        /**
+         * Reloads the last saved palette from file
+         */
+        private void buttonReloadLastSent_Click(object sender, EventArgs e)
+        {
+            LoadLastPalette();
         }
     }
 
