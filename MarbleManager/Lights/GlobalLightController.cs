@@ -50,6 +50,9 @@ namespace MarbleManager.Lights
                     Console.WriteLine("Enabling wallpaper watcher");
                     watcher = new WallpaperWatcher();
                     watcher.OnChange += SyncOnWallpaperChange;
+
+                    // trigger initial sync
+                    SyncToWallpaper();
                 }
             } else if (watcher != null)
             {
