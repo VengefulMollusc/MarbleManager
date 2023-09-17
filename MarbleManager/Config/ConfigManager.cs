@@ -37,18 +37,28 @@ namespace MarbleManager.Config
         /**
          * Saves a config object to file then applies changes by generating scripts etc.
          */
-        internal static void ApplyConfig(ConfigObject _config)
+        internal static void ApplyConfig(ConfigObject _config, bool _forceApply)
         {
+            ConfigObject oldConfig = GetConfig();
             SaveConfigToFile(_config);
 
             // create script files with new values
             ScriptBuilder.BuildOnOffScriptFiles(_config);
 
-            // apply changes to add startup scripts etc.
-            ConfigureRunOnBoot(_config.generalConfig.runOnBoot);
-            ConfigureAutoOnOff(_config.generalConfig.autoTurnLightsOnOff);
+            bool force = _forceApply || oldConfig == null;
 
-            Console.WriteLine("Applying changes done");
+            // add/remove startup scripts if changed 
+            if (force || oldConfig.generalConfig.runOnBoot != _config.generalConfig.runOnBoot)
+            {
+                ConfigureRunOnBoot(_config.generalConfig.runOnBoot);
+            }
+            // turn on/off auto light state on logon etc.
+            if (force || oldConfig.generalConfig.autoTurnLightsOnOff != _config.generalConfig.autoTurnLightsOnOff)
+            {
+                ConfigureAutoOnOff(_config.generalConfig.autoTurnLightsOnOff);
+            }
+
+            Console.WriteLine("Changes applied");
         }
 
         /**

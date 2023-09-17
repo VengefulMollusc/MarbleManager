@@ -172,6 +172,8 @@
             this.flowLayoutPanel9 = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonSyncLightColours = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
+            this.buttonSyncPreviewedPalette = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
             this.txtConsole = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -181,8 +183,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.buttonSyncPreviewedPalette = new System.Windows.Forms.Button();
-            this.label14 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel30 = new System.Windows.Forms.FlowLayoutPanel();
+            this.checkBoxForceApply = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPagePreview.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -238,6 +240,7 @@
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.flowLayoutPanel30.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -1685,7 +1688,7 @@
             // 
             this.flowLayoutPanel11.Controls.Add(this.buttonConfigReset);
             this.flowLayoutPanel11.Controls.Add(this.label9);
-            this.flowLayoutPanel11.Controls.Add(this.buttonConfigApplyChanges);
+            this.flowLayoutPanel11.Controls.Add(this.flowLayoutPanel30);
             this.flowLayoutPanel11.Controls.Add(this.label8);
             this.flowLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel11.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
@@ -1693,6 +1696,7 @@
             this.flowLayoutPanel11.Name = "flowLayoutPanel11";
             this.flowLayoutPanel11.Size = new System.Drawing.Size(294, 148);
             this.flowLayoutPanel11.TabIndex = 0;
+            this.flowLayoutPanel11.WrapContents = false;
             // 
             // buttonConfigReset
             // 
@@ -1720,7 +1724,7 @@
             // 
             this.buttonConfigApplyChanges.AutoSize = true;
             this.buttonConfigApplyChanges.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonConfigApplyChanges.Location = new System.Drawing.Point(3, 54);
+            this.buttonConfigApplyChanges.Location = new System.Drawing.Point(3, 3);
             this.buttonConfigApplyChanges.Name = "buttonConfigApplyChanges";
             this.buttonConfigApplyChanges.Size = new System.Drawing.Size(88, 23);
             this.buttonConfigApplyChanges.TabIndex = 1;
@@ -1734,10 +1738,11 @@
             this.label8.Location = new System.Drawing.Point(3, 80);
             this.label8.Margin = new System.Windows.Forms.Padding(3, 0, 3, 9);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(281, 39);
+            this.label8.Size = new System.Drawing.Size(281, 52);
             this.label8.TabIndex = 0;
             this.label8.Text = "Applying changes will update generated script files with new values, and activate" +
-    "/deactivate hooks for turning on and off lights etc.";
+    "/deactivate hooks for turning on and off lights etc.\r\nForce will reapply all set" +
+    "tings rather than just changes.";
             // 
             // flowLayoutPanel8
             // 
@@ -1849,6 +1854,28 @@
             this.label10.TabIndex = 6;
             this.label10.Text = "Performs full sync with current wallpaper";
             // 
+            // buttonSyncPreviewedPalette
+            // 
+            this.buttonSyncPreviewedPalette.AutoSize = true;
+            this.buttonSyncPreviewedPalette.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonSyncPreviewedPalette.Location = new System.Drawing.Point(3, 67);
+            this.buttonSyncPreviewedPalette.Name = "buttonSyncPreviewedPalette";
+            this.buttonSyncPreviewedPalette.Size = new System.Drawing.Size(128, 23);
+            this.buttonSyncPreviewedPalette.TabIndex = 7;
+            this.buttonSyncPreviewedPalette.Text = "Sync previewed palette";
+            this.buttonSyncPreviewedPalette.UseVisualStyleBackColor = true;
+            this.buttonSyncPreviewedPalette.Click += new System.EventHandler(this.buttonSyncPreviewedPalette_Click);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(3, 93);
+            this.label14.Margin = new System.Windows.Forms.Padding(3, 0, 3, 9);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(134, 26);
+            this.label14.TabIndex = 8;
+            this.label14.Text = "Syncs currently previewed palette";
+            // 
             // txtConsole
             // 
             this.txtConsole.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -1927,27 +1954,29 @@
     "s (*.*)|*.*";
             this.openFileDialog1.Title = "Select an image file";
             // 
-            // buttonSyncPreviewedPalette
+            // flowLayoutPanel30
             // 
-            this.buttonSyncPreviewedPalette.AutoSize = true;
-            this.buttonSyncPreviewedPalette.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonSyncPreviewedPalette.Location = new System.Drawing.Point(3, 67);
-            this.buttonSyncPreviewedPalette.Name = "buttonSyncPreviewedPalette";
-            this.buttonSyncPreviewedPalette.Size = new System.Drawing.Size(128, 23);
-            this.buttonSyncPreviewedPalette.TabIndex = 7;
-            this.buttonSyncPreviewedPalette.Text = "Sync previewed palette";
-            this.buttonSyncPreviewedPalette.UseVisualStyleBackColor = true;
-            this.buttonSyncPreviewedPalette.Click += new System.EventHandler(this.buttonSyncPreviewedPalette_Click);
+            this.flowLayoutPanel30.AutoSize = true;
+            this.flowLayoutPanel30.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flowLayoutPanel30.Controls.Add(this.buttonConfigApplyChanges);
+            this.flowLayoutPanel30.Controls.Add(this.checkBoxForceApply);
+            this.flowLayoutPanel30.Location = new System.Drawing.Point(0, 51);
+            this.flowLayoutPanel30.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel30.Name = "flowLayoutPanel30";
+            this.flowLayoutPanel30.Size = new System.Drawing.Size(181, 29);
+            this.flowLayoutPanel30.TabIndex = 5;
             // 
-            // label14
+            // checkBoxForceApply
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(3, 93);
-            this.label14.Margin = new System.Windows.Forms.Padding(3, 0, 3, 9);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(134, 26);
-            this.label14.TabIndex = 8;
-            this.label14.Text = "Syncs currently previewed palette";
+            this.checkBoxForceApply.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.checkBoxForceApply.AutoSize = true;
+            this.checkBoxForceApply.Location = new System.Drawing.Point(97, 3);
+            this.checkBoxForceApply.Name = "checkBoxForceApply";
+            this.checkBoxForceApply.Size = new System.Drawing.Size(81, 23);
+            this.checkBoxForceApply.TabIndex = 7;
+            this.checkBoxForceApply.Text = "Force apply";
+            this.checkBoxForceApply.UseVisualStyleBackColor = true;
             // 
             // ConfigForm
             // 
@@ -2049,6 +2078,8 @@
             this.tableLayoutPanel7.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.flowLayoutPanel30.ResumeLayout(false);
+            this.flowLayoutPanel30.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2208,5 +2239,7 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button buttonSyncPreviewedPalette;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel30;
+        private System.Windows.Forms.CheckBox checkBoxForceApply;
     }
 }

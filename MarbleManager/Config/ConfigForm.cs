@@ -228,7 +228,8 @@ namespace MarbleManager
             };
 
             lightController.UpdateConfig(newConfig);
-            ConfigManager.ApplyConfig(newConfig);
+
+            ConfigManager.ApplyConfig(newConfig, checkBoxForceApply.Checked);
         }
 
         /**
