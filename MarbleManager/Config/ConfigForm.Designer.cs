@@ -1644,13 +1644,14 @@
             this.flowLayoutPanelNanoleafLights.Location = new System.Drawing.Point(0, 131);
             this.flowLayoutPanelNanoleafLights.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanelNanoleafLights.MaximumSize = new System.Drawing.Size(270, 0);
+            this.flowLayoutPanelNanoleafLights.MinimumSize = new System.Drawing.Size(20, 10);
             this.flowLayoutPanelNanoleafLights.Name = "flowLayoutPanelNanoleafLights";
-            this.flowLayoutPanelNanoleafLights.Size = new System.Drawing.Size(0, 0);
+            this.flowLayoutPanelNanoleafLights.Size = new System.Drawing.Size(20, 10);
             this.flowLayoutPanelNanoleafLights.TabIndex = 8;
             // 
             // buttonAddNanoleafLight
             // 
-            this.buttonAddNanoleafLight.Location = new System.Drawing.Point(3, 134);
+            this.buttonAddNanoleafLight.Location = new System.Drawing.Point(3, 144);
             this.buttonAddNanoleafLight.Name = "buttonAddNanoleafLight";
             this.buttonAddNanoleafLight.Size = new System.Drawing.Size(75, 23);
             this.buttonAddNanoleafLight.TabIndex = 7;
