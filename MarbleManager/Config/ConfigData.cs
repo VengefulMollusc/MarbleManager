@@ -27,9 +27,8 @@ namespace MarbleManager.Config
 
     public class NanoleafConfig
     {
-        // light ips seperated by commas
-        public string ipAddresses { get; set; }
-        public string apiKey { get; set; }
+        // List of lights
+        public List<Light> lights { get; set; }
         // The effect to use when applying palette to nanoleaf panels
         public NanoleafEffect effect { get; set; }
         
@@ -38,15 +37,11 @@ namespace MarbleManager.Config
         public bool overrideMainColourProb { get; set; }
         // the value to set the main colour probability to
         public int mainColourProb { get; set; }
-        
-        // gets all ips in a list
-        [JsonIgnore]
-        public List<string> LightIps
+
+        public class Light
         {
-            get
-            {
-                return ipAddresses != null ? new List<string>(ipAddresses.Split(',')) : new List<string>();
-            }
+            public string ipAddress { get; set; }
+            public string apiKey { get; set; }
         }
     }
 

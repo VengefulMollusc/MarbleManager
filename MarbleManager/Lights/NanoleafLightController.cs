@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Windows.Forms.AxHost;
@@ -19,7 +20,6 @@ namespace MarbleManager.Lights
         bool onlyUseMainSwatches;
 
         static string baseUrl = "http://<nanoleafIp>:16021";
-        List<string> populatedUrls;
 
         public NanoleafLightController(ConfigObject _config)
         {
@@ -31,15 +31,9 @@ namespace MarbleManager.Lights
          */
         public async void ApplyPalette(PaletteObject _palette)
         {
-            if (populatedUrls == null)
-            {
-                Console.WriteLine("nanoleaf urls not set up");
-                throw new Exception("nanoleaf urls not set up");
-            }
-
             // only send palettes to lights that are ON
-            List<string> onLightUrls = await GetOnLightUrls();
-            if (onLightUrls.Count <= 0)
+            List<NanoleafConfig.Light> onLights = await GetOnLightUrls();
+            if (onLights.Count <= 0)
             {
                 Console.WriteLine("Nanoleaf: No lights are on to send palette");
                 return;
@@ -59,9 +53,9 @@ namespace MarbleManager.Lights
             payload["write"]["palette"] = palette;
 
             // send payload
-            foreach (string url in onLightUrls)
+            foreach (NanoleafConfig.Light light in onLights)
             {
-                SendPayload(url, payload, "/effects");
+                SendPayload(light, payload, "/effects");
             }
         }
 
@@ -72,9 +66,6 @@ namespace MarbleManager.Lights
         {
             config = _config.nanoleafConfig;
             onlyUseMainSwatches = _config.generalConfig.onlyUseMainSwatches;
-
-            // populate urls with ip addresses
-            populatedUrls = config.LightIps.Select(ip => baseUrl.Replace("<nanoleafIp>", ip)).ToList(); ;
         }
 
         /**
@@ -82,23 +73,21 @@ namespace MarbleManager.Lights
          */
         public void SetOnOffState(bool _state)
         {
-            if (populatedUrls == null)
+            foreach (NanoleafConfig.Light light in config.lights)
             {
-                Console.WriteLine("nanoleaf urls not set up");
-                throw new Exception("nanoleaf urls not set up");
-            }
-
-            foreach(string url in populatedUrls)
-            {
-                SendPayload(url, GetStatePayload(_state), "/state");
+                SendPayload(light, GetStatePayload(_state), "/state");
             }
         }
 
         /**
          * Sends a payload to a given nanoleaf api endpoint
          */
-        private async void SendPayload(string _baseUrl, object _payload, string _endpoint)
+        private async void SendPayload(NanoleafConfig.Light _light, object _payload, string _endpoint)
         {
+            if (_light == null || _light.ipAddress == null || _light.apiKey == null)
+            {
+                throw new Exception("Nanoleaf light data missing");
+            }
             if (_payload == null)
             {
                 throw new Exception("null payload");
@@ -107,14 +96,14 @@ namespace MarbleManager.Lights
             using (HttpClient client = new HttpClient())
             {
                 // set URL
-                client.BaseAddress = new Uri(_baseUrl);
+                client.BaseAddress = new Uri(baseUrl.Replace("<nanoleafIp>", _light.ipAddress));
 
                 // create payload string
                 string jsonPayload = JsonConvert.SerializeObject(_payload);
                 StringContent content = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
 
                 // send the request
-                HttpResponseMessage response = await client.PutAsync($"api/v1/{config.apiKey}{_endpoint}", content);
+                HttpResponseMessage response = await client.PutAsync($"api/v1/{_light.apiKey}{_endpoint}", content);
 
                 // Check if the request was successful
                 if (response.IsSuccessStatusCode)
@@ -212,19 +201,19 @@ namespace MarbleManager.Lights
          * 
          * used for only triggering palette updates on lights that are already on
          */
-        private async Task<List<string>> GetOnLightUrls()
+        private async Task<List<NanoleafConfig.Light>> GetOnLightUrls()
         {
             // check all lights
-            List<Task<string>> tasks = new List<Task<string>>();
-            foreach (string url in populatedUrls)
+            List<Task<NanoleafConfig.Light>> tasks = new List<Task<NanoleafConfig.Light>>();
+            foreach (NanoleafConfig.Light light in config.lights)
             {
-                tasks.Add(IsLightOn(url));
+                tasks.Add(IsLightOn(light));
             }
 
             await Task.WhenAll(tasks);
 
             // return list of lights that are ON
-            List<string> onLights = new List<string>();
+            List<NanoleafConfig.Light> onLights = new List<NanoleafConfig.Light>();
             foreach (var task in tasks)
             {
                 if (task.Result != null)
@@ -241,15 +230,15 @@ namespace MarbleManager.Lights
          * returns the _baseUrl if the light is on
          * null if not
          */
-        private async Task<string> IsLightOn(string _baseUrl)
+        private async Task<NanoleafConfig.Light> IsLightOn(NanoleafConfig.Light _light)
         {
             using (HttpClient client = new HttpClient())
             {
                 // set URL
-                client.BaseAddress = new Uri(_baseUrl);
+                client.BaseAddress = new Uri(baseUrl.Replace("<nanoleafIp>", _light.ipAddress));
 
                 // send the request
-                HttpResponseMessage response = await client.GetAsync($"api/v1/{config.apiKey}/state/on");
+                HttpResponseMessage response = await client.GetAsync($"api/v1/{_light.apiKey}/state/on");
 
                 // Check if the request was successful
                 if (response.IsSuccessStatusCode)
@@ -258,16 +247,16 @@ namespace MarbleManager.Lights
                     string responseContent = await response.Content.ReadAsStringAsync();
                     if (responseContent == @"{""value"":true}")
                     {
-                        Console.WriteLine($"Nanoleaf {_baseUrl} is ON");
-                        return _baseUrl;
+                        Console.WriteLine($"Nanoleaf {_light.ipAddress} is ON");
+                        return _light;
                     }
                 }
                 else
                 {
-                    Console.WriteLine($"Nanoleaf isOn Error: {_baseUrl} : {response.StatusCode}");
+                    Console.WriteLine($"Nanoleaf isOn Error: {_light.ipAddress} : {response.StatusCode}");
                 }
             }
-            Console.WriteLine($"Nanoleaf {_baseUrl} is OFF");
+            Console.WriteLine($"Nanoleaf {_light.ipAddress} is OFF");
             return null;
         }
 

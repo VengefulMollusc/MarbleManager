@@ -19,7 +19,17 @@ namespace MarbleManager.Scripts
                 { "<lightState>", _lightOn ? "on" : "off" },
                 { "<lifxAuthKey>", _configObject.lifxConfig.authKey }
             };
-            return FormatCommands(commandTemplate, baseValues, "<lifxSelector>", _configObject.lifxConfig.LightSelectors);
+
+            // setup base command
+            string baseCommand = Utilities.ReplaceValues(commandTemplate, baseValues);
+
+            // repeat command for each light listed in selector list
+            List<string> commands = new List<string>();
+            foreach (string selector in _configObject.lifxConfig.LightSelectors)
+            {
+                commands.Add(baseCommand.Replace("<lifxSelector>", selector));
+            }
+            return commands;
         }
     }
 }

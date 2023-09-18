@@ -144,10 +144,6 @@
             this.textBoxLifxAuthKey = new System.Windows.Forms.TextBox();
             this.groupBoxConfigNanoleaf = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel12 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBoxNanoleafIP = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBoxNanoleafApiKey = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.flowLayoutPanel10 = new System.Windows.Forms.FlowLayoutPanel();
             this.radioButtonLightEffectRandom = new System.Windows.Forms.RadioButton();
@@ -157,11 +153,15 @@
             this.checkBoxOverrideMainColourProb = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.numericUpDownProbValue = new System.Windows.Forms.NumericUpDown();
+            this.flowLayoutPanelNanoleafLights = new System.Windows.Forms.FlowLayoutPanel();
+            this.buttonAddNanoleafLight = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel11 = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonConfigReset = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel30 = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonConfigApplyChanges = new System.Windows.Forms.Button();
+            this.checkBoxForceApply = new System.Windows.Forms.CheckBox();
             this.label8 = new System.Windows.Forms.Label();
             this.flowLayoutPanel8 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBoxOnOff = new System.Windows.Forms.GroupBox();
@@ -183,8 +183,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.flowLayoutPanel30 = new System.Windows.Forms.FlowLayoutPanel();
-            this.checkBoxForceApply = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPagePreview.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -232,6 +230,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownProbValue)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.flowLayoutPanel11.SuspendLayout();
+            this.flowLayoutPanel30.SuspendLayout();
             this.flowLayoutPanel8.SuspendLayout();
             this.groupBoxOnOff.SuspendLayout();
             this.flowLayoutPanel5.SuspendLayout();
@@ -240,7 +239,6 @@
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.flowLayoutPanel30.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -1532,13 +1530,11 @@
             // flowLayoutPanel12
             // 
             this.flowLayoutPanel12.AutoScroll = true;
-            this.flowLayoutPanel12.Controls.Add(this.label3);
-            this.flowLayoutPanel12.Controls.Add(this.textBoxNanoleafIP);
-            this.flowLayoutPanel12.Controls.Add(this.label4);
-            this.flowLayoutPanel12.Controls.Add(this.textBoxNanoleafApiKey);
             this.flowLayoutPanel12.Controls.Add(this.label7);
             this.flowLayoutPanel12.Controls.Add(this.flowLayoutPanel10);
             this.flowLayoutPanel12.Controls.Add(this.groupBoxHighlightOptions);
+            this.flowLayoutPanel12.Controls.Add(this.flowLayoutPanelNanoleafLights);
+            this.flowLayoutPanel12.Controls.Add(this.buttonAddNanoleafLight);
             this.flowLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel12.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel12.Location = new System.Drawing.Point(3, 16);
@@ -1547,43 +1543,10 @@
             this.flowLayoutPanel12.TabIndex = 0;
             this.flowLayoutPanel12.WrapContents = false;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "IP addresses";
-            // 
-            // textBoxNanoleafIP
-            // 
-            this.textBoxNanoleafIP.Location = new System.Drawing.Point(3, 16);
-            this.textBoxNanoleafIP.Name = "textBoxNanoleafIP";
-            this.textBoxNanoleafIP.Size = new System.Drawing.Size(270, 20);
-            this.textBoxNanoleafIP.TabIndex = 1;
-            this.toolTip1.SetToolTip(this.textBoxNanoleafIP, "IP addresses of Nanoleaf Lights, seperated by commas");
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 39);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 13);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "API key";
-            // 
-            // textBoxNanoleafApiKey
-            // 
-            this.textBoxNanoleafApiKey.Location = new System.Drawing.Point(3, 55);
-            this.textBoxNanoleafApiKey.Name = "textBoxNanoleafApiKey";
-            this.textBoxNanoleafApiKey.Size = new System.Drawing.Size(270, 20);
-            this.textBoxNanoleafApiKey.TabIndex = 3;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(3, 78);
+            this.label7.Location = new System.Drawing.Point(3, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(60, 13);
             this.label7.TabIndex = 4;
@@ -1593,7 +1556,7 @@
             // 
             this.flowLayoutPanel10.Controls.Add(this.radioButtonLightEffectRandom);
             this.flowLayoutPanel10.Controls.Add(this.radioButtonLightEffectHighlight);
-            this.flowLayoutPanel10.Location = new System.Drawing.Point(3, 94);
+            this.flowLayoutPanel10.Location = new System.Drawing.Point(3, 16);
             this.flowLayoutPanel10.Name = "flowLayoutPanel10";
             this.flowLayoutPanel10.Size = new System.Drawing.Size(191, 25);
             this.flowLayoutPanel10.TabIndex = 0;
@@ -1626,7 +1589,7 @@
             this.groupBoxHighlightOptions.AutoSize = true;
             this.groupBoxHighlightOptions.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.groupBoxHighlightOptions.Controls.Add(this.flowLayoutPanel28);
-            this.groupBoxHighlightOptions.Location = new System.Drawing.Point(3, 125);
+            this.groupBoxHighlightOptions.Location = new System.Drawing.Point(3, 47);
             this.groupBoxHighlightOptions.Name = "groupBoxHighlightOptions";
             this.groupBoxHighlightOptions.Size = new System.Drawing.Size(185, 81);
             this.groupBoxHighlightOptions.TabIndex = 5;
@@ -1672,6 +1635,28 @@
             this.numericUpDownProbValue.Name = "numericUpDownProbValue";
             this.numericUpDownProbValue.Size = new System.Drawing.Size(120, 20);
             this.numericUpDownProbValue.TabIndex = 9;
+            // 
+            // flowLayoutPanelNanoleafLights
+            // 
+            this.flowLayoutPanelNanoleafLights.AutoSize = true;
+            this.flowLayoutPanelNanoleafLights.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flowLayoutPanelNanoleafLights.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanelNanoleafLights.Location = new System.Drawing.Point(0, 131);
+            this.flowLayoutPanelNanoleafLights.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanelNanoleafLights.MaximumSize = new System.Drawing.Size(270, 0);
+            this.flowLayoutPanelNanoleafLights.Name = "flowLayoutPanelNanoleafLights";
+            this.flowLayoutPanelNanoleafLights.Size = new System.Drawing.Size(0, 0);
+            this.flowLayoutPanelNanoleafLights.TabIndex = 8;
+            // 
+            // buttonAddNanoleafLight
+            // 
+            this.buttonAddNanoleafLight.Location = new System.Drawing.Point(3, 134);
+            this.buttonAddNanoleafLight.Name = "buttonAddNanoleafLight";
+            this.buttonAddNanoleafLight.Size = new System.Drawing.Size(75, 23);
+            this.buttonAddNanoleafLight.TabIndex = 7;
+            this.buttonAddNanoleafLight.Text = "Add light";
+            this.buttonAddNanoleafLight.UseVisualStyleBackColor = true;
+            this.buttonAddNanoleafLight.Click += new System.EventHandler(this.buttonAddNanoleafLight_Click);
             // 
             // groupBox2
             // 
@@ -1720,6 +1705,18 @@
             this.label9.TabIndex = 4;
             this.label9.Text = "Reset the configuration to the last saved values";
             // 
+            // flowLayoutPanel30
+            // 
+            this.flowLayoutPanel30.AutoSize = true;
+            this.flowLayoutPanel30.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flowLayoutPanel30.Controls.Add(this.buttonConfigApplyChanges);
+            this.flowLayoutPanel30.Controls.Add(this.checkBoxForceApply);
+            this.flowLayoutPanel30.Location = new System.Drawing.Point(0, 51);
+            this.flowLayoutPanel30.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel30.Name = "flowLayoutPanel30";
+            this.flowLayoutPanel30.Size = new System.Drawing.Size(181, 29);
+            this.flowLayoutPanel30.TabIndex = 5;
+            // 
             // buttonConfigApplyChanges
             // 
             this.buttonConfigApplyChanges.AutoSize = true;
@@ -1731,6 +1728,18 @@
             this.buttonConfigApplyChanges.Text = "Apply Changes";
             this.buttonConfigApplyChanges.UseVisualStyleBackColor = true;
             this.buttonConfigApplyChanges.Click += new System.EventHandler(this.buttonConfigApplyChanges_Click);
+            // 
+            // checkBoxForceApply
+            // 
+            this.checkBoxForceApply.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.checkBoxForceApply.AutoSize = true;
+            this.checkBoxForceApply.Location = new System.Drawing.Point(97, 3);
+            this.checkBoxForceApply.Name = "checkBoxForceApply";
+            this.checkBoxForceApply.Size = new System.Drawing.Size(81, 23);
+            this.checkBoxForceApply.TabIndex = 7;
+            this.checkBoxForceApply.Text = "Force apply";
+            this.checkBoxForceApply.UseVisualStyleBackColor = true;
             // 
             // label8
             // 
@@ -1954,30 +1963,6 @@
     "s (*.*)|*.*";
             this.openFileDialog1.Title = "Select an image file";
             // 
-            // flowLayoutPanel30
-            // 
-            this.flowLayoutPanel30.AutoSize = true;
-            this.flowLayoutPanel30.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flowLayoutPanel30.Controls.Add(this.buttonConfigApplyChanges);
-            this.flowLayoutPanel30.Controls.Add(this.checkBoxForceApply);
-            this.flowLayoutPanel30.Location = new System.Drawing.Point(0, 51);
-            this.flowLayoutPanel30.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel30.Name = "flowLayoutPanel30";
-            this.flowLayoutPanel30.Size = new System.Drawing.Size(181, 29);
-            this.flowLayoutPanel30.TabIndex = 5;
-            // 
-            // checkBoxForceApply
-            // 
-            this.checkBoxForceApply.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.checkBoxForceApply.AutoSize = true;
-            this.checkBoxForceApply.Location = new System.Drawing.Point(97, 3);
-            this.checkBoxForceApply.Name = "checkBoxForceApply";
-            this.checkBoxForceApply.Size = new System.Drawing.Size(81, 23);
-            this.checkBoxForceApply.TabIndex = 7;
-            this.checkBoxForceApply.Text = "Force apply";
-            this.checkBoxForceApply.UseVisualStyleBackColor = true;
-            // 
             // ConfigForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2064,6 +2049,8 @@
             this.groupBox2.ResumeLayout(false);
             this.flowLayoutPanel11.ResumeLayout(false);
             this.flowLayoutPanel11.PerformLayout();
+            this.flowLayoutPanel30.ResumeLayout(false);
+            this.flowLayoutPanel30.PerformLayout();
             this.flowLayoutPanel8.ResumeLayout(false);
             this.groupBoxOnOff.ResumeLayout(false);
             this.groupBoxOnOff.PerformLayout();
@@ -2078,8 +2065,6 @@
             this.tableLayoutPanel7.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.flowLayoutPanel30.ResumeLayout(false);
-            this.flowLayoutPanel30.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2118,10 +2103,6 @@
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBoxConfigNanoleaf;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel12;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBoxNanoleafIP;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBoxNanoleafApiKey;
         private System.Windows.Forms.GroupBox groupBoxConfigLifx;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel13;
         private System.Windows.Forms.Label label5;
@@ -2241,5 +2222,7 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel30;
         private System.Windows.Forms.CheckBox checkBoxForceApply;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelNanoleafLights;
+        private System.Windows.Forms.Button buttonAddNanoleafLight;
     }
 }

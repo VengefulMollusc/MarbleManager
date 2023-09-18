@@ -13,13 +13,27 @@ namespace MarbleManager.Scripts
 
         internal override List<string> GetLightOnOffCommands(bool _lightOn, ConfigObject _configObject)
         {
-            // setup base command
-            Dictionary<string, string> baseValues = new Dictionary<string, string>()
+            List<string> commands = new List<string>();
+            foreach (Dictionary<string, string> variables in GetCommandVariables(_configObject.nanoleafConfig.lights, _lightOn))
             {
-                { "<lightState>", _lightOn ? "true" : "false" },
-                { "<nanoleafApiKey>", _configObject.nanoleafConfig.apiKey }
-            };
-            return FormatCommands(commandTemplate, baseValues, "<nanoleafIp>", _configObject.nanoleafConfig.LightIps);
+                commands.Add(Utilities.ReplaceValues(commandTemplate, variables));
+            }
+            return commands;
+        }
+
+        private List<Dictionary<string, string>> GetCommandVariables(List<NanoleafConfig.Light> _lights, bool _lightOn)
+        {
+            List<Dictionary<string, string>> variables = new List<Dictionary<string, string>>();
+            foreach (NanoleafConfig.Light light in _lights)
+            {
+                variables.Add(new Dictionary<string, string>()
+                {
+                    { "<lightState>", _lightOn ? "true" : "false" },
+                    { "<nanoleafIp>", light.ipAddress },
+                    { "<nanoleafApiKey>", light.apiKey }
+                });
+            }
+            return variables;
         }
     }
 }
