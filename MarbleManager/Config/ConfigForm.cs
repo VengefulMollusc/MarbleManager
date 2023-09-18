@@ -245,10 +245,12 @@ namespace MarbleManager
          */
         private void CreateNanoleafLight(NanoleafConfig.Light _light = null)
         {
+            nanoleafLightCount++;
+
             // wrapper group box
             GroupBox groupBox = new GroupBox();
             groupBox.Name = $"groupBoxNanoleaf{nanoleafLightCount}";
-            groupBox.Text = "Light config";
+            groupBox.Text = $"Light {nanoleafLightCount}";
             groupBox.Size = new Size(260, 127);
 
             // flow layout panel
@@ -304,7 +306,6 @@ namespace MarbleManager
             groupBox.Controls.Add(flowLayoutPanel);
 
             flowLayoutPanelNanoleafLights.Controls.Add(groupBox);
-            nanoleafLightCount++;
         }
 
         /**
