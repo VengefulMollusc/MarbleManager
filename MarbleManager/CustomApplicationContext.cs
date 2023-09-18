@@ -92,6 +92,7 @@ namespace MarbleManager
             {
                 configForm = new ConfigForm();
                 configForm.FormClosed += ConfigForm_FormClosed;
+                configForm.Icon = Resources.programIcon;
                 configForm.SetLightController(lightController);
                 configForm.Show();
             }
