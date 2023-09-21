@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace MarbleManager.Scripts
 {
-    internal class LifxLightScriptBuilder : LightScriptBuilder
+    internal class LifxLightScriptBuilder : ILightScriptBuilder
     {
         private string commandTemplate = "curl -X PUT \"https://api.lifx.com/v1/lights/<lifxSelector>/state\" -H \"Authorization: Bearer <lifxAuthKey>\" -d \"power=<lightState>\" --ssl-no-revoke";
 
-        internal override List<string> GetLightOnOffCommands(bool _lightOn, ConfigObject _configObject)
+        public List<string> GetLightOnOffCommands(bool _lightOn, ConfigObject _configObject)
         {
             // setup base command
             Dictionary<string, string> baseValues = new Dictionary<string, string>()

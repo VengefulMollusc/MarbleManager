@@ -66,10 +66,13 @@
     </Compile>
     <Compile Include="Config\ConfigData.cs" />
     <Compile Include="Config\ConfigManager.cs" />
+    <Compile Include="Config\LightConfigManagers\LifxConfigManager.cs" />
+    <Compile Include="Config\LightConfigManagers\LightConfigManager.cs" />
+    <Compile Include="Config\LightConfigManagers\NanoleafConfigManager.cs" />
     <Compile Include="Config\PathManager.cs" />
     <Compile Include="Config\WallpaperWatcher.cs" />
     <Compile Include="Scripts\LifxLightScriptBuilder.cs" />
-    <Compile Include="Scripts\LightScriptBuilder.cs" />
+    <Compile Include="Scripts\ILightScriptBuilder.cs" />
     <Compile Include="Scripts\NanoleafLightScriptBuilder.cs" />
     <Compile Include="Scripts\ScriptBuilder.cs" />
     <Compile Include="CustomApplicationContext.cs" />

@@ -25,7 +25,13 @@ namespace MarbleManager.Config
         public bool runOnBoot { get; set; }
     }
 
-    public class NanoleafConfig
+    public abstract class LightConfig
+    {
+        // whether this light is enabled
+        public bool enabled { get; set; }
+    }
+
+    public class NanoleafConfig : LightConfig
     {
         // List of lights
         public List<Light> lights { get; set; }
@@ -45,7 +51,7 @@ namespace MarbleManager.Config
         }
     }
 
-    public class LifxConfig
+    public class LifxConfig : LightConfig
     {
         // light selectors seperated by commas
         public string selectors { get; set; }
@@ -64,7 +70,7 @@ namespace MarbleManager.Config
 
     public enum NanoleafEffect
     {
-        Random,
-        Highlight
+        Random = 0,
+        Highlight = 1
     }
 }

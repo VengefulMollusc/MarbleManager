@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace MarbleManager.Scripts
 {
-    internal abstract class LightScriptBuilder
+    internal interface ILightScriptBuilder
     {
         /**
          * Gets a string batch command turning the light on or off
          */
-        internal abstract List<string> GetLightOnOffCommands(bool _lightOn, ConfigObject _configObject);
+        List<string> GetLightOnOffCommands(bool _lightOn, ConfigObject _configObject);
     }
 }

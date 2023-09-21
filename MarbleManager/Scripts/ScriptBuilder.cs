@@ -34,7 +34,7 @@ namespace MarbleManager.Scripts
         {
             string outputFile = Path.Combine(PathManager.BatScriptOutputDir, _lightsOn ? turnOnLightsFileName : turnOffLightsFileName);
 
-            List<LightScriptBuilder> builders = new List<LightScriptBuilder>()
+            List<ILightScriptBuilder> builders = new List<ILightScriptBuilder>()
             {
                 new LifxLightScriptBuilder(),
                 new NanoleafLightScriptBuilder(),
@@ -48,7 +48,7 @@ namespace MarbleManager.Scripts
             };
 
             // add commands for light scripts
-            foreach (LightScriptBuilder builder in builders)
+            foreach (ILightScriptBuilder builder in builders)
             {
                 foreach (string command in builder.GetLightOnOffCommands(_lightsOn, _config))
                 {

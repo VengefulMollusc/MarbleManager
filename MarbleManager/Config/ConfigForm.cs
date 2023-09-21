@@ -8,6 +8,7 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 using MarbleManager.Lights;
+using MarbleManager.Config.LightConfigManagers;
 
 namespace MarbleManager
 {
@@ -18,7 +19,8 @@ namespace MarbleManager
 
         TextWriter originalOut;
 
-        int nanoleafLightCount;
+        NanoleafConfigManager nanoleafConfigManager;
+        LifxConfigManager lifxConfigManager;
 
         public ConfigForm()
         {
@@ -162,9 +164,11 @@ namespace MarbleManager
          */
         private void LoadConfig()
         {
+            // Clear dynamic UI
+            lightSettingsDynamicPanel.Controls.Clear();
+
             // Load config
             ConfigObject config = ConfigManager.GetConfig();
-
             if (config == null)
             {
                 Console.WriteLine("Config load error - null object returned");
@@ -177,32 +181,19 @@ namespace MarbleManager
             checkBoxUseMainSwatches.Checked = config.generalConfig.onlyUseMainSwatches;
             checkBoxRunOnBoot.Checked = config.generalConfig.runOnBoot;
 
-            // init nanoleaf config
-            switch (config.nanoleafConfig.effect)
-            {
-                case NanoleafEffect.Highlight:
-                    radioButtonLightEffectHighlight.Checked = true;
-                    break;
-                case NanoleafEffect.Random:
-                default:
-                    radioButtonLightEffectRandom.Checked = true;
-                    break;
-            }
-            checkBoxOverrideMainColourProb.Checked = config.nanoleafConfig.overrideMainColourProb;
-            numericUpDownProbValue.Value = config.nanoleafConfig.mainColourProb;
-            // create nanoleaf light ui elements
-            nanoleafLightCount = 0;
-            if (config.nanoleafConfig.lights != null)
-            {
-                foreach (NanoleafConfig.Light light in config.nanoleafConfig.lights)
-                {
-                    CreateNanoleafLight(light);
-                }
-            }
-
+            // init light configs in opposite order to UI
             // init lifx config
-            textBoxLifxSelector.Text = config.lifxConfig.selectors;
-            textBoxLifxAuthKey.Text = config.lifxConfig.authKey;
+            if (lifxConfigManager == null)
+            {
+                lifxConfigManager = new LifxConfigManager();
+            }
+            lightSettingsDynamicPanel.Controls.Add(lifxConfigManager.GetLightConfigUI(config.lifxConfig));
+            // init nanoleaf config
+            if (nanoleafConfigManager == null)
+            {
+                nanoleafConfigManager = new NanoleafConfigManager();
+            }
+            lightSettingsDynamicPanel.Controls.Add(nanoleafConfigManager.GetLightConfigUI(config.nanoleafConfig));
 
             Console.WriteLine("Config loaded");
         }
@@ -212,6 +203,8 @@ namespace MarbleManager
          */
         private void SaveConfig()
         {
+            Console.WriteLine("Saving config");
+
             ConfigObject newConfig = new ConfigObject()
             {
                 generalConfig = new GeneralConfig()
@@ -221,125 +214,15 @@ namespace MarbleManager
                     onlyUseMainSwatches = checkBoxUseMainSwatches.Checked,
                     runOnBoot = checkBoxRunOnBoot.Checked,
                 },
-                nanoleafConfig = new NanoleafConfig()
-                {
-                    lights = GetNanoleafLights(),
-                    effect = GetSelectedNanoleafEffect(),
-                    overrideMainColourProb = checkBoxOverrideMainColourProb.Checked,
-                    mainColourProb = (int)numericUpDownProbValue.Value,
-                },
-                lifxConfig = new LifxConfig()
-                {
-                    selectors = textBoxLifxSelector.Text,
-                    authKey = textBoxLifxAuthKey.Text
-                }
+                nanoleafConfig = nanoleafConfigManager.GetConfigObject<NanoleafConfig>(),
+                lifxConfig = lifxConfigManager.GetConfigObject<LifxConfig>(),
             };
 
             lightController.UpdateConfig(newConfig);
 
             ConfigManager.ApplyConfig(newConfig, checkBoxForceApply.Checked);
-        }
 
-        /**
-         * Creates a Nanoleaf light config UI element
-         */
-        private void CreateNanoleafLight(NanoleafConfig.Light _light = null)
-        {
-            nanoleafLightCount++;
-
-            // wrapper group box
-            GroupBox groupBox = new GroupBox();
-            groupBox.Name = $"groupBoxNanoleaf{nanoleafLightCount}";
-            groupBox.Text = $"Light {nanoleafLightCount}";
-            groupBox.Size = new Size(260, 127);
-
-            // flow layout panel
-            FlowLayoutPanel flowLayoutPanel = new FlowLayoutPanel();
-            flowLayoutPanel.Name = $"flowLayoutPanelNanoleaf{nanoleafLightCount}";
-            flowLayoutPanel.Dock = DockStyle.Fill;
-            flowLayoutPanel.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel.WrapContents = false;
-
-            // Ip label
-            Label ipLabel = new Label();
-            ipLabel.Name = $"labelNanoleafIp{nanoleafLightCount}";
-            ipLabel.Text = "IP address";
-            ipLabel.AutoSize = true;
-
-            // ip textbox
-            TextBox ipTextBox = new TextBox();
-            ipTextBox.Name = $"textBoxNanoleafIp{nanoleafLightCount}";
-            ipTextBox.Size = new Size(248, 20);
-            if (_light != null)
-            {
-                ipTextBox.Text = _light.ipAddress;
-            }
-
-            // api key label
-            Label apiKeyLabel = new Label();
-            apiKeyLabel.Name = $"labelNanoleafApiKey{nanoleafLightCount}";
-            apiKeyLabel.Text = "API Key";
-            apiKeyLabel.AutoSize = true;
-
-            // api key textbox
-            TextBox apiKeyTextBox = new TextBox();
-            apiKeyTextBox.Name = $"textBoxNanoleafApiKey{nanoleafLightCount}";
-            apiKeyTextBox.Size = new Size(248, 20);
-            if (_light != null)
-            {
-                apiKeyTextBox.Text = _light.apiKey;
-            }
-
-            // remove light button
-            Button buttonRemoveLight = new Button();
-            buttonRemoveLight.Name = $"buttonRemoveNanoleafLight{nanoleafLightCount}";
-            buttonRemoveLight.Size = new Size(63, 23);
-            buttonRemoveLight.Text = "Remove";
-            buttonRemoveLight.Click += new EventHandler(buttonRemoveNanoleafLight_Click);
-
-            // add controls
-            flowLayoutPanel.Controls.Add(ipLabel);
-            flowLayoutPanel.Controls.Add(ipTextBox);
-            flowLayoutPanel.Controls.Add(apiKeyLabel);
-            flowLayoutPanel.Controls.Add(apiKeyTextBox);
-            flowLayoutPanel.Controls.Add(buttonRemoveLight);
-            groupBox.Controls.Add(flowLayoutPanel);
-
-            flowLayoutPanelNanoleafLights.Controls.Add(groupBox);
-        }
-
-        /**
-         * Removes a nanoleaf light config entry
-         */
-        private void buttonRemoveNanoleafLight_Click(object sender, EventArgs e)
-        {
-            Button button = (Button)sender;
-            // get parent wrapper control
-            GroupBox parent = (GroupBox)button.Parent.Parent;
-            flowLayoutPanelNanoleafLights.Controls.Remove(parent);
-        }
-
-        /**
-         * Creates a list of nanoleaf light objects from ui
-         */
-        private List<NanoleafConfig.Light> GetNanoleafLights()
-        {
-            List<NanoleafConfig.Light> lights = new List<NanoleafConfig.Light>();
-            foreach (Control control in flowLayoutPanelNanoleafLights.Controls)
-            {
-                // ip address text
-                string ip = control.Controls[0].Controls[1].Text;
-                string apiKey = control.Controls[0].Controls[3].Text;
-                if (ip != null || apiKey != null)
-                {
-                    lights.Add(new NanoleafConfig.Light()
-                    {
-                        ipAddress = ip,
-                        apiKey = apiKey,
-                    });
-                }
-            }
-            return lights;
+            Console.WriteLine("Config saved");
         }
 
         /**
@@ -353,20 +236,6 @@ namespace MarbleManager
             }
 
             PreviewPalette(palette, false);
-        }
-
-
-        /**
-         * Fetches the currently selected nanoleaf effect enum
-         */
-        private NanoleafEffect GetSelectedNanoleafEffect()
-        {
-            if (radioButtonLightEffectHighlight.Checked)
-            {
-                return NanoleafEffect.Highlight;
-            }
-            // default return Random
-            return NanoleafEffect.Random;
         }
 
         /**
@@ -476,14 +345,6 @@ namespace MarbleManager
         }
 
         /**
-         * Toggle visibility of the highlight extra options panel
-         */
-        private void radioButtonLightEffectHighlight_CheckedChanged(object sender, EventArgs e)
-        {
-            groupBoxHighlightOptions.Visible = radioButtonLightEffectHighlight.Checked;
-        }
-
-        /**
          * Reloads the last saved palette from file
          */
         private void buttonReloadLastSent_Click(object sender, EventArgs e)
@@ -524,14 +385,6 @@ namespace MarbleManager
             LoadLastPalette();
 
             Console.WriteLine("Preview palette synced to lights");
-        }
-
-        /**
-         * Adds a ui box for nanoleaf light config
-         */
-        private void buttonAddNanoleafLight_Click(object sender, EventArgs e)
-        {
-            CreateNanoleafLight();
         }
     }
 

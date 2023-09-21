@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace MarbleManager.Scripts
 {
-    internal class NanoleafLightScriptBuilder : LightScriptBuilder
+    internal class NanoleafLightScriptBuilder : ILightScriptBuilder
     {
         private string commandTemplate = "curl -X PUT -H \"Content-Type: application/json\" -d \"{\\\"on\\\":{\\\"value\\\":<lightState>}}\" http://<nanoleafIp>:16021/api/v1/<nanoleafApiKey>/state";
 
-        internal override List<string> GetLightOnOffCommands(bool _lightOn, ConfigObject _configObject)
+        public List<string> GetLightOnOffCommands(bool _lightOn, ConfigObject _configObject)
         {
             List<string> commands = new List<string>();
             foreach (Dictionary<string, string> variables in GetCommandVariables(_configObject.nanoleafConfig.lights, _lightOn))

@@ -127,37 +127,18 @@
             this.paletteLastD = new System.Windows.Forms.Panel();
             this.labelLastDPop = new System.Windows.Forms.Label();
             this.labelLastDhsl = new System.Windows.Forms.Label();
-            this.tabPageConfig = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.groupBoxConfigGeneral = new System.Windows.Forms.GroupBox();
-            this.flowLayoutPanel14 = new System.Windows.Forms.FlowLayoutPanel();
+            this.tabPageDynamicConfig = new System.Windows.Forms.TabPage();
+            this.groupBoxSettings = new System.Windows.Forms.GroupBox();
+            this.lightSettingsDynamicPanel = new System.Windows.Forms.Panel();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.flowLayoutPanel32 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel33 = new System.Windows.Forms.FlowLayoutPanel();
             this.checkBoxUseMainSwatches = new System.Windows.Forms.CheckBox();
-            this.checkBoxRunOnBoot = new System.Windows.Forms.CheckBox();
-            this.checkBoxAutoTurnOnOff = new System.Windows.Forms.CheckBox();
             this.checkBoxSyncOnWallpaperChange = new System.Windows.Forms.CheckBox();
-            this.groupBoxConfigLifx = new System.Windows.Forms.GroupBox();
-            this.flowLayoutPanel13 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBoxLifxSelector = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBoxLifxAuthKey = new System.Windows.Forms.TextBox();
-            this.groupBoxConfigNanoleaf = new System.Windows.Forms.GroupBox();
-            this.flowLayoutPanel12 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel10 = new System.Windows.Forms.FlowLayoutPanel();
-            this.radioButtonLightEffectRandom = new System.Windows.Forms.RadioButton();
-            this.radioButtonLightEffectHighlight = new System.Windows.Forms.RadioButton();
-            this.groupBoxHighlightOptions = new System.Windows.Forms.GroupBox();
-            this.flowLayoutPanel28 = new System.Windows.Forms.FlowLayoutPanel();
-            this.checkBoxOverrideMainColourProb = new System.Windows.Forms.CheckBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.numericUpDownProbValue = new System.Windows.Forms.NumericUpDown();
-            this.flowLayoutPanelNanoleafLights = new System.Windows.Forms.FlowLayoutPanel();
-            this.buttonAddNanoleafLight = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.flowLayoutPanel11 = new System.Windows.Forms.FlowLayoutPanel();
+            this.checkBoxAutoTurnOnOff = new System.Windows.Forms.CheckBox();
+            this.checkBoxRunOnBoot = new System.Windows.Forms.CheckBox();
+            this.flowLayoutPanel34 = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonConfigReset = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
             this.flowLayoutPanel30 = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonConfigApplyChanges = new System.Windows.Forms.Button();
             this.checkBoxForceApply = new System.Windows.Forms.CheckBox();
@@ -215,20 +196,12 @@
             this.flowLayoutPanel25.SuspendLayout();
             this.flowLayoutPanel26.SuspendLayout();
             this.flowLayoutPanel27.SuspendLayout();
-            this.tabPageConfig.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
-            this.groupBoxConfigGeneral.SuspendLayout();
-            this.flowLayoutPanel14.SuspendLayout();
-            this.groupBoxConfigLifx.SuspendLayout();
-            this.flowLayoutPanel13.SuspendLayout();
-            this.groupBoxConfigNanoleaf.SuspendLayout();
-            this.flowLayoutPanel12.SuspendLayout();
-            this.flowLayoutPanel10.SuspendLayout();
-            this.groupBoxHighlightOptions.SuspendLayout();
-            this.flowLayoutPanel28.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownProbValue)).BeginInit();
-            this.groupBox2.SuspendLayout();
-            this.flowLayoutPanel11.SuspendLayout();
+            this.tabPageDynamicConfig.SuspendLayout();
+            this.groupBoxSettings.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.flowLayoutPanel32.SuspendLayout();
+            this.flowLayoutPanel33.SuspendLayout();
+            this.flowLayoutPanel34.SuspendLayout();
             this.flowLayoutPanel30.SuspendLayout();
             this.flowLayoutPanel8.SuspendLayout();
             this.groupBoxOnOff.SuspendLayout();
@@ -243,7 +216,7 @@
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPagePreview);
-            this.tabControl1.Controls.Add(this.tabPageConfig);
+            this.tabControl1.Controls.Add(this.tabPageDynamicConfig);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Right;
             this.tabControl1.Location = new System.Drawing.Point(174, 24);
             this.tabControl1.Name = "tabControl1";
@@ -1356,59 +1329,75 @@
             this.labelLastDhsl.TabIndex = 16;
             this.labelLastDhsl.Text = "hsl:--- --- ---";
             // 
-            // tabPageConfig
+            // tabPageDynamicConfig
             // 
-            this.tabPageConfig.Controls.Add(this.tableLayoutPanel3);
-            this.tabPageConfig.Location = new System.Drawing.Point(4, 22);
-            this.tabPageConfig.Name = "tabPageConfig";
-            this.tabPageConfig.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageConfig.Size = new System.Drawing.Size(618, 437);
-            this.tabPageConfig.TabIndex = 1;
-            this.tabPageConfig.Text = "Config";
-            this.tabPageConfig.UseVisualStyleBackColor = true;
+            this.tabPageDynamicConfig.Controls.Add(this.groupBoxSettings);
+            this.tabPageDynamicConfig.Controls.Add(this.groupBox4);
+            this.tabPageDynamicConfig.Location = new System.Drawing.Point(4, 22);
+            this.tabPageDynamicConfig.Name = "tabPageDynamicConfig";
+            this.tabPageDynamicConfig.Size = new System.Drawing.Size(618, 437);
+            this.tabPageDynamicConfig.TabIndex = 2;
+            this.tabPageDynamicConfig.Text = "Dynamic Config";
+            this.tabPageDynamicConfig.UseVisualStyleBackColor = true;
             // 
-            // tableLayoutPanel3
+            // groupBoxSettings
             // 
-            this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Controls.Add(this.groupBoxConfigGeneral, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.groupBoxConfigLifx, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.groupBoxConfigNanoleaf, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.groupBox2, 1, 1);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 2;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(612, 431);
-            this.tableLayoutPanel3.TabIndex = 1;
+            this.groupBoxSettings.Controls.Add(this.lightSettingsDynamicPanel);
+            this.groupBoxSettings.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBoxSettings.Location = new System.Drawing.Point(0, 0);
+            this.groupBoxSettings.Name = "groupBoxSettings";
+            this.groupBoxSettings.Size = new System.Drawing.Size(618, 325);
+            this.groupBoxSettings.TabIndex = 1;
+            this.groupBoxSettings.TabStop = false;
+            this.groupBoxSettings.Text = "Light settings";
             // 
-            // groupBoxConfigGeneral
+            // lightSettingsDynamicPanel
             // 
-            this.groupBoxConfigGeneral.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxConfigGeneral.Controls.Add(this.flowLayoutPanel14);
-            this.groupBoxConfigGeneral.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBoxConfigGeneral.Location = new System.Drawing.Point(3, 261);
-            this.groupBoxConfigGeneral.Name = "groupBoxConfigGeneral";
-            this.groupBoxConfigGeneral.Size = new System.Drawing.Size(300, 167);
-            this.groupBoxConfigGeneral.TabIndex = 2;
-            this.groupBoxConfigGeneral.TabStop = false;
-            this.groupBoxConfigGeneral.Text = "General";
+            this.lightSettingsDynamicPanel.AutoScroll = true;
+            this.lightSettingsDynamicPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lightSettingsDynamicPanel.Location = new System.Drawing.Point(3, 16);
+            this.lightSettingsDynamicPanel.Name = "lightSettingsDynamicPanel";
+            this.lightSettingsDynamicPanel.Size = new System.Drawing.Size(612, 306);
+            this.lightSettingsDynamicPanel.TabIndex = 1;
             // 
-            // flowLayoutPanel14
+            // groupBox4
             // 
-            this.flowLayoutPanel14.Controls.Add(this.checkBoxUseMainSwatches);
-            this.flowLayoutPanel14.Controls.Add(this.checkBoxRunOnBoot);
-            this.flowLayoutPanel14.Controls.Add(this.checkBoxAutoTurnOnOff);
-            this.flowLayoutPanel14.Controls.Add(this.checkBoxSyncOnWallpaperChange);
-            this.flowLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel14.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel14.Location = new System.Drawing.Point(3, 16);
-            this.flowLayoutPanel14.Name = "flowLayoutPanel14";
-            this.flowLayoutPanel14.Size = new System.Drawing.Size(294, 148);
-            this.flowLayoutPanel14.TabIndex = 0;
+            this.groupBox4.AutoSize = true;
+            this.groupBox4.Controls.Add(this.flowLayoutPanel32);
+            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupBox4.Location = new System.Drawing.Point(0, 325);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(618, 112);
+            this.groupBox4.TabIndex = 0;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Global settings/Controls";
+            // 
+            // flowLayoutPanel32
+            // 
+            this.flowLayoutPanel32.AutoSize = true;
+            this.flowLayoutPanel32.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flowLayoutPanel32.Controls.Add(this.flowLayoutPanel33);
+            this.flowLayoutPanel32.Controls.Add(this.flowLayoutPanel34);
+            this.flowLayoutPanel32.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel32.Location = new System.Drawing.Point(3, 16);
+            this.flowLayoutPanel32.Name = "flowLayoutPanel32";
+            this.flowLayoutPanel32.Size = new System.Drawing.Size(612, 93);
+            this.flowLayoutPanel32.TabIndex = 0;
+            // 
+            // flowLayoutPanel33
+            // 
+            this.flowLayoutPanel33.AutoSize = true;
+            this.flowLayoutPanel33.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flowLayoutPanel33.Controls.Add(this.checkBoxUseMainSwatches);
+            this.flowLayoutPanel33.Controls.Add(this.checkBoxSyncOnWallpaperChange);
+            this.flowLayoutPanel33.Controls.Add(this.checkBoxAutoTurnOnOff);
+            this.flowLayoutPanel33.Controls.Add(this.checkBoxRunOnBoot);
+            this.flowLayoutPanel33.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel33.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel33.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel33.Name = "flowLayoutPanel33";
+            this.flowLayoutPanel33.Size = new System.Drawing.Size(195, 92);
+            this.flowLayoutPanel33.TabIndex = 11;
             // 
             // checkBoxUseMainSwatches
             // 
@@ -1416,22 +1405,22 @@
             this.checkBoxUseMainSwatches.Location = new System.Drawing.Point(3, 3);
             this.checkBoxUseMainSwatches.Name = "checkBoxUseMainSwatches";
             this.checkBoxUseMainSwatches.Size = new System.Drawing.Size(140, 17);
-            this.checkBoxUseMainSwatches.TabIndex = 5;
+            this.checkBoxUseMainSwatches.TabIndex = 9;
             this.checkBoxUseMainSwatches.Text = "Only use main swatches";
             this.toolTip1.SetToolTip(this.checkBoxUseMainSwatches, "Toggles betwen using only the swatches displayed on the preview screen, and an ex" +
         "tended range of colours");
             this.checkBoxUseMainSwatches.UseVisualStyleBackColor = true;
             // 
-            // checkBoxRunOnBoot
+            // checkBoxSyncOnWallpaperChange
             // 
-            this.checkBoxRunOnBoot.AutoSize = true;
-            this.checkBoxRunOnBoot.Location = new System.Drawing.Point(3, 26);
-            this.checkBoxRunOnBoot.Name = "checkBoxRunOnBoot";
-            this.checkBoxRunOnBoot.Size = new System.Drawing.Size(165, 17);
-            this.checkBoxRunOnBoot.TabIndex = 6;
-            this.checkBoxRunOnBoot.Text = "Run Marble Manager on boot";
-            this.toolTip1.SetToolTip(this.checkBoxRunOnBoot, "Run this app on PC boot");
-            this.checkBoxRunOnBoot.UseVisualStyleBackColor = true;
+            this.checkBoxSyncOnWallpaperChange.AutoSize = true;
+            this.checkBoxSyncOnWallpaperChange.Location = new System.Drawing.Point(3, 26);
+            this.checkBoxSyncOnWallpaperChange.Name = "checkBoxSyncOnWallpaperChange";
+            this.checkBoxSyncOnWallpaperChange.Size = new System.Drawing.Size(189, 17);
+            this.checkBoxSyncOnWallpaperChange.TabIndex = 7;
+            this.checkBoxSyncOnWallpaperChange.Text = "Sync colours on wallpaper change";
+            this.toolTip1.SetToolTip(this.checkBoxSyncOnWallpaperChange, "Sends an updated palette to the lights when the desktop wallpaper changes");
+            this.checkBoxSyncOnWallpaperChange.UseVisualStyleBackColor = true;
             // 
             // checkBoxAutoTurnOnOff
             // 
@@ -1439,249 +1428,36 @@
             this.checkBoxAutoTurnOnOff.Location = new System.Drawing.Point(3, 49);
             this.checkBoxAutoTurnOnOff.Name = "checkBoxAutoTurnOnOff";
             this.checkBoxAutoTurnOnOff.Size = new System.Drawing.Size(184, 17);
-            this.checkBoxAutoTurnOnOff.TabIndex = 2;
+            this.checkBoxAutoTurnOnOff.TabIndex = 8;
             this.checkBoxAutoTurnOnOff.Text = "Turn lights on/off with logon state";
             this.toolTip1.SetToolTip(this.checkBoxAutoTurnOnOff, "Trigger lights on/off when the current user logs on/off");
             this.checkBoxAutoTurnOnOff.UseVisualStyleBackColor = true;
             // 
-            // checkBoxSyncOnWallpaperChange
+            // checkBoxRunOnBoot
             // 
-            this.checkBoxSyncOnWallpaperChange.AutoSize = true;
-            this.checkBoxSyncOnWallpaperChange.Location = new System.Drawing.Point(3, 72);
-            this.checkBoxSyncOnWallpaperChange.Name = "checkBoxSyncOnWallpaperChange";
-            this.checkBoxSyncOnWallpaperChange.Size = new System.Drawing.Size(189, 17);
-            this.checkBoxSyncOnWallpaperChange.TabIndex = 0;
-            this.checkBoxSyncOnWallpaperChange.Text = "Sync colours on wallpaper change";
-            this.toolTip1.SetToolTip(this.checkBoxSyncOnWallpaperChange, "Sends an updated palette to the lights when the desktop wallpaper changes");
-            this.checkBoxSyncOnWallpaperChange.UseVisualStyleBackColor = true;
+            this.checkBoxRunOnBoot.AutoSize = true;
+            this.checkBoxRunOnBoot.Location = new System.Drawing.Point(3, 72);
+            this.checkBoxRunOnBoot.Name = "checkBoxRunOnBoot";
+            this.checkBoxRunOnBoot.Size = new System.Drawing.Size(165, 17);
+            this.checkBoxRunOnBoot.TabIndex = 10;
+            this.checkBoxRunOnBoot.Text = "Run Marble Manager on boot";
+            this.toolTip1.SetToolTip(this.checkBoxRunOnBoot, "Run this app on PC boot");
+            this.checkBoxRunOnBoot.UseVisualStyleBackColor = true;
             // 
-            // groupBoxConfigLifx
+            // flowLayoutPanel34
             // 
-            this.groupBoxConfigLifx.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxConfigLifx.Controls.Add(this.flowLayoutPanel13);
-            this.groupBoxConfigLifx.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBoxConfigLifx.Location = new System.Drawing.Point(309, 3);
-            this.groupBoxConfigLifx.Name = "groupBoxConfigLifx";
-            this.groupBoxConfigLifx.Size = new System.Drawing.Size(300, 252);
-            this.groupBoxConfigLifx.TabIndex = 1;
-            this.groupBoxConfigLifx.TabStop = false;
-            this.groupBoxConfigLifx.Text = "Lifx";
-            // 
-            // flowLayoutPanel13
-            // 
-            this.flowLayoutPanel13.AutoScroll = true;
-            this.flowLayoutPanel13.Controls.Add(this.label5);
-            this.flowLayoutPanel13.Controls.Add(this.textBoxLifxSelector);
-            this.flowLayoutPanel13.Controls.Add(this.label6);
-            this.flowLayoutPanel13.Controls.Add(this.textBoxLifxAuthKey);
-            this.flowLayoutPanel13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel13.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel13.Location = new System.Drawing.Point(3, 16);
-            this.flowLayoutPanel13.Name = "flowLayoutPanel13";
-            this.flowLayoutPanel13.Size = new System.Drawing.Size(294, 233);
-            this.flowLayoutPanel13.TabIndex = 0;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(51, 13);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Selectors";
-            // 
-            // textBoxLifxSelector
-            // 
-            this.textBoxLifxSelector.Location = new System.Drawing.Point(3, 16);
-            this.textBoxLifxSelector.Name = "textBoxLifxSelector";
-            this.textBoxLifxSelector.Size = new System.Drawing.Size(270, 20);
-            this.textBoxLifxSelector.TabIndex = 1;
-            this.toolTip1.SetToolTip(this.textBoxLifxSelector, "Selectors for Lifx lights, seperated by commas");
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 39);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(89, 13);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "Auth key (Bearer)";
-            // 
-            // textBoxLifxAuthKey
-            // 
-            this.textBoxLifxAuthKey.Location = new System.Drawing.Point(3, 55);
-            this.textBoxLifxAuthKey.Name = "textBoxLifxAuthKey";
-            this.textBoxLifxAuthKey.Size = new System.Drawing.Size(270, 20);
-            this.textBoxLifxAuthKey.TabIndex = 3;
-            // 
-            // groupBoxConfigNanoleaf
-            // 
-            this.groupBoxConfigNanoleaf.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxConfigNanoleaf.Controls.Add(this.flowLayoutPanel12);
-            this.groupBoxConfigNanoleaf.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBoxConfigNanoleaf.Location = new System.Drawing.Point(3, 3);
-            this.groupBoxConfigNanoleaf.Name = "groupBoxConfigNanoleaf";
-            this.groupBoxConfigNanoleaf.Size = new System.Drawing.Size(300, 252);
-            this.groupBoxConfigNanoleaf.TabIndex = 0;
-            this.groupBoxConfigNanoleaf.TabStop = false;
-            this.groupBoxConfigNanoleaf.Text = "Nanoleaf";
-            // 
-            // flowLayoutPanel12
-            // 
-            this.flowLayoutPanel12.AutoScroll = true;
-            this.flowLayoutPanel12.Controls.Add(this.label7);
-            this.flowLayoutPanel12.Controls.Add(this.flowLayoutPanel10);
-            this.flowLayoutPanel12.Controls.Add(this.groupBoxHighlightOptions);
-            this.flowLayoutPanel12.Controls.Add(this.flowLayoutPanelNanoleafLights);
-            this.flowLayoutPanel12.Controls.Add(this.buttonAddNanoleafLight);
-            this.flowLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel12.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel12.Location = new System.Drawing.Point(3, 16);
-            this.flowLayoutPanel12.Name = "flowLayoutPanel12";
-            this.flowLayoutPanel12.Size = new System.Drawing.Size(294, 233);
-            this.flowLayoutPanel12.TabIndex = 0;
-            this.flowLayoutPanel12.WrapContents = false;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(3, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(60, 13);
-            this.label7.TabIndex = 4;
-            this.label7.Text = "Light effect";
-            // 
-            // flowLayoutPanel10
-            // 
-            this.flowLayoutPanel10.Controls.Add(this.radioButtonLightEffectRandom);
-            this.flowLayoutPanel10.Controls.Add(this.radioButtonLightEffectHighlight);
-            this.flowLayoutPanel10.Location = new System.Drawing.Point(3, 16);
-            this.flowLayoutPanel10.Name = "flowLayoutPanel10";
-            this.flowLayoutPanel10.Size = new System.Drawing.Size(191, 25);
-            this.flowLayoutPanel10.TabIndex = 0;
-            // 
-            // radioButtonLightEffectRandom
-            // 
-            this.radioButtonLightEffectRandom.AutoSize = true;
-            this.radioButtonLightEffectRandom.Location = new System.Drawing.Point(3, 3);
-            this.radioButtonLightEffectRandom.Name = "radioButtonLightEffectRandom";
-            this.radioButtonLightEffectRandom.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.radioButtonLightEffectRandom.Size = new System.Drawing.Size(65, 17);
-            this.radioButtonLightEffectRandom.TabIndex = 0;
-            this.radioButtonLightEffectRandom.Text = "Random";
-            this.radioButtonLightEffectRandom.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonLightEffectHighlight
-            // 
-            this.radioButtonLightEffectHighlight.AutoSize = true;
-            this.radioButtonLightEffectHighlight.Location = new System.Drawing.Point(74, 3);
-            this.radioButtonLightEffectHighlight.Name = "radioButtonLightEffectHighlight";
-            this.radioButtonLightEffectHighlight.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.radioButtonLightEffectHighlight.Size = new System.Drawing.Size(66, 17);
-            this.radioButtonLightEffectHighlight.TabIndex = 1;
-            this.radioButtonLightEffectHighlight.Text = "Highlight";
-            this.radioButtonLightEffectHighlight.UseVisualStyleBackColor = true;
-            this.radioButtonLightEffectHighlight.CheckedChanged += new System.EventHandler(this.radioButtonLightEffectHighlight_CheckedChanged);
-            // 
-            // groupBoxHighlightOptions
-            // 
-            this.groupBoxHighlightOptions.AutoSize = true;
-            this.groupBoxHighlightOptions.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.groupBoxHighlightOptions.Controls.Add(this.flowLayoutPanel28);
-            this.groupBoxHighlightOptions.Location = new System.Drawing.Point(3, 47);
-            this.groupBoxHighlightOptions.Name = "groupBoxHighlightOptions";
-            this.groupBoxHighlightOptions.Size = new System.Drawing.Size(185, 81);
-            this.groupBoxHighlightOptions.TabIndex = 5;
-            this.groupBoxHighlightOptions.TabStop = false;
-            this.groupBoxHighlightOptions.Text = "Highlight options";
-            // 
-            // flowLayoutPanel28
-            // 
-            this.flowLayoutPanel28.AutoSize = true;
-            this.flowLayoutPanel28.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flowLayoutPanel28.Controls.Add(this.checkBoxOverrideMainColourProb);
-            this.flowLayoutPanel28.Controls.Add(this.label2);
-            this.flowLayoutPanel28.Controls.Add(this.numericUpDownProbValue);
-            this.flowLayoutPanel28.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel28.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel28.Location = new System.Drawing.Point(3, 16);
-            this.flowLayoutPanel28.Name = "flowLayoutPanel28";
-            this.flowLayoutPanel28.Size = new System.Drawing.Size(179, 62);
-            this.flowLayoutPanel28.TabIndex = 0;
-            // 
-            // checkBoxOverrideMainColourProb
-            // 
-            this.checkBoxOverrideMainColourProb.AutoSize = true;
-            this.checkBoxOverrideMainColourProb.Location = new System.Drawing.Point(3, 3);
-            this.checkBoxOverrideMainColourProb.Name = "checkBoxOverrideMainColourProb";
-            this.checkBoxOverrideMainColourProb.Size = new System.Drawing.Size(173, 17);
-            this.checkBoxOverrideMainColourProb.TabIndex = 6;
-            this.checkBoxOverrideMainColourProb.Text = "Override main colour probability";
-            this.checkBoxOverrideMainColourProb.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 23);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 13);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Value";
-            // 
-            // numericUpDownProbValue
-            // 
-            this.numericUpDownProbValue.Location = new System.Drawing.Point(3, 39);
-            this.numericUpDownProbValue.Name = "numericUpDownProbValue";
-            this.numericUpDownProbValue.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDownProbValue.TabIndex = 9;
-            // 
-            // flowLayoutPanelNanoleafLights
-            // 
-            this.flowLayoutPanelNanoleafLights.AutoSize = true;
-            this.flowLayoutPanelNanoleafLights.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flowLayoutPanelNanoleafLights.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanelNanoleafLights.Location = new System.Drawing.Point(0, 131);
-            this.flowLayoutPanelNanoleafLights.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanelNanoleafLights.MaximumSize = new System.Drawing.Size(270, 0);
-            this.flowLayoutPanelNanoleafLights.MinimumSize = new System.Drawing.Size(20, 10);
-            this.flowLayoutPanelNanoleafLights.Name = "flowLayoutPanelNanoleafLights";
-            this.flowLayoutPanelNanoleafLights.Size = new System.Drawing.Size(20, 10);
-            this.flowLayoutPanelNanoleafLights.TabIndex = 8;
-            // 
-            // buttonAddNanoleafLight
-            // 
-            this.buttonAddNanoleafLight.Location = new System.Drawing.Point(3, 144);
-            this.buttonAddNanoleafLight.Name = "buttonAddNanoleafLight";
-            this.buttonAddNanoleafLight.Size = new System.Drawing.Size(75, 23);
-            this.buttonAddNanoleafLight.TabIndex = 7;
-            this.buttonAddNanoleafLight.Text = "Add light";
-            this.buttonAddNanoleafLight.UseVisualStyleBackColor = true;
-            this.buttonAddNanoleafLight.Click += new System.EventHandler(this.buttonAddNanoleafLight_Click);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.flowLayoutPanel11);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(309, 261);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(300, 167);
-            this.groupBox2.TabIndex = 3;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Save/Load";
-            // 
-            // flowLayoutPanel11
-            // 
-            this.flowLayoutPanel11.Controls.Add(this.buttonConfigReset);
-            this.flowLayoutPanel11.Controls.Add(this.label9);
-            this.flowLayoutPanel11.Controls.Add(this.flowLayoutPanel30);
-            this.flowLayoutPanel11.Controls.Add(this.label8);
-            this.flowLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel11.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel11.Location = new System.Drawing.Point(3, 16);
-            this.flowLayoutPanel11.Name = "flowLayoutPanel11";
-            this.flowLayoutPanel11.Size = new System.Drawing.Size(294, 148);
-            this.flowLayoutPanel11.TabIndex = 0;
-            this.flowLayoutPanel11.WrapContents = false;
+            this.flowLayoutPanel34.AutoSize = true;
+            this.flowLayoutPanel34.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flowLayoutPanel34.Controls.Add(this.buttonConfigReset);
+            this.flowLayoutPanel34.Controls.Add(this.flowLayoutPanel30);
+            this.flowLayoutPanel34.Controls.Add(this.label8);
+            this.flowLayoutPanel34.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel34.Location = new System.Drawing.Point(195, 0);
+            this.flowLayoutPanel34.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel34.Name = "flowLayoutPanel34";
+            this.flowLayoutPanel34.Size = new System.Drawing.Size(311, 93);
+            this.flowLayoutPanel34.TabIndex = 12;
+            this.flowLayoutPanel34.WrapContents = false;
             // 
             // buttonConfigReset
             // 
@@ -1689,21 +1465,11 @@
             this.buttonConfigReset.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.buttonConfigReset.Location = new System.Drawing.Point(3, 3);
             this.buttonConfigReset.Name = "buttonConfigReset";
-            this.buttonConfigReset.Size = new System.Drawing.Size(45, 23);
-            this.buttonConfigReset.TabIndex = 3;
-            this.buttonConfigReset.Text = "Reset";
+            this.buttonConfigReset.Size = new System.Drawing.Size(108, 23);
+            this.buttonConfigReset.TabIndex = 7;
+            this.buttonConfigReset.Text = "Reset to last saved";
             this.buttonConfigReset.UseVisualStyleBackColor = true;
             this.buttonConfigReset.Click += new System.EventHandler(this.buttonConfigReset_Click);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(3, 29);
-            this.label9.Margin = new System.Windows.Forms.Padding(3, 0, 3, 9);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(232, 13);
-            this.label9.TabIndex = 4;
-            this.label9.Text = "Reset the configuration to the last saved values";
             // 
             // flowLayoutPanel30
             // 
@@ -1711,11 +1477,11 @@
             this.flowLayoutPanel30.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanel30.Controls.Add(this.buttonConfigApplyChanges);
             this.flowLayoutPanel30.Controls.Add(this.checkBoxForceApply);
-            this.flowLayoutPanel30.Location = new System.Drawing.Point(0, 51);
+            this.flowLayoutPanel30.Location = new System.Drawing.Point(0, 29);
             this.flowLayoutPanel30.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel30.Name = "flowLayoutPanel30";
-            this.flowLayoutPanel30.Size = new System.Drawing.Size(181, 29);
-            this.flowLayoutPanel30.TabIndex = 5;
+            this.flowLayoutPanel30.Size = new System.Drawing.Size(153, 29);
+            this.flowLayoutPanel30.TabIndex = 9;
             // 
             // buttonConfigApplyChanges
             // 
@@ -1736,22 +1502,21 @@
             this.checkBoxForceApply.AutoSize = true;
             this.checkBoxForceApply.Location = new System.Drawing.Point(97, 3);
             this.checkBoxForceApply.Name = "checkBoxForceApply";
-            this.checkBoxForceApply.Size = new System.Drawing.Size(81, 23);
+            this.checkBoxForceApply.Size = new System.Drawing.Size(53, 23);
             this.checkBoxForceApply.TabIndex = 7;
-            this.checkBoxForceApply.Text = "Force apply";
+            this.checkBoxForceApply.Text = "Force";
             this.checkBoxForceApply.UseVisualStyleBackColor = true;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(3, 80);
+            this.label8.Location = new System.Drawing.Point(3, 58);
             this.label8.Margin = new System.Windows.Forms.Padding(3, 0, 3, 9);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(281, 52);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Applying changes will update generated script files with new values, and activate" +
-    "/deactivate hooks for turning on and off lights etc.\r\nForce will reapply all set" +
-    "tings rather than just changes.";
+            this.label8.Size = new System.Drawing.Size(305, 26);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "Update script files with new values. Activate/deactivate hooks.\r\nForce will reapp" +
+    "ly all settings rather than just changes.";
             // 
             // flowLayoutPanel8
             // 
@@ -1973,6 +1738,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "ConfigForm";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Marble Manager - Config";
             this.tabControl1.ResumeLayout(false);
             this.tabPagePreview.ResumeLayout(false);
@@ -2027,27 +1793,17 @@
             this.flowLayoutPanel26.PerformLayout();
             this.flowLayoutPanel27.ResumeLayout(false);
             this.flowLayoutPanel27.PerformLayout();
-            this.tabPageConfig.ResumeLayout(false);
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.groupBoxConfigGeneral.ResumeLayout(false);
-            this.flowLayoutPanel14.ResumeLayout(false);
-            this.flowLayoutPanel14.PerformLayout();
-            this.groupBoxConfigLifx.ResumeLayout(false);
-            this.flowLayoutPanel13.ResumeLayout(false);
-            this.flowLayoutPanel13.PerformLayout();
-            this.groupBoxConfigNanoleaf.ResumeLayout(false);
-            this.flowLayoutPanel12.ResumeLayout(false);
-            this.flowLayoutPanel12.PerformLayout();
-            this.flowLayoutPanel10.ResumeLayout(false);
-            this.flowLayoutPanel10.PerformLayout();
-            this.groupBoxHighlightOptions.ResumeLayout(false);
-            this.groupBoxHighlightOptions.PerformLayout();
-            this.flowLayoutPanel28.ResumeLayout(false);
-            this.flowLayoutPanel28.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownProbValue)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.flowLayoutPanel11.ResumeLayout(false);
-            this.flowLayoutPanel11.PerformLayout();
+            this.tabPageDynamicConfig.ResumeLayout(false);
+            this.tabPageDynamicConfig.PerformLayout();
+            this.groupBoxSettings.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.flowLayoutPanel32.ResumeLayout(false);
+            this.flowLayoutPanel32.PerformLayout();
+            this.flowLayoutPanel33.ResumeLayout(false);
+            this.flowLayoutPanel33.PerformLayout();
+            this.flowLayoutPanel34.ResumeLayout(false);
+            this.flowLayoutPanel34.PerformLayout();
             this.flowLayoutPanel30.ResumeLayout(false);
             this.flowLayoutPanel30.PerformLayout();
             this.flowLayoutPanel8.ResumeLayout(false);
@@ -2072,7 +1828,6 @@
         #endregion
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPagePreview;
-        private System.Windows.Forms.TabPage tabPageConfig;
         private System.Windows.Forms.GroupBox groupBoxImage;
         private System.Windows.Forms.GroupBox groupBoxPalette;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
@@ -2094,35 +1849,12 @@
         private System.Windows.Forms.GroupBox groupBoxLightFunctions;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel9;
         private System.Windows.Forms.Button buttonSyncLightColours;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel10;
-        private System.Windows.Forms.RadioButton radioButtonLightEffectRandom;
-        private System.Windows.Forms.RadioButton radioButtonLightEffectHighlight;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.GroupBox groupBoxConfigNanoleaf;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel12;
-        private System.Windows.Forms.GroupBox groupBoxConfigLifx;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel13;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBoxLifxSelector;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBoxLifxAuthKey;
-        private System.Windows.Forms.GroupBox groupBoxConfigGeneral;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel14;
-        private System.Windows.Forms.CheckBox checkBoxSyncOnWallpaperChange;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.CheckBox checkBoxAutoTurnOnOff;
-        private System.Windows.Forms.Button buttonConfigApplyChanges;
         private System.Windows.Forms.Panel panelPictureBoxWrapper;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.Button buttonConfigReset;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel11;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Panel paletteCurrentD;
@@ -2202,13 +1934,6 @@
         private System.Windows.Forms.Panel paletteLastVl2;
         private System.Windows.Forms.Panel paletteLastM2;
         private System.Windows.Forms.Panel paletteLastV2;
-        private System.Windows.Forms.CheckBox checkBoxUseMainSwatches;
-        private System.Windows.Forms.GroupBox groupBoxHighlightOptions;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel28;
-        private System.Windows.Forms.CheckBox checkBoxOverrideMainColourProb;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.NumericUpDown numericUpDownProbValue;
-        private System.Windows.Forms.CheckBox checkBoxRunOnBoot;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button buttonReloadLastSent;
         private System.Windows.Forms.Button buttonPreviewWallpaper;
@@ -2219,9 +1944,21 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button buttonSyncPreviewedPalette;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TabPage tabPageDynamicConfig;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox groupBoxSettings;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel32;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel33;
+        private System.Windows.Forms.CheckBox checkBoxUseMainSwatches;
+        private System.Windows.Forms.CheckBox checkBoxSyncOnWallpaperChange;
+        private System.Windows.Forms.CheckBox checkBoxAutoTurnOnOff;
+        private System.Windows.Forms.CheckBox checkBoxRunOnBoot;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel34;
+        private System.Windows.Forms.Button buttonConfigReset;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel30;
+        private System.Windows.Forms.Button buttonConfigApplyChanges;
         private System.Windows.Forms.CheckBox checkBoxForceApply;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelNanoleafLights;
-        private System.Windows.Forms.Button buttonAddNanoleafLight;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Panel lightSettingsDynamicPanel;
     }
 }
