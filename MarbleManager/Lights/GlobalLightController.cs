@@ -27,7 +27,11 @@ namespace MarbleManager.Lights
             List<Task> tasks = new List<Task>();
             foreach (var lightController in lightControllers)
             {
-                tasks.Add(lightController.SetOnOffState(_state));
+                Task task = lightController.SetOnOffState(_state);
+                if (task != null)
+                {
+                    tasks.Add(task);
+                }
             }
             await Task.WhenAll(tasks);
             Console.WriteLine("All lights done");
@@ -93,7 +97,11 @@ namespace MarbleManager.Lights
             List<Task> tasks = new List<Task>();
             foreach (var lightController in lightControllers)
             {
-                tasks.Add(lightController.ApplyPalette(palette));
+                Task task = lightController.ApplyPalette(palette);
+                if (task != null)
+                {
+                    tasks.Add(task);
+                }
             }
             await Task.WhenAll(tasks);
             Console.WriteLine("All lights done");
