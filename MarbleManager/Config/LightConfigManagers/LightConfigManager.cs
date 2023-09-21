@@ -9,13 +9,13 @@ namespace MarbleManager.Config.LightConfigManagers
 
         protected static int textBoxWidth = 270;
 
-        private FlowLayoutPanel configWrapper;
+        private GroupBox configWrapper;
         private CheckBox checkboxIsEnabled;
 
         /**
          * Creates all UI controls needed for this light config
          */
-        protected abstract List<Control> CreateUIControls(LightConfig _config);
+        protected abstract Control CreateUIControls(LightConfig _config);
 
         /**
          * Builds the config object
@@ -27,23 +27,14 @@ namespace MarbleManager.Config.LightConfigManagers
          */
         internal GroupBox GetLightConfigUI(LightConfig _config)
         {
-            // create flow layout panel
-            configWrapper = new FlowLayoutPanel();
+            // create group box
+            configWrapper = new GroupBox();
             configWrapper.AutoSize = true;
             configWrapper.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            configWrapper.Dock = DockStyle.Fill;
-            configWrapper.FlowDirection = FlowDirection.TopDown;
-            configWrapper.WrapContents = false;
-            configWrapper.Name = $"flowLayoutPanel_{lightType}Config";
-
-            // create group box
-            GroupBox groupBox = new GroupBox();
-            groupBox.AutoSize = true;
-            groupBox.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            groupBox.Dock = DockStyle.Top;
-            groupBox.Padding = new Padding(3, 3, 3, 9);
-            groupBox.Name = $"groupBox_{lightType}Config";
-            groupBox.Text = lightType;
+            configWrapper.Dock = DockStyle.Top;
+            configWrapper.Padding = new Padding(3, 3, 3, 9);
+            configWrapper.Name = $"groupBox_{lightType}Config";
+            configWrapper.Text = lightType;
 
             // create enabled checkbox
             checkboxIsEnabled = new CheckBox();
@@ -53,17 +44,10 @@ namespace MarbleManager.Config.LightConfigManagers
             checkboxIsEnabled.UseVisualStyleBackColor = true;
             checkboxIsEnabled.Checked = (_config != null && _config.enabled);
 
-            // add controls to panel
-            configWrapper.Controls.Add(checkboxIsEnabled);
-            foreach (Control control in CreateUIControls(_config))
-            {
-                configWrapper.Controls.Add(control);
-            }
+            // add controls to box
+            configWrapper.Controls.Add(CreateUIControls(_config));
 
-            // add panel to box
-            groupBox.Controls.Add(configWrapper);
-
-            return groupBox;
+            return configWrapper;
         }
 
         /**
@@ -77,6 +61,102 @@ namespace MarbleManager.Config.LightConfigManagers
         internal bool IsEnabled()
         {
             return checkboxIsEnabled.Checked;
+        }
+
+        /**
+         * Wraps controls in a single FlowLayoutPanel
+         */
+        protected FlowLayoutPanel WrapInFlowPanel(List<Control> _controls, LightConfig _config)
+        {
+            // create flow layout panel
+            FlowLayoutPanel flowLayoutPanel = CreateFlowPanel($"flowLayoutPanel_{lightType}Config");
+
+            // create enabled checkbox
+            checkboxIsEnabled = CreateEnabledCheckbox(_config);
+
+            // add controls to panel
+            flowLayoutPanel.Controls.Add(checkboxIsEnabled);
+            if (_controls != null)
+            {
+                foreach (Control control in _controls)
+                {
+                    flowLayoutPanel.Controls.Add(control);
+                }
+            }
+
+            return flowLayoutPanel;
+        }
+
+        /**
+         * Wraps controls in a table with 2 columns
+         */
+        protected TableLayoutPanel WrapIn2ColumnTable(List<Control> _col1, List<Control> _col2, LightConfig _config)
+        {
+            TableLayoutPanel tableLayoutPanel = new TableLayoutPanel();
+            tableLayoutPanel.AutoSize = true;
+            tableLayoutPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            tableLayoutPanel.ColumnCount = 2;
+            tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel.Dock = DockStyle.Fill;
+            tableLayoutPanel.Name = $"tableLayoutPanel_{lightType}Config";
+            tableLayoutPanel.RowCount = 1;
+            tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+
+            // create column panels
+            FlowLayoutPanel col1FlowPanel = CreateFlowPanel($"tableLayoutPanel_{lightType}Config_Col1");
+            FlowLayoutPanel col2FlowPanel = CreateFlowPanel($"tableLayoutPanel_{lightType}Config_Col2");
+
+            // create enabled checkbox
+            checkboxIsEnabled = CreateEnabledCheckbox(_config);
+
+            // add controls to column 1
+            col1FlowPanel.Controls.Add(checkboxIsEnabled);
+            if (_col1 != null)
+            {
+                foreach (Control control in _col1)
+                {
+                    col1FlowPanel.Controls.Add(control);
+                }
+            }
+            // add controls to column 2
+            if (_col2 != null)
+            {
+                foreach (Control control in _col2)
+                {
+                    col2FlowPanel.Controls.Add(control);
+                }
+            }
+
+            // add column flow panels to table
+            tableLayoutPanel.Controls.Add(col1FlowPanel, 0, 0);
+            tableLayoutPanel.Controls.Add(col2FlowPanel, 1, 0);
+            return tableLayoutPanel;
+        }
+
+        private FlowLayoutPanel CreateFlowPanel(string _name)
+        {
+            // create flow layout panel
+            FlowLayoutPanel flowLayoutPanel = new FlowLayoutPanel();
+            flowLayoutPanel.AutoSize = true;
+            flowLayoutPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            flowLayoutPanel.Dock = DockStyle.Fill;
+            flowLayoutPanel.FlowDirection = FlowDirection.TopDown;
+            flowLayoutPanel.WrapContents = false;
+            flowLayoutPanel.Name = _name;
+            return flowLayoutPanel;
+        }
+
+        private CheckBox CreateEnabledCheckbox(LightConfig _config)
+        {
+            // create enabled checkbox
+            CheckBox checkBox = new CheckBox();
+            checkBox.AutoSize = true;
+            checkBox.Name = $"checkboxIsEnabled{lightType}";
+            checkBox.Text = "Enabled";
+            checkBox.UseVisualStyleBackColor = true;
+            checkBox.Checked = (_config != null && _config.enabled);
+            return checkBox;
         }
 
         /**

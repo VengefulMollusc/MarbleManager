@@ -12,7 +12,7 @@ namespace MarbleManager.Config.LightConfigManagers
             lightType = "Lifx";
         }
 
-        protected override List<Control> CreateUIControls(LightConfig _config)
+        protected override Control CreateUIControls(LightConfig _config)
         {
             LifxConfig lifxConfig = (LifxConfig)_config;
 
@@ -46,7 +46,7 @@ namespace MarbleManager.Config.LightConfigManagers
             authKeyBox.Text = lifxConfig != null ? lifxConfig.authKey : string.Empty;
             controls.Add(authKeyBox);
 
-            return controls;
+            return WrapInFlowPanel(controls, _config);
         }
 
         protected override LightConfig BuildConfigObject()

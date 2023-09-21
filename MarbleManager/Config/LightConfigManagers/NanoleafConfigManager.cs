@@ -17,18 +17,19 @@ namespace MarbleManager.Config.LightConfigManagers
         public NanoleafConfigManager() {
             lightType = "Nanoleaf";
         }
-        protected override List<Control> CreateUIControls(LightConfig _config)
+        protected override Control CreateUIControls(LightConfig _config)
         {
             NanoleafConfig nanoleafConfig = (NanoleafConfig)_config;
 
-            List<Control> controls = new List<Control>();
+            // column 1
+            List<Control> controlsCol1 = new List<Control>();
 
             // effect label
             Label effectLabel = new Label();
             effectLabel.AutoSize = true;
             effectLabel.Name = "labelNanoleafEffect";
             effectLabel.Text = "Light effect";
-            controls.Add(effectLabel);
+            controlsCol1.Add(effectLabel);
 
             // effect radio boxes
             List<RadioButton> buttons = new List<RadioButton>();
@@ -55,7 +56,7 @@ namespace MarbleManager.Config.LightConfigManagers
             {
                 effectPanel.Controls.Add(button);
             }
-            controls.Add(effectPanel);
+            controlsCol1.Add(effectPanel);
 
             // extra settings
 
@@ -98,7 +99,10 @@ namespace MarbleManager.Config.LightConfigManagers
             highlightOptionsGroupBox.Text = "Highlight options";
             highlightOptionsGroupBox.Controls.Add(highlightOptionsPanel);
             highlightOptionsGroupBox.Visible = nanoleafConfig != null && nanoleafConfig.effect == NanoleafEffect.Highlight;
-            controls.Add(highlightOptionsGroupBox);
+            controlsCol1.Add(highlightOptionsGroupBox);
+
+            // column 2
+            List<Control> controlsCol2 = new List<Control>();
 
             // light list flow panel
             FlowLayoutPanel lightListPanel = new FlowLayoutPanel();
@@ -118,7 +122,7 @@ namespace MarbleManager.Config.LightConfigManagers
                     lightListPanel.Controls.Add(CreateNanoleafLight(light));
                 }
             }
-            controls.Add(lightListPanel);
+            controlsCol2.Add(lightListPanel);
 
             // button to add new light
             Button addLightButton = new Button();
@@ -126,9 +130,9 @@ namespace MarbleManager.Config.LightConfigManagers
             addLightButton.Text = "Add light";
             addLightButton.UseVisualStyleBackColor = true;
             addLightButton.Click += new EventHandler(AddNewLight);
-            controls.Add(addLightButton);
+            controlsCol2.Add(addLightButton);
 
-            return controls;
+            return WrapIn2ColumnTable(controlsCol1, controlsCol2, _config);
         }
 
         protected override LightConfig BuildConfigObject()

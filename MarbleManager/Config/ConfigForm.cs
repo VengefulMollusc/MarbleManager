@@ -70,9 +70,11 @@ namespace MarbleManager
                 WallpaperManager.DeleteCopiedWallpaper();
             }
             if (lightController != null)
-            {
                 lightController = null;
-            }
+            if (nanoleafConfigManager != null)
+                nanoleafConfigManager = null;
+            if (lifxConfigManager != null)
+                lifxConfigManager = null;
 
             base.OnClosing(e);
         }
