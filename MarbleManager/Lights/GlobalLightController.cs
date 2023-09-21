@@ -80,8 +80,6 @@ namespace MarbleManager.Lights
 
         /**
          * Applies a palette generated from the current wallpaper to the lights
-         * 
-         * NOTE: No calls to Console.WriteLine can be used in this due to cross-thread issues when auto syncing
          */
         internal async void SyncToWallpaper(Bitmap _toSync = null)
         {

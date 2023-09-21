@@ -59,7 +59,7 @@ namespace MarbleManager.Lights
                 tasks.Add(SendPayload(light, payload, "/effects"));
             }
             await Task.WhenAll(tasks);
-            Console.WriteLine("Nanoleaf done");
+            Console.WriteLine("Nanoleaf lights done");
         }
 
         /**
@@ -82,7 +82,7 @@ namespace MarbleManager.Lights
                 tasks.Add(SendPayload(light, GetStatePayload(_state), "/state"));
             }
             await Task.WhenAll(tasks);
-            Console.WriteLine("Nanoleaf done");
+            Console.WriteLine("Nanoleaf lights done");
         }
 
         /**
@@ -121,7 +121,7 @@ namespace MarbleManager.Lights
                     {
                         // Read and process the response content (if any)
                         string responseContent = await response.Content.ReadAsStringAsync();
-                        Console.WriteLine($"Nanoleaf Success: {responseContent}");
+                        Console.WriteLine($"Nanoleaf Success: {_light.ipAddress}");
                     }
                     else
                     {
@@ -129,7 +129,7 @@ namespace MarbleManager.Lights
                     }
                 } catch
                 {
-                    Console.WriteLine($"Nanoleaf timeout");
+                    Console.WriteLine($"Nanoleaf timeout: {_light.ipAddress}");
                 }
             }
         }
@@ -147,7 +147,6 @@ namespace MarbleManager.Lights
                 {
                     string json = r.ReadToEnd();
                     JObject payload = JsonConvert.DeserializeObject<JObject>(json);
-                    Console.WriteLine("Loaded effect payload");
                     return payload;
                 }
             }

@@ -27,6 +27,7 @@ namespace MarbleManager.Lights
         public Task ApplyPalette(PaletteObject _palette)
         {
             // no palette support (yet?)
+            Console.WriteLine("No Lifx palette support");
             return null;
         }
 
@@ -52,7 +53,7 @@ namespace MarbleManager.Lights
                 ));
             }
             await Task.WhenAll(tasks);
-            Console.WriteLine("Lifx done");
+            Console.WriteLine("Lifx lights done");
         }
 
         /**
@@ -89,7 +90,7 @@ namespace MarbleManager.Lights
                     {
                         // Read and process the response content (if any)
                         string responseContent = await response.Content.ReadAsStringAsync();
-                        Console.WriteLine($"Lifx Success: {responseContent}");
+                        Console.WriteLine($"Lifx Success: {endpoint}");
                     }
                     else
                     {
@@ -97,7 +98,7 @@ namespace MarbleManager.Lights
                     }
                 } catch
                 {
-                    Console.WriteLine($"Lifx Timeout");
+                    Console.WriteLine($"Lifx Timeout: {endpoint}");
                 }
                 
             }

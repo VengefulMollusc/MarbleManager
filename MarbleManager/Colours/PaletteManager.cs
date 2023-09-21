@@ -23,7 +23,6 @@ namespace MarbleManager.Colours
                 {
                     string json = r.ReadToEnd();
                     PaletteObject palette = JsonConvert.DeserializeObject<PaletteObject>(json);
-                    Console.WriteLine("Palette file loaded");
                     return palette;
                 }
             }
