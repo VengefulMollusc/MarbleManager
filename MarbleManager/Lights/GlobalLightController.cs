@@ -1,8 +1,10 @@
 ﻿using MarbleManager.Colours;
 using MarbleManager.Config;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace MarbleManager.Lights
 {
@@ -20,12 +22,15 @@ namespace MarbleManager.Lights
         /**
          * Triggers the lights to turn on or off
          */
-        internal void TurnLightsOnOff(bool _state)
+        internal async void TurnLightsOnOff(bool _state)
         {
+            List<Task> tasks = new List<Task>();
             foreach (var lightController in lightControllers)
             {
-                lightController.SetOnOffState(_state);
+                tasks.Add(lightController.SetOnOffState(_state));
             }
+            await Task.WhenAll(tasks);
+            Console.WriteLine("All lights done");
         }
 
         /**
@@ -74,7 +79,7 @@ namespace MarbleManager.Lights
          * 
          * NOTE: No calls to Console.WriteLine can be used in this due to cross-thread issues when auto syncing
          */
-        internal void SyncToWallpaper(Bitmap _toSync = null)
+        internal async void SyncToWallpaper(Bitmap _toSync = null)
         {
             // Select image to sync
             Bitmap image = _toSync != null ? _toSync : WallpaperManager.GetWallpaperBitmap();
@@ -85,10 +90,13 @@ namespace MarbleManager.Lights
             PaletteManager.SavePalette(palette);
 
             // apply to lights
+            List<Task> tasks = new List<Task>();
             foreach (var lightController in lightControllers)
             {
-                lightController.ApplyPalette(palette);
+                tasks.Add(lightController.ApplyPalette(palette));
             }
+            await Task.WhenAll(tasks);
+            Console.WriteLine("All lights done");
 
             // dispose to free up memory
             image.Dispose();

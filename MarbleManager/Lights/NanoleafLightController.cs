@@ -29,7 +29,7 @@ namespace MarbleManager.Lights
         /**
          * Applies a colour palette to the light
          */
-        public async void ApplyPalette(PaletteObject _palette)
+        public async Task ApplyPalette(PaletteObject _palette)
         {
             // only send palettes to lights that are ON
             List<NanoleafConfig.Light> onLights = await GetOnLightUrls();
@@ -52,11 +52,14 @@ namespace MarbleManager.Lights
 
             payload["write"]["palette"] = palette;
 
-            // send payload
+            // send payloads
+            List<Task> tasks = new List<Task>();
             foreach (NanoleafConfig.Light light in onLights)
             {
-                SendPayload(light, payload, "/effects");
+                tasks.Add(SendPayload(light, payload, "/effects"));
             }
+            await Task.WhenAll(tasks);
+            Console.WriteLine("Nanoleaf done");
         }
 
         /**
@@ -71,18 +74,21 @@ namespace MarbleManager.Lights
         /**
          * Turns the light on/off 
          */
-        public void SetOnOffState(bool _state)
+        public async Task SetOnOffState(bool _state)
         {
+            List<Task> tasks = new List<Task>();
             foreach (NanoleafConfig.Light light in config.lights)
             {
-                SendPayload(light, GetStatePayload(_state), "/state");
+                tasks.Add(SendPayload(light, GetStatePayload(_state), "/state"));
             }
+            await Task.WhenAll(tasks);
+            Console.WriteLine("Nanoleaf done");
         }
 
         /**
          * Sends a payload to a given nanoleaf api endpoint
          */
-        private async void SendPayload(NanoleafConfig.Light _light, object _payload, string _endpoint)
+        private async Task SendPayload(NanoleafConfig.Light _light, object _payload, string _endpoint)
         {
             if (_light == null || _light.ipAddress == null || _light.apiKey == null)
             {
@@ -95,6 +101,9 @@ namespace MarbleManager.Lights
 
             using (HttpClient client = new HttpClient())
             {
+                // set timeout
+                client.Timeout = TimeSpan.FromSeconds(5);
+
                 // set URL
                 client.BaseAddress = new Uri(baseUrl.Replace("<nanoleafIp>", _light.ipAddress));
 
@@ -102,19 +111,25 @@ namespace MarbleManager.Lights
                 string jsonPayload = JsonConvert.SerializeObject(_payload);
                 StringContent content = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
 
-                // send the request
-                HttpResponseMessage response = await client.PutAsync($"api/v1/{_light.apiKey}{_endpoint}", content);
+                try
+                {
+                    // send the request
+                    HttpResponseMessage response = await client.PutAsync($"api/v1/{_light.apiKey}{_endpoint}", content);
 
-                // Check if the request was successful
-                if (response.IsSuccessStatusCode)
+                    // Check if the request was successful
+                    if (response.IsSuccessStatusCode)
+                    {
+                        // Read and process the response content (if any)
+                        string responseContent = await response.Content.ReadAsStringAsync();
+                        Console.WriteLine($"Nanoleaf Success: {responseContent}");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Nanoleaf Error: {response.StatusCode}");
+                    }
+                } catch
                 {
-                    // Read and process the response content (if any)
-                    string responseContent = await response.Content.ReadAsStringAsync();
-                    Console.WriteLine($"Nanoleaf Success: {responseContent}");
-                }
-                else
-                {
-                    Console.WriteLine($"Nanoleaf Error: {response.StatusCode}");
+                    Console.WriteLine($"Nanoleaf timeout");
                 }
             }
         }
@@ -234,6 +249,9 @@ namespace MarbleManager.Lights
         {
             using (HttpClient client = new HttpClient())
             {
+                // set timeout
+                client.Timeout = TimeSpan.FromSeconds(5);
+
                 // set URL
                 client.BaseAddress = new Uri(baseUrl.Replace("<nanoleafIp>", _light.ipAddress));
 

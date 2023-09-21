@@ -18,11 +18,11 @@ namespace MarbleManager.Lights
         /**
          * Turns the lights on/off
          */
-        void SetOnOffState(bool _state);
+        Task SetOnOffState(bool _state);
 
         /**
          * Applies a colour palette to the lights
          */
-        void ApplyPalette(PaletteObject _palette);
+        Task ApplyPalette(PaletteObject _palette);
     }
 }

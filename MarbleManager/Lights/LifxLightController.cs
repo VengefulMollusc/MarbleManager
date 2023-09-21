@@ -24,10 +24,10 @@ namespace MarbleManager.Lights
         /**
          * Applies a colour palette
          */
-        public void ApplyPalette(PaletteObject _palette)
+        public Task ApplyPalette(PaletteObject _palette)
         {
             // no palette support (yet?)
-            return;
+            return null;
         }
 
         /**
@@ -41,21 +41,24 @@ namespace MarbleManager.Lights
         /**
          * Turns lights on or off
          */
-        public void SetOnOffState(bool _state)
+        public async Task SetOnOffState(bool _state)
         {
+            List<Task> tasks = new List<Task>();
             foreach (string selector in config.LightSelectors)
             {
-                SendPayload(
+                tasks.Add(SendPayload(
                     $"power={(_state ? "on" : "off")}",
                     $"v1/lights/{selector}/state"
-                );
+                ));
             }
+            await Task.WhenAll(tasks);
+            Console.WriteLine("Lifx done");
         }
 
         /**
          * Sends a payload to Lifx lights at a given endpoint
          */
-        private async void SendPayload(string payload, string endpoint)
+        private async Task SendPayload(string payload, string endpoint)
         {
             if (payload == null)
             {
@@ -64,6 +67,9 @@ namespace MarbleManager.Lights
 
             using (HttpClient client = new HttpClient())
             {
+                // set timeout
+                client.Timeout = TimeSpan.FromSeconds(5);
+
                 // set URL
                 client.BaseAddress = new Uri(baseUrl);
 
@@ -73,20 +79,27 @@ namespace MarbleManager.Lights
                 // create payload content
                 StringContent content = new StringContent(payload, Encoding.UTF8, "application/x-www-form-urlencoded");
 
-                // send the request
-                HttpResponseMessage response = await client.PutAsync(endpoint, content);
+                try
+                {
+                    // send the request
+                    HttpResponseMessage response = await client.PutAsync(endpoint, content);
 
-                // Check if the request was successful
-                if (response.IsSuccessStatusCode)
+                    // Check if the request was successful
+                    if (response.IsSuccessStatusCode)
+                    {
+                        // Read and process the response content (if any)
+                        string responseContent = await response.Content.ReadAsStringAsync();
+                        Console.WriteLine($"Lifx Success: {responseContent}");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Lifx Error: {response.StatusCode}");
+                    }
+                } catch
                 {
-                    // Read and process the response content (if any)
-                    string responseContent = await response.Content.ReadAsStringAsync();
-                    Console.WriteLine($"Lifx Success: {responseContent}");
+                    Console.WriteLine($"Lifx Timeout");
                 }
-                else
-                {
-                    Console.WriteLine($"Lifx Error: {response.StatusCode}");
-                }
+                
             }
         }
     }
