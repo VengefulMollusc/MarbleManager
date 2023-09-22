@@ -45,10 +45,11 @@ namespace MarbleManager.Lights
             // populate light controllers
             lightControllers = new ILightController[]
             {
-                // in future populate this based on config values?
+                // in future populate this based on config 'enabled' values?
                 // multiple lights of the same type should be handled by one controller?
                 new LifxLightController(_config),
                 new NanoleafLightController(_config),
+                new WizLightController(_config),
             };
 
             // turn on watcher if syncing to wallpaper

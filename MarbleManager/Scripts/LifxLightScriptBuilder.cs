@@ -25,7 +25,7 @@ namespace MarbleManager.Scripts
 
             // repeat command for each light listed in selector list
             List<string> commands = new List<string>();
-            foreach (string selector in _configObject.lifxConfig.LightSelectors)
+            foreach (string selector in _configObject.lifxConfig.SelectorList)
             {
                 commands.Add(baseCommand.Replace("<lifxSelector>", selector));
             }

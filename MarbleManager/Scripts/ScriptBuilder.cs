@@ -38,6 +38,7 @@ namespace MarbleManager.Scripts
             {
                 new LifxLightScriptBuilder(),
                 new NanoleafLightScriptBuilder(),
+                new WizLightScriptBuilder(),
             };
 
             // Define the batch commands you want to include in the .bat file.

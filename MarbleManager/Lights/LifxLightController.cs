@@ -45,7 +45,7 @@ namespace MarbleManager.Lights
         public async Task SetOnOffState(bool _state)
         {
             List<Task> tasks = new List<Task>();
-            foreach (string selector in config.LightSelectors)
+            foreach (string selector in config.SelectorList)
             {
                 tasks.Add(SendPayload(
                     $"power={(_state ? "on" : "off")}",

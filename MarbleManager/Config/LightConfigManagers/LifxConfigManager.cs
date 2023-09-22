@@ -22,7 +22,7 @@ namespace MarbleManager.Config.LightConfigManagers
             Label selectorsLabel = new Label();
             selectorsLabel.AutoSize = true;
             selectorsLabel.Name = "labelLifxSelectors";
-            selectorsLabel.Text = "Selectors (seperated by commas)";
+            selectorsLabel.Text = "Selectors (comma separated)";
             controls.Add(selectorsLabel);
             
             // selectors text box

@@ -11,6 +11,7 @@ namespace MarbleManager.Config
         public GeneralConfig generalConfig { get; set; }
         public NanoleafConfig nanoleafConfig { get; set; }
         public LifxConfig lifxConfig { get; set; }
+        public WizConfig wizConfig { get; set; }
     }
 
     public class GeneralConfig
@@ -51,15 +52,21 @@ namespace MarbleManager.Config
         }
     }
 
+    public enum NanoleafEffect
+    {
+        Random = 0,
+        Highlight = 1
+    }
+
     public class LifxConfig : LightConfig
     {
         // light selectors seperated by commas
         public string selectors { get; set; }
         public string authKey { get; set; }
 
-        // gets all ips in a list
+        // gets all selectors in a list
         [JsonIgnore]
-        public List<string> LightSelectors
+        public List<string> SelectorList
         {
             get
             {
@@ -68,9 +75,19 @@ namespace MarbleManager.Config
         }
     }
 
-    public enum NanoleafEffect
+    public class WizConfig : LightConfig
     {
-        Random = 0,
-        Highlight = 1
+        // IP addresses seperated by commas
+        public string ipAddresses { get; set; }
+
+        // gets all ips in a list
+        [JsonIgnore]
+        public List<string> IpAddressList
+        {
+            get
+            {
+                return ipAddresses != null ? new List<string>(ipAddresses.Split(',')) : new List<string>();
+            }
+        }
     }
 }

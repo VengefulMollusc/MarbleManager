@@ -21,6 +21,7 @@ namespace MarbleManager
 
         NanoleafConfigManager nanoleafConfigManager;
         LifxConfigManager lifxConfigManager;
+        WizConfigManager wizConfigManager;
 
         public ConfigForm()
         {
@@ -75,6 +76,8 @@ namespace MarbleManager
                 nanoleafConfigManager = null;
             if (lifxConfigManager != null)
                 lifxConfigManager = null;
+            if (wizConfigManager != null)
+                wizConfigManager = null;
 
             base.OnClosing(e);
         }
@@ -184,6 +187,12 @@ namespace MarbleManager
             checkBoxRunOnBoot.Checked = config.generalConfig.runOnBoot;
 
             // init light configs in opposite order to UI
+            // init wiz config
+            if (wizConfigManager == null)
+            {
+                wizConfigManager = new WizConfigManager();
+            }
+            lightSettingsDynamicPanel.Controls.Add(wizConfigManager.GetLightConfigUI(config.wizConfig));
             // init lifx config
             if (lifxConfigManager == null)
             {
@@ -218,6 +227,7 @@ namespace MarbleManager
                 },
                 nanoleafConfig = nanoleafConfigManager.GetConfigObject<NanoleafConfig>(),
                 lifxConfig = lifxConfigManager.GetConfigObject<LifxConfig>(),
+                wizConfig = wizConfigManager.GetConfigObject<WizConfig>(),
             };
 
             lightController.UpdateConfig(newConfig);
