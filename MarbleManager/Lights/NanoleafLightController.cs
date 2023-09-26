@@ -31,6 +31,12 @@ namespace MarbleManager.Lights
          */
         public async Task ApplyPalette(PaletteObject _palette)
         {
+            if (!config.applyPalette)
+            {
+                Console.WriteLine("Nanoleaf palette support is disabled");
+                return;
+            }
+
             // only send palettes to lights that are ON
             List<NanoleafConfig.Light> onLights = await GetOnLightUrls();
             if (onLights.Count <= 0)
@@ -264,7 +270,6 @@ namespace MarbleManager.Lights
                     string responseContent = await response.Content.ReadAsStringAsync();
                     if (responseContent == @"{""value"":true}")
                     {
-                        Console.WriteLine($"Nanoleaf {_light.ipAddress} is ON");
                         return _light;
                     }
                 }
@@ -273,7 +278,6 @@ namespace MarbleManager.Lights
                     Console.WriteLine($"Nanoleaf isOn Error: {_light.ipAddress} : {response.StatusCode}");
                 }
             }
-            Console.WriteLine($"Nanoleaf {_light.ipAddress} is OFF");
             return null;
         }
 

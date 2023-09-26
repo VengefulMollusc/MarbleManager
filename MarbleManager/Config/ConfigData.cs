@@ -30,6 +30,8 @@ namespace MarbleManager.Config
     {
         // whether this light is enabled
         public bool enabled { get; set; }
+        // whether this light should apply palettes
+        public bool applyPalette { get; set; }
     }
 
     public class NanoleafConfig : LightConfig

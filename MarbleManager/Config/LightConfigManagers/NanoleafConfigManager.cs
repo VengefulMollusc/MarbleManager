@@ -142,6 +142,7 @@ namespace MarbleManager.Config.LightConfigManagers
             return new NanoleafConfig()
             {
                 enabled = IsEnabled(),
+                applyPalette = ApplyPalette(),
                 lights = GetNanoleafLights(),
                 effect = GetSelectedNanoleafEffect(),
                 overrideMainColourProb = overrideCheckbox != null && overrideCheckbox.Checked,

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace MarbleManager.Config.LightConfigManagers
 {
@@ -11,6 +12,7 @@ namespace MarbleManager.Config.LightConfigManagers
 
         private GroupBox configWrapper;
         private CheckBox checkboxIsEnabled;
+        private CheckBox checkboxApplyPalette;
 
         /**
          * Creates all UI controls needed for this light config
@@ -63,6 +65,11 @@ namespace MarbleManager.Config.LightConfigManagers
             return checkboxIsEnabled.Checked;
         }
 
+        internal bool ApplyPalette()
+        {
+            return checkboxApplyPalette.Checked;
+        }
+
         /**
          * Wraps controls in a single FlowLayoutPanel
          */
@@ -71,11 +78,9 @@ namespace MarbleManager.Config.LightConfigManagers
             // create flow layout panel
             FlowLayoutPanel flowLayoutPanel = CreateFlowPanel($"flowLayoutPanel_{lightType}Config");
 
-            // create enabled checkbox
-            checkboxIsEnabled = CreateEnabledCheckbox(_config);
+            // add global controls
+            AddGlobalControls(_config, flowLayoutPanel);
 
-            // add controls to panel
-            flowLayoutPanel.Controls.Add(checkboxIsEnabled);
             if (_controls != null)
             {
                 foreach (Control control in _controls)
@@ -107,11 +112,9 @@ namespace MarbleManager.Config.LightConfigManagers
             FlowLayoutPanel col1FlowPanel = CreateFlowPanel($"tableLayoutPanel_{lightType}Config_Col1");
             FlowLayoutPanel col2FlowPanel = CreateFlowPanel($"tableLayoutPanel_{lightType}Config_Col2");
 
-            // create enabled checkbox
-            checkboxIsEnabled = CreateEnabledCheckbox(_config);
+            // Add global controls
+            AddGlobalControls(_config, col1FlowPanel);
 
-            // add controls to column 1
-            col1FlowPanel.Controls.Add(checkboxIsEnabled);
             if (_col1 != null)
             {
                 foreach (Control control in _col1)
@@ -147,16 +150,37 @@ namespace MarbleManager.Config.LightConfigManagers
             return flowLayoutPanel;
         }
 
-        private CheckBox CreateEnabledCheckbox(LightConfig _config)
+        private void AddGlobalControls(LightConfig _config, Control _wrapper)
         {
+            // create flow layout panel
+            FlowLayoutPanel flowLayoutPanel = new FlowLayoutPanel();
+            flowLayoutPanel.AutoSize = true;
+            flowLayoutPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            flowLayoutPanel.Dock = DockStyle.None;
+            flowLayoutPanel.FlowDirection = FlowDirection.LeftToRight;
+            flowLayoutPanel.WrapContents = false;
+            flowLayoutPanel.Name = $"globalControls{lightType}";
+
             // create enabled checkbox
-            CheckBox checkBox = new CheckBox();
-            checkBox.AutoSize = true;
-            checkBox.Name = $"checkboxIsEnabled{lightType}";
-            checkBox.Text = "Enabled";
-            checkBox.UseVisualStyleBackColor = true;
-            checkBox.Checked = (_config != null && _config.enabled);
-            return checkBox;
+            checkboxIsEnabled = new CheckBox();
+            checkboxIsEnabled.AutoSize = true;
+            checkboxIsEnabled.Name = $"checkboxIsEnabled{lightType}";
+            checkboxIsEnabled.Text = "Enabled";
+            checkboxIsEnabled.UseVisualStyleBackColor = true;
+            checkboxIsEnabled.Checked = (_config != null && _config.enabled);
+
+            // create apply palette checkbox
+            checkboxApplyPalette = new CheckBox();
+            checkboxApplyPalette.AutoSize = true;
+            checkboxApplyPalette.Name = $"checkboxApplyPalette{lightType}";
+            checkboxApplyPalette.Text = "Apply Palette";
+            checkboxApplyPalette.UseVisualStyleBackColor = true;
+            checkboxApplyPalette.Checked = (_config != null && _config.applyPalette);
+
+            flowLayoutPanel.Controls.Add(checkboxIsEnabled);
+            flowLayoutPanel.Controls.Add(checkboxApplyPalette);
+
+            _wrapper.Controls.Add(flowLayoutPanel);
         }
 
         /**

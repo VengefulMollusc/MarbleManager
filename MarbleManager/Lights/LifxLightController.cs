@@ -26,9 +26,15 @@ namespace MarbleManager.Lights
          */
         public Task ApplyPalette(PaletteObject _palette)
         {
+            if (!config.applyPalette)
+            {
+                Console.WriteLine("Lifx palette support is disabled");
+                return Task.CompletedTask;
+            }
+
             // no palette support (yet?)
             Console.WriteLine("No Lifx palette support");
-            return null;
+            return Task.CompletedTask;
         }
 
         /**
@@ -100,7 +106,6 @@ namespace MarbleManager.Lights
                 {
                     Console.WriteLine($"Lifx Timeout: {endpoint}");
                 }
-                
             }
         }
     }

@@ -10,7 +10,7 @@ namespace MarbleManager.Lights
 {
     internal class GlobalLightController
     {
-        ILightController[] lightControllers;
+        List<ILightController> lightControllers;
         WallpaperWatcher watcher;
 
         internal GlobalLightController() {
@@ -25,13 +25,9 @@ namespace MarbleManager.Lights
         internal async void TurnLightsOnOff(bool _state)
         {
             List<Task> tasks = new List<Task>();
-            foreach (var lightController in lightControllers)
+            foreach (ILightController lightController in lightControllers)
             {
-                Task task = lightController.SetOnOffState(_state);
-                if (task != null)
-                {
-                    tasks.Add(task);
-                }
+                tasks.Add(lightController.SetOnOffState(_state));
             }
             await Task.WhenAll(tasks);
             Console.WriteLine("All lights done");
@@ -42,15 +38,14 @@ namespace MarbleManager.Lights
          */
         internal void UpdateConfig(ConfigObject _config)
         {
-            // populate light controllers
-            lightControllers = new ILightController[]
-            {
-                // in future populate this based on config 'enabled' values?
-                // multiple lights of the same type should be handled by one controller?
-                new LifxLightController(_config),
-                new NanoleafLightController(_config),
-                new WizLightController(_config),
-            };
+            // populate light controllers based on enabled lights
+            lightControllers = new List<ILightController>();
+            if (_config.lifxConfig.enabled)
+                lightControllers.Add(new LifxLightController(_config));
+            if (_config.nanoleafConfig.enabled)
+                lightControllers.Add(new NanoleafLightController(_config));
+            if (_config.wizConfig.enabled)
+                lightControllers.Add(new WizLightController(_config));
 
             // turn on watcher if syncing to wallpaper
             if (_config.generalConfig.syncOnWallpaperChange)
@@ -94,13 +89,9 @@ namespace MarbleManager.Lights
 
             // apply to lights
             List<Task> tasks = new List<Task>();
-            foreach (var lightController in lightControllers)
+            foreach (ILightController lightController in lightControllers)
             {
-                Task task = lightController.ApplyPalette(palette);
-                if (task != null)
-                {
-                    tasks.Add(task);
-                }
+                tasks.Add(lightController.ApplyPalette(palette));
             }
             await Task.WhenAll(tasks);
             Console.WriteLine("All lights done");

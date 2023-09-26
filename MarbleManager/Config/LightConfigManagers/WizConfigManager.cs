@@ -44,6 +44,7 @@ namespace MarbleManager.Config.LightConfigManagers
             return new WizConfig()
             {
                 enabled = IsEnabled(),
+                applyPalette = ApplyPalette(),
                 ipAddresses = ipsTextBox != null ? ipsTextBox.Text : string.Empty,
             };
         }

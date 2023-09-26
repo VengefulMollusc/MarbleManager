@@ -4,7 +4,6 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +12,10 @@ namespace MarbleManager.Lights
 {
     internal class WizLightController : ILightController
     {
+        WizConfig config;
+
+        private static int port = 38899;
+
         public WizLightController(ConfigObject _config)
         {
             SetConfig(_config);
@@ -20,27 +23,46 @@ namespace MarbleManager.Lights
 
         public Task ApplyPalette(PaletteObject _palette)
         {
+            if (!config.applyPalette)
+            {
+                Console.WriteLine("Wiz palette support is disabled");
+                return Task.CompletedTask;
+            }
+
             // do nothing for now
-            return null;
+            Console.WriteLine("No Wiz palette support");
+            return Task.CompletedTask;
         }
 
         public void SetConfig(ConfigObject _config)
         {
-            // do nothing for now
+            config = _config.wizConfig;
         }
 
         public Task SetOnOffState(bool _state)
         {
-            string jsonCommand = JsonConvert.SerializeObject(GetStatePayload(_state));
+            JObject payload = GetStatePayload(_state);
+            foreach (string ip in config.IpAddressList)
+            {
+                SendPayload(ip, payload);
+            }
+            Console.WriteLine("Wiz lights done");
+            return Task.CompletedTask;
+        }
+
+        /**
+         * Sends a payload to a given light ip
+         */
+        private void SendPayload (string _ipAddress, JObject _payload)
+        {
+            string jsonCommand = JsonConvert.SerializeObject(_payload);
             byte[] data = Encoding.UTF8.GetBytes(jsonCommand);
-            string ipAddress = "192.168.68.83";
-            int port = 38899;
 
             using (UdpClient udpClient = new UdpClient())
             {
                 try
                 {
-                    udpClient.Send(data, data.Length, ipAddress, port);
+                    udpClient.Send(data, data.Length, _ipAddress, port);
                     Console.WriteLine("UDP command sent successfully.");
                 }
                 catch (Exception e)
@@ -48,7 +70,6 @@ namespace MarbleManager.Lights
                     Console.WriteLine($"Error sending UDP command: {e.Message}");
                 }
             }
-            return null;
         }
 
         /**

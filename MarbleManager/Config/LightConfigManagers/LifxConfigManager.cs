@@ -56,6 +56,7 @@ namespace MarbleManager.Config.LightConfigManagers
             return new LifxConfig()
             {
                 enabled = IsEnabled(),
+                applyPalette = ApplyPalette(),
                 selectors = selectorsTextBox != null ? selectorsTextBox.Text : string.Empty,
                 authKey = authKeyTextBox != null ? authKeyTextBox.Text : string.Empty,
             };
