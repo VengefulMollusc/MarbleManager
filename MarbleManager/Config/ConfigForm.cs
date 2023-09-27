@@ -253,7 +253,7 @@ namespace MarbleManager
         /**
          * show confirmation dialog on exit
          */
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        private void exitItem_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are you sure you want to exit?", "Exit", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {

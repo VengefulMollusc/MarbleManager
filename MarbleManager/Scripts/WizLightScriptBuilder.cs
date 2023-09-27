@@ -9,10 +9,26 @@ namespace MarbleManager.Scripts
 {
     internal class WizLightScriptBuilder : ILightScriptBuilder
     {
+        private string commandTemplate = "echo {\"Id\":1,\"method\":\"setState\",\"params\":{\"state\":<lightState>}} | <ncatPath> --udp --send-only <ipAddress> 38899";
+
         public List<string> GetLightOnOffCommands(bool _lightOn, ConfigObject _configObject)
         {
-            Console.WriteLine("WizLightScriptBuilder not set up");
-            return new List<string>();
+            Dictionary<string, string> baseValues = new Dictionary<string, string>()
+            {
+                { "<lightState>", _lightOn ? "true" : "false" },
+                { "<ncatPath>", PathManager.NcatFile }
+            };
+
+            // setup base command
+            string baseCommand = Utilities.ReplaceValues(commandTemplate, baseValues);
+
+            // repeat command for each light listed in selector list
+            List<string> commands = new List<string>();
+            foreach (string ip in _configObject.wizConfig.IpAddressList)
+            {
+                commands.Add(baseCommand.Replace("<ipAddress>", ip));
+            }
+            return commands;
         }
     }
 }

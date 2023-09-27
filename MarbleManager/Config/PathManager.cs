@@ -20,9 +20,11 @@ namespace MarbleManager.Config
         static string configFileName = "config.json";
         static string wallpaperFileName = "wallpaper.jpg";
         static string paletteFileName = "palette.json";
+        static string ncatFileName = "ncat.exe";
 
         // input paths
         static string templatesPath = "Scripts\\Templates\\";
+        static string toolsPath = "Scripts\\Tools\\";
         static string nanoleafEffectTemplateDir = "effect_payloads\\";
 
         // output paths
@@ -51,6 +53,13 @@ namespace MarbleManager.Config
             get
             {
                 return Path.Combine(Environment.CurrentDirectory, dataOutputPath, paletteFileName);
+            }
+        }
+        internal static string NcatFile
+        {
+            get
+            {
+                return Path.Combine(Environment.CurrentDirectory, toolsPath, ncatFileName);
             }
         }
 
