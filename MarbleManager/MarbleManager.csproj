@@ -89,6 +89,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scripts\WizLightScriptBuilder.cs" />
     <Compile Include="Utilities.cs" />
+    <Content Include="Scripts\Tools\nc.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Scripts\Tools\ncat.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

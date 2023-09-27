@@ -9,14 +9,14 @@ namespace MarbleManager.Scripts
 {
     internal class WizLightScriptBuilder : ILightScriptBuilder
     {
-        private string commandTemplate = "echo {\"Id\":1,\"method\":\"setState\",\"params\":{\"state\":<lightState>}} | <ncatPath> --udp --send-only <ipAddress> 38899";
+        private string commandTemplate = "echo {\"Id\":1,\"method\":\"setState\",\"params\":{\"state\":<lightState>}} | <netcatPath> -u -w 1 <ipAddress> 38899";
 
         public List<string> GetLightOnOffCommands(bool _lightOn, ConfigObject _configObject)
         {
             Dictionary<string, string> baseValues = new Dictionary<string, string>()
             {
                 { "<lightState>", _lightOn ? "true" : "false" },
-                { "<ncatPath>", PathManager.NcatFile }
+                { "<netcatPath>", PathManager.NetcatFile }
             };
 
             // setup base command

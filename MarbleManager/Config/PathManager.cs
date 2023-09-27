@@ -20,7 +20,7 @@ namespace MarbleManager.Config
         static string configFileName = "config.json";
         static string wallpaperFileName = "wallpaper.jpg";
         static string paletteFileName = "palette.json";
-        static string ncatFileName = "ncat.exe";
+        static string netcatFileName = "nc.exe";
 
         // input paths
         static string templatesPath = "Scripts\\Templates\\";
@@ -55,11 +55,11 @@ namespace MarbleManager.Config
                 return Path.Combine(Environment.CurrentDirectory, dataOutputPath, paletteFileName);
             }
         }
-        internal static string NcatFile
+        internal static string NetcatFile
         {
             get
             {
-                return Path.Combine(Environment.CurrentDirectory, toolsPath, ncatFileName);
+                return Path.Combine(Environment.CurrentDirectory, toolsPath, netcatFileName);
             }
         }
 
