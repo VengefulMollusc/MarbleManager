@@ -23,6 +23,6 @@ namespace MarbleManager.Lights
         /**
          * Applies a colour palette to the lights
          */
-        Task ApplyPalette(PaletteObject _palette);
+        Task ApplyPalette(PaletteObject _palette, bool _turnOn = false);
     }
 }

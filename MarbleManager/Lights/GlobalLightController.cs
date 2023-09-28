@@ -22,7 +22,7 @@ namespace MarbleManager.Lights
         /**
          * Triggers the lights to turn on or off
          */
-        internal async void TurnLightsOnOff(bool _state)
+        internal async Task TurnLightsOnOff(bool _state)
         {
             List<Task> tasks = new List<Task>();
             foreach (ILightController lightController in lightControllers)
@@ -36,7 +36,7 @@ namespace MarbleManager.Lights
         /**
          * Updates the config for each light
          */
-        internal void UpdateConfig(ConfigObject _config)
+        internal async void UpdateConfig(ConfigObject _config)
         {
             // populate light controllers based on enabled lights
             lightControllers = new List<ILightController>();
@@ -57,7 +57,7 @@ namespace MarbleManager.Lights
                     watcher.OnChange += SyncOnWallpaperChange;
 
                     // trigger initial sync
-                    SyncToWallpaper();
+                    await SyncToWallpaper();
                 }
             } else if (watcher != null)
             {
@@ -68,22 +68,29 @@ namespace MarbleManager.Lights
             }
         }
 
-        private void SyncOnWallpaperChange(object source, FileSystemEventArgs e)
+        private async void SyncOnWallpaperChange(object source, FileSystemEventArgs e)
         {
             Console.WriteLine("Triggering auto-sync");
-            SyncToWallpaper();
+            await SyncToWallpaper();
         }
 
         /**
          * Applies a palette generated from the current wallpaper to the lights
          */
-        internal async void SyncToWallpaper(Bitmap _toSync = null)
+        internal async Task SyncToWallpaper()
         {
-            // Select image to sync
-            Bitmap image = _toSync != null ? _toSync : WallpaperManager.GetWallpaperBitmap();
+            await SyncToWallpaper(WallpaperManager.GetWallpaperBitmap());
+        }
 
+        internal async Task TurnOnAndSyncToWallpaper()
+        {
+            await SyncToWallpaper(WallpaperManager.GetWallpaperBitmap(), true);
+        }
+
+        internal async Task SyncToWallpaper(Bitmap _toSync, bool _turnOn = false)
+        {
             // generate palette
-            PaletteObject palette = PaletteManager.GetPaletteFromBitmap(image);
+            PaletteObject palette = PaletteManager.GetPaletteFromBitmap(_toSync);
             // save to file
             PaletteManager.SavePalette(palette);
 
@@ -91,13 +98,13 @@ namespace MarbleManager.Lights
             List<Task> tasks = new List<Task>();
             foreach (ILightController lightController in lightControllers)
             {
-                tasks.Add(lightController.ApplyPalette(palette));
+                tasks.Add(lightController.ApplyPalette(palette, _turnOn));
             }
             await Task.WhenAll(tasks);
             Console.WriteLine("All lights done");
 
             // dispose to free up memory
-            image.Dispose();
+            _toSync.Dispose();
         }
     }
 }

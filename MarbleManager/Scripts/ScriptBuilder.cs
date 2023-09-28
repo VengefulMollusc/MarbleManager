@@ -1,4 +1,5 @@
 ﻿using MarbleManager.Config;
+using MarbleManager.Lights;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -34,12 +35,14 @@ namespace MarbleManager.Scripts
         {
             string outputFile = Path.Combine(PathManager.BatScriptOutputDir, _lightsOn ? turnOnLightsFileName : turnOffLightsFileName);
 
-            List<ILightScriptBuilder> builders = new List<ILightScriptBuilder>()
-            {
-                new LifxLightScriptBuilder(),
-                new NanoleafLightScriptBuilder(),
-                new WizLightScriptBuilder(),
-            };
+            List<ILightScriptBuilder> builders = new List<ILightScriptBuilder>();
+            // only create scripts for enabled lights
+            if (_config.lifxConfig.enabled)
+                builders.Add(new LifxLightScriptBuilder());
+            if (_config.nanoleafConfig.enabled)
+                builders.Add(new NanoleafLightScriptBuilder());
+            if (_config.wizConfig.enabled)
+                builders.Add(new WizLightScriptBuilder());
 
             // Define the batch commands you want to include in the .bat file.
             List<string> batchCommands = new List<string>()

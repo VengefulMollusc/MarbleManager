@@ -320,7 +320,7 @@ namespace MarbleManager
         /**
          * Turns on the lights
          */
-        private void buttonLightsOn_Click(object sender, EventArgs e)
+        private async void buttonLightsOn_Click(object sender, EventArgs e)
         {
             if (lightController == null)
             {
@@ -328,13 +328,13 @@ namespace MarbleManager
                 return;
             }
             Console.WriteLine("Turning lights On");
-            lightController.TurnLightsOnOff(true);
+            await lightController.TurnLightsOnOff(true);
         }
 
         /**
          * Turns off the lights
          */
-        private void buttonLightsOff_Click(object sender, EventArgs e)
+        private async void buttonLightsOff_Click(object sender, EventArgs e)
         {
             if (lightController == null)
             {
@@ -342,16 +342,16 @@ namespace MarbleManager
                 return;
             }
             Console.WriteLine("Turning lights Off");
-            lightController.TurnLightsOnOff(false);
+            await lightController.TurnLightsOnOff(false);
         }
 
         /**
          * Syncs light colours to the current wallpaper
          * note: NOT the currently previewed palette
          */
-        private void buttonSyncLightColours_Click(object sender, EventArgs e)
+        private async void buttonSyncLightColours_Click(object sender, EventArgs e)
         {
-            lightController.SyncToWallpaper();
+            await lightController.SyncToWallpaper();
 
             LoadLastPalette();
         }
@@ -385,7 +385,7 @@ namespace MarbleManager
          * Performs a colour sync with the previewed image
          * (rather than the wallpaper)
          */
-        private void buttonSyncPreviewedPalette_Click(object sender, EventArgs e)
+        private async void buttonSyncPreviewedPalette_Click(object sender, EventArgs e)
         {
             if (previewImage == null)
             {
@@ -393,7 +393,7 @@ namespace MarbleManager
                 return;
             }
 
-            lightController.SyncToWallpaper(previewImage);
+            await lightController.SyncToWallpaper(previewImage);
             LoadLastPalette();
 
             Console.WriteLine("Preview palette synced to lights");

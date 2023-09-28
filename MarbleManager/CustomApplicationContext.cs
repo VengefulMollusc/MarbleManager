@@ -64,19 +64,19 @@ namespace MarbleManager
             notifyIcon.ContextMenuStrip.Items.Add("&Exit", null, exitItem_Click);
         }
 
-        private void lightsOnFormItem_Click(object sender, EventArgs e)
+        private async void lightsOnFormItem_Click(object sender, EventArgs e)
         {
-            lightController.TurnLightsOnOff(true);
+            await lightController.TurnLightsOnOff(true);
         }
 
-        private void lightsOffFormItem_Click(object sender, EventArgs e)
+        private async void lightsOffFormItem_Click(object sender, EventArgs e)
         {
-            lightController.TurnLightsOnOff(false);
+            await lightController.TurnLightsOnOff(false);
         }
 
-        private void syncFormItem_Click(object sender, EventArgs e)
+        private async void syncFormItem_Click(object sender, EventArgs e)
         {
-            lightController.SyncToWallpaper();
+            await lightController.SyncToWallpaper();
         }
 
         /**

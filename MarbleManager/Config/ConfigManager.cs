@@ -88,7 +88,7 @@ namespace MarbleManager.Config
         private static void ConfigureRunOnBoot(bool _runOnBoot)
         {
             // Get relevant paths, names etc.
-            string appPath = Path.Combine(Environment.CurrentDirectory, AppDomain.CurrentDomain.FriendlyName);
+            string appPath = PathManager.MarbleManagerFile;
             string startupFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.Startup);
             string shortcutName = $"{Path.GetFileNameWithoutExtension(appPath)}_autoShortcut.lnk";
             string shortcutPath = Path.Combine(startupFolderPath, shortcutName);

@@ -29,19 +29,22 @@ namespace MarbleManager.Lights
         /**
          * Applies a colour palette to the light
          */
-        public async Task ApplyPalette(PaletteObject _palette)
+        public async Task ApplyPalette(PaletteObject _palette, bool _turnOn = false)
         {
             if (!config.applyPalette)
             {
                 Console.WriteLine("Nanoleaf palette support is disabled");
+                // turn on if needed
+                if (_turnOn)
+                    await SetOnOffState(true);
                 return;
             }
 
-            // only send palettes to lights that are ON
-            List<NanoleafConfig.Light> onLights = await GetOnLightUrls();
-            if (onLights.Count <= 0)
+            // only send palettes to lights that are ON if _turnOn = false
+            List<NanoleafConfig.Light> lightsToApply = _turnOn ? config.lights : await GetOnLightUrls();
+            if (lightsToApply.Count <= 0)
             {
-                Console.WriteLine("Nanoleaf: No lights are on to send palette");
+                Console.WriteLine("Nanoleaf: No valid lights to apply palette");
                 return;
             }
 
@@ -60,7 +63,7 @@ namespace MarbleManager.Lights
 
             // send payloads
             List<Task> tasks = new List<Task>();
-            foreach (NanoleafConfig.Light light in onLights)
+            foreach (NanoleafConfig.Light light in lightsToApply)
             {
                 tasks.Add(SendPayload(light, payload, "/effects"));
             }

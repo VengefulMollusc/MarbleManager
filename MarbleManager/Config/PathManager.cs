@@ -62,6 +62,13 @@ namespace MarbleManager.Config
                 return Path.Combine(Environment.CurrentDirectory, toolsPath, netcatFileName);
             }
         }
+        internal static string MarbleManagerFile
+        {
+            get
+            {
+                return Path.Combine(Environment.CurrentDirectory, AppDomain.CurrentDomain.FriendlyName);
+            }
+        }
 
         // paths
         internal static string DataOutputDir

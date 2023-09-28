@@ -21,17 +21,23 @@ namespace MarbleManager.Lights
             SetConfig(_config);
         }
 
-        public Task ApplyPalette(PaletteObject _palette)
+        public async Task ApplyPalette(PaletteObject _palette, bool _turnOn = false)
         {
             if (!config.applyPalette)
             {
                 Console.WriteLine("Wiz palette support is disabled");
-                return Task.CompletedTask;
+                // turn on if needed
+                if (_turnOn)
+                    await SetOnOffState(true);
+                return;
             }
 
             // do nothing for now
             Console.WriteLine("No Wiz palette support");
-            return Task.CompletedTask;
+            // turn on if needed
+            if (_turnOn)
+                await SetOnOffState(true);
+            return;
         }
 
         public void SetConfig(ConfigObject _config)

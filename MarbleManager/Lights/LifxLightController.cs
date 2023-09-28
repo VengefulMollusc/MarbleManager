@@ -24,17 +24,23 @@ namespace MarbleManager.Lights
         /**
          * Applies a colour palette
          */
-        public Task ApplyPalette(PaletteObject _palette)
+        public async Task ApplyPalette(PaletteObject _palette, bool _turnOn = false)
         {
             if (!config.applyPalette)
             {
                 Console.WriteLine("Lifx palette support is disabled");
-                return Task.CompletedTask;
+                // turn on if needed
+                if (_turnOn)
+                    await SetOnOffState(true);
+                return;
             }
 
             // no palette support (yet?)
             Console.WriteLine("No Lifx palette support");
-            return Task.CompletedTask;
+            // turn on if needed
+            if (_turnOn)
+                await SetOnOffState(true);
+            return;
         }
 
         /**
