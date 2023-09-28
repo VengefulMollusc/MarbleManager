@@ -22,8 +22,23 @@ namespace MarbleManager.Scripts
          */
         internal static void BuildOnOffScriptFiles(ConfigObject _config)
         {
-            CreateOnOffBatScript(true, _config);
-            CreateOnOffBatScript(false, _config);
+            // create scripts that call MarbleManager command line functions
+            string envPath = Environment.CurrentDirectory;
+            string exeName = AppDomain.CurrentDomain.FriendlyName;
+            WrapAndSaveFile(new List<string>()
+            {
+                $"cd /d \"{envPath}\"",
+                $@".\{exeName} {(_config.generalConfig.syncOnWallpaperChange ? "syncon" : "on")}"
+            }, turnOnLightsFileName);
+            WrapAndSaveFile(new List<string>()
+            {
+                $"cd /d \"{envPath}\"",
+                $@".\{exeName} off"
+            }, turnOffLightsFileName);
+
+            // create scripts using individual 
+            //CreateOnOffBatScript(true, _config);
+            //CreateOnOffBatScript(false, _config);
 
             Console.WriteLine("Creating .bat scripts done");
         }
@@ -33,8 +48,6 @@ namespace MarbleManager.Scripts
          */
         private static void CreateOnOffBatScript(bool _lightsOn, ConfigObject _config)
         {
-            string outputFile = Path.Combine(PathManager.BatScriptOutputDir, _lightsOn ? turnOnLightsFileName : turnOffLightsFileName);
-
             List<ILightScriptBuilder> builders = new List<ILightScriptBuilder>();
             // only create scripts for enabled lights
             if (_config.lifxConfig.enabled)
@@ -44,6 +57,23 @@ namespace MarbleManager.Scripts
             if (_config.wizConfig.enabled)
                 builders.Add(new WizLightScriptBuilder());
 
+            // add commands for light scripts
+            List<string> commands = new List<string>();
+            foreach (ILightScriptBuilder builder in builders)
+            {
+                commands.AddRange(builder.GetLightOnOffCommands(_lightsOn, _config));
+            }
+
+            WrapAndSaveFile(commands, _lightsOn ? turnOnLightsFileName : turnOffLightsFileName);
+        }
+
+        /**
+         * Wraps a list of string commands and saves to a given filename
+         */
+        private static void WrapAndSaveFile(List<string> _commands, string _fileName)
+        {
+            string outputFile = Path.Combine(PathManager.BatScriptOutputDir, _fileName);
+
             // Define the batch commands you want to include in the .bat file.
             List<string> batchCommands = new List<string>()
             {
@@ -51,14 +81,9 @@ namespace MarbleManager.Scripts
                 "setlocal",
             };
 
-            // add commands for light scripts
-            foreach (ILightScriptBuilder builder in builders)
-            {
-                foreach (string command in builder.GetLightOnOffCommands(_lightsOn, _config))
-                {
-                    batchCommands.Add(command);
-                }
-            }
+            // add commands
+            foreach (string command in _commands)
+                batchCommands.Add(command);
 
             // end the file
             batchCommands.Add("endlocal");
