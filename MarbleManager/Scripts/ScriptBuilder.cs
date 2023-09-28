@@ -1,12 +1,8 @@
 ﻿using MarbleManager.Config;
-using MarbleManager.Lights;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Security.Principal;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MarbleManager.Scripts
 {
@@ -36,35 +32,7 @@ namespace MarbleManager.Scripts
                 $@".\{exeName} off"
             }, turnOffLightsFileName);
 
-            // create scripts using individual 
-            //CreateOnOffBatScript(true, _config);
-            //CreateOnOffBatScript(false, _config);
-
             Console.WriteLine("Creating .bat scripts done");
-        }
-
-        /**
-         * Creates .bat scripts for turning on/off lights
-         */
-        private static void CreateOnOffBatScript(bool _lightsOn, ConfigObject _config)
-        {
-            List<ILightScriptBuilder> builders = new List<ILightScriptBuilder>();
-            // only create scripts for enabled lights
-            if (_config.lifxConfig.enabled)
-                builders.Add(new LifxLightScriptBuilder());
-            if (_config.nanoleafConfig.enabled)
-                builders.Add(new NanoleafLightScriptBuilder());
-            if (_config.wizConfig.enabled)
-                builders.Add(new WizLightScriptBuilder());
-
-            // add commands for light scripts
-            List<string> commands = new List<string>();
-            foreach (ILightScriptBuilder builder in builders)
-            {
-                commands.AddRange(builder.GetLightOnOffCommands(_lightsOn, _config));
-            }
-
-            WrapAndSaveFile(commands, _lightsOn ? turnOnLightsFileName : turnOffLightsFileName);
         }
 
         /**
