@@ -120,25 +120,38 @@ namespace MarbleManager.Lights
                 string jsonPayload = JsonConvert.SerializeObject(_payload);
                 StringContent content = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
 
-                try
-                {
-                    // send the request
-                    HttpResponseMessage response = await client.PutAsync($"api/v1/{_light.apiKey}{_endpoint}", content);
+                bool success = false;
 
-                    // Check if the request was successful
-                    if (response.IsSuccessStatusCode)
-                    {
-                        // Read and process the response content (if any)
-                        string responseContent = await response.Content.ReadAsStringAsync();
-                        Console.WriteLine($"Nanoleaf Success: {_light.ipAddress}");
-                    }
-                    else
-                    {
-                        Console.WriteLine($"Nanoleaf Error: {response.StatusCode}");
-                    }
-                } catch
+                for (int attempt = 1; attempt <= GlobalLightController.RetryCount; attempt++)
                 {
-                    Console.WriteLine($"Nanoleaf timeout: {_light.ipAddress}");
+                    try
+                    {
+                        // send the request
+                        HttpResponseMessage response = await client.PutAsync($"api/v1/{_light.apiKey}{_endpoint}", content);
+
+                        // Check if the request was successful
+                        if (response.IsSuccessStatusCode)
+                        {
+                            // Read and process the response content (if any)
+                            string responseContent = await response.Content.ReadAsStringAsync();
+                            Console.WriteLine($"Nanoleaf Success: {_light.ipAddress}");
+                            success = true;
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Nanoleaf Error: {response.StatusCode}");
+                        }
+                    }
+                    catch
+                    {
+                        Console.WriteLine($"Nanoleaf timeout: {_light.ipAddress}");
+                    }
+                }
+
+                if (!success)
+                {
+                    Console.WriteLine("Nanoleaf command failed after retrying.");
                 }
             }
         }

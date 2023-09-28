@@ -8,15 +8,38 @@ using System.Threading.Tasks;
 
 namespace MarbleManager.Lights
 {
-    internal class GlobalLightController
+    internal sealed class GlobalLightController
     {
+        private static GlobalLightController _instance = null;
+        private static readonly object _lock = new object();
+
         List<ILightController> lightControllers;
         WallpaperWatcher watcher;
 
-        internal GlobalLightController() {
+        internal static int RetryCount = 2;
+
+        private GlobalLightController() {
             ConfigObject config = ConfigManager.GetConfig();
 
             UpdateConfig(config);
+        }
+
+        internal static GlobalLightController Instance {
+            get
+            {
+                // double check lock for thread safety
+                if (_instance == null)
+                {
+                    lock (_lock)
+                    {
+                        if (_instance == null)
+                        {
+                            _instance = new GlobalLightController();
+                        }
+                    }
+                }
+                return _instance;
+            }
         }
 
         /**

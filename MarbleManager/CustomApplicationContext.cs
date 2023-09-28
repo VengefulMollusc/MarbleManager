@@ -25,7 +25,7 @@ namespace MarbleManager
         public CustomApplicationContext() {
             InitializeContext();
 
-            lightController = new GlobalLightController();
+            lightController = GlobalLightController.Instance;
         }
 
         /**

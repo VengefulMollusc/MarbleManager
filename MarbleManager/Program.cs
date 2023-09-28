@@ -36,7 +36,7 @@ namespace MarbleManager
          */
         static async Task<bool> ProcessCommandLineArgs(string[] args)
         {
-            GlobalLightController lightController = new GlobalLightController();
+            GlobalLightController lightController = GlobalLightController.Instance;
             bool bootApp = false;
 
             for (int i = 0; i < args.Length; i++)

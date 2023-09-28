@@ -66,14 +66,26 @@ namespace MarbleManager.Lights
 
             using (UdpClient udpClient = new UdpClient())
             {
-                try
+                bool success = false;
+
+                for (int attempt = 1;  attempt <= GlobalLightController.RetryCount;  attempt++)
                 {
-                    udpClient.Send(data, data.Length, _ipAddress, port);
-                    Console.WriteLine("UDP command sent successfully.");
+                    try
+                    {
+                        udpClient.Send(data, data.Length, _ipAddress, port);
+                        Console.WriteLine("UDP command sent successfully.");
+                        success = true;
+                        break;
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine($"Error sending UDP command: {e.Message}");
+                    }
                 }
-                catch (Exception e)
+
+                if (!success)
                 {
-                    Console.WriteLine($"Error sending UDP command: {e.Message}");
+                    Console.WriteLine("UDP command failed after retrying.");
                 }
             }
         }

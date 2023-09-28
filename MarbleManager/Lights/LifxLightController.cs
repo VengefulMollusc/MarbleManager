@@ -92,25 +92,38 @@ namespace MarbleManager.Lights
                 // create payload content
                 StringContent content = new StringContent(payload, Encoding.UTF8, "application/x-www-form-urlencoded");
 
-                try
-                {
-                    // send the request
-                    HttpResponseMessage response = await client.PutAsync(endpoint, content);
+                bool success = false;
 
-                    // Check if the request was successful
-                    if (response.IsSuccessStatusCode)
-                    {
-                        // Read and process the response content (if any)
-                        string responseContent = await response.Content.ReadAsStringAsync();
-                        Console.WriteLine($"Lifx Success: {endpoint}");
-                    }
-                    else
-                    {
-                        Console.WriteLine($"Lifx Error: {response.StatusCode}");
-                    }
-                } catch
+                for (int attempt = 1;  attempt <= GlobalLightController.RetryCount;  attempt++)
                 {
-                    Console.WriteLine($"Lifx Timeout: {endpoint}");
+                    try
+                    {
+                        // send the request
+                        HttpResponseMessage response = await client.PutAsync(endpoint, content);
+
+                        // Check if the request was successful
+                        if (response.IsSuccessStatusCode)
+                        {
+                            // Read and process the response content (if any)
+                            string responseContent = await response.Content.ReadAsStringAsync();
+                            Console.WriteLine($"Lifx Success: {endpoint}");
+                            success = true;
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Lifx Error: {response.StatusCode}");
+                        }
+                    }
+                    catch
+                    {
+                        Console.WriteLine($"Lifx Timeout: {endpoint}");
+                    }
+                }
+
+                if (!success)
+                {
+                    Console.WriteLine("Lifx command failed after retrying.");
                 }
             }
         }
