@@ -18,9 +18,10 @@ namespace MarbleManager
             // check and act on command line arguments
             if (args.Length > 0)
             {
-                // perform commands then end execution
-                await PerformCommandLineFunctions(args);
-                return;
+                // perform commands
+                bool bootApp = await ProcessCommandLineArgs(args);
+                if (!bootApp)
+                    return;
             }
 
             Application.EnableVisualStyles();
@@ -33,9 +34,10 @@ namespace MarbleManager
         /**
          * Perform tasks from command line
          */
-        static async Task PerformCommandLineFunctions(string[] args)
+        static async Task<bool> ProcessCommandLineArgs(string[] args)
         {
             GlobalLightController lightController = new GlobalLightController();
+            bool bootApp = false;
 
             for (int i = 0; i < args.Length; i++)
             {
@@ -53,11 +55,16 @@ namespace MarbleManager
                     case "syncon":
                         await lightController.TurnOnAndSyncToWallpaper();
                         break;
+                    case "bootapp":
+                        bootApp = true;
+                        break;
                     default:
                         Console.WriteLine($"Invalid command: {args[i]}");
-                        return;
+                        return false;
                 }
             }
+
+            return bootApp;
         }
     }
 }
