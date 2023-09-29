@@ -40,6 +40,13 @@ namespace MarbleManager.Colours
                 return swatches.OrderByDescending(x => x.population).ToList();
             } 
         }
+
+        // gets the single brightest swatch - used for single colour palette applying
+        // returns the swatch with the highest luminance
+        [JsonIgnore]
+        public SwatchObject Brightest { get {
+                return MainSwatches.Aggregate((x, y) => x.l > y.l ? x : y);
+        } }
     }
 
     internal class SwatchObject

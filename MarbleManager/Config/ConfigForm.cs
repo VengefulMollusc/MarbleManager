@@ -115,8 +115,9 @@ namespace MarbleManager
          * Applies a swatch to a set of preview UI objects
          * shows the colour, plus details on labels
          */
-        private void PreviewSwatch (List<Panel> _panels, List<Label> _labels, SwatchObject _swatch, bool showHsl = true)
+        private void PreviewSwatch (List<Panel> _panels, List<Label> _labels, SwatchObject _swatch)
         {
+            bool showHsl = false;
             Color bgColour;
             BorderStyle borderStyle;
             string propText, hslText;
