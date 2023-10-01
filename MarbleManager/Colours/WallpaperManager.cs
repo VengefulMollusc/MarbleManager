@@ -15,7 +15,7 @@ namespace MarbleManager.Colours
         {
             CopyWallpaperToJpg();
 
-            return new Bitmap(PathManager.WallpaperFile);
+            return new Bitmap(PathManager.WallpaperFilePath);
         }
 
         /**
@@ -23,7 +23,7 @@ namespace MarbleManager.Colours
          */
         internal static void DeleteCopiedWallpaper()
         {
-            Utilities.DeleteFile(PathManager.WallpaperFile);
+            Utilities.DeleteFile(PathManager.WallpaperFilePath);
         }
 
         /**
@@ -74,7 +74,7 @@ namespace MarbleManager.Colours
             {
                 // Copy and rename
                 Directory.CreateDirectory(PathManager.DataOutputDir);
-                File.Copy(transcodedWallpaperPath, PathManager.WallpaperFile, true);
+                File.Copy(transcodedWallpaperPath, PathManager.WallpaperFilePath, true);
             }
         }
     }

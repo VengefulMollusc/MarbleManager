@@ -20,6 +20,7 @@ namespace MarbleManager.Config
         static string configFileName = "config.json";
         static string wallpaperFileName = "wallpaper.jpg";
         static string paletteFileName = "palette.json";
+        static string logFileName = "log.txt";
 
         // input paths
         static string templatesPath = "Scripts\\Templates\\";
@@ -32,32 +33,39 @@ namespace MarbleManager.Config
         static string regScriptOutputSubPath = "reg\\";
 
         // files
-        internal static string ConfigFile
+        internal static string ConfigFilePath
         {
             get
             {
                 return Path.Combine(Environment.CurrentDirectory, configFileName);
             }
         }
-        internal static string WallpaperFile
+        internal static string WallpaperFilePath
         {
             get
             {
-                return Path.Combine(Environment.CurrentDirectory, dataOutputPath, wallpaperFileName);
+                return Path.Combine(DataOutputDir, wallpaperFileName);
             }
         }
-        internal static string PaletteFile
+        internal static string PaletteFilePath
         {
             get
             {
-                return Path.Combine(Environment.CurrentDirectory, dataOutputPath, paletteFileName);
+                return Path.Combine(DataOutputDir, paletteFileName);
             }
         }
-        internal static string MarbleManagerFile
+        internal static string MarbleManagerFilePath
         {
             get
             {
                 return Path.Combine(Environment.CurrentDirectory, AppDomain.CurrentDomain.FriendlyName);
+            }
+        }
+        internal static string LogFilePath
+        {
+            get
+            {
+                return Path.Combine(DataOutputDir, logFileName);
             }
         }
 
@@ -73,14 +81,14 @@ namespace MarbleManager.Config
         {
             get
             {
-                return Path.Combine(Environment.CurrentDirectory, dataOutputPath, scriptOutputSubPath, batScriptOutputSubPath);
+                return Path.Combine(DataOutputDir, scriptOutputSubPath, batScriptOutputSubPath);
             }
         }
         internal static string RegScriptOutputDir
         {
             get
             {
-                return Path.Combine(Environment.CurrentDirectory, dataOutputPath, scriptOutputSubPath, regScriptOutputSubPath);
+                return Path.Combine(DataOutputDir, scriptOutputSubPath, regScriptOutputSubPath);
             }
         }
         internal static string NanoleafEffectTemplateDir

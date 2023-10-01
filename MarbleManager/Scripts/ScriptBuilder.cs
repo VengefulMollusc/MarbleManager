@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
 using System.Security.Principal;
 
 namespace MarbleManager.Scripts
@@ -11,26 +12,29 @@ namespace MarbleManager.Scripts
         static string turnOnLightsFileName = "turnOnLights.bat";
         static string turnOffLightsFileName = "turnOffLights.bat";
 
-        static string regTemplateNamespace = "MarbleManager.Scripts.Templates.reg_scripts";
+        static string batchLogTemplateFileName = "batchLog_template.bat";
+
+        static string templateNamespace = "MarbleManager.Scripts.Templates";
+        static string regNamespace = "reg_scripts";
 
         /**
          * Creates script files from templates with new values from config
          */
         internal static void BuildOnOffScriptFiles(ConfigObject _config)
         {
-            // create scripts that call MarbleManager command line functions
-            string envPath = Environment.CurrentDirectory;
-            string exeName = AppDomain.CurrentDomain.FriendlyName;
-            WrapAndSaveFile(new List<string>()
-            {
-                $"cd /d \"{envPath}\"",
-                $@".\{exeName} {(_config.generalConfig.syncOnWallpaperChange ? "syncon" : "on")}"
-            }, turnOnLightsFileName);
-            WrapAndSaveFile(new List<string>()
-            {
-                $"cd /d \"{envPath}\"",
-                $@".\{exeName} off"
-            }, turnOffLightsFileName);
+            // on script
+            CreateAndSaveBatScript(
+                _config, 
+                _config.generalConfig.syncOnWallpaperChange ? "syncon" : "on", 
+                turnOnLightsFileName
+            );
+
+            // off script
+            CreateAndSaveBatScript(
+                _config, 
+                "off",
+                turnOffLightsFileName
+            );
 
             Console.WriteLine("Creating .bat scripts done");
         }
@@ -38,20 +42,26 @@ namespace MarbleManager.Scripts
         /**
          * Wraps a list of string commands and saves to a given filename
          */
-        private static void WrapAndSaveFile(List<string> _commands, string _fileName)
+        private static void CreateAndSaveBatScript(ConfigObject _config, string _exeParams, string _fileName)
         {
             string outputFile = Path.Combine(PathManager.BatScriptOutputDir, _fileName);
 
-            // Define the batch commands you want to include in the .bat file.
+            // Define commands
             List<string> batchCommands = new List<string>()
             {
+                // wrapper commands
                 "@echo off",
-                "setlocal",
+                $"setlocal{(_config.generalConfig.logUsage ? " enabledelayedexpansion" : " ")}", // only need enabledelayedexpansion if logging
+                // commands to call app exe
+                $"cd /d \"{Environment.CurrentDirectory}\"",
+                $@".\{AppDomain.CurrentDomain.FriendlyName} {_exeParams}"
             };
 
-            // add commands
-            foreach (string command in _commands)
-                batchCommands.Add(command);
+            // add logs if needed
+            if (_config.generalConfig.logUsage)
+            {
+                batchCommands.AddRange(GetLogCommands(_exeParams));
+            }
 
             // end the file
             batchCommands.Add("endlocal");
@@ -72,6 +82,20 @@ namespace MarbleManager.Scripts
         }
 
         /**
+         * Returns the list of commands needed to generate logs
+         */
+        private static List<string> GetLogCommands(string _command)
+        {
+            return Utilities.LoadResourceAsListAndReplaceValues(
+                $"{templateNamespace}.{batchLogTemplateFileName}",
+                new Dictionary<string, string>
+                    {
+                        { "<command>", _command.ToUpper() },
+                        { "<filePath>", PathManager.LogFilePath },
+                    });
+        }
+
+        /**
          * Creates .reg scripts for enabling log on/off light controls in registry
          */
         internal static string BuildAutoOnOffRegistryScript(bool _enable)
@@ -85,7 +109,7 @@ namespace MarbleManager.Scripts
             }
 
             Utilities.CopyResourceAndReplaceValues(
-                $"{regTemplateNamespace}.{(_enable ? "addLogOnOffScripts_template.reg" : "remLogOnOffScripts_template.reg")}",
+                $"{templateNamespace}.{regNamespace}.{(_enable ? "addLogOnOffScripts_template.reg" : "remLogOnOffScripts_template.reg")}",
                 PathManager.RegScriptOutputDir,
                 _enable ? "addLogOnOffScripts.reg" : "remLogOnOffScripts.reg",
                 new Dictionary<string, string>

@@ -163,6 +163,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.checkBoxUseLogs = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPagePreview.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -1346,7 +1347,7 @@
             this.groupBoxSettings.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBoxSettings.Location = new System.Drawing.Point(0, 0);
             this.groupBoxSettings.Name = "groupBoxSettings";
-            this.groupBoxSettings.Size = new System.Drawing.Size(618, 325);
+            this.groupBoxSettings.Size = new System.Drawing.Size(618, 303);
             this.groupBoxSettings.TabIndex = 1;
             this.groupBoxSettings.TabStop = false;
             this.groupBoxSettings.Text = "Light settings";
@@ -1357,7 +1358,7 @@
             this.lightSettingsDynamicPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lightSettingsDynamicPanel.Location = new System.Drawing.Point(3, 16);
             this.lightSettingsDynamicPanel.Name = "lightSettingsDynamicPanel";
-            this.lightSettingsDynamicPanel.Size = new System.Drawing.Size(612, 306);
+            this.lightSettingsDynamicPanel.Size = new System.Drawing.Size(612, 284);
             this.lightSettingsDynamicPanel.TabIndex = 1;
             // 
             // groupBox4
@@ -1365,9 +1366,9 @@
             this.groupBox4.AutoSize = true;
             this.groupBox4.Controls.Add(this.flowLayoutPanel32);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox4.Location = new System.Drawing.Point(0, 325);
+            this.groupBox4.Location = new System.Drawing.Point(0, 303);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(618, 112);
+            this.groupBox4.Size = new System.Drawing.Size(618, 134);
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Global settings/Controls";
@@ -1381,7 +1382,7 @@
             this.flowLayoutPanel32.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel32.Location = new System.Drawing.Point(3, 16);
             this.flowLayoutPanel32.Name = "flowLayoutPanel32";
-            this.flowLayoutPanel32.Size = new System.Drawing.Size(612, 93);
+            this.flowLayoutPanel32.Size = new System.Drawing.Size(612, 115);
             this.flowLayoutPanel32.TabIndex = 0;
             // 
             // flowLayoutPanel33
@@ -1392,11 +1393,12 @@
             this.flowLayoutPanel33.Controls.Add(this.checkBoxSyncOnWallpaperChange);
             this.flowLayoutPanel33.Controls.Add(this.checkBoxAutoTurnOnOff);
             this.flowLayoutPanel33.Controls.Add(this.checkBoxRunOnBoot);
+            this.flowLayoutPanel33.Controls.Add(this.checkBoxUseLogs);
             this.flowLayoutPanel33.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel33.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel33.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel33.Name = "flowLayoutPanel33";
-            this.flowLayoutPanel33.Size = new System.Drawing.Size(195, 92);
+            this.flowLayoutPanel33.Size = new System.Drawing.Size(195, 115);
             this.flowLayoutPanel33.TabIndex = 11;
             // 
             // checkBoxUseMainSwatches
@@ -1728,6 +1730,17 @@
     "s (*.*)|*.*";
             this.openFileDialog1.Title = "Select an image file";
             // 
+            // checkBoxUseLogs
+            // 
+            this.checkBoxUseLogs.AutoSize = true;
+            this.checkBoxUseLogs.Location = new System.Drawing.Point(3, 95);
+            this.checkBoxUseLogs.Name = "checkBoxUseLogs";
+            this.checkBoxUseLogs.Size = new System.Drawing.Size(78, 17);
+            this.checkBoxUseLogs.TabIndex = 11;
+            this.checkBoxUseLogs.Text = "Use log file";
+            this.toolTip1.SetToolTip(this.checkBoxUseLogs, "Run this app on PC boot");
+            this.checkBoxUseLogs.UseVisualStyleBackColor = true;
+            // 
             // ConfigForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1960,5 +1973,6 @@
         private System.Windows.Forms.CheckBox checkBoxForceApply;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel lightSettingsDynamicPanel;
+        private System.Windows.Forms.CheckBox checkBoxUseLogs;
     }
 }

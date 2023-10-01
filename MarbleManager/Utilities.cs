@@ -27,6 +27,42 @@ namespace MarbleManager
         }
 
         /**
+         * Loads a resource file as a list of strings and replaces values
+         */
+        internal static List<string> LoadResourceAsListAndReplaceValues(string _resourceName, Dictionary<string, string> _toReplace)
+        {
+            try
+            {
+                // Open the embedded resource stream
+                using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(_resourceName))
+                {
+                    if (stream == null)
+                    {
+                        Console.WriteLine($"Null stream for {_resourceName}");
+                        return null;
+                    }
+
+                    // Read the lines from the resource stream
+                    List<string> lines = new List<string>();
+                    using (StreamReader reader = new StreamReader(stream))
+                    {
+                        string line;
+                        while ((line = reader.ReadLine()) != null)
+                        {
+                            lines.Add(ReplaceValues(line, _toReplace));
+                        }
+                    }
+                    return lines;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("An error occurred: " + e.Message);
+            }
+            return null;
+        }
+
+        /**
          * Copies a compiled resource to a file, renaming in the process.
          * Also replaces given values in the file
          * 
@@ -36,28 +72,27 @@ namespace MarbleManager
         {
             using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(_resourceName))
             {
-                if (stream != null)
-                {
-                    using (StreamReader reader = new StreamReader(stream))
-                    {
-                        string fileContent = ReplaceValues(reader.ReadToEnd(), _toReplace);
-
-                        // Create the destination directory if it doesn't exist
-                        Directory.CreateDirectory(_outputDir);
-
-                        // Combine the destination directory and the file name
-                        string destinationFilePath = Path.Combine(_outputDir, _outputFile);
-
-                        // Write the modified content to the destination file
-                        System.IO.File.WriteAllText(destinationFilePath, fileContent);
-
-                        Console.WriteLine($"Processed: {_resourceName}");
-                    }
-                    stream.Close();
-                } else
+                if (stream == null)
                 {
                     Console.WriteLine($"Null stream for {_resourceName}");
                 }
+
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    string fileContent = ReplaceValues(reader.ReadToEnd(), _toReplace);
+
+                    // Create the destination directory if it doesn't exist
+                    Directory.CreateDirectory(_outputDir);
+
+                    // Combine the destination directory and the file name
+                    string destinationFilePath = Path.Combine(_outputDir, _outputFile);
+
+                    // Write the modified content to the destination file`
+                    System.IO.File.WriteAllText(destinationFilePath, fileContent);
+
+                    Console.WriteLine($"Processed: {_resourceName}");
+                }
+                stream.Close();
             }
         }
 

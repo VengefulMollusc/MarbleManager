@@ -19,7 +19,7 @@ namespace MarbleManager.Colours
             try
             {
                 // load file here if exists
-                using (StreamReader r = new StreamReader(PathManager.PaletteFile))
+                using (StreamReader r = new StreamReader(PathManager.PaletteFilePath))
                 {
                     string json = r.ReadToEnd();
                     PaletteObject palette = JsonConvert.DeserializeObject<PaletteObject>(json);
@@ -47,7 +47,7 @@ namespace MarbleManager.Colours
                 Directory.CreateDirectory(PathManager.DataOutputDir);
 
                 string jsonString = JsonConvert.SerializeObject(_palette, Formatting.Indented);
-                using (StreamWriter outputFile = new StreamWriter(PathManager.PaletteFile))
+                using (StreamWriter outputFile = new StreamWriter(PathManager.PaletteFilePath))
                 {
                     outputFile.WriteLine(jsonString);
                 }

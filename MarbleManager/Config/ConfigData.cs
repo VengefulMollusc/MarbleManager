@@ -24,6 +24,8 @@ namespace MarbleManager.Config
         public bool onlyUseMainSwatches { get; set; }
         // whether this app runs on boot or not
         public bool runOnBoot { get; set; }
+        // whether the app creates log files
+        public bool logUsage { get; set; }
     }
 
     public abstract class LightConfig

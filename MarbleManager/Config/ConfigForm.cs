@@ -186,6 +186,7 @@ namespace MarbleManager
             checkBoxAutoTurnOnOff.Checked = config.generalConfig.autoTurnLightsOnOff;
             checkBoxUseMainSwatches.Checked = config.generalConfig.onlyUseMainSwatches;
             checkBoxRunOnBoot.Checked = config.generalConfig.runOnBoot;
+            checkBoxUseLogs.Checked = config.generalConfig.logUsage;
 
             // init light configs in opposite order to UI
             // init wiz config
@@ -225,6 +226,7 @@ namespace MarbleManager
                     autoTurnLightsOnOff = checkBoxAutoTurnOnOff.Checked,
                     onlyUseMainSwatches = checkBoxUseMainSwatches.Checked,
                     runOnBoot = checkBoxRunOnBoot.Checked,
+                    logUsage = checkBoxUseLogs.Checked,
                 },
                 nanoleafConfig = nanoleafConfigManager.GetConfigObject<NanoleafConfig>(),
                 lifxConfig = lifxConfigManager.GetConfigObject<LifxConfig>(),

@@ -18,7 +18,7 @@ namespace MarbleManager.Config
             try
             {
                 // load file here if exists
-                using (StreamReader r = new StreamReader(PathManager.ConfigFile))
+                using (StreamReader r = new StreamReader(PathManager.ConfigFilePath))
                 {
                     string json = r.ReadToEnd();
                     ConfigObject config = JsonConvert.DeserializeObject<ConfigObject>(json);
@@ -70,7 +70,7 @@ namespace MarbleManager.Config
             try
             {
                 string jsonString = JsonConvert.SerializeObject(_config, Formatting.Indented);
-                using (StreamWriter outputFile = new StreamWriter(PathManager.ConfigFile))
+                using (StreamWriter outputFile = new StreamWriter(PathManager.ConfigFilePath))
                 {
                     outputFile.WriteLine(jsonString);
                 }
@@ -88,7 +88,7 @@ namespace MarbleManager.Config
         private static void ConfigureRunOnBoot(bool _runOnBoot)
         {
             // Get relevant paths, names etc.
-            string appPath = PathManager.MarbleManagerFile;
+            string appPath = PathManager.MarbleManagerFilePath;
             string startupFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.Startup);
             string shortcutName = $"{Path.GetFileNameWithoutExtension(appPath)}_autoShortcut.lnk";
             string shortcutPath = Path.Combine(startupFolderPath, shortcutName);

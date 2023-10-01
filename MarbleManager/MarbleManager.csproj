@@ -118,6 +118,7 @@
     </Content>
     <EmbeddedResource Include="Scripts\Templates\reg_scripts\addLogOnOffScripts_template.reg" />
     <EmbeddedResource Include="Scripts\Templates\reg_scripts\remLogOnOffScripts_template.reg" />
+    <EmbeddedResource Include="Scripts\Templates\batchLog_template.bat" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
