@@ -4,11 +4,7 @@ for /f "tokens=2-4 delims=/ " %%a in ('date /t') do (
     set "day=%%b"
     set "year=%%c"
 )
-for /f "tokens=1-2 delims=: " %%a in ('time /t') do (
-    set "hour=%%a"
-    set "minute=%%b"
-)
-set "timestamp=!year!-!month!-!day!_!hour!:!minute!"
+set "timestamp=!year!-!month!-!day!_%time%"
 rem Create log string and write to file
 set "logLine=!timestamp! - Run .bat command <command>"
 set "filePath=<filePath>"
