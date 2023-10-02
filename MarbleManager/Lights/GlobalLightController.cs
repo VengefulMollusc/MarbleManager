@@ -53,6 +53,7 @@ namespace MarbleManager.Lights
                 tasks.Add(lightController.SetOnOffState(_state));
             }
             await Task.WhenAll(tasks);
+            LogManager.WriteLog($"Lights turned {(_state ? "ON" : "OFF")}");
             Console.WriteLine("All lights done");
         }
 
@@ -76,6 +77,7 @@ namespace MarbleManager.Lights
                 if (watcher == null)
                 {
                     Console.WriteLine("Enabling wallpaper watcher");
+                    LogManager.WriteLog("Starting wallpaper watcher");
                     watcher = new WallpaperWatcher();
                     watcher.OnChange += SyncOnWallpaperChange;
 
@@ -85,6 +87,7 @@ namespace MarbleManager.Lights
             } else if (watcher != null)
             {
                 Console.WriteLine("Disabling wallpaper watcher");
+                LogManager.WriteLog("Stopping wallpaper watcher");
                 watcher.OnChange -= SyncOnWallpaperChange;
                 watcher.Dispose();
                 watcher = null;
@@ -94,6 +97,7 @@ namespace MarbleManager.Lights
         private async void SyncOnWallpaperChange(object source, FileSystemEventArgs e)
         {
             Console.WriteLine("Triggering auto-sync");
+            LogManager.WriteLog("Wallpaper change triggered auto-sync");
             await SyncToWallpaper();
         }
 
@@ -124,6 +128,8 @@ namespace MarbleManager.Lights
                 tasks.Add(lightController.ApplyPalette(palette, _turnOn));
             }
             await Task.WhenAll(tasks);
+
+            LogManager.WriteLog($"Lights synced {(_turnOn ? "and turned on" : "")}");
             Console.WriteLine("All lights done");
 
             // dispose to free up memory

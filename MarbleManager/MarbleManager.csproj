@@ -70,6 +70,7 @@
     <Compile Include="Config\LightConfigManagers\LightConfigManager.cs" />
     <Compile Include="Config\LightConfigManagers\NanoleafConfigManager.cs" />
     <Compile Include="Config\LightConfigManagers\WizConfigManager.cs" />
+    <Compile Include="Config\LogManager.cs" />
     <Compile Include="Config\PathManager.cs" />
     <Compile Include="Config\WallpaperWatcher.cs" />
     <Compile Include="Lights\WizLightController.cs" />
