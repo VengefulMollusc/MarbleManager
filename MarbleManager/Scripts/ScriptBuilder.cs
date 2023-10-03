@@ -23,9 +23,15 @@ namespace MarbleManager.Scripts
         internal static void BuildOnOffScriptFiles(ConfigObject _config)
         {
             // on script
+            string onCommand = _config.generalConfig.syncOnWallpaperChange ? "syncon" : "on";
+            if (_config.generalConfig.runOnBoot)
+            {
+                // boot full app from script
+                onCommand += " bootapp";
+            }
             CreateAndSaveBatScript(
-                _config, 
-                _config.generalConfig.syncOnWallpaperChange ? "syncon" : "on", 
+                _config,
+                onCommand, 
                 turnOnLightsFileName
             );
 
@@ -52,9 +58,6 @@ namespace MarbleManager.Scripts
                 // wrapper commands
                 "@echo off",
                 $"setlocal{(_config.generalConfig.logUsage ? " enabledelayedexpansion" : " ")}", // only need enabledelayedexpansion if logging
-                // commands to call app exe
-                $"cd /d \"{Environment.CurrentDirectory}\"",
-                $@".\{AppDomain.CurrentDomain.FriendlyName} {_exeParams}"
             };
 
             // add logs if needed
@@ -62,6 +65,13 @@ namespace MarbleManager.Scripts
             {
                 batchCommands.AddRange(GetLogCommands(_exeParams));
             }
+
+            // add light commands
+            batchCommands.AddRange(new List<string>()
+            {
+                $"cd /d \"{Environment.CurrentDirectory}\"",
+                $@".\{AppDomain.CurrentDomain.FriendlyName} {_exeParams}"
+            });
 
             // end the file
             batchCommands.Add("endlocal");

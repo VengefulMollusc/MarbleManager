@@ -1,7 +1,7 @@
 rem Create timestamp string for logging
 for /f "tokens=2-4 delims=/ " %%a in ('date /t') do (
-    set "month=%%a"
-    set "day=%%b"
+    set "day=%%a"
+    set "month=%%b"
     set "year=%%c"
 )
 for /f "tokens=1-3 delims=:." %%a in ("%time%") do (

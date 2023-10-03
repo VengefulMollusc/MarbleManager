@@ -50,7 +50,10 @@ namespace MarbleManager.Config
             // add/remove startup scripts if changed 
             if (force || oldConfig.generalConfig.runOnBoot != _config.generalConfig.runOnBoot)
             {
-                ConfigureRunOnBoot(_config.generalConfig.runOnBoot);
+                ConfigureRunOnBoot(
+                    _config.generalConfig.runOnBoot 
+                    && !_config.generalConfig.autoTurnLightsOnOff // auto scripts will boot app already
+                    );
             }
             // turn on/off auto light state on logon etc.
             if (force || oldConfig.generalConfig.autoTurnLightsOnOff != _config.generalConfig.autoTurnLightsOnOff)
@@ -85,7 +88,7 @@ namespace MarbleManager.Config
         /**
          * Handles adding/removing this app from windows startup apps
          */
-        private static void ConfigureRunOnBoot(bool _runOnBoot)
+        private static void ConfigureRunOnBoot(bool _createShortcut)
         {
             // Get relevant paths, names etc.
             string appPath = PathManager.MarbleManagerFilePath;
@@ -96,7 +99,7 @@ namespace MarbleManager.Config
             // remove shortcut if exists from startup folder
             Utilities.DeleteFile(shortcutPath);
 
-            if (_runOnBoot)
+            if (_createShortcut)
             {
                 // add shortcut in startup folder
                 Utilities.CreateShortcut(shortcutPath, appPath);
