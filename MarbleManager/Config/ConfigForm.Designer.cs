@@ -164,6 +164,20 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.panel15 = new System.Windows.Forms.Panel();
             this.tabControl1.SuspendLayout();
             this.tabPagePreview.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -174,6 +188,12 @@
             this.tableLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
+            this.paletteCurrentV.SuspendLayout();
+            this.paletteCurrentVl.SuspendLayout();
+            this.paletteCurrentVd.SuspendLayout();
+            this.paletteCurrentM.SuspendLayout();
+            this.paletteCurrentMl.SuspendLayout();
+            this.paletteCurrentMd.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.flowLayoutPanel18.SuspendLayout();
             this.flowLayoutPanel17.SuspendLayout();
@@ -182,6 +202,7 @@
             this.flowLayoutPanel7.SuspendLayout();
             this.flowLayoutPanel6.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
+            this.paletteCurrentD.SuspendLayout();
             this.groupBoxImage.SuspendLayout();
             this.panelPictureBoxWrapper.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWallpaper)).BeginInit();
@@ -189,6 +210,12 @@
             this.tableLayoutPanel5.SuspendLayout();
             this.flowLayoutPanel19.SuspendLayout();
             this.flowLayoutPanel20.SuspendLayout();
+            this.paletteLastV.SuspendLayout();
+            this.paletteLastVl.SuspendLayout();
+            this.paletteLastVd.SuspendLayout();
+            this.paletteLastM.SuspendLayout();
+            this.paletteLastMl.SuspendLayout();
+            this.paletteLastMd.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.flowLayoutPanel21.SuspendLayout();
             this.flowLayoutPanel22.SuspendLayout();
@@ -197,6 +224,7 @@
             this.flowLayoutPanel25.SuspendLayout();
             this.flowLayoutPanel26.SuspendLayout();
             this.flowLayoutPanel27.SuspendLayout();
+            this.paletteLastD.SuspendLayout();
             this.tabPageConfig.SuspendLayout();
             this.groupBoxSettings.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -452,6 +480,7 @@
             this.paletteCurrentV.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.paletteCurrentV.BackColor = System.Drawing.Color.WhiteSmoke;
             this.paletteCurrentV.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.paletteCurrentV.Controls.Add(this.panel2);
             this.paletteCurrentV.Location = new System.Drawing.Point(3, 0);
             this.paletteCurrentV.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.paletteCurrentV.Name = "paletteCurrentV";
@@ -464,6 +493,7 @@
             this.paletteCurrentVl.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.paletteCurrentVl.BackColor = System.Drawing.Color.WhiteSmoke;
             this.paletteCurrentVl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.paletteCurrentVl.Controls.Add(this.panel4);
             this.paletteCurrentVl.Location = new System.Drawing.Point(43, 0);
             this.paletteCurrentVl.Margin = new System.Windows.Forms.Padding(0);
             this.paletteCurrentVl.Name = "paletteCurrentVl";
@@ -476,6 +506,7 @@
             this.paletteCurrentVd.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.paletteCurrentVd.BackColor = System.Drawing.Color.WhiteSmoke;
             this.paletteCurrentVd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.paletteCurrentVd.Controls.Add(this.panel5);
             this.paletteCurrentVd.Location = new System.Drawing.Point(83, 0);
             this.paletteCurrentVd.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.paletteCurrentVd.Name = "paletteCurrentVd";
@@ -488,6 +519,7 @@
             this.paletteCurrentM.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.paletteCurrentM.BackColor = System.Drawing.Color.WhiteSmoke;
             this.paletteCurrentM.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.paletteCurrentM.Controls.Add(this.panel6);
             this.paletteCurrentM.Location = new System.Drawing.Point(129, 0);
             this.paletteCurrentM.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.paletteCurrentM.Name = "paletteCurrentM";
@@ -500,6 +532,7 @@
             this.paletteCurrentMl.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.paletteCurrentMl.BackColor = System.Drawing.Color.WhiteSmoke;
             this.paletteCurrentMl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.paletteCurrentMl.Controls.Add(this.panel7);
             this.paletteCurrentMl.Location = new System.Drawing.Point(169, 0);
             this.paletteCurrentMl.Margin = new System.Windows.Forms.Padding(0);
             this.paletteCurrentMl.Name = "paletteCurrentMl";
@@ -512,6 +545,7 @@
             this.paletteCurrentMd.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.paletteCurrentMd.BackColor = System.Drawing.Color.WhiteSmoke;
             this.paletteCurrentMd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.paletteCurrentMd.Controls.Add(this.panel8);
             this.paletteCurrentMd.Location = new System.Drawing.Point(209, 0);
             this.paletteCurrentMd.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.paletteCurrentMd.Name = "paletteCurrentMd";
@@ -818,6 +852,7 @@
             this.paletteCurrentD.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.paletteCurrentD.BackColor = System.Drawing.Color.WhiteSmoke;
             this.paletteCurrentD.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.paletteCurrentD.Controls.Add(this.panel3);
             this.paletteCurrentD.Location = new System.Drawing.Point(3, 16);
             this.paletteCurrentD.Name = "paletteCurrentD";
             this.paletteCurrentD.Size = new System.Drawing.Size(57, 57);
@@ -941,6 +976,7 @@
             this.paletteLastV.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.paletteLastV.BackColor = System.Drawing.Color.WhiteSmoke;
             this.paletteLastV.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.paletteLastV.Controls.Add(this.panel10);
             this.paletteLastV.Location = new System.Drawing.Point(3, 0);
             this.paletteLastV.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.paletteLastV.Name = "paletteLastV";
@@ -953,6 +989,7 @@
             this.paletteLastVl.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.paletteLastVl.BackColor = System.Drawing.Color.WhiteSmoke;
             this.paletteLastVl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.paletteLastVl.Controls.Add(this.panel11);
             this.paletteLastVl.Location = new System.Drawing.Point(43, 0);
             this.paletteLastVl.Margin = new System.Windows.Forms.Padding(0);
             this.paletteLastVl.Name = "paletteLastVl";
@@ -965,6 +1002,7 @@
             this.paletteLastVd.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.paletteLastVd.BackColor = System.Drawing.Color.WhiteSmoke;
             this.paletteLastVd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.paletteLastVd.Controls.Add(this.panel12);
             this.paletteLastVd.Location = new System.Drawing.Point(83, 0);
             this.paletteLastVd.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.paletteLastVd.Name = "paletteLastVd";
@@ -977,6 +1015,7 @@
             this.paletteLastM.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.paletteLastM.BackColor = System.Drawing.Color.WhiteSmoke;
             this.paletteLastM.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.paletteLastM.Controls.Add(this.panel13);
             this.paletteLastM.Location = new System.Drawing.Point(129, 0);
             this.paletteLastM.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.paletteLastM.Name = "paletteLastM";
@@ -989,6 +1028,7 @@
             this.paletteLastMl.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.paletteLastMl.BackColor = System.Drawing.Color.WhiteSmoke;
             this.paletteLastMl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.paletteLastMl.Controls.Add(this.panel14);
             this.paletteLastMl.Location = new System.Drawing.Point(169, 0);
             this.paletteLastMl.Margin = new System.Windows.Forms.Padding(0);
             this.paletteLastMl.Name = "paletteLastMl";
@@ -1001,6 +1041,7 @@
             this.paletteLastMd.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.paletteLastMd.BackColor = System.Drawing.Color.WhiteSmoke;
             this.paletteLastMd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.paletteLastMd.Controls.Add(this.panel15);
             this.paletteLastMd.Location = new System.Drawing.Point(209, 0);
             this.paletteLastMd.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.paletteLastMd.Name = "paletteLastMd";
@@ -1307,6 +1348,7 @@
             this.paletteLastD.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.paletteLastD.BackColor = System.Drawing.Color.WhiteSmoke;
             this.paletteLastD.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.paletteLastD.Controls.Add(this.panel9);
             this.paletteLastD.Location = new System.Drawing.Point(3, 16);
             this.paletteLastD.Name = "paletteLastD";
             this.paletteLastD.Size = new System.Drawing.Size(57, 57);
@@ -1743,6 +1785,118 @@
     "s (*.*)|*.*";
             this.openFileDialog1.Title = "Select an image file";
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Location = new System.Drawing.Point(3, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(10, 10);
+            this.panel2.TabIndex = 0;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Location = new System.Drawing.Point(3, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(10, 10);
+            this.panel3.TabIndex = 1;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.Location = new System.Drawing.Point(2, 3);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(10, 10);
+            this.panel4.TabIndex = 1;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.White;
+            this.panel5.Location = new System.Drawing.Point(3, 3);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(10, 10);
+            this.panel5.TabIndex = 1;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.White;
+            this.panel6.Location = new System.Drawing.Point(3, 3);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(10, 10);
+            this.panel6.TabIndex = 1;
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.White;
+            this.panel7.Location = new System.Drawing.Point(3, 3);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(10, 10);
+            this.panel7.TabIndex = 1;
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.White;
+            this.panel8.Location = new System.Drawing.Point(3, 3);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(10, 10);
+            this.panel8.TabIndex = 1;
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.White;
+            this.panel9.Location = new System.Drawing.Point(3, 3);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(10, 10);
+            this.panel9.TabIndex = 1;
+            // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.Color.White;
+            this.panel10.Location = new System.Drawing.Point(3, 3);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(10, 10);
+            this.panel10.TabIndex = 1;
+            // 
+            // panel11
+            // 
+            this.panel11.BackColor = System.Drawing.Color.White;
+            this.panel11.Location = new System.Drawing.Point(3, 3);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(10, 10);
+            this.panel11.TabIndex = 1;
+            // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.Color.White;
+            this.panel12.Location = new System.Drawing.Point(3, 3);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(10, 10);
+            this.panel12.TabIndex = 1;
+            // 
+            // panel13
+            // 
+            this.panel13.BackColor = System.Drawing.Color.White;
+            this.panel13.Location = new System.Drawing.Point(3, 3);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(10, 10);
+            this.panel13.TabIndex = 1;
+            // 
+            // panel14
+            // 
+            this.panel14.BackColor = System.Drawing.Color.White;
+            this.panel14.Location = new System.Drawing.Point(3, 3);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(10, 10);
+            this.panel14.TabIndex = 1;
+            // 
+            // panel15
+            // 
+            this.panel15.BackColor = System.Drawing.Color.White;
+            this.panel15.Location = new System.Drawing.Point(3, 3);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(10, 10);
+            this.panel15.TabIndex = 1;
+            // 
             // ConfigForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1769,6 +1923,12 @@
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
             this.flowLayoutPanel3.ResumeLayout(false);
+            this.paletteCurrentV.ResumeLayout(false);
+            this.paletteCurrentVl.ResumeLayout(false);
+            this.paletteCurrentVd.ResumeLayout(false);
+            this.paletteCurrentM.ResumeLayout(false);
+            this.paletteCurrentMl.ResumeLayout(false);
+            this.paletteCurrentMd.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.flowLayoutPanel18.ResumeLayout(false);
             this.flowLayoutPanel18.PerformLayout();
@@ -1784,6 +1944,7 @@
             this.flowLayoutPanel6.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
+            this.paletteCurrentD.ResumeLayout(false);
             this.groupBoxImage.ResumeLayout(false);
             this.panelPictureBoxWrapper.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWallpaper)).EndInit();
@@ -1793,6 +1954,12 @@
             this.flowLayoutPanel19.ResumeLayout(false);
             this.flowLayoutPanel19.PerformLayout();
             this.flowLayoutPanel20.ResumeLayout(false);
+            this.paletteLastV.ResumeLayout(false);
+            this.paletteLastVl.ResumeLayout(false);
+            this.paletteLastVd.ResumeLayout(false);
+            this.paletteLastM.ResumeLayout(false);
+            this.paletteLastMl.ResumeLayout(false);
+            this.paletteLastMd.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
             this.flowLayoutPanel21.ResumeLayout(false);
             this.flowLayoutPanel21.PerformLayout();
@@ -1808,6 +1975,7 @@
             this.flowLayoutPanel26.PerformLayout();
             this.flowLayoutPanel27.ResumeLayout(false);
             this.flowLayoutPanel27.PerformLayout();
+            this.paletteLastD.ResumeLayout(false);
             this.tabPageConfig.ResumeLayout(false);
             this.tabPageConfig.PerformLayout();
             this.groupBoxSettings.ResumeLayout(false);
@@ -1976,5 +2144,19 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel lightSettingsDynamicPanel;
         private System.Windows.Forms.CheckBox checkBoxUseLogs;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.Panel panel15;
+        private System.Windows.Forms.Panel panel9;
     }
 }

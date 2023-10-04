@@ -121,6 +121,7 @@ namespace MarbleManager
             Color bgColour;
             BorderStyle borderStyle;
             string propText, hslText;
+            bool isHighlight;
 
             if (_swatch == null)
             {
@@ -128,14 +129,16 @@ namespace MarbleManager
                 borderStyle = BorderStyle.FixedSingle;
                 propText = "prop: none";
                 hslText = showHsl ? "hsl:--- --- ---" : "rgb:--- --- ---";
+                isHighlight = false;
             } else
             {
                 bgColour = Color.FromArgb(_swatch.r, _swatch.g, _swatch.b);
-                borderStyle = _swatch.isHighlight ? BorderStyle.Fixed3D : BorderStyle.None;
+                borderStyle = BorderStyle.None;
                 propText = $"prop:{(int)Math.Round(_swatch.proportion * 100f, 0, MidpointRounding.AwayFromZero)}%";
                 hslText = showHsl ?
                     $"hsl:{_swatch.h} {_swatch.s} {_swatch.l}" :
                     $"rgb:{_swatch.r} {_swatch.g} {_swatch.b}";
+                isHighlight = _swatch.isHighlight;
             }
 
             // apply stuff
@@ -143,6 +146,12 @@ namespace MarbleManager
             {
                 panel.BackColor = bgColour;
                 panel.BorderStyle = borderStyle;
+
+                if (panel.HasChildren)
+                {
+                    // toggle highlight indicator
+                    panel.Controls[0].Visible = isHighlight;
+                }
             }
             _labels[0].Text = propText;
             _labels[1].Text = hslText;
