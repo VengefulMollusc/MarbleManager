@@ -47,14 +47,14 @@ namespace MarbleManager.Lights
          */
         internal async Task TurnLightsOnOff(bool _state)
         {
+            LogManager.WriteLog($"Lights: Turning {(_state ? "ON" : "OFF")}...");
             List<Task> tasks = new List<Task>();
             foreach (ILightController lightController in lightControllers)
             {
                 tasks.Add(lightController.SetOnOffState(_state));
             }
             await Task.WhenAll(tasks);
-            LogManager.WriteLog($"Lights turned {(_state ? "ON" : "OFF")}");
-            Console.WriteLine("All lights done");
+            LogManager.WriteLog($"Lights: Turning {(_state ? "ON" : "OFF")} done.");
         }
 
         /**
@@ -62,6 +62,7 @@ namespace MarbleManager.Lights
          */
         internal async void UpdateConfig(ConfigObject _config)
         {
+            LogManager.WriteLog("GlobalLightController updating config");
             // populate light controllers based on enabled lights
             lightControllers = new List<ILightController>();
             if (_config.lifxConfig.enabled)
@@ -76,8 +77,7 @@ namespace MarbleManager.Lights
             {
                 if (watcher == null)
                 {
-                    Console.WriteLine("Enabling wallpaper watcher");
-                    LogManager.WriteLog("Starting wallpaper watcher");
+                    LogManager.WriteLog("Wallpaper watcher: Starting");
                     watcher = new WallpaperWatcher();
                     watcher.OnChange += SyncOnWallpaperChange;
 
@@ -86,8 +86,7 @@ namespace MarbleManager.Lights
                 }
             } else if (watcher != null)
             {
-                Console.WriteLine("Disabling wallpaper watcher");
-                LogManager.WriteLog("Stopping wallpaper watcher");
+                LogManager.WriteLog("Wallpaper watcher: Stopping");
                 watcher.OnChange -= SyncOnWallpaperChange;
                 watcher.Dispose();
                 watcher = null;
@@ -96,8 +95,7 @@ namespace MarbleManager.Lights
 
         private async void SyncOnWallpaperChange(object source, FileSystemEventArgs e)
         {
-            Console.WriteLine("Triggering auto-sync");
-            LogManager.WriteLog("Wallpaper change triggered auto-sync");
+            LogManager.WriteLog("Wallpaper watcher: change triggered auto-sync");
             await SyncToWallpaper();
         }
 
@@ -116,6 +114,7 @@ namespace MarbleManager.Lights
 
         internal async Task SyncToWallpaper(Bitmap _toSync, bool _turnOn = false)
         {
+            LogManager.WriteLog("Lights: syncing...");
             // generate palette
             PaletteObject palette = PaletteManager.GetPaletteFromBitmap(_toSync);
             // save to file
@@ -129,8 +128,7 @@ namespace MarbleManager.Lights
             }
             await Task.WhenAll(tasks);
 
-            LogManager.WriteLog($"Lights synced {(_turnOn ? "and turned on" : "")}");
-            Console.WriteLine("All lights done");
+            LogManager.WriteLog($"Lights: synced {(_turnOn ? "and turned on" : "")}");
 
             // dispose to free up memory
             _toSync.Dispose();

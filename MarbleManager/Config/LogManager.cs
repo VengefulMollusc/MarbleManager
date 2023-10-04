@@ -9,8 +9,13 @@ namespace MarbleManager.Config
 {
     internal static class LogManager
     {
-        internal static void WriteLog(string _message)
+        internal static void WriteLog(string _message, bool _writeToConsole = true)
         {
+            if (_writeToConsole)
+            {
+                Console.WriteLine(_message);
+            }
+
             // Get the current timestamp in the desired format
             string timestamp = DateTime.Now.ToString("yyyy-MM-dd_HH:mm:ss");
 

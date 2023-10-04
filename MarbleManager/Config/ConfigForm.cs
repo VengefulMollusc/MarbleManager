@@ -339,7 +339,6 @@ namespace MarbleManager
                 Console.WriteLine("lightcontroller is null");
                 return;
             }
-            Console.WriteLine("Turning lights On");
             await lightController.TurnLightsOnOff(true);
         }
 
@@ -353,7 +352,6 @@ namespace MarbleManager
                 Console.WriteLine("lightcontroller is null");
                 return;
             }
-            Console.WriteLine("Turning lights Off");
             await lightController.TurnLightsOnOff(false);
         }
 
