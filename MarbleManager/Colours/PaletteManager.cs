@@ -79,6 +79,7 @@ namespace MarbleManager.Colours
         {
             if (_palette == null) { return null; }
 
+            // main swatches
             List<SwatchObject> mainSwatches = new List<SwatchObject>()
             {
                 ConvertToSwatchObject(_palette.GetDominantSwatch()),
@@ -89,8 +90,10 @@ namespace MarbleManager.Colours
                 ConvertToSwatchObject(_palette.GetLightMutedSwatch()),
                 ConvertToSwatchObject(_palette.GetDarkMutedSwatch()),
             };
-            mainSwatches = GenerateProportions(mainSwatches);
+            mainSwatches = CalculateHighlight(GenerateProportions(mainSwatches));
 
+
+            // all swatches
             List<SwatchObject> allSwatches = _palette.GetSwatches().Select(ConvertToSwatchObject).ToList(); ;
             allSwatches = GenerateProportions(allSwatches);
 
@@ -131,6 +134,52 @@ namespace MarbleManager.Colours
                 s = s,
                 l = l
             };
+        }
+
+        /**
+         * Calculates the highlight colour from a list of swatches
+         */
+        private static List<SwatchObject> CalculateHighlight(List<SwatchObject> _swatches)
+        {
+            // WEIGHTS
+            float[] weights = new float[] {
+                    0.6f, // saturation
+                    0.4f, // luminance
+                    0.2f, // proportion
+                };
+
+            float maxScore = -1.0f;
+            int highlightIndex = -1;
+
+            for (int i = 0; i < _swatches.Count; i++)
+            {
+                SwatchObject s = _swatches[i];
+                if (s == null)
+                {
+                    continue;
+                }
+
+                // Calculate the combined score using weights
+                float score = weights[0] * s.s // saturation
+                    + weights[1] * s.l // luminance
+                    + weights[2] * s.proportion * 100f; // prortion (* 100f so scale matches other values)
+
+                if (score > maxScore)
+                {
+                    maxScore = score;
+                    highlightIndex = i;
+                }
+            }
+            
+            if (highlightIndex < 0)
+            {
+                Console.WriteLine("Somehow no highlight found in palette");
+            }
+
+            // designate swatch as highlight
+            _swatches[highlightIndex].isHighlight = true;
+
+            return _swatches;
         }
 
         /**

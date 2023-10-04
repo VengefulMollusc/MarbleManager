@@ -117,7 +117,7 @@ namespace MarbleManager
          */
         private void PreviewSwatch (List<Panel> _panels, List<Label> _labels, SwatchObject _swatch)
         {
-            bool showHsl = false;
+            bool showHsl = true; // toggles previewing rgb or hsl values
             Color bgColour;
             BorderStyle borderStyle;
             string propText, hslText;
@@ -131,11 +131,11 @@ namespace MarbleManager
             } else
             {
                 bgColour = Color.FromArgb(_swatch.r, _swatch.g, _swatch.b);
-                borderStyle = BorderStyle.None;
+                borderStyle = _swatch.isHighlight ? BorderStyle.Fixed3D : BorderStyle.None;
                 propText = $"prop:{(int)Math.Round(_swatch.proportion * 100f, 0, MidpointRounding.AwayFromZero)}%";
                 hslText = showHsl ?
                     $"hsl:{_swatch.h} {_swatch.s} {_swatch.l}" :
-                    $"rgb:{_swatch.r} {_swatch.g} {_swatch.b}";            
+                    $"rgb:{_swatch.r} {_swatch.g} {_swatch.b}";
             }
 
             // apply stuff

@@ -35,7 +35,7 @@ namespace MarbleManager.Lights
             }
 
             // select swatch
-            SwatchObject toSend = _palette.Brightest;
+            SwatchObject toSend = _palette.Highlight;
             await SendPayloadToLights(CreateSetColourPayload(toSend), _turnOn);
             Console.WriteLine("Wiz lights done");
         }

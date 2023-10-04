@@ -127,7 +127,7 @@
             this.paletteLastD = new System.Windows.Forms.Panel();
             this.labelLastDPop = new System.Windows.Forms.Label();
             this.labelLastDhsl = new System.Windows.Forms.Label();
-            this.tabPageDynamicConfig = new System.Windows.Forms.TabPage();
+            this.tabPageConfig = new System.Windows.Forms.TabPage();
             this.groupBoxSettings = new System.Windows.Forms.GroupBox();
             this.lightSettingsDynamicPanel = new System.Windows.Forms.Panel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -197,7 +197,7 @@
             this.flowLayoutPanel25.SuspendLayout();
             this.flowLayoutPanel26.SuspendLayout();
             this.flowLayoutPanel27.SuspendLayout();
-            this.tabPageDynamicConfig.SuspendLayout();
+            this.tabPageConfig.SuspendLayout();
             this.groupBoxSettings.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.flowLayoutPanel32.SuspendLayout();
@@ -217,7 +217,7 @@
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPagePreview);
-            this.tabControl1.Controls.Add(this.tabPageDynamicConfig);
+            this.tabControl1.Controls.Add(this.tabPageConfig);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Right;
             this.tabControl1.Location = new System.Drawing.Point(174, 24);
             this.tabControl1.Name = "tabControl1";
@@ -1330,16 +1330,16 @@
             this.labelLastDhsl.TabIndex = 16;
             this.labelLastDhsl.Text = "hsl:--- --- ---";
             // 
-            // tabPageDynamicConfig
+            // tabPageConfig
             // 
-            this.tabPageDynamicConfig.Controls.Add(this.groupBoxSettings);
-            this.tabPageDynamicConfig.Controls.Add(this.groupBox4);
-            this.tabPageDynamicConfig.Location = new System.Drawing.Point(4, 22);
-            this.tabPageDynamicConfig.Name = "tabPageDynamicConfig";
-            this.tabPageDynamicConfig.Size = new System.Drawing.Size(618, 437);
-            this.tabPageDynamicConfig.TabIndex = 2;
-            this.tabPageDynamicConfig.Text = "Dynamic Config";
-            this.tabPageDynamicConfig.UseVisualStyleBackColor = true;
+            this.tabPageConfig.Controls.Add(this.groupBoxSettings);
+            this.tabPageConfig.Controls.Add(this.groupBox4);
+            this.tabPageConfig.Location = new System.Drawing.Point(4, 22);
+            this.tabPageConfig.Name = "tabPageConfig";
+            this.tabPageConfig.Size = new System.Drawing.Size(618, 437);
+            this.tabPageConfig.TabIndex = 2;
+            this.tabPageConfig.Text = "Config";
+            this.tabPageConfig.UseVisualStyleBackColor = true;
             // 
             // groupBoxSettings
             // 
@@ -1808,8 +1808,8 @@
             this.flowLayoutPanel26.PerformLayout();
             this.flowLayoutPanel27.ResumeLayout(false);
             this.flowLayoutPanel27.PerformLayout();
-            this.tabPageDynamicConfig.ResumeLayout(false);
-            this.tabPageDynamicConfig.PerformLayout();
+            this.tabPageConfig.ResumeLayout(false);
+            this.tabPageConfig.PerformLayout();
             this.groupBoxSettings.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
@@ -1959,7 +1959,7 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button buttonSyncPreviewedPalette;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TabPage tabPageDynamicConfig;
+        private System.Windows.Forms.TabPage tabPageConfig;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBoxSettings;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel32;

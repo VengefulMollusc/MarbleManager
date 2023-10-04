@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -38,15 +39,19 @@ namespace MarbleManager.Colours
                     swatches.Prepend(dominant);
                 }
                 return swatches.OrderByDescending(x => x.population).ToList();
-            } 
+            }
         }
 
-        // gets the single brightest swatch - used for single colour palette applying
-        // returns the swatch with the highest luminance
+        // returns a colour designated as the 'highlight' - for single colour lights etc.
+        // weighted calculation is applied on palette creation
         [JsonIgnore]
-        public SwatchObject Brightest { get {
-                return MainSwatches.Aggregate((x, y) => x.l > y.l ? x : y);
-        } }
+        public SwatchObject Highlight
+        {
+            get
+            {
+                return MainSwatches.FirstOrDefault(s => s.isHighlight) ?? MainSwatches[0];
+            }
+        }
     }
 
     internal class SwatchObject
@@ -55,6 +60,8 @@ namespace MarbleManager.Colours
         public int population { get; set; }
         // proportion of swatch compared to other colours in source image
         public float proportion {  get; set; }
+        // is the calculated highlight colour
+        public bool isHighlight { get; set; } = false;
         // RGB
         // 0-255
         public int r { get; set; }
