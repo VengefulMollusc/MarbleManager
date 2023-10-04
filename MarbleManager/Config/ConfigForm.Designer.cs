@@ -48,11 +48,17 @@
             this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.paletteCurrentV = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.paletteCurrentVl = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.paletteCurrentVd = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.paletteCurrentM = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.paletteCurrentMl = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
             this.paletteCurrentMd = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel18 = new System.Windows.Forms.FlowLayoutPanel();
             this.paletteCurrentMd2 = new System.Windows.Forms.Panel();
@@ -81,6 +87,7 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label11 = new System.Windows.Forms.Label();
             this.paletteCurrentD = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.labelCurrentDPop = new System.Windows.Forms.Label();
             this.labelCurrentDhsl = new System.Windows.Forms.Label();
             this.groupBoxImage = new System.Windows.Forms.GroupBox();
@@ -92,11 +99,17 @@
             this.label13 = new System.Windows.Forms.Label();
             this.flowLayoutPanel20 = new System.Windows.Forms.FlowLayoutPanel();
             this.paletteLastV = new System.Windows.Forms.Panel();
+            this.panel10 = new System.Windows.Forms.Panel();
             this.paletteLastVl = new System.Windows.Forms.Panel();
+            this.panel11 = new System.Windows.Forms.Panel();
             this.paletteLastVd = new System.Windows.Forms.Panel();
+            this.panel12 = new System.Windows.Forms.Panel();
             this.paletteLastM = new System.Windows.Forms.Panel();
+            this.panel13 = new System.Windows.Forms.Panel();
             this.paletteLastMl = new System.Windows.Forms.Panel();
+            this.panel14 = new System.Windows.Forms.Panel();
             this.paletteLastMd = new System.Windows.Forms.Panel();
+            this.panel15 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel21 = new System.Windows.Forms.FlowLayoutPanel();
             this.paletteLastMd2 = new System.Windows.Forms.Panel();
@@ -125,6 +138,7 @@
             this.flowLayoutPanel27 = new System.Windows.Forms.FlowLayoutPanel();
             this.label31 = new System.Windows.Forms.Label();
             this.paletteLastD = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
             this.labelLastDPop = new System.Windows.Forms.Label();
             this.labelLastDhsl = new System.Windows.Forms.Label();
             this.tabPageConfig = new System.Windows.Forms.TabPage();
@@ -164,20 +178,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.panel14 = new System.Windows.Forms.Panel();
-            this.panel15 = new System.Windows.Forms.Panel();
             this.tabControl1.SuspendLayout();
             this.tabPagePreview.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -341,6 +341,7 @@
             this.buttonLoadImage.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.buttonLoadImage.AutoSize = true;
             this.buttonLoadImage.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonLoadImage.Enabled = false;
             this.buttonLoadImage.Location = new System.Drawing.Point(137, 3);
             this.buttonLoadImage.Name = "buttonLoadImage";
             this.buttonLoadImage.Size = new System.Drawing.Size(72, 23);
@@ -488,6 +489,15 @@
             this.paletteCurrentV.TabIndex = 0;
             this.toolTip1.SetToolTip(this.paletteCurrentV, "Vibrant");
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Location = new System.Drawing.Point(3, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(10, 10);
+            this.panel2.TabIndex = 0;
+            this.panel2.Visible = false;
+            // 
             // paletteCurrentVl
             // 
             this.paletteCurrentVl.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -500,6 +510,15 @@
             this.paletteCurrentVl.Size = new System.Drawing.Size(40, 40);
             this.paletteCurrentVl.TabIndex = 1;
             this.toolTip1.SetToolTip(this.paletteCurrentVl, "Light Vibrant");
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.Location = new System.Drawing.Point(2, 3);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(10, 10);
+            this.panel4.TabIndex = 1;
+            this.panel4.Visible = false;
             // 
             // paletteCurrentVd
             // 
@@ -514,6 +533,15 @@
             this.paletteCurrentVd.TabIndex = 2;
             this.toolTip1.SetToolTip(this.paletteCurrentVd, "Dark Vibrant");
             // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.White;
+            this.panel5.Location = new System.Drawing.Point(3, 3);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(10, 10);
+            this.panel5.TabIndex = 1;
+            this.panel5.Visible = false;
+            // 
             // paletteCurrentM
             // 
             this.paletteCurrentM.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -526,6 +554,15 @@
             this.paletteCurrentM.Size = new System.Drawing.Size(40, 40);
             this.paletteCurrentM.TabIndex = 3;
             this.toolTip1.SetToolTip(this.paletteCurrentM, "Muted");
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.White;
+            this.panel6.Location = new System.Drawing.Point(3, 3);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(10, 10);
+            this.panel6.TabIndex = 1;
+            this.panel6.Visible = false;
             // 
             // paletteCurrentMl
             // 
@@ -540,6 +577,15 @@
             this.paletteCurrentMl.TabIndex = 4;
             this.toolTip1.SetToolTip(this.paletteCurrentMl, "Light Muted");
             // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.White;
+            this.panel7.Location = new System.Drawing.Point(3, 3);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(10, 10);
+            this.panel7.TabIndex = 1;
+            this.panel7.Visible = false;
+            // 
             // paletteCurrentMd
             // 
             this.paletteCurrentMd.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -552,6 +598,15 @@
             this.paletteCurrentMd.Size = new System.Drawing.Size(40, 40);
             this.paletteCurrentMd.TabIndex = 5;
             this.toolTip1.SetToolTip(this.paletteCurrentMd, "Dark Muted");
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.White;
+            this.panel8.Location = new System.Drawing.Point(3, 3);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(10, 10);
+            this.panel8.TabIndex = 1;
+            this.panel8.Visible = false;
             // 
             // tableLayoutPanel4
             // 
@@ -858,6 +913,15 @@
             this.paletteCurrentD.Size = new System.Drawing.Size(57, 57);
             this.paletteCurrentD.TabIndex = 5;
             // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Location = new System.Drawing.Point(3, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(10, 10);
+            this.panel3.TabIndex = 1;
+            this.panel3.Visible = false;
+            // 
             // labelCurrentDPop
             // 
             this.labelCurrentDPop.AutoSize = true;
@@ -984,6 +1048,15 @@
             this.paletteLastV.TabIndex = 0;
             this.toolTip1.SetToolTip(this.paletteLastV, "Vibrant");
             // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.Color.White;
+            this.panel10.Location = new System.Drawing.Point(3, 3);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(10, 10);
+            this.panel10.TabIndex = 1;
+            this.panel10.Visible = false;
+            // 
             // paletteLastVl
             // 
             this.paletteLastVl.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -996,6 +1069,15 @@
             this.paletteLastVl.Size = new System.Drawing.Size(40, 40);
             this.paletteLastVl.TabIndex = 1;
             this.toolTip1.SetToolTip(this.paletteLastVl, "Light Vibrant");
+            // 
+            // panel11
+            // 
+            this.panel11.BackColor = System.Drawing.Color.White;
+            this.panel11.Location = new System.Drawing.Point(3, 3);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(10, 10);
+            this.panel11.TabIndex = 1;
+            this.panel11.Visible = false;
             // 
             // paletteLastVd
             // 
@@ -1010,6 +1092,15 @@
             this.paletteLastVd.TabIndex = 2;
             this.toolTip1.SetToolTip(this.paletteLastVd, "Dark Vibrant");
             // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.Color.White;
+            this.panel12.Location = new System.Drawing.Point(3, 3);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(10, 10);
+            this.panel12.TabIndex = 1;
+            this.panel12.Visible = false;
+            // 
             // paletteLastM
             // 
             this.paletteLastM.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -1022,6 +1113,15 @@
             this.paletteLastM.Size = new System.Drawing.Size(40, 40);
             this.paletteLastM.TabIndex = 3;
             this.toolTip1.SetToolTip(this.paletteLastM, "Muted");
+            // 
+            // panel13
+            // 
+            this.panel13.BackColor = System.Drawing.Color.White;
+            this.panel13.Location = new System.Drawing.Point(3, 3);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(10, 10);
+            this.panel13.TabIndex = 1;
+            this.panel13.Visible = false;
             // 
             // paletteLastMl
             // 
@@ -1036,6 +1136,15 @@
             this.paletteLastMl.TabIndex = 4;
             this.toolTip1.SetToolTip(this.paletteLastMl, "Light Muted");
             // 
+            // panel14
+            // 
+            this.panel14.BackColor = System.Drawing.Color.White;
+            this.panel14.Location = new System.Drawing.Point(3, 3);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(10, 10);
+            this.panel14.TabIndex = 1;
+            this.panel14.Visible = false;
+            // 
             // paletteLastMd
             // 
             this.paletteLastMd.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -1048,6 +1157,15 @@
             this.paletteLastMd.Size = new System.Drawing.Size(40, 40);
             this.paletteLastMd.TabIndex = 5;
             this.toolTip1.SetToolTip(this.paletteLastMd, "Dark Muted");
+            // 
+            // panel15
+            // 
+            this.panel15.BackColor = System.Drawing.Color.White;
+            this.panel15.Location = new System.Drawing.Point(3, 3);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(10, 10);
+            this.panel15.TabIndex = 1;
+            this.panel15.Visible = false;
             // 
             // tableLayoutPanel6
             // 
@@ -1353,6 +1471,15 @@
             this.paletteLastD.Name = "paletteLastD";
             this.paletteLastD.Size = new System.Drawing.Size(57, 57);
             this.paletteLastD.TabIndex = 5;
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.White;
+            this.panel9.Location = new System.Drawing.Point(3, 3);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(10, 10);
+            this.panel9.TabIndex = 1;
+            this.panel9.Visible = false;
             // 
             // labelLastDPop
             // 
@@ -1784,118 +1911,6 @@
             this.openFileDialog1.Filter = "JPEG Files (*.jpg)|*.jpg|PNG Files (*.png)|*.png|BMP Files (*.bmp)|*.bmp|All file" +
     "s (*.*)|*.*";
             this.openFileDialog1.Title = "Select an image file";
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Location = new System.Drawing.Point(3, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(10, 10);
-            this.panel2.TabIndex = 0;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Location = new System.Drawing.Point(3, 3);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(10, 10);
-            this.panel3.TabIndex = 1;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.White;
-            this.panel4.Location = new System.Drawing.Point(2, 3);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(10, 10);
-            this.panel4.TabIndex = 1;
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.White;
-            this.panel5.Location = new System.Drawing.Point(3, 3);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(10, 10);
-            this.panel5.TabIndex = 1;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.White;
-            this.panel6.Location = new System.Drawing.Point(3, 3);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(10, 10);
-            this.panel6.TabIndex = 1;
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.White;
-            this.panel7.Location = new System.Drawing.Point(3, 3);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(10, 10);
-            this.panel7.TabIndex = 1;
-            // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.White;
-            this.panel8.Location = new System.Drawing.Point(3, 3);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(10, 10);
-            this.panel8.TabIndex = 1;
-            // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.Color.White;
-            this.panel9.Location = new System.Drawing.Point(3, 3);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(10, 10);
-            this.panel9.TabIndex = 1;
-            // 
-            // panel10
-            // 
-            this.panel10.BackColor = System.Drawing.Color.White;
-            this.panel10.Location = new System.Drawing.Point(3, 3);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(10, 10);
-            this.panel10.TabIndex = 1;
-            // 
-            // panel11
-            // 
-            this.panel11.BackColor = System.Drawing.Color.White;
-            this.panel11.Location = new System.Drawing.Point(3, 3);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(10, 10);
-            this.panel11.TabIndex = 1;
-            // 
-            // panel12
-            // 
-            this.panel12.BackColor = System.Drawing.Color.White;
-            this.panel12.Location = new System.Drawing.Point(3, 3);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(10, 10);
-            this.panel12.TabIndex = 1;
-            // 
-            // panel13
-            // 
-            this.panel13.BackColor = System.Drawing.Color.White;
-            this.panel13.Location = new System.Drawing.Point(3, 3);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(10, 10);
-            this.panel13.TabIndex = 1;
-            // 
-            // panel14
-            // 
-            this.panel14.BackColor = System.Drawing.Color.White;
-            this.panel14.Location = new System.Drawing.Point(3, 3);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(10, 10);
-            this.panel14.TabIndex = 1;
-            // 
-            // panel15
-            // 
-            this.panel15.BackColor = System.Drawing.Color.White;
-            this.panel15.Location = new System.Drawing.Point(3, 3);
-            this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(10, 10);
-            this.panel15.TabIndex = 1;
             // 
             // ConfigForm
             // 
