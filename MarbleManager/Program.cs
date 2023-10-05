@@ -85,12 +85,37 @@ namespace MarbleManager
         static async Task<bool> ProcessCommandLineArgs(string[] args)
         {
             LogManager.WriteLog("Processing cmd args: " + string.Join(" ", args));
-            GlobalLightController lightController = GlobalLightController.Instance;
-            bool bootApp = false;
 
+            bool bootApp = false;
+            List<string> filteredArgs = new List<string>();
             for (int i = 0; i < args.Length; i++)
             {
                 switch (args[i])
+                {
+                    case "on":
+                    case "off":
+                    case "sync":
+                    case "syncon":
+                        // standard light commands
+                        filteredArgs.Add(args[i]);
+                        break;
+                    case "bootapp":
+                        // whether to boot the full app
+                        bootApp = true;
+                        break;
+                    default:
+                        Console.WriteLine($"Invalid command: {args[i]}");
+                        break;
+                }
+            }
+
+            // initialise the lightcontroller (with app boot state)
+            GlobalLightController lightController = GlobalLightController.GetInstance(bootApp);
+
+            // process light commands
+            foreach (string arg in filteredArgs)
+            {
+                switch (arg)
                 {
                     case "on":
                         await lightController.TurnLightsOnOff(true);
@@ -104,12 +129,8 @@ namespace MarbleManager
                     case "syncon":
                         await lightController.TurnOnAndSyncToWallpaper();
                         break;
-                    case "bootapp":
-                        bootApp = true;
-                        break;
                     default:
-                        Console.WriteLine($"Invalid command: {args[i]}");
-                        return false;
+                        break;
                 }
             }
 

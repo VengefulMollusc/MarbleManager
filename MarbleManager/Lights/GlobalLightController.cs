@@ -18,28 +18,26 @@ namespace MarbleManager.Lights
 
         internal static int RetryCount = 2;
 
-        private GlobalLightController() {
+        private GlobalLightController(bool _fullBoot) {
             ConfigObject config = ConfigManager.GetConfig();
 
-            UpdateConfig(config);
+            UpdateConfig(config, _fullBoot);
         }
 
-        internal static GlobalLightController Instance {
-            get
+        internal static GlobalLightController GetInstance(bool _fullBoot = true)
+        {
+            // double check lock for thread safety
+            if (_instance == null)
             {
-                // double check lock for thread safety
-                if (_instance == null)
+                lock (_lock)
                 {
-                    lock (_lock)
+                    if (_instance == null)
                     {
-                        if (_instance == null)
-                        {
-                            _instance = new GlobalLightController();
-                        }
+                        _instance = new GlobalLightController(_fullBoot);
                     }
                 }
-                return _instance;
             }
+            return _instance;
         }
 
         /**
@@ -60,9 +58,9 @@ namespace MarbleManager.Lights
         /**
          * Updates the config for each light
          */
-        internal async void UpdateConfig(ConfigObject _config)
+        internal async void UpdateConfig(ConfigObject _config, bool _canEnableWatcher = true)
         {
-            LogManager.WriteLog("GlobalLightController updating config");
+            LogManager.WriteLog("GlobalLightController updating config. Can start watcher: " + _canEnableWatcher);
             // populate light controllers based on enabled lights
             lightControllers = new List<ILightController>();
             if (_config.lifxConfig.enabled)
@@ -73,7 +71,7 @@ namespace MarbleManager.Lights
                 lightControllers.Add(new WizLightController(_config));
 
             // turn on watcher if syncing to wallpaper
-            if (_config.generalConfig.syncOnWallpaperChange)
+            if (_config.generalConfig.syncOnWallpaperChange && _canEnableWatcher)
             {
                 if (watcher == null)
                 {
