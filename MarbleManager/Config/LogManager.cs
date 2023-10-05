@@ -9,12 +9,10 @@ namespace MarbleManager.Config
 {
     internal static class LogManager
     {
-        internal static void WriteLog(string _message, bool _writeToConsole = true)
+        internal static void WriteLog(string _message, bool _useSecondary = false)
         {
-            if (_writeToConsole)
-            {
-                Console.WriteLine(_message);
-            }
+            // write message to console
+            Console.WriteLine(_message);
 
             // Get the current timestamp in the desired format
             string timestamp = DateTime.Now.ToString("yyyy-MM-dd_HH:mm:ss");
@@ -23,7 +21,7 @@ namespace MarbleManager.Config
             string logEntry = $"{timestamp} - {_message}";
 
             // Define the path to the log file (assuming it's in the current directory)
-            string logFilePath = PathManager.LogFilePath;
+            string logFilePath = _useSecondary ? PathManager.LogSecondaryFilePath : PathManager.LogFilePath;
 
             try
             {

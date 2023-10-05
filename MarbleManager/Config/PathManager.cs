@@ -21,6 +21,7 @@ namespace MarbleManager.Config
         static string wallpaperFileName = "wallpaper.jpg";
         static string paletteFileName = "palette.json";
         static string logFileName = "log.txt";
+        static string logSecondaryFileName = "log_sec.txt";
 
         // input paths
         static string templatesPath = "Scripts\\Templates\\";
@@ -66,6 +67,13 @@ namespace MarbleManager.Config
             get
             {
                 return Path.Combine(DataOutputDir, logFileName);
+            }
+        }
+        internal static string LogSecondaryFilePath
+        {
+            get
+            {
+                return Path.Combine(DataOutputDir, logSecondaryFileName);
             }
         }
 

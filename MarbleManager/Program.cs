@@ -25,7 +25,6 @@ namespace MarbleManager
         [STAThread]
         static async Task Main(string[] args)
         {
-            LogManager.WriteLog("App starting");
             // Create and acquire the mutex at the beginning of your application.
             bool createdNew;
             appMutex = new Mutex(true, "MyAppMutex", out createdNew);
@@ -33,13 +32,13 @@ namespace MarbleManager
             if (!createdNew)
             {
                 // Another instance of the application is already running.
-                LogManager.WriteLog("Another instance of the application is already running.");
+                LogManager.WriteLog("Starting: Another instance of the application is already running.", true);
                 SendCommandLineArguments(args);
-                LogManager.WriteLog("Closing app due to existing instance");
-                appMutex.Close();
+                LogManager.WriteLog("Exiting: due to existing instance", true);
                 return;
             }
 
+            LogManager.WriteLog("Starting: No existing instance detected");
             // Register an event handler for ApplicationExit.
             Application.ApplicationExit += Application_ApplicationExit;
 
@@ -47,11 +46,16 @@ namespace MarbleManager
             if (args.Length > 0)
             {
                 // perform commands
+                LogManager.WriteLog("Performing initial process of command line arguments");
                 bool bootApp = await ProcessCommandLineArgs(args);
                 if (!bootApp)
+                {
+                    LogManager.WriteLog("Exiting: command line only");
                     return;
+                }
             }
 
+            LogManager.WriteLog("Booting full app");
             // start listening for other cmd calls
             pipeThread = new Thread(ListenToNamedPipe);
             pipeThread.IsBackground = true;
@@ -66,7 +70,7 @@ namespace MarbleManager
 
         private static void Application_ApplicationExit(object sender, EventArgs e)
         {
-            LogManager.WriteLog("App exit - main instance.");
+            LogManager.WriteLog("Exiting: main instance closing");
             // Release the mutex when your application is done.
             if (appMutex != null)
             {
@@ -80,7 +84,7 @@ namespace MarbleManager
          */
         static async Task<bool> ProcessCommandLineArgs(string[] args)
         {
-            LogManager.WriteLog("Processing cmd args: " + args);
+            LogManager.WriteLog("Processing cmd args: " + string.Join(" ", args));
             GlobalLightController lightController = GlobalLightController.Instance;
             bool bootApp = false;
 
@@ -119,11 +123,11 @@ namespace MarbleManager
         {
             try
             {
-                LogManager.WriteLog("Pipe: Sending cmd args to existing instance");
+                LogManager.WriteLog("Pipe: Sending cmd args to existing instance", true);
                 using (NamedPipeClientStream pipeClient = new NamedPipeClientStream("MarbleManagerPipe"))
                 {
-                    LogManager.WriteLog("Pipe: connecting");
                     pipeClient.Connect();
+                    LogManager.WriteLog("Pipe: connected", true);
 
                     using (StreamWriter sw = new StreamWriter(pipeClient))
                     {
@@ -131,15 +135,14 @@ namespace MarbleManager
                         string argumentString = string.Join(" ", args);
 
                         // Send the concatenated string
-                        LogManager.WriteLog("Pipe: sending args");
                         sw.WriteLine(argumentString);
-                        LogManager.WriteLog("Pipe: args sent");
+                        LogManager.WriteLog("Pipe: args sent: " + argumentString, true);
                     }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error communicating with the existing instance: " + ex.Message);
+                LogManager.WriteLog("Pipe: Error communicating with the existing instance: " + ex.Message, true);
             }
         }
 
@@ -148,36 +151,40 @@ namespace MarbleManager
          */
         static async void ListenToNamedPipe()
         {
-            // Set up a named pipe server to listen for incoming data.
-            using (NamedPipeServerStream pipeServer = new NamedPipeServerStream("MarbleManagerPipe"))
+            while (true)
             {
-                LogManager.WriteLog("Pipe: Waiting for incoming data...");
-
-                try
+                // Set up a named pipe server to listen for incoming data.
+                using (NamedPipeServerStream pipeServer = new NamedPipeServerStream("MarbleManagerPipe"))
                 {
-                    pipeServer.WaitForConnection();
+                    LogManager.WriteLog("Pipe: Waiting for incoming data...");
 
-                    using (StreamReader sr = new StreamReader(pipeServer))
+                    try
                     {
-                        while (true) // Continue listening until the application exits.
+                        pipeServer.WaitForConnection();
+
+                        using (StreamReader sr = new StreamReader(pipeServer))
                         {
-                            // Read the concatenated argument string
-                            string argumentString = sr.ReadLine();
+                            while (sr.Peek() != -1) // Continue listening until the application exits.
+                            {
+                                // Read the concatenated argument string
+                                string argumentString = sr.ReadLine();
 
-                            // Split the received string back into individual arguments
-                            string[] arguments = argumentString.Split(' ');
+                                // Process the received command-line arguments.
+                                LogManager.WriteLog("Pipe: Received command-line arguments: " + argumentString);
 
-                            // Process the received command-line arguments.
-                            LogManager.WriteLog("Pipe: Received command-line arguments: " + arguments);
+                                // Split the received string back into individual arguments
+                                string[] arguments = argumentString.Split(' ');
 
-                            await ProcessCommandLineArgs(arguments);
+                                await ProcessCommandLineArgs(arguments);
+                            }
+                            sr.Close();
                         }
                     }
-                }
-                catch (IOException ex)
-                {
-                    // IOException is thrown when the pipe is closed (e.g., when the application exits).
-                    LogManager.WriteLog("Pipe: closed. Exiting pipe thread.");
+                    catch (IOException ex)
+                    {
+                        // IOException is thrown when the pipe is closed (e.g., when the application exits).
+                        LogManager.WriteLog("Pipe: error. Exiting pipe thread: " + ex.Message);
+                    }
                 }
             }
         }
