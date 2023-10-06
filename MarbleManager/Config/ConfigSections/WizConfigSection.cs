@@ -1,25 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace MarbleManager.Config.LightConfigManagers
+namespace MarbleManager.Config
 {
-    internal class WizConfigManager : LightConfigManager
+    internal class WizConfigSection : LightConfigSection
     {
         private static string textBoxWizIpAddresses = "textBoxWizIpAddresses";
 
-        public WizConfigManager() {
-            lightType = "Wiz";
+        public WizConfigSection() {
+            sectionName = "Wiz";
         }
 
-        protected override Control CreateUIControls(LightConfig _config)
+        protected override Control CreateUIControls(ConfigSectionObject _config)
         {
             WizConfig wizConfig = (WizConfig)_config;
 
-            List<Control> controls = new List<Control>();
+            List<Control> controls = new List<Control>
+            {
+                GetGlobalLightControls(wizConfig)
+            };
 
             // ip adresses label
             Label ipsLabel = new Label();
@@ -35,16 +34,14 @@ namespace MarbleManager.Config.LightConfigManagers
             ipsBox.Text = wizConfig != null ? wizConfig.ipAddresses : string.Empty;
             controls.Add(ipsBox);
 
-            return WrapInFlowPanel(controls, _config);
+            return WrapInFlowPanel(controls);
         }
 
-        protected override LightConfig BuildConfigObject()
+        protected override LightConfig BuildLightConfig()
         {
             TextBox ipsTextBox = FindControl<TextBox>(textBoxWizIpAddresses);
             return new WizConfig()
             {
-                enabled = IsEnabled(),
-                applyPalette = ApplyPalette(),
                 ipAddresses = ipsTextBox != null ? ipsTextBox.Text : string.Empty,
             };
         }

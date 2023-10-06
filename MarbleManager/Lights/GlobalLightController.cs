@@ -19,7 +19,7 @@ namespace MarbleManager.Lights
         internal static int RetryCount = 2;
 
         private GlobalLightController(bool _fullBoot) {
-            ConfigObject config = ConfigManager.GetConfig();
+            GlobalConfigObject config = ConfigManager.GetConfig();
 
             UpdateConfig(config, _fullBoot);
         }
@@ -58,7 +58,7 @@ namespace MarbleManager.Lights
         /**
          * Updates the config for each light
          */
-        internal async void UpdateConfig(ConfigObject _config, bool _canEnableWatcher = true)
+        internal async void UpdateConfig(GlobalConfigObject _config, bool _canEnableWatcher = true)
         {
             LogManager.WriteLog("GlobalLightController updating config. Can start watcher: " + _canEnableWatcher);
             // populate light controllers based on enabled lights

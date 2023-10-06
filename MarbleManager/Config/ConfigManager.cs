@@ -13,7 +13,7 @@ namespace MarbleManager.Config
         /**
          * Loads config from file
          */
-        internal static ConfigObject GetConfig()
+        internal static GlobalConfigObject GetConfig()
         {
             try
             {
@@ -21,7 +21,7 @@ namespace MarbleManager.Config
                 using (StreamReader r = new StreamReader(PathManager.ConfigFilePath))
                 {
                     string json = r.ReadToEnd();
-                    ConfigObject config = JsonConvert.DeserializeObject<ConfigObject>(json);
+                    GlobalConfigObject config = JsonConvert.DeserializeObject<GlobalConfigObject>(json);
                     Console.WriteLine("Loaded config");
                     return config;
                 }
@@ -37,9 +37,9 @@ namespace MarbleManager.Config
         /**
          * Saves a config object to file then applies changes by generating scripts etc.
          */
-        internal static void ApplyConfig(ConfigObject _config, bool _forceApply)
+        internal static void ApplyConfig(GlobalConfigObject _config, bool _forceApply)
         {
-            ConfigObject oldConfig = GetConfig();
+            GlobalConfigObject oldConfig = GetConfig();
             SaveConfigToFile(_config);
 
             // create script files with new values
@@ -67,7 +67,7 @@ namespace MarbleManager.Config
         /**
          * Saves a config object to file
          */
-        private static void SaveConfigToFile(ConfigObject _config)
+        private static void SaveConfigToFile(GlobalConfigObject _config)
         {
             // save to file
             try

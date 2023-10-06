@@ -16,7 +16,7 @@ namespace MarbleManager.Lights
 
         static string baseUrl = "https://api.lifx.com";
 
-        public LifxLightController(ConfigObject _config)
+        public LifxLightController(GlobalConfigObject _config)
         {
             SetConfig(_config);
         }
@@ -46,7 +46,7 @@ namespace MarbleManager.Lights
         /**
          * sets the current config
          */
-        public void SetConfig(ConfigObject _config)
+        public void SetConfig(GlobalConfigObject _config)
         {
             config = _config.lifxConfig;
         }

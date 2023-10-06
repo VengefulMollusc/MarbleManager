@@ -13,7 +13,7 @@ namespace MarbleManager.Lights
         /**
          * Sets the config for the lights
          */
-        void SetConfig(ConfigObject _config);
+        void SetConfig(GlobalConfigObject _config);
 
         /**
          * Turns the lights on/off

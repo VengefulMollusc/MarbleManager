@@ -21,7 +21,7 @@ namespace MarbleManager.Lights
 
         static string baseUrl = "http://<nanoleafIp>:16021";
 
-        public NanoleafLightController(ConfigObject _config)
+        public NanoleafLightController(GlobalConfigObject _config)
         {
             SetConfig(_config);
         }
@@ -74,7 +74,7 @@ namespace MarbleManager.Lights
         /**
          * Sets the config object for the light
          */
-        public void SetConfig(ConfigObject _config)
+        public void SetConfig(GlobalConfigObject _config)
         {
             config = _config.nanoleafConfig;
             onlyUseMainSwatches = _config.generalConfig.onlyUseMainSwatches;

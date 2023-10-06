@@ -1,22 +1,25 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace MarbleManager.Config.LightConfigManagers
+namespace MarbleManager.Config
 {
-    internal class LifxConfigManager : LightConfigManager
+    internal class LifxConfigSection : LightConfigSection
     {
         private static string textBoxLifxSelector = "textBoxLifxSelector";
         private static string textBoxLifxAuthKey = "textBoxLifxAuthKey";
 
-        public LifxConfigManager() {
-            lightType = "Lifx";
+        public LifxConfigSection() {
+            sectionName = "Lifx";
         }
 
-        protected override Control CreateUIControls(LightConfig _config)
+        protected override Control CreateUIControls(ConfigSectionObject _config)
         {
             LifxConfig lifxConfig = (LifxConfig)_config;
 
-            List<Control> controls = new List<Control>();
+            List<Control> controls = new List<Control>
+            {
+                GetGlobalLightControls(lifxConfig)
+            };
 
             // selectors label
             Label selectorsLabel = new Label();
@@ -46,17 +49,15 @@ namespace MarbleManager.Config.LightConfigManagers
             authKeyBox.Text = lifxConfig != null ? lifxConfig.authKey : string.Empty;
             controls.Add(authKeyBox);
 
-            return WrapInFlowPanel(controls, _config);
+            return WrapInFlowPanel(controls);
         }
 
-        protected override LightConfig BuildConfigObject()
+        protected override LightConfig BuildLightConfig()
         {
             TextBox selectorsTextBox = FindControl<TextBox>(textBoxLifxSelector);
             TextBox authKeyTextBox = FindControl<TextBox>(textBoxLifxAuthKey);
             return new LifxConfig()
             {
-                enabled = IsEnabled(),
-                applyPalette = ApplyPalette(),
                 selectors = selectorsTextBox != null ? selectorsTextBox.Text : string.Empty,
                 authKey = authKeyTextBox != null ? authKeyTextBox.Text : string.Empty,
             };

@@ -6,7 +6,7 @@ using System.Threading;
 
 namespace MarbleManager.Config
 {
-    public class ConfigObject
+    public class GlobalConfigObject
     {
         public GeneralConfig generalConfig { get; set; }
         public NanoleafConfig nanoleafConfig { get; set; }
@@ -14,7 +14,9 @@ namespace MarbleManager.Config
         public WizConfig wizConfig { get; set; }
     }
 
-    public class GeneralConfig
+    public abstract class ConfigSectionObject { };
+
+    public class GeneralConfig : ConfigSectionObject
     {
         // toggles updating light palette on wallpaper change
         public bool syncOnWallpaperChange { get; set; }
@@ -28,7 +30,7 @@ namespace MarbleManager.Config
         public bool logUsage { get; set; }
     }
 
-    public abstract class LightConfig
+    public abstract class LightConfig : ConfigSectionObject
     {
         // whether this light is enabled
         public bool enabled { get; set; }

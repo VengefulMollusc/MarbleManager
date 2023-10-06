@@ -143,21 +143,14 @@
             this.labelLastDhsl = new System.Windows.Forms.Label();
             this.tabPageConfig = new System.Windows.Forms.TabPage();
             this.groupBoxSettings = new System.Windows.Forms.GroupBox();
-            this.lightSettingsDynamicPanel = new System.Windows.Forms.Panel();
+            this.dynamicSettingsPanel = new System.Windows.Forms.Panel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel32 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel33 = new System.Windows.Forms.FlowLayoutPanel();
-            this.checkBoxUseMainSwatches = new System.Windows.Forms.CheckBox();
-            this.checkBoxSyncOnWallpaperChange = new System.Windows.Forms.CheckBox();
-            this.checkBoxAutoTurnOnOff = new System.Windows.Forms.CheckBox();
-            this.checkBoxRunOnBoot = new System.Windows.Forms.CheckBox();
-            this.checkBoxUseLogs = new System.Windows.Forms.CheckBox();
             this.flowLayoutPanel34 = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonConfigReset = new System.Windows.Forms.Button();
             this.flowLayoutPanel30 = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonConfigApplyChanges = new System.Windows.Forms.Button();
             this.checkBoxForceApply = new System.Windows.Forms.CheckBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.flowLayoutPanel8 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBoxOnOff = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
@@ -229,7 +222,6 @@
             this.groupBoxSettings.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.flowLayoutPanel32.SuspendLayout();
-            this.flowLayoutPanel33.SuspendLayout();
             this.flowLayoutPanel34.SuspendLayout();
             this.flowLayoutPanel30.SuspendLayout();
             this.flowLayoutPanel8.SuspendLayout();
@@ -1512,121 +1504,47 @@
             // 
             // groupBoxSettings
             // 
-            this.groupBoxSettings.Controls.Add(this.lightSettingsDynamicPanel);
+            this.groupBoxSettings.Controls.Add(this.dynamicSettingsPanel);
             this.groupBoxSettings.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBoxSettings.Location = new System.Drawing.Point(0, 0);
             this.groupBoxSettings.Name = "groupBoxSettings";
-            this.groupBoxSettings.Size = new System.Drawing.Size(618, 325);
+            this.groupBoxSettings.Size = new System.Drawing.Size(618, 360);
             this.groupBoxSettings.TabIndex = 1;
             this.groupBoxSettings.TabStop = false;
-            this.groupBoxSettings.Text = "Light settings";
+            this.groupBoxSettings.Text = "Settings";
             // 
-            // lightSettingsDynamicPanel
+            // dynamicSettingsPanel
             // 
-            this.lightSettingsDynamicPanel.AutoScroll = true;
-            this.lightSettingsDynamicPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lightSettingsDynamicPanel.Location = new System.Drawing.Point(3, 16);
-            this.lightSettingsDynamicPanel.Name = "lightSettingsDynamicPanel";
-            this.lightSettingsDynamicPanel.Size = new System.Drawing.Size(612, 306);
-            this.lightSettingsDynamicPanel.TabIndex = 1;
+            this.dynamicSettingsPanel.AutoScroll = true;
+            this.dynamicSettingsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dynamicSettingsPanel.Location = new System.Drawing.Point(3, 16);
+            this.dynamicSettingsPanel.Name = "dynamicSettingsPanel";
+            this.dynamicSettingsPanel.Size = new System.Drawing.Size(612, 341);
+            this.dynamicSettingsPanel.TabIndex = 1;
             // 
             // groupBox4
             // 
             this.groupBox4.AutoSize = true;
             this.groupBox4.Controls.Add(this.flowLayoutPanel32);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox4.Location = new System.Drawing.Point(0, 325);
+            this.groupBox4.Location = new System.Drawing.Point(0, 360);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(618, 112);
+            this.groupBox4.Size = new System.Drawing.Size(618, 77);
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Global settings/Controls";
+            this.groupBox4.Text = "Controls";
             // 
             // flowLayoutPanel32
             // 
             this.flowLayoutPanel32.AutoSize = true;
             this.flowLayoutPanel32.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flowLayoutPanel32.Controls.Add(this.flowLayoutPanel33);
             this.flowLayoutPanel32.Controls.Add(this.flowLayoutPanel34);
             this.flowLayoutPanel32.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel32.Location = new System.Drawing.Point(3, 16);
             this.flowLayoutPanel32.Name = "flowLayoutPanel32";
-            this.flowLayoutPanel32.Size = new System.Drawing.Size(612, 93);
+            this.flowLayoutPanel32.Size = new System.Drawing.Size(612, 58);
             this.flowLayoutPanel32.TabIndex = 0;
             this.flowLayoutPanel32.WrapContents = false;
-            // 
-            // flowLayoutPanel33
-            // 
-            this.flowLayoutPanel33.AutoSize = true;
-            this.flowLayoutPanel33.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flowLayoutPanel33.Controls.Add(this.checkBoxUseMainSwatches);
-            this.flowLayoutPanel33.Controls.Add(this.checkBoxSyncOnWallpaperChange);
-            this.flowLayoutPanel33.Controls.Add(this.checkBoxAutoTurnOnOff);
-            this.flowLayoutPanel33.Controls.Add(this.checkBoxRunOnBoot);
-            this.flowLayoutPanel33.Controls.Add(this.checkBoxUseLogs);
-            this.flowLayoutPanel33.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel33.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel33.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel33.MaximumSize = new System.Drawing.Size(0, 92);
-            this.flowLayoutPanel33.Name = "flowLayoutPanel33";
-            this.flowLayoutPanel33.Size = new System.Drawing.Size(279, 92);
-            this.flowLayoutPanel33.TabIndex = 11;
-            // 
-            // checkBoxUseMainSwatches
-            // 
-            this.checkBoxUseMainSwatches.AutoSize = true;
-            this.checkBoxUseMainSwatches.Location = new System.Drawing.Point(3, 3);
-            this.checkBoxUseMainSwatches.Name = "checkBoxUseMainSwatches";
-            this.checkBoxUseMainSwatches.Size = new System.Drawing.Size(140, 17);
-            this.checkBoxUseMainSwatches.TabIndex = 9;
-            this.checkBoxUseMainSwatches.Text = "Only use main swatches";
-            this.toolTip1.SetToolTip(this.checkBoxUseMainSwatches, "Toggles betwen using only the swatches displayed on the preview screen, and an ex" +
-        "tended range of colours");
-            this.checkBoxUseMainSwatches.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxSyncOnWallpaperChange
-            // 
-            this.checkBoxSyncOnWallpaperChange.AutoSize = true;
-            this.checkBoxSyncOnWallpaperChange.Location = new System.Drawing.Point(3, 26);
-            this.checkBoxSyncOnWallpaperChange.Name = "checkBoxSyncOnWallpaperChange";
-            this.checkBoxSyncOnWallpaperChange.Size = new System.Drawing.Size(189, 17);
-            this.checkBoxSyncOnWallpaperChange.TabIndex = 7;
-            this.checkBoxSyncOnWallpaperChange.Text = "Sync colours on wallpaper change";
-            this.toolTip1.SetToolTip(this.checkBoxSyncOnWallpaperChange, "Sends an updated palette to the lights when the desktop wallpaper changes");
-            this.checkBoxSyncOnWallpaperChange.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxAutoTurnOnOff
-            // 
-            this.checkBoxAutoTurnOnOff.AutoSize = true;
-            this.checkBoxAutoTurnOnOff.Location = new System.Drawing.Point(3, 49);
-            this.checkBoxAutoTurnOnOff.Name = "checkBoxAutoTurnOnOff";
-            this.checkBoxAutoTurnOnOff.Size = new System.Drawing.Size(184, 17);
-            this.checkBoxAutoTurnOnOff.TabIndex = 8;
-            this.checkBoxAutoTurnOnOff.Text = "Turn lights on/off with logon state";
-            this.toolTip1.SetToolTip(this.checkBoxAutoTurnOnOff, "Trigger lights on/off when the current user logs on/off");
-            this.checkBoxAutoTurnOnOff.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxRunOnBoot
-            // 
-            this.checkBoxRunOnBoot.AutoSize = true;
-            this.checkBoxRunOnBoot.Location = new System.Drawing.Point(3, 72);
-            this.checkBoxRunOnBoot.Name = "checkBoxRunOnBoot";
-            this.checkBoxRunOnBoot.Size = new System.Drawing.Size(165, 17);
-            this.checkBoxRunOnBoot.TabIndex = 10;
-            this.checkBoxRunOnBoot.Text = "Run Marble Manager on boot";
-            this.toolTip1.SetToolTip(this.checkBoxRunOnBoot, "Run this app on PC boot");
-            this.checkBoxRunOnBoot.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxUseLogs
-            // 
-            this.checkBoxUseLogs.AutoSize = true;
-            this.checkBoxUseLogs.Location = new System.Drawing.Point(198, 3);
-            this.checkBoxUseLogs.Name = "checkBoxUseLogs";
-            this.checkBoxUseLogs.Size = new System.Drawing.Size(78, 17);
-            this.checkBoxUseLogs.TabIndex = 11;
-            this.checkBoxUseLogs.Text = "Use log file";
-            this.toolTip1.SetToolTip(this.checkBoxUseLogs, "Run this app on PC boot");
-            this.checkBoxUseLogs.UseVisualStyleBackColor = true;
             // 
             // flowLayoutPanel34
             // 
@@ -1634,12 +1552,11 @@
             this.flowLayoutPanel34.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanel34.Controls.Add(this.buttonConfigReset);
             this.flowLayoutPanel34.Controls.Add(this.flowLayoutPanel30);
-            this.flowLayoutPanel34.Controls.Add(this.label8);
             this.flowLayoutPanel34.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel34.Location = new System.Drawing.Point(279, 0);
+            this.flowLayoutPanel34.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel34.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel34.Name = "flowLayoutPanel34";
-            this.flowLayoutPanel34.Size = new System.Drawing.Size(311, 93);
+            this.flowLayoutPanel34.Size = new System.Drawing.Size(153, 58);
             this.flowLayoutPanel34.TabIndex = 12;
             this.flowLayoutPanel34.WrapContents = false;
             // 
@@ -1649,9 +1566,9 @@
             this.buttonConfigReset.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.buttonConfigReset.Location = new System.Drawing.Point(3, 3);
             this.buttonConfigReset.Name = "buttonConfigReset";
-            this.buttonConfigReset.Size = new System.Drawing.Size(108, 23);
+            this.buttonConfigReset.Size = new System.Drawing.Size(89, 23);
             this.buttonConfigReset.TabIndex = 7;
-            this.buttonConfigReset.Text = "Reset to last saved";
+            this.buttonConfigReset.Text = "Reset to saved";
             this.buttonConfigReset.UseVisualStyleBackColor = true;
             this.buttonConfigReset.Click += new System.EventHandler(this.buttonConfigReset_Click);
             // 
@@ -1690,17 +1607,6 @@
             this.checkBoxForceApply.TabIndex = 7;
             this.checkBoxForceApply.Text = "Force";
             this.checkBoxForceApply.UseVisualStyleBackColor = true;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(3, 58);
-            this.label8.Margin = new System.Windows.Forms.Padding(3, 0, 3, 9);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(305, 26);
-            this.label8.TabIndex = 6;
-            this.label8.Text = "Update script files with new values. Activate/deactivate hooks.\r\nForce will reapp" +
-    "ly all settings rather than just changes.";
             // 
             // flowLayoutPanel8
             // 
@@ -1998,8 +1904,6 @@
             this.groupBox4.PerformLayout();
             this.flowLayoutPanel32.ResumeLayout(false);
             this.flowLayoutPanel32.PerformLayout();
-            this.flowLayoutPanel33.ResumeLayout(false);
-            this.flowLayoutPanel33.PerformLayout();
             this.flowLayoutPanel34.ResumeLayout(false);
             this.flowLayoutPanel34.PerformLayout();
             this.flowLayoutPanel30.ResumeLayout(false);
@@ -2146,19 +2050,12 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBoxSettings;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel32;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel33;
-        private System.Windows.Forms.CheckBox checkBoxUseMainSwatches;
-        private System.Windows.Forms.CheckBox checkBoxSyncOnWallpaperChange;
-        private System.Windows.Forms.CheckBox checkBoxAutoTurnOnOff;
-        private System.Windows.Forms.CheckBox checkBoxRunOnBoot;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel34;
         private System.Windows.Forms.Button buttonConfigReset;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel30;
         private System.Windows.Forms.Button buttonConfigApplyChanges;
         private System.Windows.Forms.CheckBox checkBoxForceApply;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Panel lightSettingsDynamicPanel;
-        private System.Windows.Forms.CheckBox checkBoxUseLogs;
+        private System.Windows.Forms.Panel dynamicSettingsPanel;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;

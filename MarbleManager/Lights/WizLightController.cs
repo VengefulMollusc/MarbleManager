@@ -18,7 +18,7 @@ namespace MarbleManager.Lights
 
         private static int port = 38899;
 
-        public WizLightController(ConfigObject _config)
+        public WizLightController(GlobalConfigObject _config)
         {
             SetConfig(_config);
         }
@@ -40,7 +40,7 @@ namespace MarbleManager.Lights
             Console.WriteLine("Wiz lights done");
         }
 
-        public void SetConfig(ConfigObject _config)
+        public void SetConfig(GlobalConfigObject _config)
         {
             config = _config.wizConfig;
         }

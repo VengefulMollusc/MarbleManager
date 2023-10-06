@@ -8,7 +8,6 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 using MarbleManager.Lights;
-using MarbleManager.Config.LightConfigManagers;
 
 namespace MarbleManager
 {
@@ -19,9 +18,10 @@ namespace MarbleManager
 
         TextWriter originalOut;
 
-        NanoleafConfigManager nanoleafConfigManager;
-        LifxConfigManager lifxConfigManager;
-        WizConfigManager wizConfigManager;
+        GeneralConfigSection generalConfigSection;
+        NanoleafConfigSection nanoleafConfigSection;
+        LifxConfigSection lifxConfigSection;
+        WizConfigSection wizConfigSection;
 
         public ConfigForm()
         {
@@ -70,14 +70,16 @@ namespace MarbleManager
                 previewImage.Dispose();
                 WallpaperManager.DeleteCopiedWallpaper();
             }
+            if (generalConfigSection != null)
+                generalConfigSection = null;
             if (lightController != null)
                 lightController = null;
-            if (nanoleafConfigManager != null)
-                nanoleafConfigManager = null;
-            if (lifxConfigManager != null)
-                lifxConfigManager = null;
-            if (wizConfigManager != null)
-                wizConfigManager = null;
+            if (nanoleafConfigSection != null)
+                nanoleafConfigSection = null;
+            if (lifxConfigSection != null)
+                lifxConfigSection = null;
+            if (wizConfigSection != null)
+                wizConfigSection = null;
 
             base.OnClosing(e);
         }
@@ -180,42 +182,41 @@ namespace MarbleManager
         private void LoadConfig()
         {
             // Clear dynamic UI
-            lightSettingsDynamicPanel.Controls.Clear();
+            dynamicSettingsPanel.Controls.Clear();
 
             // Load config
-            ConfigObject config = ConfigManager.GetConfig();
+            GlobalConfigObject config = ConfigManager.GetConfig();
             if (config == null)
             {
                 Console.WriteLine("Config load error - null object returned");
                 return;
             }
 
-            // init general config
-            checkBoxSyncOnWallpaperChange.Checked = config.generalConfig.syncOnWallpaperChange;
-            checkBoxAutoTurnOnOff.Checked = config.generalConfig.autoTurnLightsOnOff;
-            checkBoxUseMainSwatches.Checked = config.generalConfig.onlyUseMainSwatches;
-            checkBoxRunOnBoot.Checked = config.generalConfig.runOnBoot;
-            checkBoxUseLogs.Checked = config.generalConfig.logUsage;
-
-            // init light configs in opposite order to UI
+            // init config sections in opposite order to UI
             // init wiz config
-            if (wizConfigManager == null)
+            if (wizConfigSection == null)
             {
-                wizConfigManager = new WizConfigManager();
+                wizConfigSection = new WizConfigSection();
             }
-            lightSettingsDynamicPanel.Controls.Add(wizConfigManager.GetLightConfigUI(config.wizConfig));
+            dynamicSettingsPanel.Controls.Add(wizConfigSection.GetConfigUI(config.wizConfig));
             // init lifx config
-            if (lifxConfigManager == null)
+            if (lifxConfigSection == null)
             {
-                lifxConfigManager = new LifxConfigManager();
+                lifxConfigSection = new LifxConfigSection();
             }
-            lightSettingsDynamicPanel.Controls.Add(lifxConfigManager.GetLightConfigUI(config.lifxConfig));
+            dynamicSettingsPanel.Controls.Add(lifxConfigSection.GetConfigUI(config.lifxConfig));
             // init nanoleaf config
-            if (nanoleafConfigManager == null)
+            if (nanoleafConfigSection == null)
             {
-                nanoleafConfigManager = new NanoleafConfigManager();
+                nanoleafConfigSection = new NanoleafConfigSection();
             }
-            lightSettingsDynamicPanel.Controls.Add(nanoleafConfigManager.GetLightConfigUI(config.nanoleafConfig));
+            dynamicSettingsPanel.Controls.Add(nanoleafConfigSection.GetConfigUI(config.nanoleafConfig));
+            // init general config
+            if (generalConfigSection == null)
+            {
+                generalConfigSection = new GeneralConfigSection();
+            }
+            dynamicSettingsPanel.Controls.Add(generalConfigSection.GetConfigUI(config.generalConfig));
 
             Console.WriteLine("Config loaded");
         }
@@ -227,19 +228,12 @@ namespace MarbleManager
         {
             Console.WriteLine("Saving config");
 
-            ConfigObject newConfig = new ConfigObject()
+            GlobalConfigObject newConfig = new GlobalConfigObject()
             {
-                generalConfig = new GeneralConfig()
-                {
-                    syncOnWallpaperChange = checkBoxSyncOnWallpaperChange.Checked,
-                    autoTurnLightsOnOff = checkBoxAutoTurnOnOff.Checked,
-                    onlyUseMainSwatches = checkBoxUseMainSwatches.Checked,
-                    runOnBoot = checkBoxRunOnBoot.Checked,
-                    logUsage = checkBoxUseLogs.Checked,
-                },
-                nanoleafConfig = nanoleafConfigManager.GetConfigObject<NanoleafConfig>(),
-                lifxConfig = lifxConfigManager.GetConfigObject<LifxConfig>(),
-                wizConfig = wizConfigManager.GetConfigObject<WizConfig>(),
+                generalConfig = generalConfigSection.GetConfigObject<GeneralConfig>(),
+                nanoleafConfig = nanoleafConfigSection.GetConfigObject<NanoleafConfig>(),
+                lifxConfig = lifxConfigSection.GetConfigObject<LifxConfig>(),
+                wizConfig = wizConfigSection.GetConfigObject<WizConfig>(),
             };
 
             lightController.UpdateConfig(newConfig);

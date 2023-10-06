@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace MarbleManager.Config.LightConfigManagers
+namespace MarbleManager.Config
 {
-    internal class NanoleafConfigManager : LightConfigManager
+    internal class NanoleafConfigSection : LightConfigSection
     {
         private static string radioButtonEffectPrefix = "radioButtonNanoleafEffect";
         private static string checkBoxOverrideMainColourProb = "checkBoxOverrideMainColourProb";
@@ -14,15 +14,18 @@ namespace MarbleManager.Config.LightConfigManagers
 
         private int nanoleafLightIndex;
 
-        public NanoleafConfigManager() {
-            lightType = "Nanoleaf";
+        public NanoleafConfigSection() {
+            sectionName = "Nanoleaf";
         }
-        protected override Control CreateUIControls(LightConfig _config)
+        protected override Control CreateUIControls(ConfigSectionObject _config)
         {
             NanoleafConfig nanoleafConfig = (NanoleafConfig)_config;
 
             // column 1
-            List<Control> controlsCol1 = new List<Control>();
+            List<Control> controlsCol1 = new List<Control>
+            {
+                GetGlobalLightControls(nanoleafConfig)
+            };
 
             // effect label
             Label effectLabel = new Label();
@@ -132,17 +135,15 @@ namespace MarbleManager.Config.LightConfigManagers
             addLightButton.Click += new EventHandler(AddNewLight);
             controlsCol2.Add(addLightButton);
 
-            return WrapIn2ColumnTable(controlsCol1, controlsCol2, _config);
+            return WrapIn2ColumnTable(controlsCol1, controlsCol2);
         }
 
-        protected override LightConfig BuildConfigObject()
+        protected override LightConfig BuildLightConfig()
         {
             CheckBox overrideCheckbox = FindControl<CheckBox>(checkBoxOverrideMainColourProb);
             NumericUpDown probValueNumericUpDown = FindControl<NumericUpDown>(numericUpDownColourProb);
             return new NanoleafConfig()
             {
-                enabled = IsEnabled(),
-                applyPalette = ApplyPalette(),
                 lights = GetNanoleafLights(),
                 effect = GetSelectedNanoleafEffect(),
                 overrideMainColourProb = overrideCheckbox != null && overrideCheckbox.Checked,

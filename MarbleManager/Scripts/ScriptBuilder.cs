@@ -20,7 +20,7 @@ namespace MarbleManager.Scripts
         /**
          * Creates script files from templates with new values from config
          */
-        internal static void BuildOnOffScriptFiles(ConfigObject _config)
+        internal static void BuildOnOffScriptFiles(GlobalConfigObject _config)
         {
             // on script
             string onCommand = _config.generalConfig.syncOnWallpaperChange ? "syncon" : "on";
@@ -48,7 +48,7 @@ namespace MarbleManager.Scripts
         /**
          * Wraps a list of string commands and saves to a given filename
          */
-        private static void CreateAndSaveBatScript(ConfigObject _config, string _exeParams, string _fileName)
+        private static void CreateAndSaveBatScript(GlobalConfigObject _config, string _exeParams, string _fileName)
         {
             string outputFile = Path.Combine(PathManager.BatScriptOutputDir, _fileName);
 
