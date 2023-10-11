@@ -65,7 +65,7 @@ namespace MarbleManager.Lights
                 ));
             }
             await Task.WhenAll(tasks);
-            Console.WriteLine("Lifx lights done");
+            LogManager.WriteLog($"Lifx lights {(_state ? "on" : "off")}", string.Join(",", config.SelectorList));
         }
 
         /**
@@ -106,24 +106,24 @@ namespace MarbleManager.Lights
                         {
                             // Read and process the response content (if any)
                             string responseContent = await response.Content.ReadAsStringAsync();
-                            Console.WriteLine($"Lifx Success: {endpoint}");
                             success = true;
                             break;
                         }
                         else
                         {
-                            Console.WriteLine($"Lifx Error: {response.StatusCode}");
+                            LogManager.WriteLog("Lifx Error", response.StatusCode.ToString());
+
                         }
                     }
                     catch
                     {
-                        Console.WriteLine($"Lifx Timeout: {endpoint}");
+                        LogManager.WriteLog("Lifx Timeout", endpoint);
                     }
                 }
 
                 if (!success)
                 {
-                    Console.WriteLine("Lifx command failed after retrying.");
+                    LogManager.WriteLog("Lifx failed", "command failed after retrying.");
                 }
             }
         }

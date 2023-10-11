@@ -51,9 +51,9 @@ namespace MarbleManager.Config
         
         // Highlight effect options
         // forces the main colour probability to a certain value
-        public bool overrideMainColourProb { get; set; }
+        public bool overrideDominantColourProb { get; set; }
         // the value to set the main colour probability to
-        public int mainColourProb { get; set; }
+        public int dominantColourProb { get; set; }
 
         public class Light
         {

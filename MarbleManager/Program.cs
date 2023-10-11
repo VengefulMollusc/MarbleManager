@@ -84,7 +84,7 @@ namespace MarbleManager
          */
         static async Task<bool> ProcessCommandLineArgs(string[] args)
         {
-            LogManager.WriteLog("Processing cmd args: " + string.Join(" ", args));
+            LogManager.WriteLog("Processing cmd args", string.Join(" ", args));
 
             bool bootApp = false;
             List<string> filteredArgs = new List<string>();
@@ -104,7 +104,7 @@ namespace MarbleManager
                         bootApp = true;
                         break;
                     default:
-                        Console.WriteLine($"Invalid command: {args[i]}");
+                        LogManager.WriteLog($"Invalid command: {args[i]}");
                         break;
                 }
             }

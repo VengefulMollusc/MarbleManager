@@ -37,7 +37,7 @@ namespace MarbleManager.Lights
             // select swatch
             SwatchObject toSend = _palette.Highlight;
             await SendPayloadToLights(CreateSetColourPayload(toSend), _turnOn);
-            Console.WriteLine("Wiz lights done");
+            LogManager.WriteLog("Wiz lights synced");
         }
 
         public void SetConfig(GlobalConfigObject _config)
@@ -48,7 +48,7 @@ namespace MarbleManager.Lights
         public async Task SetOnOffState(bool _state)
         {
             await SendPayloadToLights(CreateSetStatePayload(_state));
-            Console.WriteLine("Wiz lights done");
+            LogManager.WriteLog($"Wiz lights {(_state ? "on" : "off")}");
         }
 
         /**
@@ -95,13 +95,13 @@ namespace MarbleManager.Lights
                     }
                     catch (Exception e)
                     {
-                        Console.WriteLine($"Error sending UDP command: {e.Message}");
+                        LogManager.WriteLog("Wiz error", $"Error sending UDP command: {e.Message}");
                     }
                 }
 
                 if (!success)
                 {
-                    Console.WriteLine("UDP command failed after retrying.");
+                    LogManager.WriteLog("Wiz failed", "UDP command failed after retrying.");
                 }
 
                 return response;

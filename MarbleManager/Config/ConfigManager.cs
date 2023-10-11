@@ -22,14 +22,12 @@ namespace MarbleManager.Config
                 {
                     string json = r.ReadToEnd();
                     GlobalConfigObject config = JsonConvert.DeserializeObject<GlobalConfigObject>(json);
-                    Console.WriteLine("Loaded config");
                     return config;
                 }
             } catch (Exception ex)
             {
                 // file not found etc.
-                Console.WriteLine(ex.ToString());
-                Console.WriteLine("Error loading config");
+                LogManager.WriteLog("Error loading config", ex.Message);
             }
             return null;
         }
@@ -61,7 +59,7 @@ namespace MarbleManager.Config
                 ConfigureAutoOnOff(_config.generalConfig.autoTurnLightsOnOff);
             }
 
-            Console.WriteLine("Changes applied");
+            LogManager.WriteLog("Config changes applied");
         }
 
         /**
@@ -77,11 +75,9 @@ namespace MarbleManager.Config
                 {
                     outputFile.WriteLine(jsonString);
                 }
-                Console.WriteLine("Config successfully saved");
             } catch(Exception ex)
             {
-                Console.WriteLine(ex.ToString());
-                Console.WriteLine("Error saving config");
+                LogManager.WriteLog("Error saving config", ex.Message);
             }
         }
 
@@ -103,7 +99,7 @@ namespace MarbleManager.Config
             {
                 // add shortcut in startup folder
                 Utilities.CreateShortcut(shortcutPath, appPath);
-                Console.WriteLine($"Created shortcut: {shortcutPath}");
+                LogManager.WriteLog("Created app shortcut", shortcutPath);
             }
         }
 
@@ -117,7 +113,7 @@ namespace MarbleManager.Config
 
             if (regFilePath == null)
             {
-                Console.WriteLine("Null .reg file path");
+                LogManager.WriteLog("Null .reg file path");
                 return;
             }
 
@@ -137,7 +133,7 @@ namespace MarbleManager.Config
             // delete .reg file
             Utilities.DeleteFile(regFilePath);
 
-            Console.WriteLine($"Applied .reg file to {(_autoOnOff ? "enable" : "disable")} auto on/off functionality");
+            LogManager.WriteLog("Applied .reg file", $"{(_autoOnOff ? "enable" : "disable")} auto on/off functionality");
         }
     }
 }

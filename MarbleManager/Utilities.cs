@@ -22,7 +22,7 @@ namespace MarbleManager
             if (_data == null) return;
             foreach (var fileInOutNames in _data.resourceInOutNames)
             {
-                CopyResourceAndReplaceValues(fileInOutNames.Key, _data.outputDir, fileInOutNames.Value, _data.toReplace);
+                CopyResourceToFileAndReplaceValues(fileInOutNames.Key, _data.outputDir, fileInOutNames.Value, _data.toReplace);
             }
         }
 
@@ -38,7 +38,7 @@ namespace MarbleManager
                 {
                     if (stream == null)
                     {
-                        Console.WriteLine($"Null stream for {_resourceName}");
+                        LogManager.WriteLog($"Null resource stream", _resourceName);
                         return null;
                     }
 
@@ -55,9 +55,9 @@ namespace MarbleManager
                     return lines;
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                Console.WriteLine("An error occurred: " + e.Message);
+                LogManager.WriteLog("Load resource error", ex.Message);
             }
             return null;
         }
@@ -68,13 +68,13 @@ namespace MarbleManager
          * 
          * used for writing values to compiled files eg registry scripts
          */
-        internal static void CopyResourceAndReplaceValues(string _resourceName, string _outputDir, string _outputFile, Dictionary<string, string> _toReplace)
+        internal static void CopyResourceToFileAndReplaceValues(string _resourceName, string _outputDir, string _outputFile, Dictionary<string, string> _toReplace)
         {
             using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(_resourceName))
             {
                 if (stream == null)
                 {
-                    Console.WriteLine($"Null stream for {_resourceName}");
+                    LogManager.WriteLog($"Null resource stream", _resourceName);
                 }
 
                 using (StreamReader reader = new StreamReader(stream))
@@ -89,8 +89,6 @@ namespace MarbleManager
 
                     // Write the modified content to the destination file`
                     System.IO.File.WriteAllText(destinationFilePath, fileContent);
-
-                    Console.WriteLine($"Processed: {_resourceName}");
                 }
                 stream.Close();
             }
@@ -185,16 +183,12 @@ namespace MarbleManager
                 {
                     // Delete the file
                     System.IO.File.Delete(_filePath);
-                    Console.WriteLine($"File {_filePath} deleted.");
-                }
-                else
-                {
-                    Console.WriteLine($"File {_filePath} does not exist to delete.");
+                    LogManager.WriteLog("File deletion success", _filePath);
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error: " + ex.Message);
+                LogManager.WriteLog("File deletion errpr", $"{_filePath} - {ex.Message}");
             }
         }
 
@@ -258,10 +252,11 @@ namespace MarbleManager
                 System.IO.File.WriteAllText(destinationFilePath, fileContent);
 
                 Console.WriteLine($"Processed: {_inputFile}");
+                LogManager.WriteLog("Copy and replace success", _inputFile);
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error copying: " + ex.Message);
+                LogManager.WriteLog("Copy and replace error", $"{_inputFile} - {ex.Message}");
             }
         }
 

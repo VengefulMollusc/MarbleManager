@@ -29,8 +29,7 @@ namespace MarbleManager.Colours
             catch (Exception ex)
             {
                 // file not found etc.
-                Console.WriteLine(ex.ToString());
-                Console.WriteLine("No palette file found to load");
+                LogManager.WriteLog($"No palette file found to load: {ex}");
                 return null;
             }
         }
@@ -55,8 +54,7 @@ namespace MarbleManager.Colours
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
-                Console.WriteLine("Error saving palette");
+                LogManager.WriteLog("Error saving palette", ex.Message);
             }
         }
 
@@ -169,7 +167,7 @@ namespace MarbleManager.Colours
             
             if (highlightIndex < 0)
             {
-                Console.WriteLine("Somehow no highlight found in palette");
+                LogManager.WriteLog("Somehow no highlight found in palette");
             }
 
             // designate swatch as highlight

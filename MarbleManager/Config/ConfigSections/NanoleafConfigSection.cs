@@ -67,9 +67,9 @@ namespace MarbleManager.Config
             CheckBox highlightOverrideCheckBox = new CheckBox();
             highlightOverrideCheckBox.AutoSize = true;
             highlightOverrideCheckBox.Name = checkBoxOverrideMainColourProb;
-            highlightOverrideCheckBox.Text = "Override main colour probability";
+            highlightOverrideCheckBox.Text = "Override dominant colour probability";
             highlightOverrideCheckBox.UseVisualStyleBackColor = true;
-            highlightOverrideCheckBox.Checked = nanoleafConfig != null && nanoleafConfig.overrideMainColourProb;
+            highlightOverrideCheckBox.Checked = nanoleafConfig != null && nanoleafConfig.overrideDominantColourProb;
 
             // highlight override value label
             Label highlightOverrideValueLabel = new Label();
@@ -81,7 +81,7 @@ namespace MarbleManager.Config
             NumericUpDown highlightOverrideNumericUpDown = new NumericUpDown();
             highlightOverrideNumericUpDown.Name = numericUpDownColourProb;
             highlightOverrideNumericUpDown.Size = new Size(120, 20);
-            highlightOverrideNumericUpDown.Value = nanoleafConfig != null ? nanoleafConfig.mainColourProb : 0;
+            highlightOverrideNumericUpDown.Value = nanoleafConfig != null ? nanoleafConfig.dominantColourProb : 0;
 
             // highlight flow panel
             FlowLayoutPanel highlightOptionsPanel = new FlowLayoutPanel();
@@ -146,8 +146,8 @@ namespace MarbleManager.Config
             {
                 lights = GetNanoleafLights(),
                 effect = GetSelectedNanoleafEffect(),
-                overrideMainColourProb = overrideCheckbox != null && overrideCheckbox.Checked,
-                mainColourProb = probValueNumericUpDown != null ? (int)probValueNumericUpDown.Value : 0,
+                overrideDominantColourProb = overrideCheckbox != null && overrideCheckbox.Checked,
+                dominantColourProb = probValueNumericUpDown != null ? (int)probValueNumericUpDown.Value : 0,
             };
         }
 

@@ -42,7 +42,7 @@ namespace MarbleManager.Scripts
                 turnOffLightsFileName
             );
 
-            Console.WriteLine("Creating .bat scripts done");
+            LogManager.WriteLog("Creating .bat scripts done");
         }
 
         /**
@@ -83,11 +83,11 @@ namespace MarbleManager.Scripts
                 // Create the .bat file and write the batch commands to it.
                 File.WriteAllLines(outputFile, batchCommands);
 
-                Console.WriteLine($"Batch file created successfully: {outputFile}");
+                LogManager.WriteLog($".bat file created", outputFile);
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error: " + ex.Message);
+                LogManager.WriteLog(".bat creation error", ex.Message);
             }
         }
 
@@ -114,11 +114,11 @@ namespace MarbleManager.Scripts
 
             if (userSid == null)
             {
-                Console.WriteLine("Null user SID");
+                LogManager.WriteLog(".reg script error", "Null user SID");
                 return null;
             }
 
-            Utilities.CopyResourceAndReplaceValues(
+            Utilities.CopyResourceToFileAndReplaceValues(
                 $"{templateNamespace}.{regNamespace}.{(_enable ? "addLogOnOffScripts_template.reg" : "remLogOnOffScripts_template.reg")}",
                 PathManager.RegScriptOutputDir,
                 _enable ? "addLogOnOffScripts.reg" : "remLogOnOffScripts.reg",
@@ -129,7 +129,7 @@ namespace MarbleManager.Scripts
                         { "<turnOffScriptPath>", Path.Combine(PathManager.BatScriptOutputDir, turnOffLightsFileName).Escape() },
                     }
             );
-            Console.WriteLine(".reg script done");
+            LogManager.WriteLog(".reg script creation done");
 
             return Path.Combine(PathManager.RegScriptOutputDir, _enable ? "addLogOnOffScripts.reg" : "remLogOnOffScripts.reg");
         }
@@ -149,7 +149,7 @@ namespace MarbleManager.Scripts
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error: " + ex.Message);
+                LogManager.WriteLog("Get user SID error", ex.Message);
             }
             return null;
         }

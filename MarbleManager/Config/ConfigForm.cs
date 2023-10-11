@@ -188,7 +188,7 @@ namespace MarbleManager
             GlobalConfigObject config = ConfigManager.GetConfig();
             if (config == null)
             {
-                Console.WriteLine("Config load error - null object returned");
+                LogManager.WriteLog("Config load error - null object returned");
                 return;
             }
 
@@ -240,7 +240,7 @@ namespace MarbleManager
 
             ConfigManager.ApplyConfig(newConfig, checkBoxForceApply.Checked);
 
-            Console.WriteLine("Config saved");
+            LogManager.WriteLog("Config saved");
         }
 
         /**
@@ -304,7 +304,6 @@ namespace MarbleManager
             }
 
             PreviewPalette(PaletteManager.GetPaletteFromBitmap(previewImage));
-            Console.WriteLine("Palette preview created");
         }
 
         /**
@@ -400,7 +399,7 @@ namespace MarbleManager
             await lightController.SyncToWallpaper(previewImage);
             LoadLastPalette();
 
-            Console.WriteLine("Preview palette synced to lights");
+            LogManager.WriteLog("Previewed palette synced to lights");
         }
     }
 

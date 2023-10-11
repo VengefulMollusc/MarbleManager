@@ -7,7 +7,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
-using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Windows.Forms.AxHost;
@@ -44,7 +43,7 @@ namespace MarbleManager.Lights
             List<NanoleafConfig.Light> lightsToApply = _turnOn ? config.lights : await GetOnLightUrls();
             if (lightsToApply.Count <= 0)
             {
-                Console.WriteLine("Nanoleaf: No valid lights to apply palette");
+                LogManager.WriteLog("Nanoleaf: No valid lights to apply palette");
                 return;
             }
 
@@ -55,7 +54,7 @@ namespace MarbleManager.Lights
             JArray palette = FormatPalette(_palette);
             if (palette == null || palette.Count <= 0)
             {
-                Console.WriteLine("nanoleaf palette should not be empty");
+                LogManager.WriteLog("nanoleaf palette should not be empty");
                 return;
             }
 
@@ -68,7 +67,7 @@ namespace MarbleManager.Lights
                 tasks.Add(SendPayload(light, payload, "/effects"));
             }
             await Task.WhenAll(tasks);
-            Console.WriteLine("Nanoleaf lights done");
+            LogManager.WriteLog($"Nanoleaf lights synced", string.Join(",", lightsToApply.Select(l => l.ipAddress).ToList()));
         }
 
         /**
@@ -91,7 +90,7 @@ namespace MarbleManager.Lights
                 tasks.Add(SendPayload(light, GetStatePayload(_state), "/state"));
             }
             await Task.WhenAll(tasks);
-            Console.WriteLine("Nanoleaf lights done");
+            LogManager.WriteLog($"Nanoleaf lights {(_state ? "on" : "off")}", string.Join(",", config.lights.Select(l => l.ipAddress).ToList()));
         }
 
         /**
@@ -134,24 +133,23 @@ namespace MarbleManager.Lights
                         {
                             // Read and process the response content (if any)
                             string responseContent = await response.Content.ReadAsStringAsync();
-                            Console.WriteLine($"Nanoleaf Success: {_light.ipAddress}");
                             success = true;
                             break;
                         }
                         else
                         {
-                            Console.WriteLine($"Nanoleaf Error: {response.StatusCode}");
+                            LogManager.WriteLog("Nanoleaf Error", response.StatusCode.ToString());
                         }
                     }
                     catch
                     {
-                        Console.WriteLine($"Nanoleaf timeout: {_light.ipAddress}");
+                        LogManager.WriteLog("Nanoleaf timeout", _light.ipAddress);
                     }
                 }
 
                 if (!success)
                 {
-                    Console.WriteLine("Nanoleaf command failed after retrying.");
+                    LogManager.WriteLog("Nanoleaf failed", "command failed after retrying.");
                 }
             }
         }
@@ -175,8 +173,7 @@ namespace MarbleManager.Lights
             catch (Exception ex)
             {
                 // file not found etc.
-                Console.WriteLine(ex.ToString());
-                Console.WriteLine("Error loading payload");
+                LogManager.WriteLog("Error loading payload", ex.Message);
             }
             return null;
         }
@@ -206,7 +203,7 @@ namespace MarbleManager.Lights
             // formats palette into nanoleaf api format
             JArray palette = new JArray();
 
-            bool overrideProb = config.overrideMainColourProb;
+            bool overrideProb = config.overrideDominantColourProb;
             foreach (SwatchObject swatch in (onlyUseMainSwatches ? _palette.MainSwatches : _palette.AllSwatches))
             {
                 if (swatch == null) { continue; }
@@ -228,7 +225,7 @@ namespace MarbleManager.Lights
             colour["hue"] = _swatch.h;
             colour["saturation"] = _swatch.s;
             colour["brightness"] = _swatch.l;
-            colour["probability"] = overrideProb ? config.mainColourProb : (int)Math.Round(_swatch.proportion * 100f, 0, MidpointRounding.AwayFromZero);
+            colour["probability"] = overrideProb ? config.dominantColourProb : (int)Math.Round(_swatch.proportion * 100f, 0, MidpointRounding.AwayFromZero);
             return colour;
         }
 
@@ -291,7 +288,7 @@ namespace MarbleManager.Lights
                 }
                 else
                 {
-                    Console.WriteLine($"Nanoleaf isOn Error: {_light.ipAddress} : {response.StatusCode}");
+                    LogManager.WriteLog($"Nanoleaf isOn Error", $"{_light.ipAddress} : {response.StatusCode}");
                 }
             }
             return null;
