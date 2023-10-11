@@ -8,6 +8,7 @@ namespace MarbleManager.Config
         protected string sectionName = "ConfigSectionDefault";
 
         protected static int textBoxWidth = 270;
+        protected static int textBoxWidthWrapped = 248;
 
         private GroupBox configWrapper;
 

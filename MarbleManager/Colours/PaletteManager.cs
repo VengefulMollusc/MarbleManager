@@ -141,14 +141,10 @@ namespace MarbleManager.Colours
          */
         private static List<SwatchObject> CalculateHighlight(List<SwatchObject> _swatches)
         {
-            // WEIGHTS
-            float[] weights = new float[] {
-                    0.6f, // saturation
-                    0.4f, // luminance
-                    0.2f, // proportion
-                };
+            // WEIGHTS [saturation,luminance,proportion]
+            int[] weights = ConfigManager.GetConfig().generalConfig.highlightWeights;
 
-            float maxScore = -1.0f;
+            int maxScore = -1;
             int highlightIndex = -1;
 
             for (int i = 0; i < _swatches.Count; i++)
@@ -160,9 +156,9 @@ namespace MarbleManager.Colours
                 }
 
                 // Calculate the combined score using weights
-                float score = weights[0] * s.s // saturation
+                int score = weights[0] * s.s // saturation
                     + weights[1] * s.l // luminance
-                    + weights[2] * s.proportion * 100f; // prortion (* 100f so scale matches other values)
+                    + weights[2] * (int)(s.proportion * 100f); // prortion (* 100f so scale matches other values)
 
                 if (score > maxScore)
                 {

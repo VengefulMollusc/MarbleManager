@@ -192,7 +192,7 @@ namespace MarbleManager.Config
             // ip textbox
             TextBox ipTextBox = new TextBox();
             ipTextBox.Name = $"textBoxNanoleafIp{nanoleafLightIndex}";
-            ipTextBox.Size = new Size(248, 20);
+            ipTextBox.Size = new Size(textBoxWidthWrapped, 20);
             if (_light != null)
             {
                 ipTextBox.Text = _light.ipAddress;
@@ -207,7 +207,7 @@ namespace MarbleManager.Config
             // api key textbox
             TextBox apiKeyTextBox = new TextBox();
             apiKeyTextBox.Name = $"textBoxNanoleafApiKey{nanoleafLightIndex}";
-            apiKeyTextBox.Size = new Size(248, 20);
+            apiKeyTextBox.Size = new Size(textBoxWidthWrapped, 20);
             if (_light != null)
             {
                 apiKeyTextBox.Text = _light.apiKey;
@@ -282,12 +282,12 @@ namespace MarbleManager.Config
             // this is called from each radio button, when checked or unchecked
             // so: show options when checked for this button
             // hide otherwise
-            RadioButton checkBox = (RadioButton)sender;
-            string effectName = checkBox.Text;
+            RadioButton radioButton = (RadioButton)sender;
+            string effectName = radioButton.Text;
             GroupBox effectOptions = FindControl<GroupBox>($"groupBox{effectName}Options");
             if (effectOptions != null)
             {
-                effectOptions.Visible = checkBox.Checked;
+                effectOptions.Visible = radioButton.Checked;
             }
         }
 
