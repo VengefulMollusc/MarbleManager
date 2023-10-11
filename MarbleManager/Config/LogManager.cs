@@ -22,7 +22,12 @@ namespace MarbleManager.Config
             string timestamp = DateTime.Now.ToString("yyyy-MM-dd_HH:mm:ss");
 
             // Combine the timestamp and message
-            string logEntry = $"{timestamp} - {_message}: {_extraDetails}";
+            string logEntry = $"{timestamp} - {_message}";
+            if (_extraDetails != null)
+            {
+                // append extra details
+                logEntry += $" :: {_extraDetails}";
+            }
 
             // Define the path to the log file (assuming it's in the current directory)
             string logFilePath = _useSecondary ? PathManager.LogSecondaryFilePath : PathManager.LogFilePath;
