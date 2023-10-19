@@ -119,6 +119,8 @@ namespace MarbleManager.Lights
                     {
                         LogManager.WriteLog("Lifx Timeout", endpoint);
                     }
+                    // wait half second before retrying
+                    await Task.Delay(GlobalLightController.RetryDelay);
                 }
 
                 if (!success)

@@ -145,6 +145,8 @@ namespace MarbleManager.Lights
                     {
                         LogManager.WriteLog("Nanoleaf timeout", _light.ipAddress);
                     }
+                    // wait half second before retrying
+                    await Task.Delay(GlobalLightController.RetryDelay);
                 }
 
                 if (!success)

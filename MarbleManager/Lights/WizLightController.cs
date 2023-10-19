@@ -97,6 +97,8 @@ namespace MarbleManager.Lights
                     {
                         LogManager.WriteLog("Wiz error", $"Error sending UDP command: {e.Message}");
                     }
+                    // wait half second before retrying
+                    await Task.Delay(GlobalLightController.RetryDelay);
                 }
 
                 if (!success)

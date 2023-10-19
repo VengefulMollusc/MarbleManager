@@ -1,6 +1,5 @@
 ﻿using MarbleManager.Colours;
 using MarbleManager.Config;
-using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -16,12 +15,13 @@ namespace MarbleManager.Lights
         List<ILightController> lightControllers;
         WallpaperWatcher watcher;
         bool isSyncing;
+        bool syncOnWallpaperChange;
 
         internal static int RetryCount = 2;
+        internal static int RetryDelay = 500;
 
         private GlobalLightController(bool _fullBoot, bool _turnOnSync) {
             GlobalConfigObject config = ConfigManager.GetConfig();
-
             UpdateConfig(config, _fullBoot, _turnOnSync);
         }
 
@@ -46,13 +46,20 @@ namespace MarbleManager.Lights
          */
         internal async Task TurnLightsOnOff(bool _state)
         {
-            LogManager.WriteLog($"Lights: Turning {(_state ? "ON" : "OFF")}...");
-            List<Task> tasks = new List<Task>();
-            foreach (ILightController lightController in lightControllers)
+            bool syncOn = _state && syncOnWallpaperChange;
+            LogManager.WriteLog($"Lights: Turning {(_state ? "ON" : "OFF")}... {(syncOn ? "and syncing" : "")}");
+            if (syncOn)
             {
-                tasks.Add(lightController.SetOnOffState(_state));
+                await SyncToWallpaper(null, true);
+            } else
+            {
+                List<Task> tasks = new List<Task>();
+                foreach (ILightController lightController in lightControllers)
+                {
+                    tasks.Add(lightController.SetOnOffState(_state));
+                }
+                await Task.WhenAll(tasks);
             }
-            await Task.WhenAll(tasks);
             LogManager.WriteLog($"Lights: Turning {(_state ? "ON" : "OFF")} done.");
         }
 
@@ -61,6 +68,9 @@ namespace MarbleManager.Lights
          */
         internal async void UpdateConfig(GlobalConfigObject _config, bool _canEnableWatcher = true, bool _turnOnSync = true)
         {
+            // set local variables
+            syncOnWallpaperChange = _config.generalConfig.syncOnWallpaperChange;
+
             LogManager.WriteLog("GlobalLightController updating config. Can start watcher: " + _canEnableWatcher);
             // populate light controllers based on enabled lights
             lightControllers = new List<ILightController>();
@@ -72,7 +82,7 @@ namespace MarbleManager.Lights
                 lightControllers.Add(new WizLightController(_config));
 
             // turn on watcher if syncing to wallpaper
-            if (_config.generalConfig.syncOnWallpaperChange && _canEnableWatcher)
+            if (syncOnWallpaperChange && _canEnableWatcher)
             {
                 if (watcher == null)
                 {
@@ -116,7 +126,7 @@ namespace MarbleManager.Lights
             try
             {
                 await PerformSyncToWallpaper(_toSync != null ? _toSync : WallpaperManager.GetWallpaperBitmap(), _turnOn);
-                await Task.Delay(2000);
+                await Task.Delay(1500);
             }
             finally
             {
