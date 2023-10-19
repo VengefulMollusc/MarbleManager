@@ -86,6 +86,8 @@ namespace MarbleManager.Config
          */
         private static void ConfigureRunOnBoot(bool _createShortcut)
         {
+            LogManager.WriteLog("Configuring run on boot");
+
             // Get relevant paths, names etc.
             string appPath = PathManager.MarbleManagerFilePath;
             string startupFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.Startup);

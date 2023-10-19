@@ -13,8 +13,6 @@ namespace MarbleManager.Config
         private static string checkBoxAutoTurnOnOff = "checkBoxAutoTurnOnOff";
         private static string checkBoxRunOnBoot = "checkBoxRunOnBoot";
         private static string checkBoxUseLogs = "checkBoxUseLogs";
-        private static string checkBoxShowAdvanced = "checkBoxShowAdvanced";
-        private static string textBoxHighlightWeights = "textBoxHighlightWeights";
 
         public GeneralConfigSection() {
             sectionName = "General";
@@ -27,10 +25,6 @@ namespace MarbleManager.Config
             CheckBox autoOnOff = FindControl<CheckBox>(checkBoxAutoTurnOnOff);
             CheckBox runOnBoot = FindControl<CheckBox>(checkBoxRunOnBoot);
             CheckBox useLogs = FindControl<CheckBox>(checkBoxUseLogs);
-            CheckBox advanced = FindControl<CheckBox>(checkBoxShowAdvanced);
-            
-            TextBox weightsBox = FindControl<TextBox>(textBoxHighlightWeights);
-            int[] weights = weightsBox.Text.Split(',').Select(int.Parse).ToArray();
 
             return new GeneralConfig()
             {
@@ -39,8 +33,6 @@ namespace MarbleManager.Config
                 autoTurnLightsOnOff = autoOnOff.Checked,
                 runOnBoot = runOnBoot.Checked,
                 logUsage = useLogs.Checked,
-                showAdvanced = advanced.Checked,
-                highlightWeights = weights,
             };
         }
 
@@ -84,68 +76,15 @@ namespace MarbleManager.Config
 
             List<Control> controlsCol2 = new List<Control>();
 
-            // ADVANCED
-
-            // checkBoxShowAdvanced
-            CheckBox checkBoxAdvanced = new CheckBox();
-            checkBoxAdvanced.AutoSize = true;
-            checkBoxAdvanced.Name = checkBoxShowAdvanced;
-            checkBoxAdvanced.Text = "Show advanced settings";
-            checkBoxAdvanced.Checked = generalConfig.showAdvanced;
-            checkBoxAdvanced.CheckedChanged += new EventHandler(ChangeShowAdvanced);
-            controlsCol2.Add(checkBoxAdvanced);
-
-            // add advanced
-            controlsCol2.Add(GetAdvancedControls(generalConfig));
-
-            return WrapIn2ColumnTable(controlsCol1, controlsCol2);
-        }
-
-        private Control GetAdvancedControls(GeneralConfig _generalConfig)
-        {
-            // wrapper group box
-            GroupBox groupBox = new GroupBox();
-            groupBox.Name = "groupBoxAdvanced";
-            groupBox.Text = $"Advanced options";
-            groupBox.AutoSize = true;
-            groupBox.Visible = _generalConfig.showAdvanced;
-
-            // flow layout panel
-            FlowLayoutPanel flowLayoutPanel = new FlowLayoutPanel();
-            flowLayoutPanel.Name = "flowLayoutPanelAdvanced";
-            flowLayoutPanel.Dock = DockStyle.Fill;
-            flowLayoutPanel.AutoSize = true;
-            flowLayoutPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            flowLayoutPanel.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel.WrapContents = false;
-
             // checkBoxUseLogs
             CheckBox checkBoxLogs = new CheckBox();
             checkBoxLogs.AutoSize = true;
             checkBoxLogs.Name = checkBoxUseLogs;
             checkBoxLogs.Text = "Use log file";
-            checkBoxLogs.Checked = _generalConfig.logUsage;
-            flowLayoutPanel.Controls.Add(checkBoxLogs);
+            checkBoxLogs.Checked = generalConfig.logUsage;
+            controlsCol2.Add(checkBoxLogs);
 
-            // highlight weights label
-            Label weightsLabel = new Label();
-            weightsLabel.AutoSize = true;
-            weightsLabel.Name = "labelHighlightWeights";
-            weightsLabel.Text = "Highlight weights (sat, lum, prop, comma sep.)";
-            flowLayoutPanel.Controls.Add(weightsLabel);
-
-            // selectors text box
-            TextBox weightsBox = new TextBox();
-            weightsBox.Name = textBoxHighlightWeights;
-            weightsBox.Size = new Size(textBoxWidthWrapped, 20);
-            weightsBox.Text = (_generalConfig != null && _generalConfig.highlightWeights != null)
-                ? string.Join(",", _generalConfig.highlightWeights.Select(f => f.ToString()))
-                : string.Empty;
-            flowLayoutPanel.Controls.Add(weightsBox);
-
-            // add to controls
-            groupBox.Controls.Add(flowLayoutPanel);
-            return groupBox;
+            return WrapIn2ColumnTable(controlsCol1, controlsCol2);
         }
 
         private void ChangeShowAdvanced(object sender, EventArgs e)

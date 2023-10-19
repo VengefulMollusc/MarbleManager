@@ -110,7 +110,7 @@ namespace MarbleManager
             }
 
             // initialise the lightcontroller (with app boot state)
-            GlobalLightController lightController = GlobalLightController.GetInstance(bootApp);
+            GlobalLightController lightController = GlobalLightController.GetInstance(bootApp, false);
 
             // process light commands
             foreach (string arg in filteredArgs)
@@ -127,7 +127,7 @@ namespace MarbleManager
                         await lightController.SyncToWallpaper();
                         break;
                     case "syncon":
-                        await lightController.TurnOnAndSyncToWallpaper();
+                        await lightController.SyncToWallpaper(null, true);
                         break;
                     default:
                         break;

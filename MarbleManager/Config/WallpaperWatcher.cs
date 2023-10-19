@@ -10,6 +10,9 @@ namespace MarbleManager.Config
 {
     internal class WallpaperWatcher : IDisposable
     {
+        // delay to allow file to settle and avoid duplicate calls
+        private static int delay = 1000;
+
         public delegate void ChangeEventHandler(object source, FileSystemEventArgs e);
         public event ChangeEventHandler OnChange;
 
@@ -38,7 +41,7 @@ namespace MarbleManager.Config
             try
             {
                 // delay before syncing to allow file to free up
-                await Task.Delay(500);
+                await Task.Delay(delay);
                 OnChange?.Invoke(source, e);
             }
             finally

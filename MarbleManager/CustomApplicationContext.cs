@@ -1,13 +1,7 @@
-﻿using MarbleManager.Config;
-using MarbleManager.Colours;
-using MarbleManager.Lights;
+﻿using MarbleManager.Lights;
 using MarbleManager.Properties;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MarbleManager
@@ -25,7 +19,7 @@ namespace MarbleManager
         public CustomApplicationContext() {
             InitializeContext();
 
-            lightController = GlobalLightController.GetInstance();
+            lightController = GlobalLightController.GetInstance(true, true);
         }
 
         /**

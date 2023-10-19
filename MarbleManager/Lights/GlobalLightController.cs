@@ -15,16 +15,17 @@ namespace MarbleManager.Lights
 
         List<ILightController> lightControllers;
         WallpaperWatcher watcher;
+        bool isSyncing;
 
         internal static int RetryCount = 2;
 
-        private GlobalLightController(bool _fullBoot) {
+        private GlobalLightController(bool _fullBoot, bool _turnOnSync) {
             GlobalConfigObject config = ConfigManager.GetConfig();
 
-            UpdateConfig(config, _fullBoot);
+            UpdateConfig(config, _fullBoot, _turnOnSync);
         }
 
-        internal static GlobalLightController GetInstance(bool _fullBoot = true)
+        internal static GlobalLightController GetInstance(bool _fullBoot, bool _turnOnSync)
         {
             // double check lock for thread safety
             if (_instance == null)
@@ -33,7 +34,7 @@ namespace MarbleManager.Lights
                 {
                     if (_instance == null)
                     {
-                        _instance = new GlobalLightController(_fullBoot);
+                        _instance = new GlobalLightController(_fullBoot, _turnOnSync);
                     }
                 }
             }
@@ -58,7 +59,7 @@ namespace MarbleManager.Lights
         /**
          * Updates the config for each light
          */
-        internal async void UpdateConfig(GlobalConfigObject _config, bool _canEnableWatcher = true)
+        internal async void UpdateConfig(GlobalConfigObject _config, bool _canEnableWatcher = true, bool _turnOnSync = true)
         {
             LogManager.WriteLog("GlobalLightController updating config. Can start watcher: " + _canEnableWatcher);
             // populate light controllers based on enabled lights
@@ -79,8 +80,11 @@ namespace MarbleManager.Lights
                     watcher = new WallpaperWatcher();
                     watcher.OnChange += SyncOnWallpaperChange;
 
-                    // trigger initial sync
-                    await SyncToWallpaper();
+                    if (_turnOnSync)
+                    {
+                        // trigger initial sync
+                        await SyncToWallpaper();
+                    }
                 }
             } else if (watcher != null)
             {
@@ -100,19 +104,29 @@ namespace MarbleManager.Lights
         /**
          * Applies a palette generated from the current wallpaper to the lights
          */
-        internal async Task SyncToWallpaper()
+        internal async Task SyncToWallpaper(Bitmap _toSync = null, bool _turnOn = false)
         {
-            await SyncToWallpaper(WallpaperManager.GetWallpaperBitmap());
+            if (isSyncing)
+            {
+                LogManager.WriteLog("Already syncing - returning");
+                return;
+            }
+
+            isSyncing = true;
+            try
+            {
+                await PerformSyncToWallpaper(_toSync != null ? _toSync : WallpaperManager.GetWallpaperBitmap(), _turnOn);
+                await Task.Delay(2000);
+            }
+            finally
+            {
+                isSyncing = false;
+            }
         }
 
-        internal async Task TurnOnAndSyncToWallpaper()
+        private async Task PerformSyncToWallpaper(Bitmap _toSync, bool _turnOn)
         {
-            await SyncToWallpaper(WallpaperManager.GetWallpaperBitmap(), true);
-        }
-
-        internal async Task SyncToWallpaper(Bitmap _toSync, bool _turnOn = false)
-        {
-            LogManager.WriteLog("Lights: syncing...");
+            LogManager.WriteLog($"Lights: syncing {(_turnOn ? "and turning on" : "")}");
             // generate palette
             PaletteObject palette = PaletteManager.GetPaletteFromBitmap(_toSync);
             // save to file

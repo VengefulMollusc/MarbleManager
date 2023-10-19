@@ -28,10 +28,6 @@ namespace MarbleManager.Config
         public bool runOnBoot { get; set; }
         // whether the app creates log files
         public bool logUsage { get; set; }
-        // advanced settings toggle
-        public bool showAdvanced { get; set; }
-        // highlight weight values
-        public int[] highlightWeights { get; set; }
     }
 
     public abstract class LightConfig : ConfigSectionObject
