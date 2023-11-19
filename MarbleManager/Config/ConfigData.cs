@@ -12,6 +12,14 @@ namespace MarbleManager.Config
         public NanoleafConfig nanoleafConfig { get; set; }
         public LifxConfig lifxConfig { get; set; }
         public WizConfig wizConfig { get; set; }
+
+        public GlobalConfigObject()
+        {
+            generalConfig = new GeneralConfig();
+            nanoleafConfig = new NanoleafConfig();
+            lifxConfig = new LifxConfig();
+            wizConfig = new WizConfig();
+        }
     }
 
     public abstract class ConfigSectionObject { };

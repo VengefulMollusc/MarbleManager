@@ -29,7 +29,7 @@ namespace MarbleManager.Config
                 // file not found etc.
                 LogManager.WriteLog("Error loading config", ex.Message);
             }
-            return null;
+            return new GlobalConfigObject();
         }
 
         /**
