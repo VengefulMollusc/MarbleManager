@@ -267,33 +267,42 @@ namespace MarbleManager.Lights
          */
         private async Task<NanoleafConfig.Light> IsLightOn(NanoleafConfig.Light _light)
         {
-            using (HttpClient client = new HttpClient())
+            try
             {
-                // set timeout
-                client.Timeout = TimeSpan.FromSeconds(5);
-
-                // set URL
-                client.BaseAddress = new Uri(baseUrl.Replace("<nanoleafIp>", _light.ipAddress));
-
-                // send the request
-                HttpResponseMessage response = await client.GetAsync($"api/v1/{_light.apiKey}/state/on");
-
-                // Check if the request was successful
-                if (response.IsSuccessStatusCode)
+                using (HttpClient client = new HttpClient())
                 {
-                    // Read and process the response content (if any)
-                    string responseContent = await response.Content.ReadAsStringAsync();
-                    if (responseContent == @"{""value"":true}")
+                    // set timeout
+                    client.Timeout = TimeSpan.FromSeconds(5);
+
+                    // set URL
+                    client.BaseAddress = new Uri(baseUrl.Replace("<nanoleafIp>", _light.ipAddress));
+
+                    // send the request
+                    HttpResponseMessage response = await client.GetAsync($"api/v1/{_light.apiKey}/state/on");
+
+                    // Check if the request was successful
+                    if (response.IsSuccessStatusCode)
                     {
-                        return _light;
+                        // Read and process the response content (if any)
+                        string responseContent = await response.Content.ReadAsStringAsync();
+                        if (responseContent == @"{""value"":true}")
+                        {
+                            return _light;
+                        }
+                    }
+                    else
+                    {
+                        LogManager.WriteLog($"Nanoleaf isOn Error", $"{_light.ipAddress} : {response.StatusCode}");
                     }
                 }
-                else
-                {
-                    LogManager.WriteLog($"Nanoleaf isOn Error", $"{_light.ipAddress} : {response.StatusCode}");
-                }
+
+                return null;
             }
-            return null;
+            catch (Exception ex)
+            {
+                LogManager.WriteLog($"Error with Nanoleaf IsLightOn: {ex}");
+                return null;
+            }
         }
 
         /**
