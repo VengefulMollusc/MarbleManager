@@ -61,6 +61,7 @@ namespace MarbleManager.Config
 
         public class Light
         {
+            public bool enabled { get; set; }
             public string ipAddress { get; set; }
             public string apiKey { get; set; }
         }

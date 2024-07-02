@@ -9,13 +9,13 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using static System.Windows.Forms.AxHost;
 
 namespace MarbleManager.Lights
 {
     internal class NanoleafLightController : ILightController
     {
         NanoleafConfig config;
+        List<NanoleafConfig.Light> enabledLights;
         bool onlyUseMainSwatches;
 
         static string baseUrl = "http://<nanoleafIp>:16021";
@@ -40,7 +40,7 @@ namespace MarbleManager.Lights
             }
 
             // only send palettes to lights that are ON if _turnOn = false
-            List<NanoleafConfig.Light> lightsToApply = _turnOn ? config.lights : await GetOnLightUrls();
+            List<NanoleafConfig.Light> lightsToApply = _turnOn ? enabledLights : await GetOnLightUrls();
             if (lightsToApply.Count <= 0)
             {
                 LogManager.WriteLog("Nanoleaf: No valid lights to apply palette");
@@ -76,6 +76,8 @@ namespace MarbleManager.Lights
         public void SetConfig(GlobalConfigObject _config)
         {
             config = _config.nanoleafConfig;
+            // strip out disabled lights
+            enabledLights = config.lights.FindAll(l => l.enabled);
             onlyUseMainSwatches = _config.generalConfig.onlyUseMainSwatches;
         }
 
@@ -85,12 +87,12 @@ namespace MarbleManager.Lights
         public async Task SetOnOffState(bool _state)
         {
             List<Task> tasks = new List<Task>();
-            foreach (NanoleafConfig.Light light in config.lights)
+            foreach (NanoleafConfig.Light light in enabledLights)
             {
                 tasks.Add(SendPayload(light, GetStatePayload(_state), "/state"));
             }
             await Task.WhenAll(tasks);
-            LogManager.WriteLog($"Nanoleaf lights {(_state ? "on" : "off")}", string.Join(",", config.lights.Select(l => l.ipAddress).ToList()));
+            LogManager.WriteLog($"Nanoleaf lights {(_state ? "on" : "off")}", string.Join(",", enabledLights.Select(l => l.ipAddress).ToList()));
         }
 
         /**
@@ -240,7 +242,7 @@ namespace MarbleManager.Lights
         {
             // check all lights
             List<Task<NanoleafConfig.Light>> tasks = new List<Task<NanoleafConfig.Light>>();
-            foreach (NanoleafConfig.Light light in config.lights)
+            foreach (NanoleafConfig.Light light in enabledLights)
             {
                 tasks.Add(IsLightOn(light));
             }

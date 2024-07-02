@@ -7,6 +7,10 @@ namespace MarbleManager.Config
 {
     internal class NanoleafConfigSection : LightConfigSection
     {
+        // Get auth token by holding power button for 5 seconds, then calling
+        // curl -X POST http://192.168.*.*:16021/api/v1/new
+        // in cmd
+
         private static string radioButtonEffectPrefix = "radioButtonNanoleafEffect";
         private static string checkBoxOverrideMainColourProb = "checkBoxOverrideMainColourProb";
         private static string numericUpDownColourProb = "numericUpDownColourProb";
@@ -174,7 +178,7 @@ namespace MarbleManager.Config
             GroupBox groupBox = new GroupBox();
             groupBox.Name = $"groupBoxNanoleaf{nanoleafLightIndex}";
             groupBox.Text = $"Light {nanoleafLightIndex}";
-            groupBox.Size = new Size(260, 127);
+            groupBox.Size = new Size(260, 153);
 
             // flow layout panel
             FlowLayoutPanel flowLayoutPanel = new FlowLayoutPanel();
@@ -182,6 +186,17 @@ namespace MarbleManager.Config
             flowLayoutPanel.Dock = DockStyle.Fill;
             flowLayoutPanel.FlowDirection = FlowDirection.TopDown;
             flowLayoutPanel.WrapContents = false;
+
+            // enabled checkbox
+            CheckBox enabledCheckbox = new CheckBox();
+            enabledCheckbox.AutoSize = true;
+            enabledCheckbox.Name = $"checkboxNanoleafLightEnabled{nanoleafLightIndex}";
+            enabledCheckbox.Text = "Enabled";
+            enabledCheckbox.UseVisualStyleBackColor = true;
+            if (_light != null)
+            {
+                enabledCheckbox.Checked = _light.enabled;
+            }
 
             // Ip label
             Label ipLabel = new Label();
@@ -201,7 +216,7 @@ namespace MarbleManager.Config
             // api key label
             Label apiKeyLabel = new Label();
             apiKeyLabel.Name = $"labelNanoleafApiKey{nanoleafLightIndex}";
-            apiKeyLabel.Text = "API Key";
+            apiKeyLabel.Text = "Auth Token";
             apiKeyLabel.AutoSize = true;
 
             // api key textbox
@@ -220,7 +235,15 @@ namespace MarbleManager.Config
             buttonRemoveLight.Text = "Remove";
             buttonRemoveLight.Click += new EventHandler(RemoveNanoleafLight);
 
+            //// get auth token button
+            //Button buttonGetAuthToken = new Button();
+            //buttonGetAuthToken.Name = $"buttonGetAuthToken{nanoleafLightIndex}";
+            //buttonGetAuthToken.Size = new Size(150, 23);
+            //buttonGetAuthToken.Text = "Get Auth Token";
+            //buttonRemoveLight.Click += new EventHandler(GetNanoleafAuthToken);
+
             // add controls
+            flowLayoutPanel.Controls.Add(enabledCheckbox);
             flowLayoutPanel.Controls.Add(ipLabel);
             flowLayoutPanel.Controls.Add(ipTextBox);
             flowLayoutPanel.Controls.Add(apiKeyLabel);
@@ -260,12 +283,14 @@ namespace MarbleManager.Config
             foreach (Control control in flowLayoutPanel.Controls)
             {
                 // ip address text
-                string ip = control.Controls[0].Controls[1].Text;
-                string apiKey = control.Controls[0].Controls[3].Text;
+                bool lightEnabled = (control.Controls[0].Controls[0] as CheckBox).Checked;
+                string ip = control.Controls[0].Controls[2].Text;
+                string apiKey = control.Controls[0].Controls[4].Text;
                 if (ip != null || apiKey != null)
                 {
                     lights.Add(new NanoleafConfig.Light()
                     {
+                        enabled = lightEnabled,
                         ipAddress = ip,
                         apiKey = apiKey,
                     });
