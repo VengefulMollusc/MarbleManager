@@ -71,10 +71,12 @@
     <Compile Include="Config\ConfigSections\ConfigSection.cs" />
     <Compile Include="Config\ConfigSections\LightConfigSection.cs" />
     <Compile Include="Config\ConfigSections\NanoleafConfigSection.cs" />
+    <Compile Include="Config\ConfigSections\PicoConfigSection.cs" />
     <Compile Include="Config\ConfigSections\WizConfigSection.cs" />
     <Compile Include="Config\LogManager.cs" />
     <Compile Include="Config\PathManager.cs" />
     <Compile Include="Config\WallpaperWatcher.cs" />
+    <Compile Include="Lights\PicoLightController.cs" />
     <Compile Include="Lights\WizLightController.cs" />
     <Compile Include="Scripts\ScriptBuilder.cs" />
     <Compile Include="CustomApplicationContext.cs" />

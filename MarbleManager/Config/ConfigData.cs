@@ -12,6 +12,7 @@ namespace MarbleManager.Config
         public NanoleafConfig nanoleafConfig { get; set; }
         public LifxConfig lifxConfig { get; set; }
         public WizConfig wizConfig { get; set; }
+        public PicoConfig picoConfig { get; set; }
 
         public GlobalConfigObject()
         {
@@ -19,6 +20,7 @@ namespace MarbleManager.Config
             nanoleafConfig = new NanoleafConfig();
             lifxConfig = new LifxConfig();
             wizConfig = new WizConfig();
+            picoConfig = new PicoConfig();
         }
     }
 
@@ -91,6 +93,22 @@ namespace MarbleManager.Config
     }
 
     public class WizConfig : LightConfig
+    {
+        // IP addresses seperated by commas
+        public string ipAddresses { get; set; }
+
+        // gets all ips in a list
+        [JsonIgnore]
+        public List<string> IpAddressList
+        {
+            get
+            {
+                return ipAddresses != null ? new List<string>(ipAddresses.Split(',')) : new List<string>();
+            }
+        }
+    }
+
+    public class PicoConfig : LightConfig
     {
         // IP addresses seperated by commas
         public string ipAddresses { get; set; }

@@ -22,6 +22,7 @@ namespace MarbleManager
         NanoleafConfigSection nanoleafConfigSection;
         LifxConfigSection lifxConfigSection;
         WizConfigSection wizConfigSection;
+        PicoConfigSection picoConfigSection;
 
         public ConfigForm()
         {
@@ -80,6 +81,8 @@ namespace MarbleManager
                 lifxConfigSection = null;
             if (wizConfigSection != null)
                 wizConfigSection = null;
+            if (picoConfigSection != null)
+                picoConfigSection = null;
 
             base.OnClosing(e);
         }
@@ -193,6 +196,12 @@ namespace MarbleManager
             }
 
             // init config sections in opposite order to UI
+            // init raspberry pi pico config
+            if (picoConfigSection == null)
+            {
+                picoConfigSection = new PicoConfigSection();
+            }
+            dynamicSettingsPanel.Controls.Add(picoConfigSection.GetConfigUI(config.picoConfig));
             // init wiz config
             if (wizConfigSection == null)
             {
@@ -234,6 +243,7 @@ namespace MarbleManager
                 nanoleafConfig = nanoleafConfigSection.GetConfigObject<NanoleafConfig>(),
                 lifxConfig = lifxConfigSection.GetConfigObject<LifxConfig>(),
                 wizConfig = wizConfigSection.GetConfigObject<WizConfig>(),
+                picoConfig = picoConfigSection.GetConfigObject<PicoConfig>(),
             };
 
             lightController.UpdateConfig(newConfig);

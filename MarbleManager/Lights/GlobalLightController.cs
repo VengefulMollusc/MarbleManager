@@ -80,6 +80,8 @@ namespace MarbleManager.Lights
                 lightControllers.Add(new NanoleafLightController(_config));
             if (_config.wizConfig.enabled)
                 lightControllers.Add(new WizLightController(_config));
+            if (_config.picoConfig.enabled)
+                lightControllers.Add(new PicoLightController(_config));
 
             // turn on watcher if syncing to wallpaper
             if (syncOnWallpaperChange && _canEnableWatcher)
