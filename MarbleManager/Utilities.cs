@@ -105,6 +105,15 @@ namespace MarbleManager
         }
 
         /**
+         * Converts RGB to Hex Code 
+         */
+        internal static string RgbToHex(Color _rgb, bool _includeHash = true)
+        {
+            string baseString = _includeHash ? "#" : "";
+            return $"{baseString}{_rgb.R:X2}{_rgb.G:X2}{_rgb.B:X2}";
+        }
+
+        /**
          * Converts RGB to HSL values
          * 
          * using own converion as PaletteSharp appears to be inaccurate

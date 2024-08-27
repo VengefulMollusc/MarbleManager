@@ -122,7 +122,7 @@ namespace MarbleManager
          */
         private void PreviewSwatch (List<Panel> _panels, List<Label> _labels, SwatchObject _swatch)
         {
-            bool showHsl = true; // toggles previewing rgb or hsl values
+            bool showHsl = false; // toggles previewing rgb or hsl values
             Color bgColour;
             BorderStyle borderStyle;
             string propText, hslText;
