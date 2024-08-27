@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http;
 using static System.Windows.Forms.AxHost;
+using System.Drawing;
 
 namespace MarbleManager.Lights
 {
@@ -35,10 +36,10 @@ namespace MarbleManager.Lights
 
             // select swatch
             Dictionary<string, string> paletteQuery = GetPaletteQueryDict(_palette);
-            if (_turnOn)
-            {
-                paletteQuery.Add("state", "on");
-            }
+            //if (_turnOn)
+            //{
+                paletteQuery.Add("brightness", $"{config.brightness}");
+            //}
             await SendCommandToLights(BuildQueryString(paletteQuery));
             LogManager.WriteLog("Pico lights synced");
         }
@@ -178,14 +179,36 @@ namespace MarbleManager.Lights
         /**
          * Converts a palette into a dict of col1... to be converted to query params
          */
-        private static Dictionary<string, string> GetPaletteQueryDict(PaletteObject _palette)
+        private Dictionary<string, string> GetPaletteQueryDict(PaletteObject _palette)
         {
             Dictionary<string, string> colours = new Dictionary<string, string>();
             List<SwatchObject> swatches = _palette.MainSwatches;
             for (int i = 0; i < swatches.Count; i++)
             {
+                string hexCode;
+                if (config.juiceColours)
+                {
+                    float h = swatches[i].h / 360f;
+                    float s = swatches[i].s / 100f;
+                    float l = swatches[i].l / 100f;
+
+                    //float juiced_s = Utilities.Clamp01(s + 0.5f); // boost saturation
+                    //float juiced_l = Utilities.Clamp01((float)Math.Pow(l * 2f, 2f) / 2f); // increase contrast
+
+                    //Console.WriteLine($"{Math.Round(s, 2)}:{Math.Round(l, 2)} - OLD");
+                    //Console.WriteLine($"{Math.Round(juiced_s, 2)}:{Math.Round(juiced_l, 2)} - NEW");
+
+                    float juiced_s = Utilities.Map(s, 0f, 1f, 0.3f, 1f);
+
+                    int r, g, b;
+                    Utilities.HslToRgb(h, juiced_s, l, out r, out g, out b);
+                    hexCode = Utilities.RgbToHex(r, g, b, false);
+                } else
+                {
+                    hexCode = Utilities.RgbToHex(swatches[i].r, swatches[i].g, swatches[i].b, false);
+                }
                 // colours start at col1
-                colours.Add($"col{i+1}", swatches[i].hexCode);
+                colours.Add($"col{i+1}", hexCode);
             }
             return colours;
         }
@@ -193,7 +216,6 @@ namespace MarbleManager.Lights
         //private class ResponseObject
         //{
         //    public bool state { get; set; }
-
         //}
     }
 }

@@ -9,6 +9,7 @@ namespace MarbleManager.Config
     {
         private static string textBoxPicoIpAddresses = "textBoxPicoIpAddresses";
         private static string numericUpDownPicoBrightness = "numericUpDownPicoBrightness";
+        private static string checkboxPicoJuiceColours = "checkboxPicoJuiceColours";
 
         public PicoConfigSection() {
             sectionName = "Raspberry Pi Pico";
@@ -18,7 +19,7 @@ namespace MarbleManager.Config
         {
             PicoConfig picoConfig = (PicoConfig)_config;
 
-            List<Control> controls = new List<Control>
+            List<Control> controlsCol1 = new List<Control>
             {
                 GetGlobalLightControls(picoConfig)
             };
@@ -28,21 +29,24 @@ namespace MarbleManager.Config
             ipsLabel.AutoSize = true;
             ipsLabel.Name = "labelPicoIpAddresses";
             ipsLabel.Text = "IP Addresses (comma separated)";
-            controls.Add(ipsLabel);
+            controlsCol1.Add(ipsLabel);
 
             // ip adresses text box
             TextBox ipsBox = new TextBox();
             ipsBox.Name = textBoxPicoIpAddresses;
             ipsBox.Size = new Size(textBoxWidth, 20);
             ipsBox.Text = picoConfig != null ? picoConfig.ipAddresses : string.Empty;
-            controls.Add(ipsBox);
+            controlsCol1.Add(ipsBox);
+
+            // column 2
+            List<Control> controlsCol2 = new List<Control>();
 
             // Brightness label
             Label brightnessLabel = new Label();
             brightnessLabel.AutoSize = true;
             brightnessLabel.Name = "labelPicoBrightness";
             brightnessLabel.Text = "Brightness (1-255)";
-            controls.Add(brightnessLabel);
+            controlsCol2.Add(brightnessLabel);
 
             // highlight override value selector
             NumericUpDown brightnessNumericUpDown = new NumericUpDown();
@@ -51,19 +55,30 @@ namespace MarbleManager.Config
             brightnessNumericUpDown.Minimum = 1;
             brightnessNumericUpDown.Maximum = 255;
             brightnessNumericUpDown.Value = picoConfig != null ? picoConfig.brightness : 15;
-            controls.Add(brightnessNumericUpDown);
+            controlsCol2.Add(brightnessNumericUpDown);
 
-            return WrapInFlowPanel(controls);
+            // Juice colours checkbox
+            CheckBox checkboxJuiceColours = new CheckBox();
+            checkboxJuiceColours.AutoSize = true;
+            checkboxJuiceColours.Name = checkboxPicoJuiceColours;
+            checkboxJuiceColours.Text = "Juice Colours";
+            checkboxJuiceColours.UseVisualStyleBackColor = true;
+            checkboxJuiceColours.Checked = (picoConfig != null && picoConfig.juiceColours);
+            controlsCol2.Add(checkboxJuiceColours);
+
+            return WrapIn2ColumnTable(controlsCol1, controlsCol2);
         }
 
         protected override LightConfig BuildLightConfig()
         {
             TextBox ipsTextBox = FindControl<TextBox>(textBoxPicoIpAddresses);
             NumericUpDown brightnessNumericUpDown = FindControl<NumericUpDown>(numericUpDownPicoBrightness);
+            CheckBox juiceCheckbox = FindControl<CheckBox>(checkboxPicoJuiceColours);
             return new PicoConfig()
             {
                 ipAddresses = ipsTextBox != null ? ipsTextBox.Text : string.Empty,
-                brightness = brightnessNumericUpDown != null ? (int)brightnessNumericUpDown.Value : 15
+                brightness = brightnessNumericUpDown != null ? (int)brightnessNumericUpDown.Value : 15,
+                juiceColours = juiceCheckbox != null && juiceCheckbox.Checked
             };
         }
     }

@@ -74,8 +74,5 @@ namespace MarbleManager.Colours
         public int h { get; set; }
         public int s { get; set; }
         public int l { get; set; }
-        // Hex Code
-        // does not include #
-        public string hexCode { get; set; }
     }
 }

@@ -122,8 +122,6 @@ namespace MarbleManager.Colours
             int h, s, l;
             Utilities.RgbToHsl(rgb, out h, out s, out l);
 
-            string hexCode = Utilities.RgbToHex(rgb, false);
-
             return new SwatchObject()
             {
                 population = _swatch.GetPopulation(),
@@ -132,8 +130,7 @@ namespace MarbleManager.Colours
                 b = rgb.B,
                 h = h,
                 s = s,
-                l = l,
-                hexCode = hexCode
+                l = l
             };
         }
 

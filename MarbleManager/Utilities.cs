@@ -1,6 +1,7 @@
 ﻿using IWshRuntimeLibrary;
 using MarbleManager.Colours;
 using MarbleManager.Config;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -112,6 +113,11 @@ namespace MarbleManager
             string baseString = _includeHash ? "#" : "";
             return $"{baseString}{_rgb.R:X2}{_rgb.G:X2}{_rgb.B:X2}";
         }
+        internal static string RgbToHex(int _r, int _g, int _b, bool _includeHash = true)
+        {
+            string baseString = _includeHash ? "#" : "";
+            return $"{baseString}{_r:X2}{_g:X2}{_b:X2}";
+        }
 
         /**
          * Converts RGB to HSL values
@@ -161,6 +167,70 @@ namespace MarbleManager
             _h = (int)Math.Round(floatH * 360f, 0, MidpointRounding.AwayFromZero);
             _s = (int)Math.Round(floatS * 100f, 0, MidpointRounding.AwayFromZero);
             _l = (int)Math.Round(floatL * 100f, 0, MidpointRounding.AwayFromZero);
+        }
+        /**
+         * Converts HSL to RGB
+         * Used after boosting saturation
+         * 
+         * ASSUMES HSL VALUES ARE IN RANGE 0-1
+         */
+        internal static void HslToRgb(float _h, float _s, float _l, out int _r, out int _g, out int _b)
+        {
+            float r, g, b;
+
+            if (_s == 0)
+            {
+                r = g = b = _l;
+            } else
+            {
+                float q = _l < 0.5 ? _l * (1 + _s) : _l + _s - (_l * _s);
+                float p = 2 * _l - q;
+                r = HueToRgb(p, q, _h + 1f / 3f);
+                g = HueToRgb(p, q, _h);
+                b = HueToRgb(p, q, _h - 1f / 3f);
+            }
+
+            _r = (int)(r * 255);
+            _g = (int)(g * 255);
+            _b = (int)(b * 255);
+        }
+
+        /**
+         * Helper method for HslToRgb
+         */
+        private static float HueToRgb(float _p, float _q, float _t)
+        {
+            if (_t < 0f) _t += 1f;
+            if (_t > 1f) _t -= 1f;
+            if (_t < 1f / 6f) return _p + (_q - _p) * 6f * _t;
+            if (_t < 1f / 2f) return _q;
+            if (_t < 2f / 3f) return _p + (_q - _p) * (2f / 3f - _t) * 6f;
+            return _p;
+        }
+
+        /**
+         * Methods for clamping floats
+         */
+        internal static float Clamp(float _value, float _min, float _max)
+        {
+            if (_value < _min)
+                return _min;
+            if (_value > _max)
+                return _max;
+            return _value;
+        }
+        internal static float Clamp01(float _value)
+        {
+            return Clamp(_value, 0f, 1f);
+        }
+
+        /**
+         * Map values to a new range
+         */
+        internal static float Map(float _value, float _oldMin, float _oldMax, float _newMin, float _newMax)
+        {
+            _value = Clamp(_value, _oldMin, _oldMax);
+            return _newMin + (_value - _oldMin) * (_newMax - _newMin) / (_oldMax - _oldMin);
         }
 
         /**

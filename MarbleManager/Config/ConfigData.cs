@@ -114,6 +114,8 @@ namespace MarbleManager.Config
         public string ipAddresses { get; set; }
         // light brightness (1-255)
         public int brightness { get; set; }
+        // whether to boost saturation
+        public bool juiceColours { get; set; }
 
         // gets all ips in a list
         [JsonIgnore]
