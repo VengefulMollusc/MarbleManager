@@ -112,6 +112,8 @@ namespace MarbleManager.Config
     {
         // IP addresses seperated by commas
         public string ipAddresses { get; set; }
+        // light brightness (1-255)
+        public int brightness { get; set; }
 
         // gets all ips in a list
         [JsonIgnore]
