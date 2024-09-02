@@ -198,7 +198,7 @@ namespace MarbleManager.Lights
                     //Console.WriteLine($"{Math.Round(s, 2)}:{Math.Round(l, 2)} - OLD");
                     //Console.WriteLine($"{Math.Round(juiced_s, 2)}:{Math.Round(juiced_l, 2)} - NEW");
 
-                    float juiced_s = Utilities.Map(s, 0f, 1f, 0.3f, 1f);
+                    float juiced_s = Utilities.Map(s, 0f, 1f, 0.5f, 1f); // 3rd float here adjusts juice 'floor'
 
                     int r, g, b;
                     Utilities.HslToRgb(h, juiced_s, l, out r, out g, out b);
