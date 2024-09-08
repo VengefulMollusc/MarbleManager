@@ -5,6 +5,9 @@ using System.IO;
 
 namespace MarbleManager.Colours
 {
+    /**
+     * Handles functions related to retrieving the current desktop wallpaper
+     */
     internal static class WallpaperManager
     {
         /**

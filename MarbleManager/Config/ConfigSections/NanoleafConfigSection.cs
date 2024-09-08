@@ -5,22 +5,27 @@ using System.Windows.Forms;
 
 namespace MarbleManager.Config
 {
+    /**
+     * Config section for Nanoleaf light panels
+     */
     internal class NanoleafConfigSection : LightConfigSection
     {
         // Get auth token by holding power button for 5 seconds, then calling
         // curl -X POST http://192.168.*.*:16021/api/v1/new
         // in cmd
 
+        // UI element identification strings
         private static string radioButtonEffectPrefix = "radioButtonNanoleafEffect";
         private static string checkBoxOverrideMainColourProb = "checkBoxOverrideMainColourProb";
         private static string numericUpDownColourProb = "numericUpDownColourProb";
         private static string flowLayoutPanelNanoleafLights = "flowLayoutPanelNanoleafLights";
-
-        private int nanoleafLightIndex;
+        // tracker for how many nanoleaf lights are used
+        private int nanoleafLightCount;
 
         public NanoleafConfigSection() {
             sectionName = "Nanoleaf";
         }
+
         protected override Control CreateUIControls(ConfigSectionObject _config)
         {
             NanoleafConfig nanoleafConfig = (NanoleafConfig)_config;
@@ -38,7 +43,7 @@ namespace MarbleManager.Config
             effectLabel.Text = "Light effect";
             controlsCol1.Add(effectLabel);
 
-            // effect radio boxes
+            // Radio buttons for which nanoleaf-specific light effect is applied with palettes
             List<RadioButton> buttons = new List<RadioButton>();
             foreach (NanoleafEffect effect in Enum.GetValues(typeof(NanoleafEffect)))
             {
@@ -67,7 +72,8 @@ namespace MarbleManager.Config
 
             // extra settings
 
-            // highlight override value checkbox
+            // Toggle for overriding the dominant colour probability
+            // ensures a consistent 'background' colour on the lights
             CheckBox highlightOverrideCheckBox = new CheckBox();
             highlightOverrideCheckBox.AutoSize = true;
             highlightOverrideCheckBox.Name = checkBoxOverrideMainColourProb;
@@ -75,13 +81,13 @@ namespace MarbleManager.Config
             highlightOverrideCheckBox.UseVisualStyleBackColor = true;
             highlightOverrideCheckBox.Checked = nanoleafConfig != null && nanoleafConfig.overrideDominantColourProb;
 
-            // highlight override value label
+            // dominant probability override value label
             Label highlightOverrideValueLabel = new Label();
             highlightOverrideValueLabel.AutoSize = true;
             highlightOverrideValueLabel.Name = "labelNanoleafHighlightOverride";
             highlightOverrideValueLabel.Text = "Value";
 
-            // highlight override value selector
+            // selector for the dominant probability override value
             NumericUpDown highlightOverrideNumericUpDown = new NumericUpDown();
             highlightOverrideNumericUpDown.Name = numericUpDownColourProb;
             highlightOverrideNumericUpDown.Size = new Size(120, 20);
@@ -121,7 +127,7 @@ namespace MarbleManager.Config
             lightListPanel.Name = flowLayoutPanelNanoleafLights;
 
             // create nanoleaf light ui elements
-            nanoleafLightIndex = 0;
+            nanoleafLightCount = 0;
             if (nanoleafConfig.lights != null)
             {
                 foreach (NanoleafConfig.Light light in nanoleafConfig.lights)
@@ -156,7 +162,7 @@ namespace MarbleManager.Config
         }
 
         /**
-         * Adds a new blank nanoleaf light
+         * Adds a new blank nanoleaf light config to the UI
          */
         private void AddNewLight(object sender, EventArgs e)
         {
@@ -172,17 +178,17 @@ namespace MarbleManager.Config
          */
         private GroupBox CreateNanoleafLight(NanoleafConfig.Light _light = null)
         {
-            nanoleafLightIndex++;
+            nanoleafLightCount++;
 
             // wrapper group box
             GroupBox groupBox = new GroupBox();
-            groupBox.Name = $"groupBoxNanoleaf{nanoleafLightIndex}";
-            groupBox.Text = $"Light {nanoleafLightIndex}";
+            groupBox.Name = $"groupBoxNanoleaf{nanoleafLightCount}";
+            groupBox.Text = $"Light {nanoleafLightCount}";
             groupBox.Size = new Size(260, 153);
 
             // flow layout panel
             FlowLayoutPanel flowLayoutPanel = new FlowLayoutPanel();
-            flowLayoutPanel.Name = $"flowLayoutPanelNanoleaf{nanoleafLightIndex}";
+            flowLayoutPanel.Name = $"flowLayoutPanelNanoleaf{nanoleafLightCount}";
             flowLayoutPanel.Dock = DockStyle.Fill;
             flowLayoutPanel.FlowDirection = FlowDirection.TopDown;
             flowLayoutPanel.WrapContents = false;
@@ -190,7 +196,7 @@ namespace MarbleManager.Config
             // enabled checkbox
             CheckBox enabledCheckbox = new CheckBox();
             enabledCheckbox.AutoSize = true;
-            enabledCheckbox.Name = $"checkboxNanoleafLightEnabled{nanoleafLightIndex}";
+            enabledCheckbox.Name = $"checkboxNanoleafLightEnabled{nanoleafLightCount}";
             enabledCheckbox.Text = "Enabled";
             enabledCheckbox.UseVisualStyleBackColor = true;
             if (_light != null)
@@ -200,13 +206,13 @@ namespace MarbleManager.Config
 
             // Ip label
             Label ipLabel = new Label();
-            ipLabel.Name = $"labelNanoleafIp{nanoleafLightIndex}";
+            ipLabel.Name = $"labelNanoleafIp{nanoleafLightCount}";
             ipLabel.Text = "IP address";
             ipLabel.AutoSize = true;
 
             // ip textbox
             TextBox ipTextBox = new TextBox();
-            ipTextBox.Name = $"textBoxNanoleafIp{nanoleafLightIndex}";
+            ipTextBox.Name = $"textBoxNanoleafIp{nanoleafLightCount}";
             ipTextBox.Size = new Size(textBoxWidthWrapped, 20);
             if (_light != null)
             {
@@ -215,13 +221,13 @@ namespace MarbleManager.Config
 
             // api key label
             Label apiKeyLabel = new Label();
-            apiKeyLabel.Name = $"labelNanoleafApiKey{nanoleafLightIndex}";
+            apiKeyLabel.Name = $"labelNanoleafApiKey{nanoleafLightCount}";
             apiKeyLabel.Text = "Auth Token";
             apiKeyLabel.AutoSize = true;
 
             // api key textbox
             TextBox apiKeyTextBox = new TextBox();
-            apiKeyTextBox.Name = $"textBoxNanoleafApiKey{nanoleafLightIndex}";
+            apiKeyTextBox.Name = $"textBoxNanoleafApiKey{nanoleafLightCount}";
             apiKeyTextBox.Size = new Size(textBoxWidthWrapped, 20);
             if (_light != null)
             {
@@ -230,14 +236,14 @@ namespace MarbleManager.Config
 
             // remove light button
             Button buttonRemoveLight = new Button();
-            buttonRemoveLight.Name = $"buttonRemoveNanoleafLight{nanoleafLightIndex}";
+            buttonRemoveLight.Name = $"buttonRemoveNanoleafLight{nanoleafLightCount}";
             buttonRemoveLight.Size = new Size(63, 23);
             buttonRemoveLight.Text = "Remove";
             buttonRemoveLight.Click += new EventHandler(RemoveNanoleafLight);
 
             //// get auth token button
             //Button buttonGetAuthToken = new Button();
-            //buttonGetAuthToken.Name = $"buttonGetAuthToken{nanoleafLightIndex}";
+            //buttonGetAuthToken.Name = $"buttonGetAuthToken{nanoleafLightCount}";
             //buttonGetAuthToken.Size = new Size(150, 23);
             //buttonGetAuthToken.Text = "Get Auth Token";
             //buttonRemoveLight.Click += new EventHandler(GetNanoleafAuthToken);
@@ -270,7 +276,7 @@ namespace MarbleManager.Config
         }
 
         /**
-         * Creates a list of nanoleaf light objects from ui
+         * Creates a list of nanoleaf light config objects from ui elements
          */
         private List<NanoleafConfig.Light> GetNanoleafLights()
         {
@@ -300,7 +306,7 @@ namespace MarbleManager.Config
         }
 
         /**
-         * Toggle visible extra settings
+         * Toggle visible extra settings relating to specific effect options
          */
         private void ChangeSelectedEffect(object sender, EventArgs e)
         {

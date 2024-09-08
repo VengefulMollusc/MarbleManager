@@ -2,19 +2,30 @@
 
 namespace MarbleManager.Config
 {
+    /**
+     * A subtype of ConfigSection specifically for Lights
+     * 
+     * includes some global controls that are used with all light types
+     */
     internal abstract class LightConfigSection : ConfigSection
     {
+        // is this light enabled
         private CheckBox checkboxIsEnabled;
+        // apply colour/s to this light
         private CheckBox checkboxApplyPalette;
 
         protected override ConfigSectionObject BuildConfigObject()
         {
+            // build light-specific config then add global fields
             LightConfig config = BuildLightConfig();
             config.enabled = checkboxIsEnabled.Checked;
             config.applyPalette = checkboxApplyPalette.Checked;
             return config;
         }
 
+        /**
+         * Build the config specific to the child light class type
+         */
         protected abstract LightConfig BuildLightConfig();
 
         protected abstract override Control CreateUIControls(ConfigSectionObject _config);
@@ -33,7 +44,7 @@ namespace MarbleManager.Config
             flowLayoutPanel.WrapContents = false;
             flowLayoutPanel.Name = $"globalLightControls{sectionName}";
 
-            // create enabled checkbox
+            // Toggle for if this light is enabled
             checkboxIsEnabled = new CheckBox();
             checkboxIsEnabled.AutoSize = true;
             checkboxIsEnabled.Name = $"checkboxIsEnabled{sectionName}";
@@ -41,7 +52,7 @@ namespace MarbleManager.Config
             checkboxIsEnabled.UseVisualStyleBackColor = true;
             checkboxIsEnabled.Checked = (_config != null && _config.enabled);
 
-            // create apply palette checkbox
+            // Toggle for if this light should apply colours
             checkboxApplyPalette = new CheckBox();
             checkboxApplyPalette.AutoSize = true;
             checkboxApplyPalette.Name = $"checkboxApplyPalette{sectionName}";

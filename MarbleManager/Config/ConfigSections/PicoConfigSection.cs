@@ -1,12 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
-using System.Net.NetworkInformation;
 using System.Windows.Forms;
 
 namespace MarbleManager.Config
 {
+    /**
+     * Config section for Raspberry Pi Pico W lights controlled by WIFI-enabled custom script
+     */
     internal class PicoConfigSection : LightConfigSection
     {
+        // UI element identification strings
         private static string textBoxPicoIpAddresses = "textBoxPicoIpAddresses";
         private static string numericUpDownPicoBrightness = "numericUpDownPicoBrightness";
         private static string checkboxPicoJuiceColours = "checkboxPicoJuiceColours";
@@ -48,7 +51,7 @@ namespace MarbleManager.Config
             brightnessLabel.Text = "Brightness (1-255)";
             controlsCol2.Add(brightnessLabel);
 
-            // highlight override value selector
+            // option to change light brightness
             NumericUpDown brightnessNumericUpDown = new NumericUpDown();
             brightnessNumericUpDown.Name = numericUpDownPicoBrightness;
             brightnessNumericUpDown.Size = new Size(120, 20);
@@ -57,7 +60,7 @@ namespace MarbleManager.Config
             brightnessNumericUpDown.Value = picoConfig != null ? picoConfig.brightness : 15;
             controlsCol2.Add(brightnessNumericUpDown);
 
-            // Juice colours checkbox
+            // Toggle whether to boost colour saturation
             CheckBox checkboxJuiceColours = new CheckBox();
             checkboxJuiceColours.AutoSize = true;
             checkboxJuiceColours.Name = checkboxPicoJuiceColours;

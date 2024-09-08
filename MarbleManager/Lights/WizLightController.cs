@@ -4,14 +4,15 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace MarbleManager.Lights
 {
+    /**
+     * Control Wiz lights
+     */
     internal class WizLightController : ILightController
     {
         WizConfig config;
@@ -23,6 +24,9 @@ namespace MarbleManager.Lights
             SetConfig(_config);
         }
 
+        /**
+         * Applies a palette
+         */
         public async Task ApplyPalette(PaletteObject _palette, bool _turnOn = false)
         {
             if (!config.applyPalette)
@@ -45,6 +49,9 @@ namespace MarbleManager.Lights
             config = _config.wizConfig;
         }
 
+        /**
+         * Turns lights on/off
+         */
         public async Task SetOnOffState(bool _state)
         {
             await SendPayloadToLights(CreateSetStatePayload(_state));
@@ -137,6 +144,9 @@ namespace MarbleManager.Lights
             return onLights;
         }
 
+        /**
+         * Checks if the light at a given ip address is on
+         */
         private async Task<string> IsLightOn(string _ip, JObject _payload)
         {
             string response = await SendUdpCommand(_ip, _payload);
@@ -203,6 +213,9 @@ namespace MarbleManager.Lights
             return payload;
         }
 
+        /**
+         * The response data structure
+         */
         private class ResponseObject
         {
             public string method { get; set; }

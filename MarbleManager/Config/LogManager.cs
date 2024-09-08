@@ -4,6 +4,9 @@ using System.Linq;
 
 namespace MarbleManager.Config
 {
+    /**
+     * Handles logging, writing to both console and file
+     */
     internal static class LogManager
     {
         internal static void WriteLog(string _message, bool _useSecondary = false)

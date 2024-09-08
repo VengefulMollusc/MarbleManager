@@ -6,6 +6,10 @@ using System.IO;
 
 namespace MarbleManager.Config
 {
+    /**
+     * Handles loading and saving of config objects
+     * Also applies changes around running on boot, auto on/off etc
+     */
     internal static class ConfigManager
     {
         /**
@@ -105,6 +109,7 @@ namespace MarbleManager.Config
 
         /**
          * Configures functionality to turn on/off lights with logon/logoff
+         * uses registry script to apply changes
          */
         private static void ConfigureAutoOnOff(bool _autoOnOff)
         {

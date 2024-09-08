@@ -1,13 +1,12 @@
 ﻿using MarbleManager.Colours;
 using MarbleManager.Config;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace MarbleManager.Lights
 {
+    /**
+     * Interface for individual light controller classes
+     */
     internal interface ILightController
     {
         /**

@@ -1,18 +1,16 @@
 ﻿using IWshRuntimeLibrary;
-using MarbleManager.Colours;
 using MarbleManager.Config;
-using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MarbleManager
 {
+    /**
+     * Static methods for value conversion, replacing values in files and general helper methods
+     */
     internal static class Utilities
     {
         /**

@@ -1,15 +1,16 @@
 ﻿using MarbleManager.Colours;
 using MarbleManager.Config;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace MarbleManager.Lights
 {
+    /**
+     * Controls Lifx lights
+     */
     internal class LifxLightController : ILightController
     {
         LifxConfig config;
@@ -26,17 +27,17 @@ namespace MarbleManager.Lights
          */
         public async Task ApplyPalette(PaletteObject _palette, bool _turnOn = false)
         {
-            if (!config.applyPalette)
-            {
-                Console.WriteLine("Lifx palette support is disabled");
-                // turn on if needed
-                if (_turnOn)
-                    await SetOnOffState(true);
-                return;
-            }
+            //if (!config.applyPalette)
+            //{
+            //    Console.WriteLine("Lifx palette support is disabled");
+            //    // turn on if needed
+            //    if (_turnOn)
+            //        await SetOnOffState(true);
+            //    return;
+            //}
 
             // no palette support (yet?)
-            Console.WriteLine("No Lifx palette support");
+            Console.WriteLine("Lifx palette support has not been set up");
             // turn on if needed
             if (_turnOn)
                 await SetOnOffState(true);

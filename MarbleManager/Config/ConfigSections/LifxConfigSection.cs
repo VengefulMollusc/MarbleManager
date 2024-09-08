@@ -3,8 +3,12 @@ using System.Windows.Forms;
 
 namespace MarbleManager.Config
 {
+    /**
+     * Config section for Lifx lights
+     */
     internal class LifxConfigSection : LightConfigSection
     {
+        // UI element identification strings
         private static string textBoxLifxSelector = "textBoxLifxSelector";
         private static string textBoxLifxAuthKey = "textBoxLifxAuthKey";
 
@@ -28,7 +32,7 @@ namespace MarbleManager.Config
             selectorsLabel.Text = "Selectors (comma separated)";
             controls.Add(selectorsLabel);
             
-            // selectors text box
+            // text box for lifx light selectors input
             TextBox selectorsBox = new TextBox();
             selectorsBox.Name = textBoxLifxSelector;
             selectorsBox.Size = new System.Drawing.Size(textBoxWidth, 20);
@@ -42,7 +46,7 @@ namespace MarbleManager.Config
             authKeyLabel.Text = "Auth key (Bearer)";
             controls.Add(authKeyLabel);
 
-            // auth key text box
+            // text box for lifx auth key
             TextBox authKeyBox = new TextBox();
             authKeyBox.Name = textBoxLifxAuthKey;
             authKeyBox.Size = new System.Drawing.Size(textBoxWidth, 20);

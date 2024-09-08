@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace MarbleManager.Config
 {
+    /**
+     * Displays general settings not specific to any light type
+     */
     internal class GeneralConfigSection : ConfigSection
     {
+        // UI element identification strings
         private static string checkBoxUseMainSwatches = "checkBoxUseMainSwatches";
         private static string checkBoxSyncOnWallpaperChange = "checkBoxSyncOnWallpaperChange";
         private static string checkBoxAutoTurnOnOff = "checkBoxAutoTurnOnOff";
@@ -42,7 +44,7 @@ namespace MarbleManager.Config
 
             List<Control> controlsCol1 = new List<Control>();
 
-            // checkBoxUseMainSwatches
+            // Toggle to use only main swatches
             CheckBox checkBoxUseMain = new CheckBox();
             checkBoxUseMain.AutoSize = true;
             checkBoxUseMain.Name = checkBoxUseMainSwatches;
@@ -50,7 +52,7 @@ namespace MarbleManager.Config
             checkBoxUseMain.Checked = generalConfig.onlyUseMainSwatches;
             controlsCol1.Add(checkBoxUseMain);
 
-            // checkBoxSyncOnWallpaperChange
+            // Toggle to auto-sync palette when wallpaper changes
             CheckBox checkBoxSync = new CheckBox();
             checkBoxSync.AutoSize = true;
             checkBoxSync.Name = checkBoxSyncOnWallpaperChange;
@@ -58,7 +60,7 @@ namespace MarbleManager.Config
             checkBoxSync.Checked = generalConfig.syncOnWallpaperChange;
             controlsCol1.Add(checkBoxSync);
 
-            // checkBoxAutoTurnOnOff
+            // Toggle to turn lights on and off with logon state
             CheckBox checkBoxAutoOnOff = new CheckBox();
             checkBoxAutoOnOff.AutoSize = true;
             checkBoxAutoOnOff.Name = checkBoxAutoTurnOnOff;
@@ -66,7 +68,7 @@ namespace MarbleManager.Config
             checkBoxAutoOnOff.Checked = generalConfig.autoTurnLightsOnOff;
             controlsCol1.Add(checkBoxAutoOnOff);
 
-            // checkBoxRunOnBoot
+            // Toggle to run this program when PC boots
             CheckBox checkBoxBoot = new CheckBox();
             checkBoxBoot.AutoSize = true;
             checkBoxBoot.Name = checkBoxRunOnBoot;
@@ -76,7 +78,7 @@ namespace MarbleManager.Config
 
             List<Control> controlsCol2 = new List<Control>();
 
-            // checkBoxUseLogs
+            // Toggle whether to use extended log file
             CheckBox checkBoxLogs = new CheckBox();
             checkBoxLogs.AutoSize = true;
             checkBoxLogs.Name = checkBoxUseLogs;
@@ -87,9 +89,11 @@ namespace MarbleManager.Config
             return WrapIn2ColumnTable(controlsCol1, controlsCol2);
         }
 
+        /**
+         * Shows or hides advanced settings when toggled
+         */
         private void ChangeShowAdvanced(object sender, EventArgs e)
         {
-            // show or hide advanced settings
             CheckBox checkbox = (CheckBox)sender;
 
             GroupBox advancedWrapper = FindControl<GroupBox>("groupBoxAdvanced");

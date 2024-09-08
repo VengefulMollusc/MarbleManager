@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.IO.Pipes;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
@@ -11,6 +10,10 @@ using MarbleManager.Config;
 
 namespace MarbleManager
 {
+    /**
+     * Entry point for app
+     * Makes sure only one instance can run
+     */
     internal static class Program
     {
         // Define the mutex as a static field so it can be accessed in multiple methods.
@@ -27,7 +30,7 @@ namespace MarbleManager
         {
             // Create and acquire the mutex at the beginning of your application.
             bool createdNew;
-            appMutex = new Mutex(true, "MyAppMutex", out createdNew);
+            appMutex = new Mutex(true, "MarbleManagerMutex", out createdNew);
 
             if (!createdNew)
             {
@@ -80,7 +83,7 @@ namespace MarbleManager
         }
 
         /**
-         * Perform tasks from command line
+         * Perform tasks from command line init of app
          */
         static async Task<bool> ProcessCommandLineArgs(string[] args)
         {

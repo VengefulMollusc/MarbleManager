@@ -11,13 +11,21 @@ using MarbleManager.Lights;
 
 namespace MarbleManager
 {
+    /**
+     * Handles the UI window for config and manual light control
+     */
     public partial class ConfigForm : Form
     {
+        // previewed image or wallpaper
         Bitmap previewImage;
+
+        // light controller
         GlobalLightController lightController;
 
+        // reference to original console log
         TextWriter originalOut;
 
+        // config sections
         GeneralConfigSection generalConfigSection;
         NanoleafConfigSection nanoleafConfigSection;
         LifxConfigSection lifxConfigSection;
@@ -117,7 +125,7 @@ namespace MarbleManager
         }
 
         /**
-         * Applies a swatch to a set of preview UI objects
+         * Previews a swatch in the UI
          * shows the colour, plus details on labels
          */
         private void PreviewSwatch (List<Panel> _panels, List<Label> _labels, SwatchObject _swatch)
@@ -146,7 +154,7 @@ namespace MarbleManager
                 isHighlight = _swatch.isHighlight;
             }
 
-            // apply stuff
+            // apply colours etc to the UI
             foreach (Panel panel in _panels)
             {
                 panel.BackColor = bgColour;
@@ -167,7 +175,7 @@ namespace MarbleManager
          */
         private void PreviewCurrentWallpaper()
         {
-            // cleanup existing value to stop RAM use increasing
+            // cleanup existing value (stops RAM use increasing with each load)
             if (previewImage != null) { previewImage.Dispose(); }
 
             Bitmap currentWallpaper = WallpaperManager.GetWallpaperJpg();
@@ -195,36 +203,26 @@ namespace MarbleManager
                 return;
             }
 
-            // init config sections in opposite order to UI
             // init raspberry pi pico config
             if (picoConfigSection == null)
-            {
                 picoConfigSection = new PicoConfigSection();
-            }
-            dynamicSettingsPanel.Controls.Add(picoConfigSection.GetConfigUI(config.picoConfig));
             // init wiz config
             if (wizConfigSection == null)
-            {
                 wizConfigSection = new WizConfigSection();
-            }
-            dynamicSettingsPanel.Controls.Add(wizConfigSection.GetConfigUI(config.wizConfig));
             // init lifx config
             if (lifxConfigSection == null)
-            {
                 lifxConfigSection = new LifxConfigSection();
-            }
-            dynamicSettingsPanel.Controls.Add(lifxConfigSection.GetConfigUI(config.lifxConfig));
             // init nanoleaf config
             if (nanoleafConfigSection == null)
-            {
                 nanoleafConfigSection = new NanoleafConfigSection();
-            }
-            dynamicSettingsPanel.Controls.Add(nanoleafConfigSection.GetConfigUI(config.nanoleafConfig));
             // init general config
             if (generalConfigSection == null)
-            {
                 generalConfigSection = new GeneralConfigSection();
-            }
+            // Add config sections in opposite order to desired UI display order
+            dynamicSettingsPanel.Controls.Add(picoConfigSection.GetConfigUI(config.picoConfig));
+            dynamicSettingsPanel.Controls.Add(wizConfigSection.GetConfigUI(config.wizConfig));
+            dynamicSettingsPanel.Controls.Add(lifxConfigSection.GetConfigUI(config.lifxConfig));
+            dynamicSettingsPanel.Controls.Add(nanoleafConfigSection.GetConfigUI(config.nanoleafConfig));
             dynamicSettingsPanel.Controls.Add(generalConfigSection.GetConfigUI(config.generalConfig));
 
             Console.WriteLine("Config loaded");
@@ -246,15 +244,17 @@ namespace MarbleManager
                 picoConfig = picoConfigSection.GetConfigObject<PicoConfig>(),
             };
 
+            // update light controller with new config object
             lightController.UpdateConfig(newConfig);
-
+            
+            // save the config
             ConfigManager.ApplyConfig(newConfig, checkBoxForceApply.Checked);
 
             LogManager.WriteLog("Config saved");
         }
 
         /**
-         * Loads the last send palette into the relevant preview box
+         * Loads the last sent palette into the relevant preview box
          */
         private void LoadLastPalette()
         {
@@ -295,7 +295,7 @@ namespace MarbleManager
         }
 
         /**
-         * Gets the current wallpaper
+         * Get the current wallpaper
          */
         private void buttonGetWallpaper_Click(object sender, EventArgs e)
         {
@@ -360,7 +360,7 @@ namespace MarbleManager
 
         /**
          * Syncs light colours to the current wallpaper
-         * note: NOT the currently previewed palette
+         * NOT the currently previewed palette
          */
         private async void buttonSyncLightColours_Click(object sender, EventArgs e)
         {

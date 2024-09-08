@@ -9,6 +9,10 @@ using System.Linq;
 
 namespace MarbleManager.Colours
 {
+    /**
+     * Handles loading and saving palettes, as well as extraction and conversion of palettes from image files
+     * Also calculates highlights and proportions
+     */
     internal static class PaletteManager
     {
         /**

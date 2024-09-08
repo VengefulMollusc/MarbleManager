@@ -1,10 +1,12 @@
 ﻿using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace MarbleManager.Colours
 {
+    /**
+     * Class to hold a palette of SwatchObjects
+     */
     internal class PaletteObject
     {
         // dominant colour
@@ -20,7 +22,9 @@ namespace MarbleManager.Colours
         // all swatches (can be many more than just main)
         public List<SwatchObject> AllSwatches { get; set; }
 
-        // gets just the main swatches, including dominant if it doesn't match one of them
+        /** 
+         * Returns just the 'main' swatches, including dominant if it isn't already included
+         */
         [JsonIgnore]
         public List<SwatchObject> MainSwatches { get {
                 List<SwatchObject> swatches = new List<SwatchObject>();
@@ -42,8 +46,10 @@ namespace MarbleManager.Colours
             }
         }
 
-        // returns a colour designated as the 'highlight' - for single colour lights etc.
-        // weighted calculation is applied on palette creation
+        /**
+         * returns a colour designated as the 'highlight' - for single colour lights etc.
+         * weighted calculation is applied on palette creation
+         */
         [JsonIgnore]
         public SwatchObject Highlight
         {
@@ -54,13 +60,16 @@ namespace MarbleManager.Colours
         }
     }
 
+    /**
+     * Represents a single colour swatch
+     */
     internal class SwatchObject
     {
         // population of swatch in source image
         public int population { get; set; }
         // proportion of swatch compared to other colours in source image
         public float proportion {  get; set; }
-        // is the calculated highlight colour
+        // is this swatch the calculated highlight colour
         public bool isHighlight { get; set; } = false;
         // RGB
         // 0-255

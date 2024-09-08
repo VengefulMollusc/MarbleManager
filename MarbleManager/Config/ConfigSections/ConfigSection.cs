@@ -3,13 +3,19 @@ using System.Windows.Forms;
 
 namespace MarbleManager.Config
 {
+    /**
+     * Represents a section of the UI to display config options
+     * Wraps custom elements created by child classes
+     */
     internal abstract class ConfigSection
     {
+        // the name displayed next to this section in the UI
         protected string sectionName = "ConfigSectionDefault";
 
         protected static int textBoxWidth = 270;
         protected static int textBoxWidthWrapped = 248;
 
+        // the wrapper root object for this config section
         private GroupBox configWrapper;
 
         /**
@@ -18,7 +24,7 @@ namespace MarbleManager.Config
         protected abstract Control CreateUIControls(ConfigSectionObject _config);
 
         /**
-         * Builds the config object
+         * Builds the config object from values pulled from UI
          */
         protected abstract ConfigSectionObject BuildConfigObject();
 
@@ -70,7 +76,7 @@ namespace MarbleManager.Config
         }
 
         /**
-         * Wraps controls in a table with 2 columns
+         * Wraps controls in a table with 2 FlowLayoutPanel columns
          */
         protected TableLayoutPanel WrapIn2ColumnTable(List<Control> _col1, List<Control> _col2)
         {
@@ -112,6 +118,9 @@ namespace MarbleManager.Config
             return tableLayoutPanel;
         }
 
+        /**
+         * Creates a FlowLayoutPanel for wrapping elements
+         */
         private FlowLayoutPanel CreateFlowPanel(string _name)
         {
             // create flow layout panel
@@ -127,6 +136,7 @@ namespace MarbleManager.Config
 
         /**
          * finds a control with the given type and name
+         * used to retrieve values when assembling config objects
          */
         protected T FindControl<T>(string _controlName) where T : Control
         {

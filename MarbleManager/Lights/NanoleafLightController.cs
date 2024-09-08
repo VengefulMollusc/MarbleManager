@@ -12,9 +12,13 @@ using System.Threading.Tasks;
 
 namespace MarbleManager.Lights
 {
+    /**
+     * Controls Nanoleaf light panels
+     */
     internal class NanoleafLightController : ILightController
     {
         NanoleafConfig config;
+        // list of enabled lights (nanoleaf lights can be enabled individually)
         List<NanoleafConfig.Light> enabledLights;
         bool onlyUseMainSwatches;
 
@@ -43,7 +47,7 @@ namespace MarbleManager.Lights
             List<NanoleafConfig.Light> lightsToApply = _turnOn ? enabledLights : await GetOnLightUrls();
             if (lightsToApply.Count <= 0)
             {
-                LogManager.WriteLog("Nanoleaf: No valid lights to apply palette");
+                LogManager.WriteLog("Nanoleaf: No valid/ON lights to apply palette");
                 return;
             }
 
@@ -60,7 +64,7 @@ namespace MarbleManager.Lights
 
             payload["write"]["palette"] = palette;
 
-            // send payloads
+            // send payloads to each light
             List<Task> tasks = new List<Task>();
             foreach (NanoleafConfig.Light light in lightsToApply)
             {
@@ -82,7 +86,7 @@ namespace MarbleManager.Lights
         }
 
         /**
-         * Turns the light on/off 
+         * Turns the lights on/off 
          */
         public async Task SetOnOffState(bool _state)
         {
@@ -235,7 +239,6 @@ namespace MarbleManager.Lights
 
         /**
          * Gets a list of urls of lights that are ON
-         * 
          * used for only triggering palette updates on lights that are already on
          */
         private async Task<List<NanoleafConfig.Light>> GetOnLightUrls()
@@ -262,9 +265,9 @@ namespace MarbleManager.Lights
         }
 
         /**
-         * Checks if the light at the given URL is ON
+         * Checks if the given light is ON
          * 
-         * returns the _baseUrl if the light is on
+         * returns the light if on
          * null if not
          */
         private async Task<NanoleafConfig.Light> IsLightOn(NanoleafConfig.Light _light)

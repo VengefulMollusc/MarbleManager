@@ -1,13 +1,14 @@
 ﻿using MarbleManager.Colours;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace MarbleManager.Config
 {
+    /**
+     * Watches the transcoded desktop wallpaper file for changes
+     * Triggers given functions when wallpaper is changed
+     */
     internal class WallpaperWatcher : IDisposable
     {
         // delay to allow file to settle and avoid duplicate calls

@@ -2,11 +2,14 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Reflection;
 using System.Security.Principal;
 
 namespace MarbleManager.Scripts
 {
+    /**
+     * Builds script files to be used externally
+     * eg: to enable logon state controlling on/off of lights
+     */
     internal static class ScriptBuilder
     {
         static string turnOnLightsFileName = "turnOnLights.bat";
@@ -18,7 +21,7 @@ namespace MarbleManager.Scripts
         static string regNamespace = "reg_scripts";
 
         /**
-         * Creates script files from templates with new values from config
+         * Creates .bat script files from templates with new values from config
          */
         internal static void BuildOnOffScriptFiles(GlobalConfigObject _config)
         {
@@ -93,6 +96,7 @@ namespace MarbleManager.Scripts
 
         /**
          * Returns the list of commands needed to generate logs
+         * for logging as part of generated scripts
          */
         private static List<string> GetLogCommands(string _command)
         {

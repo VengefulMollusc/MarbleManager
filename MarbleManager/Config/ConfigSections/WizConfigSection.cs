@@ -3,8 +3,12 @@ using System.Windows.Forms;
 
 namespace MarbleManager.Config
 {
+    /**
+     * Config section for Wiz lights
+     */
     internal class WizConfigSection : LightConfigSection
     {
+        // UI element identification string
         private static string textBoxWizIpAddresses = "textBoxWizIpAddresses";
 
         public WizConfigSection() {

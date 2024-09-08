@@ -6,6 +6,9 @@ using System.Windows.Forms;
 
 namespace MarbleManager
 {
+    /**
+     * Controls notification tray context menu actions and program state when config UI is closed
+     */
     internal class CustomApplicationContext : ApplicationContext 
     {
         NotifyIcon notifyIcon;
@@ -28,6 +31,7 @@ namespace MarbleManager
         private void InitializeContext()
         {
             components = new Container();
+            // setup notification tray icon
             notifyIcon = new NotifyIcon(components)
             {
                 ContextMenuStrip = new ContextMenuStrip(),

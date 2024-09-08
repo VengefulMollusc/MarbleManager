@@ -1,19 +1,15 @@
 ﻿using MarbleManager.Colours;
 using MarbleManager.Config;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
-using System.Web;
-using System.Net.Sockets;
-using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http;
-using static System.Windows.Forms.AxHost;
-using System.Drawing;
 
 namespace MarbleManager.Lights
 {
+    /**
+     * Controls Raspberry Pi Pico W lights running WIFI-enabled custom script
+     */
     internal class PicoLightController : ILightController
     {
         PicoConfig config;
@@ -23,6 +19,9 @@ namespace MarbleManager.Lights
             SetConfig(_config);
         }
 
+        /**
+         * Applies a palette to the light
+         */
         public async Task ApplyPalette(PaletteObject _palette, bool _turnOn = false)
         {
             if (!config.applyPalette)
@@ -36,10 +35,11 @@ namespace MarbleManager.Lights
 
             // select swatch
             Dictionary<string, string> paletteQuery = GetPaletteQueryDict(_palette);
+
             //if (_turnOn)
-            //{
-                paletteQuery.Add("brightness", $"{config.brightness}");
-            //}
+            // Pico currently will always turn on when a palette is sent so we may as well set the brightness
+            paletteQuery.Add("brightness", $"{config.brightness}");
+
             await SendCommandToLights(BuildQueryString(paletteQuery));
             LogManager.WriteLog("Pico lights synced");
         }
@@ -49,12 +49,15 @@ namespace MarbleManager.Lights
             config = _config.picoConfig;
         }
 
+        /**
+         * Turns the light on or off
+         */
         public async Task SetOnOffState(bool _state)
         {
             Dictionary<string, string> paramDict = new Dictionary<string, string>();
             if (_state)
             {
-                // if turning on, set brightness rather than state
+                // if turning on, set brightness rather than state as this will update light brightness according to config
                 paramDict.Add("brightness", $"{config.brightness}");
             } else
             {
@@ -177,7 +180,8 @@ namespace MarbleManager.Lights
         }
 
         /**
-         * Converts a palette into a dict of col1... to be converted to query params
+         * Converts a palette into a dict of col1...coln to be converted to query params
+         * Colours are sent as hex codes to simplify html query
          */
         private Dictionary<string, string> GetPaletteQueryDict(PaletteObject _palette)
         {
@@ -188,6 +192,8 @@ namespace MarbleManager.Lights
                 string hexCode;
                 if (config.juiceColours)
                 {
+                    // juice colours by boosting saturation
+                    // convert to HSL 0-1 floats
                     float h = swatches[i].h / 360f;
                     float s = swatches[i].s / 100f;
                     float l = swatches[i].l / 100f;
@@ -198,13 +204,16 @@ namespace MarbleManager.Lights
                     //Console.WriteLine($"{Math.Round(s, 2)}:{Math.Round(l, 2)} - OLD");
                     //Console.WriteLine($"{Math.Round(juiced_s, 2)}:{Math.Round(juiced_l, 2)} - NEW");
 
+                    // boost the saturation
                     float juiced_s = Utilities.Map(s, 0f, 1f, 0.5f, 1f); // 3rd float here adjusts juice 'floor'
 
+                    // convert to RGB, then to HEX code
                     int r, g, b;
                     Utilities.HslToRgb(h, juiced_s, l, out r, out g, out b);
                     hexCode = Utilities.RgbToHex(r, g, b, false);
                 } else
                 {
+                    // convert to HEX code
                     hexCode = Utilities.RgbToHex(swatches[i].r, swatches[i].g, swatches[i].b, false);
                 }
                 // colours start at col1

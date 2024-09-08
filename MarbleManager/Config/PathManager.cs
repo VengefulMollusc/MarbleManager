@@ -14,6 +14,9 @@ namespace MarbleManager.Config
         }
     }
 
+    /**
+     * handles all relevant config and data paths, and file names
+     */
     internal static class PathManager
     {
         // file names
@@ -77,7 +80,7 @@ namespace MarbleManager.Config
             }
         }
 
-        // paths
+        // directories
         internal static string DataOutputDir
         {
             get

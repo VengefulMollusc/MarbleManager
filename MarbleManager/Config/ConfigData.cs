@@ -1,11 +1,14 @@
-﻿using MarbleManager.Colours;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System.Collections.Generic;
-using System.Net;
-using System.Threading;
 
+/**
+ * Data structures for config objects
+ */
 namespace MarbleManager.Config
 {
+    /**
+     * Wrapper that holds all the individual config section objects
+     */
     public class GlobalConfigObject
     {
         public GeneralConfig generalConfig { get; set; }
@@ -36,7 +39,7 @@ namespace MarbleManager.Config
         public bool onlyUseMainSwatches { get; set; }
         // whether this app runs on boot or not
         public bool runOnBoot { get; set; }
-        // whether the app creates log files
+        // whether the app creates extended log files
         public bool logUsage { get; set; }
     }
 
@@ -60,7 +63,7 @@ namespace MarbleManager.Config
         public bool overrideDominantColourProb { get; set; }
         // the value to set the main colour probability to
         public int dominantColourProb { get; set; }
-
+        // subclass to hold individual light settings
         public class Light
         {
             public bool enabled { get; set; }
@@ -69,6 +72,9 @@ namespace MarbleManager.Config
         }
     }
 
+    /**
+     * Which Nanoleaf palette effect to use
+     */
     public enum NanoleafEffect
     {
         Random = 0,

@@ -7,16 +7,23 @@ using System.Threading.Tasks;
 
 namespace MarbleManager.Lights
 {
+    /**
+     * Controls lights, including on/off commands and syncing palettes
+     * Also handles updating configs for light controllers
+     */
     internal sealed class GlobalLightController
     {
+        // locked instance to use as a singleton
         private static GlobalLightController _instance = null;
         private static readonly object _lock = new object();
 
+        // individual light controllers for enabled lights
         List<ILightController> lightControllers;
         WallpaperWatcher watcher;
         bool isSyncing;
         bool syncOnWallpaperChange;
 
+        // retry variables for failed calls
         internal static int RetryCount = 2;
         internal static int RetryDelay = 500;
 
@@ -107,6 +114,9 @@ namespace MarbleManager.Lights
             }
         }
 
+        /**
+         * Method triggered by WallpaperWatcher to begin a sync to a new wallpaper
+         */
         private async void SyncOnWallpaperChange(object source, FileSystemEventArgs e)
         {
             LogManager.WriteLog("Wallpaper watcher: change triggered auto-sync");
@@ -114,7 +124,7 @@ namespace MarbleManager.Lights
         }
 
         /**
-         * Applies a palette generated from the current wallpaper to the lights
+         * Triggers a wallpaper sync if one is not already occuring
          */
         internal async Task SyncToWallpaper(Bitmap _toSync = null, bool _turnOn = false)
         {
@@ -128,7 +138,7 @@ namespace MarbleManager.Lights
             try
             {
                 await PerformSyncToWallpaper(_toSync != null ? _toSync : WallpaperManager.GetWallpaperBitmap(), _turnOn);
-                await Task.Delay(1500);
+                await Task.Delay(1500); // delay to avoid double-sync
             }
             finally
             {
@@ -136,6 +146,9 @@ namespace MarbleManager.Lights
             }
         }
 
+        /**
+         * Applies a palette generated from the current wallpaper to the lights
+         */
         private async Task PerformSyncToWallpaper(Bitmap _toSync, bool _turnOn)
         {
             LogManager.WriteLog($"Lights: syncing {(_turnOn ? "and turning on" : "")}");
